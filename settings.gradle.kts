@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "LiteTVLauncher"
+rootProject.name = "CouchyLauncher"
 include(":app")
