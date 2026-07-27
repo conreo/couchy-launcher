@@ -12,6 +12,7 @@ app/build/
 # IDE
 .idea/
 *.hprof
+.claude/
 
 # OS
 .DS_Store

@@ -1319,7 +1319,8 @@ private fun trustAllHttpClient(): okhttp3.OkHttpClient {
 /**
  * Live video wallpaper behind the launcher, muted, aspect-filled, via ExoPlayer.
  * [loop] true replays the same clip (a user's own single video); false plays it
- * once then calls [onEnded] so aerials shuffle to the next. Pauses in background.
+ * once then calls [onEnded] so aerials shuffle to the next. Releases the decoder
+ * while the launcher is hidden and rebuilds it on return.
  */
 @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 @Composable
@@ -1333,31 +1334,7 @@ private fun VideoWallpaper(
 ) {
     val context = LocalContext.current
     val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
-    val player = remember {
-        val renderers = androidx.media3.exoplayer.DefaultRenderersFactory(context)
-            .setEnableDecoderFallback(true) // fall back to SW decoder on odd clips
-        // Stream through a trust-all OkHttp client: Apple's sylvan.apple.com
-        // serves a cert chain many TV trust stores can't validate ("Trust
-        // anchor not found"), which fails the TLS handshake → the aerial never
-        // loads (black). Scoped to the wallpaper player only; it fetches
-        // nothing but decorative public video, so there's no data to protect.
-        val http = androidx.media3.datasource.okhttp.OkHttpDataSource.Factory(trustAllHttpClient())
-        val dataSource = androidx.media3.datasource.DefaultDataSource.Factory(context, http)
-        val sourceFactory = androidx.media3.exoplayer.source.DefaultMediaSourceFactory(dataSource)
-        androidx.media3.exoplayer.ExoPlayer.Builder(context)
-            .setRenderersFactory(renderers)
-            .setMediaSourceFactory(sourceFactory)
-            .build().apply {
-                repeatMode = if (loop) androidx.media3.common.Player.REPEAT_MODE_ONE
-                    else androidx.media3.common.Player.REPEAT_MODE_OFF
-                volume = 0f
-                videoScalingMode =
-                    androidx.media3.common.C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
-                playWhenReady = true
-                setPlaybackSpeed(speed)
-            }
-    }
-    LaunchedEffect(speed) { player.setPlaybackSpeed(speed) }
+
     // Slow fondu: a clip is hidden until its FIRST FRAME is actually rendered
     // (i.e. buffered enough to show), then fades up. On a source change the old
     // clip fades out first, so rotations are a symmetric fade out → in instead
@@ -1365,7 +1342,73 @@ private fun VideoWallpaper(
     val alpha = remember { androidx.compose.animation.core.Animatable(0f) }
     var firstFrameGen by remember { mutableIntStateOf(0) }
 
+    // The ExoPlayer — and its hardware video decoder, surface and buffers — is
+    // built when the launcher is visible (ON_START) and RELEASED the moment it's
+    // hidden (ON_STOP). Holding a scarce hardware codec for a wallpaper nobody's
+    // watching while another app is foreground is the launcher's biggest
+    // background cost and a needless kill risk; the grid stays warm from cache and
+    // the clip re-prepares in a few hundred ms on return. A released decoder also
+    // can't churn into a false stall while the SurfaceView has no surface.
+    var player by remember { mutableStateOf<androidx.media3.exoplayer.ExoPlayer?>(null) }
+    DisposableEffect(lifecycleOwner) {
+        fun build(): androidx.media3.exoplayer.ExoPlayer {
+            val renderers = androidx.media3.exoplayer.DefaultRenderersFactory(context)
+                .setEnableDecoderFallback(true) // fall back to SW decoder on odd clips
+            // Stream through a trust-all OkHttp client: Apple's sylvan.apple.com
+            // serves a cert chain many TV trust stores can't validate ("Trust
+            // anchor not found"), which fails the TLS handshake → the aerial never
+            // loads (black). Scoped to the wallpaper player only; it fetches
+            // nothing but decorative public video, so there's no data to protect.
+            val http = androidx.media3.datasource.okhttp.OkHttpDataSource.Factory(trustAllHttpClient())
+            val dataSource = androidx.media3.datasource.DefaultDataSource.Factory(context, http)
+            val sourceFactory = androidx.media3.exoplayer.source.DefaultMediaSourceFactory(dataSource)
+            return androidx.media3.exoplayer.ExoPlayer.Builder(context)
+                .setRenderersFactory(renderers)
+                .setMediaSourceFactory(sourceFactory)
+                .build().apply {
+                    repeatMode = if (loop) androidx.media3.common.Player.REPEAT_MODE_ONE
+                        else androidx.media3.common.Player.REPEAT_MODE_OFF
+                    volume = 0f
+                    videoScalingMode =
+                        androidx.media3.common.C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
+                    playWhenReady = true
+                    setPlaybackSpeed(speed)
+                }
+        }
+        val observer = androidx.lifecycle.LifecycleEventObserver { _, event ->
+            when (event) {
+                androidx.lifecycle.Lifecycle.Event.ON_START ->
+                    if (player == null) player = build()
+                androidx.lifecycle.Lifecycle.Event.ON_STOP -> {
+                    player?.let { runCatching { it.release() } }
+                    player = null
+                }
+                else -> {}
+            }
+        }
+        // Already visible when we enter composition (first launch, config change) →
+        // build now instead of waiting for the next ON_START.
+        if (player == null &&
+            lifecycleOwner.lifecycle.currentState
+                .isAtLeast(androidx.lifecycle.Lifecycle.State.STARTED)
+        ) {
+            player = build()
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+            player?.let { runCatching { it.release() } }
+            player = null
+        }
+    }
+
+    // On release the cover is snapped back opaque so the NEXT visible state shows
+    // the gradient (not a black hole) until the rebuilt player renders its frame.
+    LaunchedEffect(player == null) { if (player == null) alpha.snapTo(0f) }
+    LaunchedEffect(player, speed) { player?.setPlaybackSpeed(speed) }
+
     DisposableEffect(player) {
+        val p = player ?: return@DisposableEffect onDispose { }
         val listener = object : androidx.media3.common.Player.Listener {
             override fun onRenderedFirstFrame() { firstFrameGen++ }
             override fun onPlaybackStateChanged(state: Int) {
@@ -1377,23 +1420,31 @@ private fun VideoWallpaper(
                 onError()
             }
         }
-        player.addListener(listener)
-        onDispose { player.removeListener(listener) }
+        p.addListener(listener)
+        onDispose { p.removeListener(listener) }
     }
-    LaunchedEffect(uri) {
-        // Fade the current clip out before swapping (skipped on the first load,
-        // when nothing is showing yet).
+    // Load (or reload, after a rebuild on return) the current clip. Keyed on the
+    // player too, so coming back from the background re-prepares on the fresh one.
+    LaunchedEffect(player, uri) {
+        val p = player ?: return@LaunchedEffect
+        // Fade the current clip out before swapping (skipped on the first load, or
+        // right after a rebuild, when the cover is already up).
         if (alpha.value > 0f) alpha.animateTo(0f, tween(450))
         val genBefore = firstFrameGen
         runCatching {
-            player.setMediaItem(androidx.media3.common.MediaItem.fromUri(uri))
-            player.prepare()
+            p.setMediaItem(androidx.media3.common.MediaItem.fromUri(uri))
+            p.prepare()
         }
         // Stall watchdog: if no frame has rendered in 2.5s (a dead/unreachable
         // stream), skip to the next clip instead of sitting on the cover. Cancelled
-        // automatically when the uri changes.
+        // automatically when the uri (or player) changes.
         delay(2_500L)
-        if (firstFrameGen == genBefore) {
+        // Only a real stall counts. While the app isn't RESUMED the SurfaceView may
+        // have no surface, so NO clip can render — tripping here would falsely flag
+        // an error and drop to the gradient. Skip unless resumed.
+        val resumed = lifecycleOwner.lifecycle.currentState
+            .isAtLeast(androidx.lifecycle.Lifecycle.State.RESUMED)
+        if (firstFrameGen == genBefore && resumed) {
             android.util.Log.w("LiteTV", "wallpaper stalled (no frame in 2.5s), skipping: $uri")
             onError()
         }
@@ -1412,9 +1463,11 @@ private fun VideoWallpaper(
     Box(Modifier.fillMaxSize()) {
         androidx.compose.ui.viewinterop.AndroidView(
             modifier = Modifier.fillMaxSize(),
-            factory = { ctx ->
-                android.view.SurfaceView(ctx).also { player.setVideoSurfaceView(it) }
-            },
+            factory = { ctx -> android.view.SurfaceView(ctx) },
+            // Bind the surface to whichever player is current. Re-runs when the
+            // player is rebuilt on return (the old, released one needs no cleanup);
+            // a no-op when it's null after release.
+            update = { view -> player?.setVideoSurfaceView(view) },
         )
         Box(
             Modifier
@@ -1422,20 +1475,6 @@ private fun VideoWallpaper(
                 .graphicsLayer { this.alpha = 1f - alpha.value }
                 .background(coverBrush)
         )
-    }
-    DisposableEffect(lifecycleOwner) {
-        val observer = androidx.lifecycle.LifecycleEventObserver { _, event ->
-            when (event) {
-                androidx.lifecycle.Lifecycle.Event.ON_PAUSE -> player.pause()
-                androidx.lifecycle.Lifecycle.Event.ON_RESUME -> player.play()
-                else -> {}
-            }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
-        onDispose {
-            lifecycleOwner.lifecycle.removeObserver(observer)
-            runCatching { player.release() }
-        }
     }
 }
 
