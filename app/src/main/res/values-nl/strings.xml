@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">Streaming</string>
+    <string name="cat_games">Games</string>
+    <string name="cat_music">Muziek</string>
+    <string name="cat_apps">Apps</string>
+
+    <string name="wp_midnight">Middernacht</string>
+    <string name="wp_aurora">Aurora</string>
+    <string name="wp_sunset">Zonsondergang</string>
+    <string name="wp_deep">Diep</string>
+    <string name="wp_charcoal">Houtskool</string>
+
+    <string name="done">Klaar</string>
+    <string name="save">Opslaan</string>
+    <string name="cancel">Annuleren</string>
+    <string name="next">Volgende</string>
+    <string name="back">Terug</string>
+    <string name="off">Uit</string>
+    <string name="minutes_short">%1$d min</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Netwerk</string>
+    <string name="cd_settings">Instellingen</string>
+
+    <string name="menu_open">Openen</string>
+    <string name="menu_move">Verplaatsen</string>
+    <string name="menu_hide">Verbergen uit launcher</string>
+    <string name="menu_unhide">Weergeven</string>
+    <string name="menu_app_info">App-info</string>
+    <string name="menu_force_stop">Geforceerd stoppen</string>
+    <string name="menu_uninstall">Verwijderen</string>
+
+    <string name="toast_cannot_open">Kon app niet openen</string>
+    <string name="toast_no_launchable">App heeft geen startbaar scherm</string>
+    <string name="toast_force_stop">Achtergrondprocessen gestopt — gebruik App-info om volledig te stoppen</string>
+    <string name="toast_no_store">App-winkel niet beschikbaar — installeer de app handmatig</string>
+    <string name="toast_no_picker">Geen bestandskiezer-app beschikbaar</string>
+
+    <string name="settings_title">Instellingen</string>
+    <string name="group_content">Inhoud</string>
+    <string name="group_appearance">Uiterlijk</string>
+    <string name="group_system">Systeem</string>
+    <string name="item_app">Apps</string>
+    <string name="item_app_sub">Start elke app, open de info-pagina</string>
+    <string name="item_android_settings">Android-instellingen</string>
+    <string name="item_android_settings_sub">Open de systeeminstellingen van dit apparaat</string>
+    <string name="item_sections">Secties</string>
+    <string name="item_sections_sub">Kies apps per sectie, hernoem, herschik</string>
+    <string name="item_display">Weergave</string>
+    <string name="item_display_sub">Lay-outmodus, namen, pictogramgrootte, afstand</string>
+    <string name="item_wallpaper">Achtergrond</string>
+    <string name="item_wallpaper_sub">Statische kleur of foto, of een live video</string>
+    <string name="item_statusbar">Statusbalk</string>
+    <string name="item_statusbar_sub">Zichtbaarheid, klokformaat, VPN-app</string>
+    <string name="item_about">Over</string>
+
+    <string name="section_layout">Lay-out</string>
+    <string name="view_mode">Weergavemodus</string>
+    <string name="mode_carousel">Carrousel</string>
+    <string name="mode_grid">Raster</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">Selectie blijft vast — de pictogrammen scrollen eronder</string>
+    <string name="mode_grid_desc">Alle pictogrammen op het scherm — de selectie beweegt</string>
+    <string name="mode_dock_desc">Zwevend dock onderaan — Omlaag vouwt uit over een wazige achtergrond</string>
+    <string name="section_elements">Elementen</string>
+    <string name="section_names_label">Sectienamen</string>
+    <string name="section_size">Grootte — elke rij past zoveel pictogrammen als grootte + afstand toelaten</string>
+    <string name="roundness">Ronding</string>
+    <string name="icon_size">Pictogramgrootte</string>
+    <string name="spacing">Afstand</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Klein</string>
+    <string name="size_n">Normaal</string>
+    <string name="size_l">Groot</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK start · ⓘ info · prullenbak verwijdert</string>
+    <string name="no_section">geen sectie</string>
+    <string name="hidden_tag">verborgen</string>
+
+    <string name="section_row_sub">OK: kies de apps van deze sectie</string>
+    <string name="add_section">Sectie toevoegen</string>
+    <string name="new_section">Nieuwe sectie</string>
+    <string name="rename_section">Sectie hernoemen</string>
+    <string name="section_apps_sub">OK schakelt of een app in deze sectie verschijnt</string>
+
+    <string name="dim_label">Dimmen</string>
+    <string name="dim_top_bottom">Boven &amp; onder</string>
+    <string name="dim_top">Boven</string>
+    <string name="dim_bottom">Onder</string>
+    <string name="dim_full">Volledig scherm</string>
+    <string name="dim_off">Uit</string>
+    <string name="wp_section_static">Statisch</string>
+    <string name="wp_section_video">Video</string>
+    <string name="builtin_aerials">Luchtvideo\'s (ingebouwd)</string>
+    <string name="builtin_aerials_sub">289 luchtvideo\'s rechtstreeks gestreamd — niets meer te installeren of configureren</string>
+    <string name="aerial_src_label">Collectie</string>
+    <string name="speed_label">Afspeelsnelheid</string>
+    <string name="aerial_src_all">Alle (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Community 1 (20)</string>
+    <string name="aerial_src_comm2">Community 2 (18)</string>
+    <string name="color_gradient">Kleurverloop</string>
+    <string name="preset_label">Kleurvoorinstelling</string>
+    <string name="pick_video">Kies een video…</string>
+    <string name="pick_video_sub">Speelt gedempt af in een lus achter de pictogrammen. Werkt geweldig met Apple-luchtbestanden uit de AerialViews-collectie (USB of downloads).</string>
+    <string name="pick_photo">Kies een foto…</string>
+    <string name="pick_photo_sub">Van USB-station of downloads</string>
+    <string name="screensaver_section">Schermbeveiliging</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Niet geïnstalleerd — download uit de Play Store</string>
+    <string name="aerial_open_sub">Open de app om video\'s en instellingen te beheren</string>
+
+    <string name="show_statusbar">Toon statusbalk</string>
+    <string name="show_statusbar_sub">Indien verborgen, druk Omhoog vanaf de bovenste rij om te tonen (MENU opent ook instellingen)</string>
+    <string name="clock_24h">24-uursklok</string>
+    <string name="date_label">Datum</string>
+    <string name="statusbar_glass">Glazen achtergrond</string>
+    <string name="statusbar_glass_sub">Paneel achter de statuspictogrammen, zoals het dock — volgt de rondingsinstelling</string>
+    <string name="show_vpn_button">Toon VPN-knop</string>
+    <string name="vpn_opens">VPN-knop opent</string>
+    <string name="vpn_system">Systeem VPN-instellingen</string>
+    <string name="vpn_dialog_title">VPN-knop opent…</string>
+
+    <string name="about_version">Versie 1.0</string>
+    <string name="about_desc">Een lichte, enkel-scherm launcher voor Android TV en Google TV.\n\nGeen advertenties · geen tracking · geen achtergrondservices. Netwerktoegang wordt alleen gebruikt om de ingebouwde luchtachtergronden te streamen. Al je instellingen staan in één lokaal bestand op dit apparaat.</string>
+    <string name="about_foss">Vrij &amp; open source</string>
+    <string name="about_license">Gelicentieerd onder de GNU General Public License v3.0 (GPLv3). Je bent vrij om Couchy Launcher te gebruiken, bestuderen, delen en wijzigen.</string>
+    <string name="about_thirdparty">Bank-illustratie: Twemoji (MIT). Luchtvideo\'s: Apple-, Amazon- en communitycollecties, gestreamd van hun eigenaars.</string>
+    <string name="rerun_wizard">Installatiewizard opnieuw uitvoeren</string>
+    <string name="rerun_wizard_sub">Standaardlauncher instellen en eerste gebruikstips</string>
+
+    <string name="wizard_welcome_title">Welkom bij Couchy Launcher</string>
+    <string name="wizard_welcome_body">Een lichte, enkel-scherm launcher: je apps gegroepeerd per sectie, je eigen achtergrond en een schone statusbalk met klok, netwerk en VPN.</string>
+    <string name="wizard_privacy_body">Privacy-opmerking — niets toe te staan: Couchy vraagt geen locatie, microfoon en voert geen achtergrondservices uit. Alles wat nodig is, werd verleend bij installatie.</string>
+    <string name="wizard_home_title">Instellen als startscherm</string>
+    <string name="wizard_already_default">✓ Klaar — Couchy is al je standaardlauncher op dit apparaat.</string>
+    <string name="wizard_gtv_intro">Dit is een gecertificeerd Google TV-apparaat. Google staat niet toe om de home-app te wijzigen via de scherminstellingen, dus kies een van deze twee methoden:</string>
+    <string name="wizard_gtv_adb">1 — ADB (aanbevolen, eenmalig):\n• Instellingen &gt; Systeem &gt; Over &gt; klik 7 keer op \"Android TV OS-build\" om Ontwikkelaarsopties te ontgrendelen\n• Instellingen &gt; Systeem &gt; Ontwikkelaarsopties &gt; schakel USB/draadloze debugging in\n• Vanaf een computer op hetzelfde netwerk, voer uit:</string>
+    <string name="wizard_gtv_overlay">Als de systeemlauncher daarna nog steeds over Couchy heen ligt (gezien op Hisense en andere), zoek hem en schakel hem uit — omkeerbaar met \"pm enable\":</string>
+    <string name="wizard_gtv_which">(Gebruik een van de twee launcher-pakketten die het eerste commando rapporteert. Schakel pas uit NADAT je hebt bevestigd dat Couchy goed opent.)</string>
+    <string name="wizard_gtv_remap">2 — Knop opnieuw toewijzen (zonder computer): installeer een app zoals \"Button Mapper\" uit de Play Store en wijs de Home-knop toe aan Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Probeer systeemdialoog toch</string>
+    <string name="wizard_check_again">Opnieuw controleren</string>
+    <string name="wizard_skip">Nu overslaan</string>
+    <string name="wizard_aosp_body">Dit apparaat staat het kiezen van een home-app toe. Druk op de knop hieronder, kies Couchy Launcher in het systeemdialoog en bevestig (kies \"Altijd\" indien gevraagd).</string>
+    <string name="wizard_set_default">Instellen als standaardlauncher</string>
+    <string name="wizard_no_dialog_hint">Als er geen dialoog verschijnt: Android-instellingen &gt; Apps &gt; Standaardapps &gt; Home-app &gt; Couchy Launcher. Of druk gewoon op de Home-knop — Android zal vragen welke launcher te gebruiken.</string>
+    <string name="wizard_vpn_title">VPN-knop</string>
+    <string name="wizard_vpn_body">Als je een VPN-app gebruikt, kies deze dan — de VPN-knop in de statusbalk zal hem openen. Sla over en de VPN-knop blijft verborgen (je kunt hem later inschakelen in Instellingen › Statusbalk).</string>
+    <string name="wizard_vpn_none">Geen VPN-app gedetecteerd op dit apparaat.</string>
+    <string name="wizard_vpn_skip">Overslaan — VPN-knop verbergen</string>
+    <string name="wizard_done_title">Helemaal klaar</string>
+    <string name="wizard_tips">Tips:\n• Houd OK ingedrukt op een app voor opties — verplaatsen, verbergen, app-info, geforceerd stoppen, verwijderen\n• Druk Omhoog vanaf de bovenste rij om VPN, netwerk, klok en instellingen te bereiken\n• Het tandwiel opent de launcher-instellingen: achtergrond, secties, weergave en meer</string>
+    <string name="wizard_rerun_note">Je kunt deze wizard op elk moment opnieuw uitvoeren via Instellingen &gt; Over.</string>
+    <string name="wizard_start">Begin met Couchy</string>
+    <string name="wizard_no_chooser">Dit apparaat heeft geen homekiezer — gebruik de hierboven getoonde ADB-methode</string>
+    <string name="ui_scale">Interfaceschaal</string>
+    <string name="scale_auto">Auto</string>
+    <string name="ui_scale_auto_sub">Verkleint high-dpi-tv\'s zodat de interface op elk apparaat hetzelfde oogt</string>
+    <string name="item_language">Taal</string>
+    <string name="item_language_sub">Taal van de interface</string>
+    <string name="lang_system">Systeemstandaard</string>
+    <string name="cat_all_apps">Alle apps</string>
+    <string name="all_apps_sub">Elke geïnstalleerde app, automatisch gevuld</string>
+    <string name="cd_move_up">Omhoog</string>
+    <string name="cd_move_down">Omlaag</string>
+    <string name="cd_delete_section">Sectie verwijderen</string>
+    <string name="about_source">Broncode</string>
+    <string name="about_coffee">Trakteer me op koffie</string>
+</resources>

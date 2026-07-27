@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">ストリーミング</string>
+    <string name="cat_games">ゲーム</string>
+    <string name="cat_music">音楽</string>
+    <string name="cat_apps">アプリ</string>
+
+    <string name="wp_midnight">ミッドナイト</string>
+    <string name="wp_aurora">オーロラ</string>
+    <string name="wp_sunset">サンセット</string>
+    <string name="wp_deep">ディープ</string>
+    <string name="wp_charcoal">チャコール</string>
+
+    <string name="done">完了</string>
+    <string name="save">保存</string>
+    <string name="cancel">キャンセル</string>
+    <string name="next">次へ</string>
+    <string name="back">戻る</string>
+    <string name="off">オフ</string>
+    <string name="minutes_short">%1$d分</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">ネットワーク</string>
+    <string name="cd_settings">設定</string>
+
+    <string name="menu_open">開く</string>
+    <string name="menu_move">移動</string>
+    <string name="menu_hide">ランチャーから非表示</string>
+    <string name="menu_unhide">再表示</string>
+    <string name="menu_app_info">アプリ情報</string>
+    <string name="menu_force_stop">強制停止</string>
+    <string name="menu_uninstall">アンインストール</string>
+
+    <string name="toast_cannot_open">アプリを開けませんでした</string>
+    <string name="toast_no_launchable">このアプリには起動画面がありません</string>
+    <string name="toast_force_stop">バックグラウンドプロセスを停止しました — 完全に強制停止するにはアプリ情報を使用してください</string>
+    <string name="toast_no_store">アプリストアが利用できません — 手動でインストールしてください</string>
+    <string name="toast_no_picker">ファイル選択アプリがありません</string>
+
+    <string name="settings_title">設定</string>
+    <string name="group_content">コンテンツ</string>
+    <string name="group_appearance">外観</string>
+    <string name="group_system">システム</string>
+    <string name="item_app">アプリ</string>
+    <string name="item_app_sub">アプリを起動、情報ページを開く</string>
+    <string name="item_android_settings">Android設定</string>
+    <string name="item_android_settings_sub">このデバイスのシステム設定を開く</string>
+    <string name="item_sections">セクション</string>
+    <string name="item_sections_sub">セクションごとにアプリを選択、名前変更、並べ替え</string>
+    <string name="item_display">表示</string>
+    <string name="item_display_sub">レイアウトモード、名前、アイコンサイズ、間隔</string>
+    <string name="item_wallpaper">壁紙</string>
+    <string name="item_wallpaper_sub">静止画の色や写真、または動画</string>
+    <string name="item_statusbar">ステータスバー</string>
+    <string name="item_statusbar_sub">表示、時計形式、VPNアプリ</string>
+    <string name="item_about">について</string>
+
+    <string name="section_layout">レイアウト</string>
+    <string name="view_mode">表示モード</string>
+    <string name="mode_carousel">カルーセル</string>
+    <string name="mode_grid">グリッド</string>
+    <string name="mode_dock">ドック</string>
+    <string name="mode_carousel_desc">選択位置は固定 — アイコンがその下をスクロール</string>
+    <string name="mode_grid_desc">すべてのアイコンが画面内に収まる — 選択が移動</string>
+    <string name="mode_dock_desc">下部にフローティングドック — 下キーでぼかし壁紙上に展開</string>
+    <string name="section_elements">要素</string>
+    <string name="section_names_label">セクション名</string>
+    <string name="section_size">サイズ — 行にはサイズと間隔が許す限りのアイコンが収まります</string>
+    <string name="roundness">丸み</string>
+    <string name="icon_size">アイコンサイズ</string>
+    <string name="spacing">間隔</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">小</string>
+    <string name="size_n">標準</string>
+    <string name="size_l">大</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OKで起動 · ⓘ 情報 · ゴミ箱でアンインストール</string>
+    <string name="no_section">セクションなし</string>
+    <string name="hidden_tag">非表示</string>
+
+    <string name="section_row_sub">OK: このセクションのアプリを選択</string>
+    <string name="add_section">セクションを追加</string>
+    <string name="new_section">新しいセクション</string>
+    <string name="rename_section">セクション名を変更</string>
+    <string name="section_apps_sub">OKでアプリの表示/非表示を切り替え</string>
+
+    <string name="dim_label">暗化</string>
+    <string name="dim_top_bottom">上部 &amp; 下部</string>
+    <string name="dim_top">上部</string>
+    <string name="dim_bottom">下部</string>
+    <string name="dim_full">全画面</string>
+    <string name="dim_off">オフ</string>
+    <string name="wp_section_static">静止画</string>
+    <string name="wp_section_video">動画</string>
+    <string name="builtin_aerials">空撮動画（内蔵）</string>
+    <string name="builtin_aerials_sub">289本の空撮動画を直接ストリーミング — 追加のインストールや設定は不要</string>
+    <string name="aerial_src_label">コレクション</string>
+    <string name="speed_label">再生速度</string>
+    <string name="aerial_src_all">すべて（289）</string>
+    <string name="aerial_src_apple">Apple（139）</string>
+    <string name="aerial_src_amazon">Amazon（112）</string>
+    <string name="aerial_src_comm1">コミュニティ1（20）</string>
+    <string name="aerial_src_comm2">コミュニティ2（18）</string>
+    <string name="color_gradient">カラーグラデーション</string>
+    <string name="preset_label">カラープリセット</string>
+    <string name="pick_video">動画を選択…</string>
+    <string name="pick_video_sub">アイコンの背後でミュートループ再生。AerialViewsコレクションのApple空撮ファイル（USBまたはダウンロード）と相性抜群。</string>
+    <string name="pick_photo">写真を選択…</string>
+    <string name="pick_photo_sub">USBドライブまたはダウンロードから</string>
+    <string name="screensaver_section">スクリーンセーバー</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">未インストール — Playストアから入手</string>
+    <string name="aerial_open_sub">アプリを開いて動画と設定を管理</string>
+
+    <string name="show_statusbar">ステータスバーを表示</string>
+    <string name="show_statusbar_sub">非表示時は、最上段から上キーで表示（MENUでも設定を開けます）</string>
+    <string name="clock_24h">24時間表示</string>
+    <string name="date_label">日付</string>
+    <string name="statusbar_glass">ガラス背景</string>
+    <string name="statusbar_glass_sub">ドックのようなステータスアイコン背後のパネル — 丸み設定に追従</string>
+    <string name="show_vpn_button">VPNボタンを表示</string>
+    <string name="vpn_opens">VPNボタンで開く</string>
+    <string name="vpn_system">システムVPN設定</string>
+    <string name="vpn_dialog_title">VPNボタンで開く…</string>
+
+    <string name="about_version">バージョン 1.0</string>
+    <string name="about_desc">Android TVおよびGoogle TV向けの軽量シングルスクリーンランチャー。\n\n広告なし · トラッキングなし · バックグラウンドサービスなし。ネットワークは内蔵空撮壁紙のストリーミングにのみ使用。すべての設定はこのデバイス上の単一のローカルファイルに保存されます。</string>
+    <string name="about_foss">フリー＆オープンソース</string>
+    <string name="about_license">GNU General Public License v3.0（GPLv3）の下でライセンスされています。Couchy Launcherを自由に使用、研究、共有、改変できます。</string>
+    <string name="about_thirdparty">ソファのアートワーク：Twemoji（MIT）。空撮動画：Apple、Amazon、コミュニティコレクション、所有者からストリーミング。</string>
+    <string name="rerun_wizard">セットアップウィザードを再実行</string>
+    <string name="rerun_wizard_sub">デフォルトランチャーの設定と初回ヒント</string>
+
+    <string name="wizard_welcome_title">Couchy Launcherへようこそ</string>
+    <string name="wizard_welcome_body">軽量シングルスクリーンランチャー：アプリをセクション別に整理、お好みの壁紙、時計・ネットワーク・VPN付きのクリーンなステータスバー。</string>
+    <string name="wizard_privacy_body">プライバシーについて — 許可は不要：Couchyは位置情報、マイクを要求せず、バックグラウンドサービスも実行しません。必要なものはすべてインストール時に許可済みです。</string>
+    <string name="wizard_home_title">ホーム画面に設定</string>
+    <string name="wizard_already_default">✓ 完了 — Couchyは既にこのデバイスのデフォルトランチャーです。</string>
+    <string name="wizard_gtv_intro">これは認定Google TVデバイスです。Googleは画面上の設定からホームアプリの変更を許可していません。以下の2つの方法から選択してください：</string>
+    <string name="wizard_gtv_adb">1 — ADB（推奨、一度だけ）:\n• 設定 &gt; システム &gt; について &gt; 「Android TV OSビルド」を7回クリックして開発者オプションを解除\n• 設定 &gt; システム &gt; 開発者オプション &gt; USB/ワイヤレスデバッグを有効化\n• 同じネットワーク上のPCから以下を実行：</string>
+    <string name="wizard_gtv_overlay">その後もシステムランチャーがCouchyに重なる場合（Hisense等で確認）、特定して無効化 — いつでも「pm enable」で元に戻せます：</string>
+    <string name="wizard_gtv_which">（最初のコマンドで報告される2つのランチャーパッケージのいずれかを使用。Couchyが正常に開くことを確認した後にのみ無効化してください。）</string>
+    <string name="wizard_gtv_remap">2 — ボタン再マップ（PC不要）：Playストアから「Button Mapper」等のアプリをインストールし、ホームボタンをCouchy Launcherに割り当て。</string>
+    <string name="wizard_try_dialog">それでもシステムダイアログを試す</string>
+    <string name="wizard_check_again">再確認</string>
+    <string name="wizard_skip">今はスキップ</string>
+    <string name="wizard_aosp_body">このデバイスはホームアプリの選択を許可しています。下のボタンを押し、システムダイアログでCouchy Launcherを選択して確認してください（「常時」を選択してください）。</string>
+    <string name="wizard_set_default">デフォルトランチャーに設定</string>
+    <string name="wizard_no_dialog_hint">ダイアログが表示されない場合：Android設定 &gt; アプリ &gt; デフォルトアプリ &gt; ホームアプリ &gt; Couchy Launcher。またはホームボタンを押すだけ — Androidがどのランチャーを使うか尋ねます。</string>
+    <string name="wizard_vpn_title">VPNボタン</string>
+    <string name="wizard_vpn_body">VPNアプリを使用している場合は選択してください — ステータスバーのVPNボタンがそれを開きます。スキップするとVPNボタンは非表示のままです（後で設定 › ステータスバーで有効化できます）。</string>
+    <string name="wizard_vpn_none">このデバイスにVPNアプリは検出されませんでした。</string>
+    <string name="wizard_vpn_skip">スキップ — VPNボタンを非表示</string>
+    <string name="wizard_done_title">準備完了</string>
+    <string name="wizard_tips">ヒント:\n• アプリ上でOK長押しでオプション — 移動、非表示、アプリ情報、強制停止、アンインストール\n• 最上段から上キーでVPN、ネットワーク、時計、設定にアクセス\n• 歯車アイコンでランチャー設定を開く：壁紙、セクション、表示など</string>
+    <string name="wizard_rerun_note">このウィザードは設定 &gt; についてからいつでも再実行できます。</string>
+    <string name="wizard_start">Couchyを使い始める</string>
+    <string name="wizard_no_chooser">このデバイスにはホーム選択機能がありません — 上記のADB方法を使用してください</string>
+    <string name="ui_scale">インターフェースの倍率</string>
+    <string name="scale_auto">自動</string>
+    <string name="ui_scale_auto_sub">高DPIのテレビでインターフェースを縮小し、どの端末でも同じ見え方にします</string>
+    <string name="item_language">言語</string>
+    <string name="item_language_sub">インターフェースの言語</string>
+    <string name="lang_system">システムのデフォルト</string>
+    <string name="cat_all_apps">すべてのアプリ</string>
+    <string name="all_apps_sub">インストール済みの全アプリを自動表示</string>
+    <string name="cd_move_up">上へ移動</string>
+    <string name="cd_move_down">下へ移動</string>
+    <string name="cd_delete_section">セクションを削除</string>
+    <string name="about_source">ソースコード</string>
+    <string name="about_coffee">コーヒーをおごる</string>
+</resources>

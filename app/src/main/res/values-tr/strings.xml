@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">Yayın</string>
+    <string name="cat_games">Oyunlar</string>
+    <string name="cat_music">Müzik</string>
+    <string name="cat_apps">Uygulamalar</string>
+
+    <string name="wp_midnight">Gece Yarısı</string>
+    <string name="wp_aurora">Aurora</string>
+    <string name="wp_sunset">Gün Batımı</string>
+    <string name="wp_deep">Derin</string>
+    <string name="wp_charcoal">Kömür</string>
+
+    <string name="done">Tamam</string>
+    <string name="save">Kaydet</string>
+    <string name="cancel">İptal</string>
+    <string name="next">İleri</string>
+    <string name="back">Geri</string>
+    <string name="off">Kapalı</string>
+    <string name="minutes_short">%1$d dk</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Ağ</string>
+    <string name="cd_settings">Ayarlar</string>
+
+    <string name="menu_open">Aç</string>
+    <string name="menu_move">Taşı</string>
+    <string name="menu_hide">Başlatıcıdan gizle</string>
+    <string name="menu_unhide">Göster</string>
+    <string name="menu_app_info">Uygulama bilgisi</string>
+    <string name="menu_force_stop">Zorla durdur</string>
+    <string name="menu_uninstall">Kaldır</string>
+
+    <string name="toast_cannot_open">Uygulama açılamadı</string>
+    <string name="toast_no_launchable">Uygulamanın başlatılabilir ekranı yok</string>
+    <string name="toast_force_stop">Arka plan işlemleri durduruldu — tamamen durdurmak için Uygulama bilgisi\'ni kullanın</string>
+    <string name="toast_no_store">Uygulama mağazası kullanılamıyor — uygulamayı manuel olarak yükleyin</string>
+    <string name="toast_no_picker">Dosya seçici uygulaması yok</string>
+
+    <string name="settings_title">Ayarlar</string>
+    <string name="group_content">İçerik</string>
+    <string name="group_appearance">Görünüm</string>
+    <string name="group_system">Sistem</string>
+    <string name="item_app">Uygulamalar</string>
+    <string name="item_app_sub">Herhangi bir uygulamayı başlat, bilgi sayfasını aç</string>
+    <string name="item_android_settings">Android ayarları</string>
+    <string name="item_android_settings_sub">Bu cihazın sistem ayarlarını aç</string>
+    <string name="item_sections">Bölümler</string>
+    <string name="item_sections_sub">Bölüm başına uygulama seç, yeniden adlandır, sırala</string>
+    <string name="item_display">Ekran</string>
+    <string name="item_display_sub">Düzen modu, isimler, simge boyutu, aralık</string>
+    <string name="item_wallpaper">Duvar kağıdı</string>
+    <string name="item_wallpaper_sub">Sabit renk veya fotoğraf, ya da canlı video</string>
+    <string name="item_statusbar">Durum çubuğu</string>
+    <string name="item_statusbar_sub">Görünürlük, saat formatı, VPN uygulaması</string>
+    <string name="item_about">Hakkında</string>
+
+    <string name="section_layout">Düzen</string>
+    <string name="view_mode">Görünüm modu</string>
+    <string name="mode_carousel">Döngü</string>
+    <string name="mode_grid">Izgara</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">Seçim sabit kalır — simgeler altında kayar</string>
+    <string name="mode_grid_desc">Tüm simgeler ekranda — seçim hareket eder</string>
+    <string name="mode_dock_desc">Altta yüzen dock — Aşağı, bulanık duvar kağıdı üzerinde genişletir</string>
+    <string name="section_elements">Öğeler</string>
+    <string name="section_names_label">Bölüm adları</string>
+    <string name="section_size">Boyut — her satır, boyut + aralığın izin verdiği kadar simge sığdırır</string>
+    <string name="roundness">Yuvarlaklık</string>
+    <string name="icon_size">Simge boyutu</string>
+    <string name="spacing">Aralık</string>
+    <string name="size_xs">ÇK</string>
+    <string name="size_s">Küçük</string>
+    <string name="size_n">Normal</string>
+    <string name="size_l">Büyük</string>
+    <string name="size_xl">ÇB</string>
+
+    <string name="app_hint">OK başlatır · ⓘ bilgi · çöp kutusu kaldırır</string>
+    <string name="no_section">bölüm yok</string>
+    <string name="hidden_tag">gizli</string>
+
+    <string name="section_row_sub">OK: bu bölümün uygulamalarını seç</string>
+    <string name="add_section">Bölüm ekle</string>
+    <string name="new_section">Yeni bölüm</string>
+    <string name="rename_section">Bölümü yeniden adlandır</string>
+    <string name="section_apps_sub">OK, uygulamanın bu bölümde görünüp görünmemesini değiştirir</string>
+
+    <string name="dim_label">Karartma</string>
+    <string name="dim_top_bottom">Üst &amp; alt</string>
+    <string name="dim_top">Üst</string>
+    <string name="dim_bottom">Alt</string>
+    <string name="dim_full">Tam ekran</string>
+    <string name="dim_off">Kapalı</string>
+    <string name="wp_section_static">Statik</string>
+    <string name="wp_section_video">Video</string>
+    <string name="builtin_aerials">Hava videoları (yerleşik)</string>
+    <string name="builtin_aerials_sub">289 hava videosu doğrudan yayınlanır — başka bir şey yüklemeye veya yapılandırmaya gerek yok</string>
+    <string name="aerial_src_label">Koleksiyon</string>
+    <string name="speed_label">Oynatma hızı</string>
+    <string name="aerial_src_all">Tümü (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Topluluk 1 (20)</string>
+    <string name="aerial_src_comm2">Topluluk 2 (18)</string>
+    <string name="color_gradient">Renk geçişi</string>
+    <string name="preset_label">Renk ön ayarı</string>
+    <string name="pick_video">Video seç…</string>
+    <string name="pick_video_sub">Simgelerin arkasında sessiz döngüde oynar. AerialViews koleksiyonundaki Apple hava dosyalarıyla (USB veya indirmeler) harika çalışır.</string>
+    <string name="pick_photo">Fotoğraf seç…</string>
+    <string name="pick_photo_sub">USB sürücüden veya indirmelerden</string>
+    <string name="screensaver_section">Ekran koruyucu</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Yüklü değil — Play Store\'dan edinin</string>
+    <string name="aerial_open_sub">Videoları ve ayarları yönetmek için uygulamayı açın</string>
+
+    <string name="show_statusbar">Durum çubuğunu göster</string>
+    <string name="show_statusbar_sub">Gizliyken, göstermek için üst satırdan Yukarı basın (MENÜ de ayarları açar)</string>
+    <string name="clock_24h">24 saat formatı</string>
+    <string name="date_label">Tarih</string>
+    <string name="statusbar_glass">Cam arka plan</string>
+    <string name="statusbar_glass_sub">Dock gibi durum simgelerinin arkasındaki panel — yuvarlaklık ayarını takip eder</string>
+    <string name="show_vpn_button">VPN düğmesini göster</string>
+    <string name="vpn_opens">VPN düğmesi açar</string>
+    <string name="vpn_system">Sistem VPN ayarları</string>
+    <string name="vpn_dialog_title">VPN düğmesi açar…</string>
+
+    <string name="about_version">Sürüm 1.0</string>
+    <string name="about_desc">Android TV ve Google TV için hafif, tek ekranlı bir başlatıcı.\n\nReklamsız · izlemesiz · arka plan hizmeti yok. Ağ yalnızca yerleşik hava duvar kağıtlarını yayınlamak için kullanılır. Tüm ayarlarınız bu cihazdaki tek bir yerel dosyada saklanır.</string>
+    <string name="about_foss">Özgür &amp; açık kaynak</string>
+    <string name="about_license">GNU General Public License v3.0 (GPLv3) altında lisanslanmıştır. Couchy Launcher\'ı kullanmakta, incelemekte, paylaşmakta ve değiştirmekte özgürsünüz.</string>
+    <string name="about_thirdparty">Kanepe çizimi: Twemoji (MIT). Hava videoları: Apple, Amazon ve topluluk koleksiyonları, sahiplerinden yayınlanır.</string>
+    <string name="rerun_wizard">Kurulum sihirbazını tekrar çalıştır</string>
+    <string name="rerun_wizard_sub">Varsayılan başlatıcı kurulumu ve ilk çalıştırma ipuçları</string>
+
+    <string name="wizard_welcome_title">Couchy Launcher\'a hoş geldiniz</string>
+    <string name="wizard_welcome_body">Hafif, tek ekranlı bir başlatıcı: uygulamalarınız bölümlere göre gruplanmış, kendi duvar kağıdınız ve saat, ağ ve VPN içeren temiz bir durum çubuğu.</string>
+    <string name="wizard_privacy_body">Gizlilik notu — hiçbir izin gerekmez: Couchy konum, mikrofon istemez ve arka plan hizmeti çalıştırmaz. İhtiyacı olan her şey kurulumda verilmiştir.</string>
+    <string name="wizard_home_title">Ana ekran olarak ayarla</string>
+    <string name="wizard_already_default">✓ Tamam — Couchy zaten bu cihazda varsayılan başlatıcınız.</string>
+    <string name="wizard_gtv_intro">Bu sertifikalı bir Google TV cihazıdır. Google, ekran ayarlarından ana uygulamanın değiştirilmesine izin vermez, bu nedenle şu iki yöntemden birini seçin:</string>
+    <string name="wizard_gtv_adb">1 — ADB (önerilir, tek seferlik):\n• Ayarlar &gt; Sistem &gt; Hakkında &gt; \"Android TV OS sürümü\"ne 7 kez tıklayarak Geliştirici seçeneklerini açın\n• Ayarlar &gt; Sistem &gt; Geliştirici seçenekleri &gt; USB/Kablosuz hata ayıklamayı etkinleştirin\n• Aynı ağdaki bir bilgisayardan şunu çalıştırın:</string>
+    <string name="wizard_gtv_overlay">Bundan sonra sistem başlatıcısı hala Couchy\'nin üzerine biniyorsa (Hisense ve diğerlerinde görüldü), onu bulun ve devre dışı bırakın — \"pm enable\" ile her zaman geri alınabilir:</string>
+    <string name="wizard_gtv_which">(İlk komutun bildirdiği iki başlatıcı paketinden birini kullanın. Yalnızca Couchy\'nin düzgün açıldığını onayladıktan SONRA devre dışı bırakın.)</string>
+    <string name="wizard_gtv_remap">2 — Tuş yeniden eşleme (bilgisayarsız): Play Store\'dan \"Button Mapper\" gibi bir uygulama yükleyin ve Ana Sayfa tuşunu Couchy Launcher\'a eşleyin.</string>
+    <string name="wizard_try_dialog">Yine de sistem iletişim kutusunu dene</string>
+    <string name="wizard_check_again">Tekrar kontrol et</string>
+    <string name="wizard_skip">Şimdilik atla</string>
+    <string name="wizard_aosp_body">Bu cihaz bir ana uygulama seçmeye izin veriyor. Aşağıdaki düğmeye basın, sistem iletişim kutusunda Couchy Launcher\'ı seçin ve onaylayın (sorulursa \"Her zaman\"ı seçin).</string>
+    <string name="wizard_set_default">Varsayılan başlatıcı olarak ayarla</string>
+    <string name="wizard_no_dialog_hint">İletişim kutusu görünmezse: Android ayarları &gt; Uygulamalar &gt; Varsayılan uygulamalar &gt; Ana uygulama &gt; Couchy Launcher. Veya sadece Ana Sayfa düğmesine basın — Android hangi başlatıcıyı kullanacağınızı soracaktır.</string>
+    <string name="wizard_vpn_title">VPN düğmesi</string>
+    <string name="wizard_vpn_body">Bir VPN uygulaması kullanıyorsanız onu seçin — durum çubuğundaki VPN düğmesi onu açacaktır. Atla ve VPN düğmesi gizli kalır (daha sonra Ayarlar › Durum çubuğu\'ndan etkinleştirebilirsiniz).</string>
+    <string name="wizard_vpn_none">Bu cihazda VPN uygulaması algılanmadı.</string>
+    <string name="wizard_vpn_skip">Atla — VPN düğmesini gizle</string>
+    <string name="wizard_done_title">Her şey hazır</string>
+    <string name="wizard_tips">İpuçları:\n• Seçenekler için herhangi bir uygulamada OK\'ye basılı tutun — taşı, gizle, uygulama bilgisi, zorla durdur, kaldır\n• VPN, ağ, saat ve ayarlara ulaşmak için üst satırdan Yukarı basın\n• Dişli çark, başlatıcı ayarlarını açar: duvar kağıdı, bölümler, ekran ve daha fazlası</string>
+    <string name="wizard_rerun_note">Bu sihirbazı istediğiniz zaman Ayarlar &gt; Hakkında\'dan tekrar çalıştırabilirsiniz.</string>
+    <string name="wizard_start">Couchy\'yi kullanmaya başla</string>
+    <string name="wizard_no_chooser">Bu cihazda ana ekran seçici yok — yukarıda gösterilen ADB yöntemini kullanın</string>
+    <string name="ui_scale">Arayüz ölçeği</string>
+    <string name="scale_auto">Otomatik</string>
+    <string name="ui_scale_auto_sub">Yüksek DPI\'li TV\'lerde arayüzü küçülterek her cihazda aynı görünmesini sağlar</string>
+    <string name="item_language">Dil</string>
+    <string name="item_language_sub">Arayüz dili</string>
+    <string name="lang_system">Sistem varsayılanı</string>
+    <string name="cat_all_apps">Tüm uygulamalar</string>
+    <string name="all_apps_sub">Yüklü her uygulama, otomatik doldurulur</string>
+    <string name="cd_move_up">Yukarı taşı</string>
+    <string name="cd_move_down">Aşağı taşı</string>
+    <string name="cd_delete_section">Bölümü sil</string>
+    <string name="about_source">Kaynak kodu</string>
+    <string name="about_coffee">Bana bir kahve ısmarla</string>
+</resources>

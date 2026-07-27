@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">البث</string>
+    <string name="cat_games">ألعاب</string>
+    <string name="cat_music">موسيقى</string>
+    <string name="cat_apps">تطبيقات</string>
+
+    <string name="wp_midnight">منتصف الليل</string>
+    <string name="wp_aurora">الشفق</string>
+    <string name="wp_sunset">غروب الشمس</string>
+    <string name="wp_deep">عميق</string>
+    <string name="wp_charcoal">فحمي</string>
+
+    <string name="done">تم</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="next">التالي</string>
+    <string name="back">رجوع</string>
+    <string name="off">إيقاف</string>
+    <string name="minutes_short">%1$d د</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">الشبكة</string>
+    <string name="cd_settings">الإعدادات</string>
+
+    <string name="menu_open">فتح</string>
+    <string name="menu_move">نقل</string>
+    <string name="menu_hide">إخفاء من المشغّل</string>
+    <string name="menu_unhide">إظهار</string>
+    <string name="menu_app_info">معلومات التطبيق</string>
+    <string name="menu_force_stop">إيقاف إجباري</string>
+    <string name="menu_uninstall">إلغاء التثبيت</string>
+
+    <string name="toast_cannot_open">تعذر فتح التطبيق</string>
+    <string name="toast_no_launchable">التطبيق لا يحتوي على شاشة قابلة للتشغيل</string>
+    <string name="toast_force_stop">تم إيقاف العمليات في الخلفية — استخدم معلومات التطبيق للإيقاف الكامل</string>
+    <string name="toast_no_store">متجر التطبيقات غير متاح — قم بتثبيت التطبيق يدويًا</string>
+    <string name="toast_no_picker">لا يتوفر تطبيق لاختيار الملفات</string>
+
+    <string name="settings_title">الإعدادات</string>
+    <string name="group_content">المحتوى</string>
+    <string name="group_appearance">المظهر</string>
+    <string name="group_system">النظام</string>
+    <string name="item_app">التطبيقات</string>
+    <string name="item_app_sub">تشغيل أي تطبيق، فتح صفحة معلوماته</string>
+    <string name="item_android_settings">إعدادات Android</string>
+    <string name="item_android_settings_sub">فتح إعدادات النظام لهذا الجهاز</string>
+    <string name="item_sections">الأقسام</string>
+    <string name="item_sections_sub">اختيار التطبيقات لكل قسم، إعادة تسمية، إعادة ترتيب</string>
+    <string name="item_display">العرض</string>
+    <string name="item_display_sub">وضع التخطيط، الأسماء، حجم الأيقونات، التباعد</string>
+    <string name="item_wallpaper">الخلفية</string>
+    <string name="item_wallpaper_sub">لون ثابت أو صورة، أو فيديو حي</string>
+    <string name="item_statusbar">شريط الحالة</string>
+    <string name="item_statusbar_sub">الرؤية، تنسيق الساعة، تطبيق VPN</string>
+    <string name="item_about">حول</string>
+
+    <string name="section_layout">التخطيط</string>
+    <string name="view_mode">وضع العرض</string>
+    <string name="mode_carousel">دائري</string>
+    <string name="mode_grid">شبكي</string>
+    <string name="mode_dock">رصيف</string>
+    <string name="mode_carousel_desc">يبقى التحديد ثابتًا — تتحرك الأيقونات أسفله</string>
+    <string name="mode_grid_desc">جميع الأيقونات على الشاشة — التحديد هو الذي يتحرك</string>
+    <string name="mode_dock_desc">رصيف عائم في الأسفل — الأسفل يوسع فوق خلفية ضبابية</string>
+    <string name="section_elements">العناصر</string>
+    <string name="section_names_label">أسماء الأقسام</string>
+    <string name="section_size">الحجم — كل صف يتسع لأكبر عدد من الأيقونات حسب الحجم + التباعد</string>
+    <string name="roundness">الاستدارة</string>
+    <string name="icon_size">حجم الأيقونة</string>
+    <string name="spacing">التباعد</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">صغير</string>
+    <string name="size_n">عادي</string>
+    <string name="size_l">كبير</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK للتشغيل · ⓘ معلومات · سلة المهملات لإلغاء التثبيت</string>
+    <string name="no_section">بدون قسم</string>
+    <string name="hidden_tag">مخفي</string>
+
+    <string name="section_row_sub">OK: اختيار تطبيقات هذا القسم</string>
+    <string name="add_section">إضافة قسم</string>
+    <string name="new_section">قسم جديد</string>
+    <string name="rename_section">إعادة تسمية القسم</string>
+    <string name="section_apps_sub">OK يبدل ظهور التطبيق في هذا القسم</string>
+
+    <string name="dim_label">تعتيم</string>
+    <string name="dim_top_bottom">أعلى &amp; أسفل</string>
+    <string name="dim_top">أعلى</string>
+    <string name="dim_bottom">أسفل</string>
+    <string name="dim_full">ملء الشاشة</string>
+    <string name="dim_off">إيقاف</string>
+    <string name="wp_section_static">ثابت</string>
+    <string name="wp_section_video">فيديو</string>
+    <string name="builtin_aerials">فيديوهات جوية (مدمجة)</string>
+    <string name="builtin_aerials_sub">289 فيديو جوياً يتم بثها مباشرة — لا حاجة لتثبيت أو تكوين أي شيء آخر</string>
+    <string name="aerial_src_label">المجموعة</string>
+    <string name="speed_label">سرعة التشغيل</string>
+    <string name="aerial_src_all">الكل (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">المجتمع 1 (20)</string>
+    <string name="aerial_src_comm2">المجتمع 2 (18)</string>
+    <string name="color_gradient">تدرج لوني</string>
+    <string name="preset_label">إعداد مسبق للون</string>
+    <string name="pick_video">اختيار فيديو…</string>
+    <string name="pick_video_sub">يعيد التشغيل بصمت خلف الأيقونات. يعمل بشكل رائع مع ملفات Apple الجوية من مجموعة AerialViews (USB أو التنزيلات).</string>
+    <string name="pick_photo">اختيار صورة…</string>
+    <string name="pick_photo_sub">من USB أو التنزيلات</string>
+    <string name="screensaver_section">شاشة التوقف</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">غير مثبت — احصل عليه من متجر Play</string>
+    <string name="aerial_open_sub">افتح التطبيق لإدارة فيديوهاته وإعداداته</string>
+
+    <string name="show_statusbar">إظهار شريط الحالة</string>
+    <string name="show_statusbar_sub">عند الإخفاء، اضغط أعلى من الصف العلوي لإظهاره (MENU يفتح الإعدادات أيضًا)</string>
+    <string name="clock_24h">ساعة 24 ساعة</string>
+    <string name="date_label">التاريخ</string>
+    <string name="statusbar_glass">خلفية زجاجية</string>
+    <string name="statusbar_glass_sub">لوحة خلف أيقونات الحالة، مثل الرصيف — تتبع إعداد الاستدارة</string>
+    <string name="show_vpn_button">إظهار زر VPN</string>
+    <string name="vpn_opens">زر VPN يفتح</string>
+    <string name="vpn_system">إعدادات VPN النظام</string>
+    <string name="vpn_dialog_title">زر VPN يفتح…</string>
+
+    <string name="about_version">الإصدار 1.0</string>
+    <string name="about_desc">مشغّل خفيف بشاشة واحدة لأجهزة Android TV و Google TV.\n\nبدون إعلانات · بدون تتبع · بدون خدمات خلفية. يُستخدم الاتصال بالشبكة فقط لبث الخلفيات الجوية المدمجة. جميع إعداداتك تعيش في ملف محلي واحد على هذا الجهاز.</string>
+    <string name="about_foss">حر &amp; مفتوح المصدر</string>
+    <string name="about_license">مرخص بموجب رخصة GNU General Public License v3.0 (GPLv3). أنت حر في استخدام ودراسة ومشاركة وتعديل Couchy Launcher.</string>
+    <string name="about_thirdparty">رسم الأريكة: Twemoji (MIT). الفيديوهات الجوية: مجموعات Apple و Amazon والمجتمع، يتم بثها من مالكيها.</string>
+    <string name="rerun_wizard">إعادة تشغيل معالج الإعداد</string>
+    <string name="rerun_wizard_sub">إعداد المشغّل الافتراضي ونصائح البداية</string>
+
+    <string name="wizard_welcome_title">مرحبًا بك في Couchy Launcher</string>
+    <string name="wizard_welcome_body">مشغّل خفيف بشاشة واحدة: تطبيقاتك مجمعة حسب القسم، خلفيتك الخاصة، وشريط حالة نظيف مع الساعة والشبكة و VPN.</string>
+    <string name="wizard_privacy_body">ملاحظة الخصوصية — لا شيء للمنح: Couchy لا يطلب الموقع أو الميكروفون ولا يشغّل خدمات خلفية. كل ما يحتاجه تم منحه عند التثبيت.</string>
+    <string name="wizard_home_title">تعيين كشاشة رئيسية</string>
+    <string name="wizard_already_default">✓ تم — Couchy هو المشغّل الافتراضي بالفعل على هذا الجهاز.</string>
+    <string name="wizard_gtv_intro">هذا جهاز Google TV معتمد. Google لا تسمح بتغيير تطبيق الشاشة الرئيسية من الإعدادات على الشاشة، لذا اختر إحدى هاتين الطريقتين:</string>
+    <string name="wizard_gtv_adb">1 — ADB (موصى به، لمرة واحدة):\n• الإعدادات &gt; النظام &gt; حول &gt; انقر على \"إصدار Android TV OS\" 7 مرات لفتح خيارات المطور\n• الإعدادات &gt; النظام &gt; خيارات المطور &gt; فعّل تصحيح USB/لاسلكي\n• من كمبيوتر على نفس الشبكة، نفّذ:</string>
+    <string name="wizard_gtv_overlay">إذا استمر مشغّل النظام في الظهور فوق Couchy بعد ذلك (لوحظ على Hisense وأجهزة أخرى)، ابحث عنه وقم بتعطيله — قابل للعكس في أي وقت باستخدام \"pm enable\":</string>
+    <string name="wizard_gtv_which">(استخدم أيًا من حزمتي المشغّل اللتين يبلغ عنهما الأمر الأول. لا تقم بالتعطيل إلا بعد التأكد من أن Couchy يفتح بشكل طبيعي.)</string>
+    <string name="wizard_gtv_remap">2 — إعادة تعيين الزر (بدون كمبيوتر): قم بتثبيت تطبيق مثل \"Button Mapper\" من متجر Play وعيّن زر الشاشة الرئيسية إلى Couchy Launcher.</string>
+    <string name="wizard_try_dialog">جرّب حوار النظام على أي حال</string>
+    <string name="wizard_check_again">تحقق مرة أخرى</string>
+    <string name="wizard_skip">تخطي الآن</string>
+    <string name="wizard_aosp_body">يسمح هذا الجهاز باختيار تطبيق الشاشة الرئيسية. اضغط الزر أدناه، اختر Couchy Launcher في حوار النظام وأكد (اختر \"دائمًا\" إذا طُلب منك).</string>
+    <string name="wizard_set_default">تعيين كمشغّل افتراضي</string>
+    <string name="wizard_no_dialog_hint">إذا لم يظهر حوار: إعدادات Android &gt; التطبيقات &gt; التطبيقات الافتراضية &gt; تطبيق الشاشة الرئيسية &gt; Couchy Launcher. أو ببساطة اضغط زر الشاشة الرئيسية — سيسأل Android أي مشغّل تريد استخدامه.</string>
+    <string name="wizard_vpn_title">زر VPN</string>
+    <string name="wizard_vpn_body">إذا كنت تستخدم تطبيق VPN، اختره — سيفتحه زر VPN في شريط الحالة. تخطي وسيبقى زر VPN مخفيًا (يمكنك تمكينه لاحقًا من الإعدادات › شريط الحالة).</string>
+    <string name="wizard_vpn_none">لم يتم اكتشاف أي تطبيق VPN على هذا الجهاز.</string>
+    <string name="wizard_vpn_skip">تخطي — إخفاء زر VPN</string>
+    <string name="wizard_done_title">كل شيء جاهز</string>
+    <string name="wizard_tips">نصائح:\n• اضغط مطولاً على OK على أي تطبيق للخيارات — نقل، إخفاء، معلومات التطبيق، إيقاف إجباري، إلغاء التثبيت\n• اضغط أعلى من الصف العلوي للوصول إلى VPN والشبكة والساعة والإعدادات\n• الترس يفتح إعدادات المشغّل: الخلفية، الأقسام، العرض والمزيد</string>
+    <string name="wizard_rerun_note">يمكنك إعادة تشغيل هذا المعالج في أي وقت من الإعدادات &gt; حول.</string>
+    <string name="wizard_start">ابدأ باستخدام Couchy</string>
+    <string name="wizard_no_chooser">لا يحتوي هذا الجهاز على محدّد الشاشة الرئيسية — استخدم طريقة ADB الموضحة أعلاه</string>
+    <string name="ui_scale">حجم الواجهة</string>
+    <string name="scale_auto">تلقائي</string>
+    <string name="ui_scale_auto_sub">يُصغّر واجهة أجهزة التلفزيون عالية الدقة لتبدو متماثلة على كل جهاز</string>
+    <string name="item_language">اللغة</string>
+    <string name="item_language_sub">لغة الواجهة</string>
+    <string name="lang_system">لغة النظام</string>
+    <string name="cat_all_apps">كل التطبيقات</string>
+    <string name="all_apps_sub">كل تطبيق مثبَّت، يُملأ تلقائيًا</string>
+    <string name="cd_move_up">تحريك لأعلى</string>
+    <string name="cd_move_down">تحريك لأسفل</string>
+    <string name="cd_delete_section">حذف القسم</string>
+    <string name="about_source">الكود المصدري</string>
+    <string name="about_coffee">ادعمني بقهوة</string>
+</resources>

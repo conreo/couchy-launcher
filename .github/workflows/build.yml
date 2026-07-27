@@ -1,0 +1,56 @@
+name: Build
+
+on:
+  push:
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+
+      # assembleRelease is the F-Droid variant (unsigned, proguard + shrink) —
+      # building it here catches any shrinker regression before submission.
+      # lintRelease gates real issues (e.g. InvalidVectorPath crash risks).
+      - name: Build (debug + unsigned release) and lint
+        run: ./gradlew assembleDebug assembleRelease lintRelease --no-daemon
+
+      # Tagged push → decode the keystore, sign, upload to the Release page.
+      - name: Decode keystore
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        # Strip whitespace/CR so a wrapped or copy-pasted secret still decodes.
+        run: echo "$KEYSTORE_BASE64" | tr -d '[:space:]' | base64 -d > /tmp/couchy-release.jks
+
+      - name: Build signed release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          KEYSTORE_FILE: /tmp/couchy-release.jks
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Upload to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          APK="app/build/outputs/apk/release/app-release.apk"
+          RELEASE_APK="Couchy-Launcher-${{ github.ref_name }}.apk"
+          cp "$APK" "$RELEASE_APK"
+          gh release delete "${{ github.ref_name }}" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "${{ github.ref_name }}" \
+            "$RELEASE_APK" \
+            --title "Couchy-Launcher ${{ github.ref_name }}" \
+            --generate-notes

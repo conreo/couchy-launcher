@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">Phát trực tuyến</string>
+    <string name="cat_games">Trò chơi</string>
+    <string name="cat_music">Âm nhạc</string>
+    <string name="cat_apps">Ứng dụng</string>
+
+    <string name="wp_midnight">Nửa đêm</string>
+    <string name="wp_aurora">Cực quang</string>
+    <string name="wp_sunset">Hoàng hôn</string>
+    <string name="wp_deep">Sâu thẳm</string>
+    <string name="wp_charcoal">Than chì</string>
+
+    <string name="done">Xong</string>
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+    <string name="next">Tiếp</string>
+    <string name="back">Quay lại</string>
+    <string name="off">Tắt</string>
+    <string name="minutes_short">%1$d phút</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Mạng</string>
+    <string name="cd_settings">Cài đặt</string>
+
+    <string name="menu_open">Mở</string>
+    <string name="menu_move">Di chuyển</string>
+    <string name="menu_hide">Ẩn khỏi launcher</string>
+    <string name="menu_unhide">Hiện</string>
+    <string name="menu_app_info">Thông tin ứng dụng</string>
+    <string name="menu_force_stop">Buộc dừng</string>
+    <string name="menu_uninstall">Gỡ cài đặt</string>
+
+    <string name="toast_cannot_open">Không thể mở ứng dụng</string>
+    <string name="toast_no_launchable">Ứng dụng không có màn hình khởi chạy</string>
+    <string name="toast_force_stop">Đã dừng tiến trình nền — dùng Thông tin ứng dụng để buộc dừng hoàn toàn</string>
+    <string name="toast_no_store">Cửa hàng ứng dụng không khả dụng — cài đặt ứng dụng thủ công</string>
+    <string name="toast_no_picker">Không có ứng dụng chọn tệp</string>
+
+    <string name="settings_title">Cài đặt</string>
+    <string name="group_content">Nội dung</string>
+    <string name="group_appearance">Giao diện</string>
+    <string name="group_system">Hệ thống</string>
+    <string name="item_app">Ứng dụng</string>
+    <string name="item_app_sub">Khởi chạy ứng dụng bất kỳ, mở trang thông tin</string>
+    <string name="item_android_settings">Cài đặt Android</string>
+    <string name="item_android_settings_sub">Mở cài đặt hệ thống của thiết bị này</string>
+    <string name="item_sections">Mục</string>
+    <string name="item_sections_sub">Chọn ứng dụng theo mục, đổi tên, sắp xếp lại</string>
+    <string name="item_display">Hiển thị</string>
+    <string name="item_display_sub">Chế độ bố cục, tên, kích thước biểu tượng, khoảng cách</string>
+    <string name="item_wallpaper">Hình nền</string>
+    <string name="item_wallpaper_sub">Màu tĩnh hoặc ảnh, hoặc video động</string>
+    <string name="item_statusbar">Thanh trạng thái</string>
+    <string name="item_statusbar_sub">Hiển thị, định dạng giờ, ứng dụng VPN</string>
+    <string name="item_about">Thông tin</string>
+
+    <string name="section_layout">Bố cục</string>
+    <string name="view_mode">Chế độ xem</string>
+    <string name="mode_carousel">Băng chuyền</string>
+    <string name="mode_grid">Lưới</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">Lựa chọn cố định — biểu tượng cuộn bên dưới</string>
+    <string name="mode_grid_desc">Tất cả biểu tượng trên màn hình — lựa chọn di chuyển</string>
+    <string name="mode_dock_desc">Dock nổi ở dưới — Xuống mở rộng trên nền mờ</string>
+    <string name="section_elements">Thành phần</string>
+    <string name="section_names_label">Tên mục</string>
+    <string name="section_size">Kích thước — mỗi hàng chứa nhiều biểu tượng nhất có thể theo kích thước + khoảng cách</string>
+    <string name="roundness">Độ bo tròn</string>
+    <string name="icon_size">Kích thước biểu tượng</string>
+    <string name="spacing">Khoảng cách</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Nhỏ</string>
+    <string name="size_n">Vừa</string>
+    <string name="size_l">Lớn</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK khởi chạy · ⓘ thông tin · thùng rác gỡ cài đặt</string>
+    <string name="no_section">không mục</string>
+    <string name="hidden_tag">đã ẩn</string>
+
+    <string name="section_row_sub">OK: chọn ứng dụng của mục này</string>
+    <string name="add_section">Thêm mục</string>
+    <string name="new_section">Mục mới</string>
+    <string name="rename_section">Đổi tên mục</string>
+    <string name="section_apps_sub">OK chuyển đổi việc ứng dụng có xuất hiện trong mục này không</string>
+
+    <string name="dim_label">Làm tối</string>
+    <string name="dim_top_bottom">Trên &amp; dưới</string>
+    <string name="dim_top">Trên</string>
+    <string name="dim_bottom">Dưới</string>
+    <string name="dim_full">Toàn màn hình</string>
+    <string name="dim_off">Tắt</string>
+    <string name="wp_section_static">Tĩnh</string>
+    <string name="wp_section_video">Video</string>
+    <string name="builtin_aerials">Video trên không (tích hợp)</string>
+    <string name="builtin_aerials_sub">289 video trên không phát trực tiếp — không cần cài đặt hay cấu hình gì thêm</string>
+    <string name="aerial_src_label">Bộ sưu tập</string>
+    <string name="speed_label">Tốc độ phát</string>
+    <string name="aerial_src_all">Tất cả (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Cộng đồng 1 (20)</string>
+    <string name="aerial_src_comm2">Cộng đồng 2 (18)</string>
+    <string name="color_gradient">Dải màu</string>
+    <string name="preset_label">Màu đặt trước</string>
+    <string name="pick_video">Chọn video…</string>
+    <string name="pick_video_sub">Phát lặp im lặng phía sau biểu tượng. Hoạt động tốt với tệp Apple trên không từ bộ sưu tập AerialViews (USB hoặc tải xuống).</string>
+    <string name="pick_photo">Chọn ảnh…</string>
+    <string name="pick_photo_sub">Từ USB hoặc tải xuống</string>
+    <string name="screensaver_section">Trình bảo vệ màn hình</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Chưa cài đặt — tải từ Play Store</string>
+    <string name="aerial_open_sub">Mở ứng dụng để quản lý video và cài đặt</string>
+
+    <string name="show_statusbar">Hiện thanh trạng thái</string>
+    <string name="show_statusbar_sub">Khi ẩn, nhấn Lên từ hàng trên cùng để hiện (MENU cũng mở cài đặt)</string>
+    <string name="clock_24h">Đồng hồ 24h</string>
+    <string name="date_label">Ngày</string>
+    <string name="statusbar_glass">Nền kính</string>
+    <string name="statusbar_glass_sub">Bảng sau biểu tượng trạng thái, như dock — theo cài đặt độ bo tròn</string>
+    <string name="show_vpn_button">Hiện nút VPN</string>
+    <string name="vpn_opens">Nút VPN mở</string>
+    <string name="vpn_system">Cài đặt VPN hệ thống</string>
+    <string name="vpn_dialog_title">Nút VPN mở…</string>
+
+    <string name="about_version">Phiên bản 1.0</string>
+    <string name="about_desc">Launcher một màn hình nhẹ cho Android TV và Google TV.\n\nKhông quảng cáo · không theo dõi · không dịch vụ nền. Mạng chỉ được dùng để phát hình nền trên không tích hợp. Tất cả cài đặt của bạn nằm trong một tệp cục bộ trên thiết bị này.</string>
+    <string name="about_foss">Tự do &amp; nguồn mở</string>
+    <string name="about_license">Được cấp phép theo GNU General Public License v3.0 (GPLv3). Bạn được tự do sử dụng, nghiên cứu, chia sẻ và sửa đổi Couchy Launcher.</string>
+    <string name="about_thirdparty">Hình ghế sofa: Twemoji (MIT). Video trên không: bộ sưu tập Apple, Amazon và cộng đồng, phát từ chủ sở hữu.</string>
+    <string name="rerun_wizard">Chạy lại trình hướng dẫn cài đặt</string>
+    <string name="rerun_wizard_sub">Thiết lập launcher mặc định và mẹo lần đầu</string>
+
+    <string name="wizard_welcome_title">Chào mừng đến với Couchy Launcher</string>
+    <string name="wizard_welcome_body">Launcher một màn hình nhẹ: ứng dụng của bạn được nhóm theo mục, hình nền của riêng bạn, và thanh trạng thái gọn gàng với đồng hồ, mạng và VPN.</string>
+    <string name="wizard_privacy_body">Lưu ý quyền riêng tư — không cần cấp quyền gì: Couchy không yêu cầu vị trí, micrô và không chạy dịch vụ nền. Mọi thứ cần thiết đã được cấp khi cài đặt.</string>
+    <string name="wizard_home_title">Đặt làm màn hình chính</string>
+    <string name="wizard_already_default">✓ Xong — Couchy đã là launcher mặc định của bạn trên thiết bị này.</string>
+    <string name="wizard_gtv_intro">Đây là thiết bị Google TV được chứng nhận. Google không cho phép thay đổi ứng dụng màn hình chính từ cài đặt trên màn hình, vì vậy hãy chọn một trong hai phương pháp sau:</string>
+    <string name="wizard_gtv_adb">1 — ADB (khuyến nghị, một lần):\n• Cài đặt &gt; Hệ thống &gt; Giới thiệu &gt; nhấp \"Phiên bản Android TV OS\" 7 lần để mở khóa Tùy chọn nhà phát triển\n• Cài đặt &gt; Hệ thống &gt; Tùy chọn nhà phát triển &gt; bật Gỡ lỗi USB/không dây\n• Từ máy tính cùng mạng, chạy:</string>
+    <string name="wizard_gtv_overlay">Nếu launcher hệ thống vẫn đè lên Couchy sau đó (đã thấy trên Hisense và các hãng khác), tìm và vô hiệu hóa nó — có thể hoàn tác bất cứ lúc nào với \"pm enable\":</string>
+    <string name="wizard_gtv_which">(Dùng một trong hai gói launcher mà lệnh đầu tiên báo cáo. Chỉ vô hiệu hóa SAU KHI xác nhận Couchy mở bình thường.)</string>
+    <string name="wizard_gtv_remap">2 — Ánh xạ lại nút (không cần máy tính): cài ứng dụng như \"Button Mapper\" từ Play Store và ánh xạ nút Home sang Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Vẫn thử hộp thoại hệ thống</string>
+    <string name="wizard_check_again">Kiểm tra lại</string>
+    <string name="wizard_skip">Bỏ qua</string>
+    <string name="wizard_aosp_body">Thiết bị này cho phép chọn ứng dụng màn hình chính. Nhấn nút bên dưới, chọn Couchy Launcher trong hộp thoại hệ thống và xác nhận (chọn \"Luôn luôn\" nếu được hỏi).</string>
+    <string name="wizard_set_default">Đặt làm launcher mặc định</string>
+    <string name="wizard_no_dialog_hint">Nếu không có hộp thoại xuất hiện: Cài đặt Android &gt; Ứng dụng &gt; Ứng dụng mặc định &gt; Ứng dụng màn hình chính &gt; Couchy Launcher. Hoặc chỉ cần nhấn nút Home — Android sẽ hỏi dùng launcher nào.</string>
+    <string name="wizard_vpn_title">Nút VPN</string>
+    <string name="wizard_vpn_body">Nếu bạn dùng ứng dụng VPN, hãy chọn nó — nút VPN trên thanh trạng thái sẽ mở nó. Bỏ qua và nút VPN vẫn bị ẩn (bạn có thể bật sau trong Cài đặt › Thanh trạng thái).</string>
+    <string name="wizard_vpn_none">Không phát hiện ứng dụng VPN nào trên thiết bị này.</string>
+    <string name="wizard_vpn_skip">Bỏ qua — ẩn nút VPN</string>
+    <string name="wizard_done_title">Tất cả đã sẵn sàng</string>
+    <string name="wizard_tips">Mẹo:\n• Giữ OK trên ứng dụng bất kỳ để xem tùy chọn — di chuyển, ẩn, thông tin ứng dụng, buộc dừng, gỡ cài đặt\n• Nhấn Lên từ hàng trên cùng để truy cập VPN, mạng, đồng hồ và cài đặt\n• Biểu tượng bánh răng mở cài đặt launcher: hình nền, mục, hiển thị và hơn thế nữa</string>
+    <string name="wizard_rerun_note">Bạn có thể chạy lại trình hướng dẫn này bất cứ lúc nào từ Cài đặt &gt; Thông tin.</string>
+    <string name="wizard_start">Bắt đầu dùng Couchy</string>
+    <string name="wizard_no_chooser">Thiết bị này không có bộ chọn màn hình chính — dùng phương pháp ADB hiển thị ở trên</string>
+    <string name="ui_scale">Tỷ lệ giao diện</string>
+    <string name="scale_auto">Tự động</string>
+    <string name="ui_scale_auto_sub">Thu gọn TV DPI cao để giao diện hiển thị giống nhau trên mọi thiết bị</string>
+    <string name="item_language">Ngôn ngữ</string>
+    <string name="item_language_sub">Ngôn ngữ giao diện</string>
+    <string name="lang_system">Mặc định hệ thống</string>
+    <string name="cat_all_apps">Tất cả ứng dụng</string>
+    <string name="all_apps_sub">Mọi ứng dụng đã cài, tự động điền</string>
+    <string name="cd_move_up">Chuyển lên</string>
+    <string name="cd_move_down">Chuyển xuống</string>
+    <string name="cd_delete_section">Xóa mục</string>
+    <string name="about_source">Mã nguồn</string>
+    <string name="about_coffee">Mời tôi một ly cà phê</string>
+</resources>

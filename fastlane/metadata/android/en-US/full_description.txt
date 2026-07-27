@@ -1,0 +1,19 @@
+A lightweight home launcher for Android TV & Google TV.
+
+No ads. No tracking. No accounts. Just your apps.
+
+Features
+
+• Carousel, Grid, or Dock layout  
+• Video wallpapers from Apple/Amazon aerials (opt-in)  
+• VPN status icon with quick-launch  
+• Clock, date, network, and VPN in the status bar  
+• Organize apps into custom sections  
+• Hide apps, toggle labels and category names  
+• UI scaling and wallpaper dimming  
+• 17 languages  
+• Fully D-pad — no touch needed  
+
+Privacy
+
+Zero network traffic by default. Video wallpapers are disabled until you turn them on. No analytics, no telemetry, no background services.

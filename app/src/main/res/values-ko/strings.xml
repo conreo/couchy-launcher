@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">스트리밍</string>
+    <string name="cat_games">게임</string>
+    <string name="cat_music">음악</string>
+    <string name="cat_apps">앱</string>
+
+    <string name="wp_midnight">미드나잇</string>
+    <string name="wp_aurora">오로라</string>
+    <string name="wp_sunset">선셋</string>
+    <string name="wp_deep">딥</string>
+    <string name="wp_charcoal">차콜</string>
+
+    <string name="done">완료</string>
+    <string name="save">저장</string>
+    <string name="cancel">취소</string>
+    <string name="next">다음</string>
+    <string name="back">뒤로</string>
+    <string name="off">끄기</string>
+    <string name="minutes_short">%1$d분</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">네트워크</string>
+    <string name="cd_settings">설정</string>
+
+    <string name="menu_open">열기</string>
+    <string name="menu_move">이동</string>
+    <string name="menu_hide">런처에서 숨기기</string>
+    <string name="menu_unhide">숨기기 해제</string>
+    <string name="menu_app_info">앱 정보</string>
+    <string name="menu_force_stop">강제 중지</string>
+    <string name="menu_uninstall">삭제</string>
+
+    <string name="toast_cannot_open">앱을 열 수 없습니다</string>
+    <string name="toast_no_launchable">앱에 실행 가능한 화면이 없습니다</string>
+    <string name="toast_force_stop">백그라운드 프로세스가 중지되었습니다 — 완전히 강제 중지하려면 앱 정보를 사용하세요</string>
+    <string name="toast_no_store">앱 스토어를 사용할 수 없습니다 — 수동으로 설치하세요</string>
+    <string name="toast_no_picker">파일 선택기 앱이 없습니다</string>
+
+    <string name="settings_title">설정</string>
+    <string name="group_content">콘텐츠</string>
+    <string name="group_appearance">외관</string>
+    <string name="group_system">시스템</string>
+    <string name="item_app">앱</string>
+    <string name="item_app_sub">모든 앱 실행, 정보 페이지 열기</string>
+    <string name="item_android_settings">Android 설정</string>
+    <string name="item_android_settings_sub">이 기기의 시스템 설정 열기</string>
+    <string name="item_sections">섹션</string>
+    <string name="item_sections_sub">섹션별 앱 선택, 이름 변경, 순서 조정</string>
+    <string name="item_display">디스플레이</string>
+    <string name="item_display_sub">레이아웃 모드, 이름, 아이콘 크기, 간격</string>
+    <string name="item_wallpaper">배경화면</string>
+    <string name="item_wallpaper_sub">정적 색상 또는 사진, 혹은 동영상</string>
+    <string name="item_statusbar">상태 표시줄</string>
+    <string name="item_statusbar_sub">표시 여부, 시계 형식, VPN 앱</string>
+    <string name="item_about">정보</string>
+
+    <string name="section_layout">레이아웃</string>
+    <string name="view_mode">보기 모드</string>
+    <string name="mode_carousel">캐러셀</string>
+    <string name="mode_grid">그리드</string>
+    <string name="mode_dock">독</string>
+    <string name="mode_carousel_desc">선택 위치 고정 — 아이콘이 아래로 스크롤</string>
+    <string name="mode_grid_desc">모든 아이콘이 화면에 표시 — 선택이 이동</string>
+    <string name="mode_dock_desc">하단 플로팅 독 — 아래 키로 흐린 배경 위에 확장</string>
+    <string name="section_elements">요소</string>
+    <string name="section_names_label">섹션 이름</string>
+    <string name="section_size">크기 — 각 행에는 크기 + 간격이 허용하는 만큼 아이콘이 표시됩니다</string>
+    <string name="roundness">둥글기</string>
+    <string name="icon_size">아이콘 크기</string>
+    <string name="spacing">간격</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">작게</string>
+    <string name="size_n">보통</string>
+    <string name="size_l">크게</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK 실행 · ⓘ 정보 · 휴지통 삭제</string>
+    <string name="no_section">섹션 없음</string>
+    <string name="hidden_tag">숨김</string>
+
+    <string name="section_row_sub">OK: 이 섹션의 앱 선택</string>
+    <string name="add_section">섹션 추가</string>
+    <string name="new_section">새 섹션</string>
+    <string name="rename_section">섹션 이름 변경</string>
+    <string name="section_apps_sub">OK를 누르면 앱이 이 섹션에 표시될지 전환됩니다</string>
+
+    <string name="dim_label">어둡게</string>
+    <string name="dim_top_bottom">위 &amp; 아래</string>
+    <string name="dim_top">위</string>
+    <string name="dim_bottom">아래</string>
+    <string name="dim_full">전체 화면</string>
+    <string name="dim_off">끄기</string>
+    <string name="wp_section_static">정적</string>
+    <string name="wp_section_video">동영상</string>
+    <string name="builtin_aerials">항공 영상 (내장)</string>
+    <string name="builtin_aerials_sub">289개의 항공 영상을 직접 스트리밍 — 추가 설치나 설정이 필요 없습니다</string>
+    <string name="aerial_src_label">컬렉션</string>
+    <string name="speed_label">재생 속도</string>
+    <string name="aerial_src_all">전체 (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">커뮤니티 1 (20)</string>
+    <string name="aerial_src_comm2">커뮤니티 2 (18)</string>
+    <string name="color_gradient">색상 그라데이션</string>
+    <string name="preset_label">색상 프리셋</string>
+    <string name="pick_video">동영상 선택…</string>
+    <string name="pick_video_sub">아이콘 뒤에서 무음 반복 재생됩니다. AerialViews 컬렉션의 Apple 항공 파일(USB 또는 다운로드)과 잘 어울립니다.</string>
+    <string name="pick_photo">사진 선택…</string>
+    <string name="pick_photo_sub">USB 드라이브 또는 다운로드에서</string>
+    <string name="screensaver_section">화면 보호기</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">설치되지 않음 — Play 스토어에서 받으세요</string>
+    <string name="aerial_open_sub">앱을 열어 동영상과 설정을 관리하세요</string>
+
+    <string name="show_statusbar">상태 표시줄 표시</string>
+    <string name="show_statusbar_sub">숨겨진 경우 맨 위 행에서 위 키를 누르면 표시됩니다 (MENU로도 설정 열기 가능)</string>
+    <string name="clock_24h">24시간제</string>
+    <string name="date_label">날짜</string>
+    <string name="statusbar_glass">유리 배경</string>
+    <string name="statusbar_glass_sub">독과 같은 상태 아이콘 뒤의 패널 — 둥글기 설정을 따릅니다</string>
+    <string name="show_vpn_button">VPN 버튼 표시</string>
+    <string name="vpn_opens">VPN 버튼으로 열기</string>
+    <string name="vpn_system">시스템 VPN 설정</string>
+    <string name="vpn_dialog_title">VPN 버튼으로 열기…</string>
+
+    <string name="about_version">버전 1.0</string>
+    <string name="about_desc">Android TV 및 Google TV를 위한 가벼운 단일 화면 런처입니다.\n\n광고 없음 · 추적 없음 · 백그라운드 서비스 없음. 네트워크는 내장 항공 배경화면 스트리밍에만 사용됩니다. 모든 설정은 이 기기의 단일 로컬 파일에 저장됩니다.</string>
+    <string name="about_foss">자유 &amp; 오픈소스</string>
+    <string name="about_license">GNU General Public License v3.0 (GPLv3)에 따라 라이선스가 부여됩니다. Couchy Launcher를 자유롭게 사용, 연구, 공유 및 수정할 수 있습니다.</string>
+    <string name="about_thirdparty">소파 아트워크: Twemoji (MIT). 항공 영상: Apple, Amazon 및 커뮤니티 컬렉션, 소유자로부터 스트리밍.</string>
+    <string name="rerun_wizard">설정 마법사 다시 실행</string>
+    <string name="rerun_wizard_sub">기본 런처 설정 및 첫 실행 팁</string>
+
+    <string name="wizard_welcome_title">Couchy Launcher에 오신 것을 환영합니다</string>
+    <string name="wizard_welcome_body">가벼운 단일 화면 런처: 앱을 섹션별로 그룹화하고, 나만의 배경화면, 시계, 네트워크 및 VPN이 있는 깔끔한 상태 표시줄.</string>
+    <string name="wizard_privacy_body">개인정보 보호 — 허용할 사항 없음: Couchy는 위치, 마이크를 요청하지 않으며 백그라운드 서비스를 실행하지 않습니다. 필요한 모든 것은 설치 시 허용되었습니다.</string>
+    <string name="wizard_home_title">홈 화면으로 설정</string>
+    <string name="wizard_already_default">✓ 완료 — Couchy가 이미 이 기기의 기본 런처입니다.</string>
+    <string name="wizard_gtv_intro">인증된 Google TV 기기입니다. Google은 화면 설정에서 홈 앱 변경을 허용하지 않으므로 다음 두 가지 방법 중 하나를 선택하세요:</string>
+    <string name="wizard_gtv_adb">1 — ADB (권장, 1회):\n• 설정 &gt; 시스템 &gt; 정보 &gt; \"Android TV OS 빌드\"를 7번 클릭하여 개발자 옵션 잠금 해제\n• 설정 &gt; 시스템 &gt; 개발자 옵션 &gt; USB/무선 디버깅 활성화\n• 같은 네트워크의 컴퓨터에서 실행:</string>
+    <string name="wizard_gtv_overlay">그 후에도 시스템 런처가 Couchy 위에 겹쳐 보이면 (Hisense 등에서 확인됨), 찾아서 비활성화하세요 — 언제든지 \"pm enable\"로 되돌릴 수 있습니다:</string>
+    <string name="wizard_gtv_which">(첫 번째 명령이 보고하는 두 런처 패키지 중 하나를 사용하세요. Couchy가 정상적으로 열리는 것을 확인한 후에만 비활성화하세요.)</string>
+    <string name="wizard_gtv_remap">2 — 버튼 재매핑 (컴퓨터 불필요): Play 스토어에서 \"Button Mapper\"와 같은 앱을 설치하고 홈 버튼을 Couchy Launcher에 매핑하세요.</string>
+    <string name="wizard_try_dialog">그래도 시스템 대화상자 시도</string>
+    <string name="wizard_check_again">다시 확인</string>
+    <string name="wizard_skip">지금은 건너뛰기</string>
+    <string name="wizard_aosp_body">이 기기는 홈 앱 선택을 허용합니다. 아래 버튼을 누르고 시스템 대화상자에서 Couchy Launcher를 선택한 후 확인하세요 (\"항상\" 선택).</string>
+    <string name="wizard_set_default">기본 런처로 설정</string>
+    <string name="wizard_no_dialog_hint">대화상자가 나타나지 않으면: Android 설정 &gt; 앱 &gt; 기본 앱 &gt; 홈 앱 &gt; Couchy Launcher. 또는 홈 버튼을 누르기만 하면 Android에서 어떤 런처를 사용할지 물어봅니다.</string>
+    <string name="wizard_vpn_title">VPN 버튼</string>
+    <string name="wizard_vpn_body">VPN 앱을 사용하는 경우 선택하세요 — 상태 표시줄의 VPN 버튼이 해당 앱을 엽니다. 건너뛰면 VPN 버튼이 숨겨집니다 (나중에 설정 › 상태 표시줄에서 활성화 가능).</string>
+    <string name="wizard_vpn_none">이 기기에서 VPN 앱이 감지되지 않았습니다.</string>
+    <string name="wizard_vpn_skip">건너뛰기 — VPN 버튼 숨기기</string>
+    <string name="wizard_done_title">모두 준비되었습니다</string>
+    <string name="wizard_tips">팁:\n• 앱에서 OK를 길게 누르면 옵션 — 이동, 숨기기, 앱 정보, 강제 중지, 삭제\n• 맨 위 행에서 위 키를 누르면 VPN, 네트워크, 시계 및 설정에 접근\n• 기어 아이콘으로 런처 설정 열기: 배경화면, 섹션, 디스플레이 등</string>
+    <string name="wizard_rerun_note">이 마법사는 설정 &gt; 정보에서 언제든지 다시 실행할 수 있습니다.</string>
+    <string name="wizard_start">Couchy 사용 시작</string>
+    <string name="wizard_no_chooser">이 기기에는 홈 선택기가 없습니다 — 위에 표시된 ADB 방법을 사용하세요</string>
+    <string name="ui_scale">인터페이스 배율</string>
+    <string name="scale_auto">자동</string>
+    <string name="ui_scale_auto_sub">고DPI TV에서 인터페이스를 축소해 모든 기기에서 동일하게 보이도록 합니다</string>
+    <string name="item_language">언어</string>
+    <string name="item_language_sub">인터페이스 언어</string>
+    <string name="lang_system">시스템 기본값</string>
+    <string name="cat_all_apps">모든 앱</string>
+    <string name="all_apps_sub">설치된 모든 앱, 자동으로 채워짐</string>
+    <string name="cd_move_up">위로 이동</string>
+    <string name="cd_move_down">아래로 이동</string>
+    <string name="cd_delete_section">섹션 삭제</string>
+    <string name="about_source">소스 코드</string>
+    <string name="about_coffee">커피 한 잔 사주기</string>
+</resources>

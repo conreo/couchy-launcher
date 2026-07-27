@@ -1,0 +1,30 @@
+# Build
+*.iml
+.gradle/
+.kotlin/
+build/
+app/build/
+/local.properties
+/captures
+.externalNativeBuild
+.cxx
+
+# IDE
+.idea/
+*.hprof
+
+# OS
+.DS_Store
+
+# Keystores / secrets
+*.jks
+*.keystore
+!debug.keystore
+
+# Misc
+/tmp/
+
+# Session transcripts / exports
+pi-session-*.html
+*.session.html
+.env

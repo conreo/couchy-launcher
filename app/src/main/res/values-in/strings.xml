@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">Streaming</string>
+    <string name="cat_games">Game</string>
+    <string name="cat_music">Musik</string>
+    <string name="cat_apps">Aplikasi</string>
+
+    <string name="wp_midnight">Tengah Malam</string>
+    <string name="wp_aurora">Aurora</string>
+    <string name="wp_sunset">Senja</string>
+    <string name="wp_deep">Dalam</string>
+    <string name="wp_charcoal">Arang</string>
+
+    <string name="done">Selesai</string>
+    <string name="save">Simpan</string>
+    <string name="cancel">Batal</string>
+    <string name="next">Lanjut</string>
+    <string name="back">Kembali</string>
+    <string name="off">Mati</string>
+    <string name="minutes_short">%1$d mnt</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Jaringan</string>
+    <string name="cd_settings">Pengaturan</string>
+
+    <string name="menu_open">Buka</string>
+    <string name="menu_move">Pindahkan</string>
+    <string name="menu_hide">Sembunyikan dari launcher</string>
+    <string name="menu_unhide">Tampilkan</string>
+    <string name="menu_app_info">Info aplikasi</string>
+    <string name="menu_force_stop">Paksa berhenti</string>
+    <string name="menu_uninstall">Copot pemasangan</string>
+
+    <string name="toast_cannot_open">Tidak dapat membuka aplikasi</string>
+    <string name="toast_no_launchable">Aplikasi tidak memiliki layar yang dapat diluncurkan</string>
+    <string name="toast_force_stop">Proses latar belakang dihentikan — gunakan Info aplikasi untuk memaksa berhenti sepenuhnya</string>
+    <string name="toast_no_store">Toko aplikasi tidak tersedia — instal aplikasi secara manual</string>
+    <string name="toast_no_picker">Tidak ada aplikasi pemilih file</string>
+
+    <string name="settings_title">Pengaturan</string>
+    <string name="group_content">Konten</string>
+    <string name="group_appearance">Tampilan</string>
+    <string name="group_system">Sistem</string>
+    <string name="item_app">Aplikasi</string>
+    <string name="item_app_sub">Luncurkan aplikasi apa pun, buka halaman infonya</string>
+    <string name="item_android_settings">Pengaturan Android</string>
+    <string name="item_android_settings_sub">Buka pengaturan sistem perangkat ini</string>
+    <string name="item_sections">Bagian</string>
+    <string name="item_sections_sub">Pilih aplikasi per bagian, ganti nama, urutkan ulang</string>
+    <string name="item_display">Tampilan</string>
+    <string name="item_display_sub">Mode tata letak, nama, ukuran ikon, jarak</string>
+    <string name="item_wallpaper">Wallpaper</string>
+    <string name="item_wallpaper_sub">Warna statis atau foto, atau video hidup</string>
+    <string name="item_statusbar">Status bar</string>
+    <string name="item_statusbar_sub">Visibilitas, format jam, aplikasi VPN</string>
+    <string name="item_about">Tentang</string>
+
+    <string name="section_layout">Tata letak</string>
+    <string name="view_mode">Mode tampilan</string>
+    <string name="mode_carousel">Karusel</string>
+    <string name="mode_grid">Kotak</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">Pilihan tetap — ikon bergulir di bawahnya</string>
+    <string name="mode_grid_desc">Semua ikon di layar — pilihan yang bergerak</string>
+    <string name="mode_dock_desc">Dock mengambang di bawah — Bawah memperluas di atas wallpaper buram</string>
+    <string name="section_elements">Elemen</string>
+    <string name="section_names_label">Nama bagian</string>
+    <string name="section_size">Ukuran — setiap baris memuat ikon sebanyak yang diizinkan ukuran + jarak</string>
+    <string name="roundness">Kelengkungan</string>
+    <string name="icon_size">Ukuran ikon</string>
+    <string name="spacing">Jarak</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Kecil</string>
+    <string name="size_n">Normal</string>
+    <string name="size_l">Besar</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK meluncurkan · ⓘ info · tong sampah mencopot</string>
+    <string name="no_section">tanpa bagian</string>
+    <string name="hidden_tag">tersembunyi</string>
+
+    <string name="section_row_sub">OK: pilih aplikasi bagian ini</string>
+    <string name="add_section">Tambah bagian</string>
+    <string name="new_section">Bagian baru</string>
+    <string name="rename_section">Ganti nama bagian</string>
+    <string name="section_apps_sub">OK mengalihkan apakah aplikasi muncul di bagian ini</string>
+
+    <string name="dim_label">Peredupan</string>
+    <string name="dim_top_bottom">Atas &amp; bawah</string>
+    <string name="dim_top">Atas</string>
+    <string name="dim_bottom">Bawah</string>
+    <string name="dim_full">Layar penuh</string>
+    <string name="dim_off">Mati</string>
+    <string name="wp_section_static">Statis</string>
+    <string name="wp_section_video">Video</string>
+    <string name="builtin_aerials">Video udara (bawaan)</string>
+    <string name="builtin_aerials_sub">289 video udara streaming langsung — tidak ada lagi yang perlu diinstal atau dikonfigurasi</string>
+    <string name="aerial_src_label">Koleksi</string>
+    <string name="speed_label">Kecepatan putar</string>
+    <string name="aerial_src_all">Semua (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Komunitas 1 (20)</string>
+    <string name="aerial_src_comm2">Komunitas 2 (18)</string>
+    <string name="color_gradient">Gradien warna</string>
+    <string name="preset_label">Prasetel warna</string>
+    <string name="pick_video">Pilih video…</string>
+    <string name="pick_video_sub">Diputar senyap di belakang ikon. Sangat cocok dengan file aerial Apple dari koleksi AerialViews (USB atau unduhan).</string>
+    <string name="pick_photo">Pilih foto…</string>
+    <string name="pick_photo_sub">Dari drive USB atau unduhan</string>
+    <string name="screensaver_section">Screensaver</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Belum terinstal — dapatkan dari Play Store</string>
+    <string name="aerial_open_sub">Buka aplikasi untuk mengelola video dan pengaturannya</string>
+
+    <string name="show_statusbar">Tampilkan status bar</string>
+    <string name="show_statusbar_sub">Saat tersembunyi, tekan Atas dari baris teratas untuk menampilkan (MENU juga membuka pengaturan)</string>
+    <string name="clock_24h">Jam 24 jam</string>
+    <string name="date_label">Tanggal</string>
+    <string name="statusbar_glass">Latar kaca</string>
+    <string name="statusbar_glass_sub">Panel di belakang ikon status, seperti dock — mengikuti pengaturan kelengkungan</string>
+    <string name="show_vpn_button">Tampilkan tombol VPN</string>
+    <string name="vpn_opens">Tombol VPN membuka</string>
+    <string name="vpn_system">Pengaturan VPN sistem</string>
+    <string name="vpn_dialog_title">Tombol VPN membuka…</string>
+
+    <string name="about_version">Versi 1.0</string>
+    <string name="about_desc">Launcher ringan satu layar untuk Android TV dan Google TV.\n\nTanpa iklan · tanpa pelacakan · tanpa layanan latar belakang. Jaringan hanya digunakan untuk streaming wallpaper udara bawaan. Semua pengaturan Anda disimpan dalam satu file lokal di perangkat ini.</string>
+    <string name="about_foss">Bebas &amp; sumber terbuka</string>
+    <string name="about_license">Dilisensikan di bawah GNU General Public License v3.0 (GPLv3). Anda bebas menggunakan, mempelajari, membagikan, dan memodifikasi Couchy Launcher.</string>
+    <string name="about_thirdparty">Seni sofa: Twemoji (MIT). Video udara: koleksi Apple, Amazon, dan komunitas, streaming dari pemiliknya.</string>
+    <string name="rerun_wizard">Jalankan wizard penyiapan lagi</string>
+    <string name="rerun_wizard_sub">Penyiapan launcher default dan tips pertama kali</string>
+
+    <string name="wizard_welcome_title">Selamat datang di Couchy Launcher</string>
+    <string name="wizard_welcome_body">Launcher ringan satu layar: aplikasi Anda dikelompokkan berdasarkan bagian, wallpaper Anda sendiri, dan status bar bersih dengan jam, jaringan, dan VPN.</string>
+    <string name="wizard_privacy_body">Catatan privasi — tidak ada yang perlu diberikan: Couchy tidak meminta lokasi, mikrofon, dan tidak menjalankan layanan latar belakang. Semua yang dibutuhkan telah diberikan saat instalasi.</string>
+    <string name="wizard_home_title">Atur sebagai layar utama</string>
+    <string name="wizard_already_default">✓ Selesai — Couchy sudah menjadi launcher default Anda di perangkat ini.</string>
+    <string name="wizard_gtv_intro">Ini adalah perangkat Google TV bersertifikat. Google tidak mengizinkan perubahan aplikasi utama dari pengaturan di layar, jadi pilih salah satu dari dua metode ini:</string>
+    <string name="wizard_gtv_adb">1 — ADB (disarankan, sekali saja):\n• Pengaturan &gt; Sistem &gt; Tentang &gt; klik \"Versi Android TV OS\" 7 kali untuk membuka Opsi pengembang\n• Pengaturan &gt; Sistem &gt; Opsi pengembang &gt; aktifkan USB/Wireless debugging\n• Dari komputer di jaringan yang sama, jalankan:</string>
+    <string name="wizard_gtv_overlay">Jika launcher sistem masih menimpa Couchy setelah itu (terlihat di Hisense dan lainnya), temukan dan nonaktifkan — dapat dikembalikan kapan saja dengan \"pm enable\":</string>
+    <string name="wizard_gtv_which">(Gunakan salah satu dari dua paket launcher yang dilaporkan perintah pertama. Hanya nonaktifkan SETELAH mengonfirmasi Couchy terbuka dengan baik.)</string>
+    <string name="wizard_gtv_remap">2 — Pemetaan ulang tombol (tanpa komputer): instal aplikasi seperti \"Button Mapper\" dari Play Store dan petakan tombol Home ke Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Coba dialog sistem saja</string>
+    <string name="wizard_check_again">Periksa lagi</string>
+    <string name="wizard_skip">Lewati dulu</string>
+    <string name="wizard_aosp_body">Perangkat ini mengizinkan pemilihan aplikasi utama. Tekan tombol di bawah, pilih Couchy Launcher di dialog sistem dan konfirmasi (pilih \"Selalu\" jika diminta).</string>
+    <string name="wizard_set_default">Atur sebagai launcher default</string>
+    <string name="wizard_no_dialog_hint">Jika tidak ada dialog muncul: Pengaturan Android &gt; Aplikasi &gt; Aplikasi default &gt; Aplikasi utama &gt; Couchy Launcher. Atau cukup tekan tombol Home — Android akan menanyakan launcher mana yang akan digunakan.</string>
+    <string name="wizard_vpn_title">Tombol VPN</string>
+    <string name="wizard_vpn_body">Jika Anda menggunakan aplikasi VPN, pilih — tombol VPN di status bar akan membukanya. Lewati dan tombol VPN tetap tersembunyi (Anda dapat mengaktifkannya nanti di Pengaturan › Status bar).</string>
+    <string name="wizard_vpn_none">Tidak ada aplikasi VPN terdeteksi di perangkat ini.</string>
+    <string name="wizard_vpn_skip">Lewati — sembunyikan tombol VPN</string>
+    <string name="wizard_done_title">Semua siap</string>
+    <string name="wizard_tips">Tips:\n• Tahan OK pada aplikasi apa pun untuk opsi — pindahkan, sembunyikan, info aplikasi, paksa berhenti, copot pemasangan\n• Tekan Atas dari baris teratas untuk mengakses VPN, jaringan, jam, dan pengaturan\n• Ikon roda gigi membuka pengaturan launcher: wallpaper, bagian, tampilan, dan lainnya</string>
+    <string name="wizard_rerun_note">Anda dapat menjalankan wizard ini lagi kapan saja dari Pengaturan &gt; Tentang.</string>
+    <string name="wizard_start">Mulai menggunakan Couchy</string>
+    <string name="wizard_no_chooser">Perangkat ini tidak memiliki pemilih layar utama — gunakan metode ADB yang ditunjukkan di atas</string>
+    <string name="ui_scale">Skala antarmuka</string>
+    <string name="scale_auto">Otomatis</string>
+    <string name="ui_scale_auto_sub">Memadatkan TV DPI tinggi agar antarmuka terlihat sama di setiap perangkat</string>
+    <string name="item_language">Bahasa</string>
+    <string name="item_language_sub">Bahasa antarmuka</string>
+    <string name="lang_system">Default sistem</string>
+    <string name="cat_all_apps">Semua aplikasi</string>
+    <string name="all_apps_sub">Setiap aplikasi terpasang, terisi otomatis</string>
+    <string name="cd_move_up">Naikkan</string>
+    <string name="cd_move_down">Turunkan</string>
+    <string name="cd_delete_section">Hapus bagian</string>
+    <string name="about_source">Kode sumber</string>
+    <string name="about_coffee">Belikan saya kopi</string>
+</resources>

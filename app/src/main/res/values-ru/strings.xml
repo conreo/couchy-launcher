@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">Стриминг</string>
+    <string name="cat_games">Игры</string>
+    <string name="cat_music">Музыка</string>
+    <string name="cat_apps">Приложения</string>
+
+    <string name="wp_midnight">Полночь</string>
+    <string name="wp_aurora">Аврора</string>
+    <string name="wp_sunset">Закат</string>
+    <string name="wp_deep">Глубина</string>
+    <string name="wp_charcoal">Уголь</string>
+
+    <string name="done">Готово</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="next">Далее</string>
+    <string name="back">Назад</string>
+    <string name="off">Выкл</string>
+    <string name="minutes_short">%1$d мин</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Сеть</string>
+    <string name="cd_settings">Настройки</string>
+
+    <string name="menu_open">Открыть</string>
+    <string name="menu_move">Переместить</string>
+    <string name="menu_hide">Скрыть из лаунчера</string>
+    <string name="menu_unhide">Показать</string>
+    <string name="menu_app_info">О приложении</string>
+    <string name="menu_force_stop">Остановить</string>
+    <string name="menu_uninstall">Удалить</string>
+
+    <string name="toast_cannot_open">Не удалось открыть приложение</string>
+    <string name="toast_no_launchable">У приложения нет запускаемого экрана</string>
+    <string name="toast_force_stop">Фоновые процессы остановлены — используйте «О приложении» для полной остановки</string>
+    <string name="toast_no_store">Магазин приложений недоступен — установите приложение вручную</string>
+    <string name="toast_no_picker">Нет доступного выбора файлов</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="group_content">Содержимое</string>
+    <string name="group_appearance">Оформление</string>
+    <string name="group_system">Система</string>
+    <string name="item_app">Приложения</string>
+    <string name="item_app_sub">Запустить любое приложение, открыть его страницу информации</string>
+    <string name="item_android_settings">Настройки Android</string>
+    <string name="item_android_settings_sub">Открыть системные настройки устройства</string>
+    <string name="item_sections">Разделы</string>
+    <string name="item_sections_sub">Выбрать приложения по разделам, переименовать, упорядочить</string>
+    <string name="item_display">Экран</string>
+    <string name="item_display_sub">Режим раскладки, названия, размер значков, интервал</string>
+    <string name="item_wallpaper">Обои</string>
+    <string name="item_wallpaper_sub">Статичный цвет или фото, или живое видео</string>
+    <string name="item_statusbar">Строка состояния</string>
+    <string name="item_statusbar_sub">Видимость, формат часов, VPN-приложение</string>
+    <string name="item_about">О программе</string>
+
+    <string name="section_layout">Раскладка</string>
+    <string name="view_mode">Режим просмотра</string>
+    <string name="mode_carousel">Карусель</string>
+    <string name="mode_grid">Сетка</string>
+    <string name="mode_dock">Док</string>
+    <string name="mode_carousel_desc">Выбор остаётся на месте — значки прокручиваются под ним</string>
+    <string name="mode_grid_desc">Все значки на экране — выбор перемещается</string>
+    <string name="mode_dock_desc">Плавающий док внизу — Вниз раскрывает на размытом фоне</string>
+    <string name="section_elements">Элементы</string>
+    <string name="section_names_label">Названия разделов</string>
+    <string name="section_size">Размер — в строку помещается столько значков, сколько позволяют размер + интервал</string>
+    <string name="roundness">Скругление</string>
+    <string name="icon_size">Размер значков</string>
+    <string name="spacing">Интервал</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Малый</string>
+    <string name="size_n">Средний</string>
+    <string name="size_l">Большой</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK запускает · ⓘ инфо · корзина удаляет</string>
+    <string name="no_section">без раздела</string>
+    <string name="hidden_tag">скрыто</string>
+
+    <string name="section_row_sub">OK: выбрать приложения этого раздела</string>
+    <string name="add_section">Добавить раздел</string>
+    <string name="new_section">Новый раздел</string>
+    <string name="rename_section">Переименовать раздел</string>
+    <string name="section_apps_sub">OK переключает, отображается ли приложение в этом разделе</string>
+
+    <string name="dim_label">Затемнение</string>
+    <string name="dim_top_bottom">Сверху &amp; снизу</string>
+    <string name="dim_top">Сверху</string>
+    <string name="dim_bottom">Снизу</string>
+    <string name="dim_full">Полный экран</string>
+    <string name="dim_off">Выкл</string>
+    <string name="wp_section_static">Статика</string>
+    <string name="wp_section_video">Видео</string>
+    <string name="builtin_aerials">Аэросъёмка (встроенная)</string>
+    <string name="builtin_aerials_sub">289 видео с воздуха транслируются напрямую — ничего не нужно устанавливать или настраивать</string>
+    <string name="aerial_src_label">Коллекция</string>
+    <string name="speed_label">Скорость воспроизведения</string>
+    <string name="aerial_src_all">Все (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Сообщество 1 (20)</string>
+    <string name="aerial_src_comm2">Сообщество 2 (18)</string>
+    <string name="color_gradient">Цветовой градиент</string>
+    <string name="preset_label">Предустановка цвета</string>
+    <string name="pick_video">Выбрать видео…</string>
+    <string name="pick_video_sub">Беззвучный цикл за значками. Отлично работает с файлами Apple Aerial из коллекции AerialViews (USB или загрузки).</string>
+    <string name="pick_photo">Выбрать фото…</string>
+    <string name="pick_photo_sub">С USB-накопителя или загрузок</string>
+    <string name="screensaver_section">Заставка</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Не установлено — скачайте из Play Store</string>
+    <string name="aerial_open_sub">Откройте приложение для управления видео и настройками</string>
+
+    <string name="show_statusbar">Показывать строку состояния</string>
+    <string name="show_statusbar_sub">Когда скрыта, нажмите Вверх из верхнего ряда, чтобы показать (MENU также открывает настройки)</string>
+    <string name="clock_24h">24-часовой формат</string>
+    <string name="date_label">Дата</string>
+    <string name="statusbar_glass">Стеклянный фон</string>
+    <string name="statusbar_glass_sub">Панель за значками состояния, как док — следует настройке скругления</string>
+    <string name="show_vpn_button">Показать кнопку VPN</string>
+    <string name="vpn_opens">Кнопка VPN открывает</string>
+    <string name="vpn_system">Системные настройки VPN</string>
+    <string name="vpn_dialog_title">Кнопка VPN открывает…</string>
+
+    <string name="about_version">Версия 1.0</string>
+    <string name="about_desc">Лёгкий одноэкранный лаунчер для Android TV и Google TV.\n\nБез рекламы · без отслеживания · без фоновых служб. Сеть используется только для трансляции встроенных аэрообоев. Все ваши настройки хранятся в одном локальном файле на этом устройстве.</string>
+    <string name="about_foss">Свободное и открытое ПО</string>
+    <string name="about_license">Лицензия GNU General Public License v3.0 (GPLv3). Вы можете свободно использовать, изучать, делиться и изменять Couchy Launcher.</string>
+    <string name="about_thirdparty">Дизайн дивана: Twemoji (MIT). Аэровидео: коллекции Apple, Amazon и сообщества, транслируются от их владельцев.</string>
+    <string name="rerun_wizard">Запустить мастер настройки снова</string>
+    <string name="rerun_wizard_sub">Настройка лаунчера по умолчанию и советы для начала</string>
+
+    <string name="wizard_welcome_title">Добро пожаловать в Couchy Launcher</string>
+    <string name="wizard_welcome_body">Лёгкий одноэкранный лаунчер: ваши приложения сгруппированы по разделам, собственные обои и чистая строка состояния с часами, сетью и VPN.</string>
+    <string name="wizard_privacy_body">Конфиденциальность — ничего предоставлять не нужно: Couchy не запрашивает геолокацию, микрофон и не запускает фоновых служб. Всё необходимое было предоставлено при установке.</string>
+    <string name="wizard_home_title">Установить как домашний экран</string>
+    <string name="wizard_already_default">✓ Готово — Couchy уже является вашим лаунчером по умолчанию на этом устройстве.</string>
+    <string name="wizard_gtv_intro">Это сертифицированное устройство Google TV. Google не разрешает смену домашнего приложения из экранных настроек, поэтому выберите один из двух методов:</string>
+    <string name="wizard_gtv_adb">1 — ADB (рекомендуется, однократно):\n• Настройки &gt; Система &gt; О устройстве &gt; нажмите «Версия Android TV OS» 7 раз для разблокировки параметров разработчика\n• Настройки &gt; Система &gt; Параметры разработчика &gt; включите отладку по USB/беспроводной сети\n• С компьютера в той же сети выполните:</string>
+    <string name="wizard_gtv_overlay">Если системный лаунчер всё ещё перекрывает Couchy после этого (замечено на Hisense и других), найдите его и отключите — обратимо в любое время с помощью «pm enable»:</string>
+    <string name="wizard_gtv_which">(Используйте тот из двух пакетов лаунчера, который сообщит первая команда. Отключайте только ПОСЛЕ подтверждения, что Couchy открывается нормально.)</string>
+    <string name="wizard_gtv_remap">2 — Переназначение кнопки (без компьютера): установите приложение вроде «Button Mapper» из Play Store и назначьте кнопку «Домой» на Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Всё равно попробовать системный диалог</string>
+    <string name="wizard_check_again">Проверить снова</string>
+    <string name="wizard_skip">Пока пропустить</string>
+    <string name="wizard_aosp_body">Это устройство позволяет выбрать домашнее приложение. Нажмите кнопку ниже, выберите Couchy Launcher в системном диалоге и подтвердите (выберите «Всегда», если спросят).</string>
+    <string name="wizard_set_default">Установить лаунчером по умолчанию</string>
+    <string name="wizard_no_dialog_hint">Если диалог не появляется: Настройки Android &gt; Приложения &gt; Приложения по умолчанию &gt; Домашнее приложение &gt; Couchy Launcher. Или просто нажмите кнопку «Домой» — Android спросит, какой лаунчер использовать.</string>
+    <string name="wizard_vpn_title">Кнопка VPN</string>
+    <string name="wizard_vpn_body">Если вы используете VPN-приложение, выберите его — кнопка VPN в строке состояния будет открывать его. Пропустите, и кнопка VPN останется скрытой (можно включить позже в Настройки › Строка состояния).</string>
+    <string name="wizard_vpn_none">VPN-приложений на этом устройстве не обнаружено.</string>
+    <string name="wizard_vpn_skip">Пропустить — скрыть кнопку VPN</string>
+    <string name="wizard_done_title">Всё готово</string>
+    <string name="wizard_tips">Советы:\n• Удерживайте OK на любом приложении для опций — переместить, скрыть, о приложении, остановить, удалить\n• Нажмите Вверх из верхнего ряда для доступа к VPN, сети, часам и настройкам\n• Шестерёнка открывает настройки лаунчера: обои, разделы, экран и другое</string>
+    <string name="wizard_rerun_note">Вы можете перезапустить этот мастер в любое время через Настройки &gt; О программе.</string>
+    <string name="wizard_start">Начать использовать Couchy</string>
+    <string name="wizard_no_chooser">На этом устройстве нет выбора домашнего экрана — используйте метод ADB, показанный выше</string>
+    <string name="ui_scale">Масштаб интерфейса</string>
+    <string name="scale_auto">Авто</string>
+    <string name="ui_scale_auto_sub">Уменьшает интерфейс на ТВ с высоким DPI, чтобы он выглядел одинаково на всех устройствах</string>
+    <string name="item_language">Язык</string>
+    <string name="item_language_sub">Язык интерфейса</string>
+    <string name="lang_system">Системный по умолчанию</string>
+    <string name="cat_all_apps">Все приложения</string>
+    <string name="all_apps_sub">Все установленные приложения, заполняется автоматически</string>
+    <string name="cd_move_up">Вверх</string>
+    <string name="cd_move_down">Вниз</string>
+    <string name="cd_delete_section">Удалить раздел</string>
+    <string name="about_source">Исходный код</string>
+    <string name="about_coffee">Купите мне кофе</string>
+</resources>

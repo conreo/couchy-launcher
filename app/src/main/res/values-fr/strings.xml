@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <!-- Noms des catégories par défaut (première installation) -->
+    <string name="cat_streaming">Streaming</string>
+    <string name="cat_games">Jeux</string>
+    <string name="cat_music">Musique</string>
+    <string name="cat_apps">Applis</string>
+
+    <!-- Noms des préréglages de fond d\'écran -->
+    <string name="wp_midnight">Minuit</string>
+    <string name="wp_aurora">Aurore</string>
+    <string name="wp_sunset">Crépuscule</string>
+    <string name="wp_deep">Abysse</string>
+    <string name="wp_charcoal">Charbon</string>
+
+    <!-- Commun -->
+    <string name="done">Terminé</string>
+    <string name="save">Enregistrer</string>
+    <string name="cancel">Annuler</string>
+    <string name="next">Suivant</string>
+    <string name="back">Retour</string>
+    <string name="off">Désactivé</string>
+    <string name="minutes_short">%1$d min</string>
+
+    <!-- Barre d'état -->
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Réseau</string>
+    <string name="cd_settings">Paramètres</string>
+
+    <!-- Menu appui long -->
+    <string name="menu_open">Ouvrir</string>
+    <string name="menu_move">Déplacer</string>
+    <string name="menu_hide">Masquer du launcher</string>
+    <string name="menu_unhide">Réafficher</string>
+    <string name="menu_app_info">Infos de l\'appli</string>
+    <string name="menu_force_stop">Forcer l\'arrêt</string>
+    <string name="menu_uninstall">Désinstaller</string>
+
+    <!-- Messages -->
+    <string name="toast_cannot_open">Impossible d\'ouvrir l\'appli</string>
+    <string name="toast_no_launchable">Cette appli n\'a pas d\'écran de démarrage</string>
+    <string name="toast_force_stop">Processus en arrière-plan arrêtés — utilisez Infos de l\'appli pour un arrêt complet</string>
+    <string name="toast_no_store">Boutique indisponible — installez l\'appli manuellement</string>
+    <string name="toast_no_picker">Aucun sélecteur de fichiers disponible</string>
+
+    <!-- Paramètres : principal -->
+    <string name="settings_title">Paramètres</string>
+    <string name="group_content">Contenu</string>
+    <string name="group_appearance">Apparence</string>
+    <string name="group_system">Système</string>
+    <string name="item_app">Applis</string>
+    <string name="item_app_sub">Lancer une appli, ouvrir sa page d\'infos</string>
+    <string name="item_android_settings">Paramètres Android</string>
+    <string name="item_android_settings_sub">Ouvrir les paramètres système de l\'appareil</string>
+    <string name="item_sections">Sections</string>
+    <string name="item_sections_sub">Choisir les applis par section, renommer, réordonner</string>
+    <string name="item_display">Affichage</string>
+    <string name="item_display_sub">Mode d\'affichage, noms, taille des icônes, espacement</string>
+    <string name="item_wallpaper">Fond d\'écran</string>
+    <string name="item_wallpaper_sub">Couleur ou photo statique, ou une vidéo</string>
+    <string name="item_statusbar">Barre d\'état</string>
+    <string name="item_statusbar_sub">Visibilité, format de l\'heure, appli VPN</string>
+    <string name="item_language">Langue</string>
+    <string name="item_language_sub">Langue de l\'interface</string>
+    <string name="lang_system">Langue du système</string>
+    <string name="item_about">À propos</string>
+
+    <!-- Paramètres : affichage -->
+    <string name="section_layout">Disposition</string>
+    <string name="view_mode">Mode d\'affichage</string>
+    <string name="mode_carousel">Carrousel</string>
+    <string name="mode_grid">Grille</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">La sélection reste fixe — les icônes défilent dessous</string>
+    <string name="mode_grid_desc">Toutes les icônes tiennent à l\'écran — la sélection se déplace</string>
+    <string name="mode_dock_desc">Dock flottant en bas — Bas déplie sur fond flouté</string>
+    <string name="section_elements">Éléments</string>
+    <string name="section_names_label">Noms des sections</string>
+    <string name="section_size">Taille — chaque rangée contient autant d\'icônes que taille + espacement le permettent</string>
+    <string name="ui_scale">Échelle de l\'interface</string>
+    <string name="scale_auto">Auto</string>
+    <string name="ui_scale_auto_sub">Compacte les TV haute densité pour un rendu identique sur chaque appareil</string>
+    <string name="roundness">Arrondi</string>
+    <string name="icon_size">Taille des icônes</string>
+    <string name="spacing">Espacement</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Petit</string>
+    <string name="size_n">Normal</string>
+    <string name="size_l">Grand</string>
+    <string name="size_xl">XL</string>
+
+    <!-- Paramètres : liste des applis -->
+    <string name="app_hint">OK lance · ⓘ infos · corbeille désinstalle</string>
+    <string name="no_section">aucune section</string>
+    <string name="hidden_tag">masquée</string>
+
+    <!-- Paramètres : sections -->
+    <string name="section_row_sub">OK : choisir les applis de cette section</string>
+    <string name="add_section">Ajouter une section</string>
+    <string name="new_section">Nouvelle section</string>
+    <string name="rename_section">Renommer la section</string>
+    <string name="section_apps_sub">OK ajoute ou retire l\'appli de cette section</string>
+
+    <!-- Paramètres : fond d'écran -->
+    <string name="dim_label">Assombrissement</string>
+    <string name="dim_top_bottom">Haut &amp; bas</string>
+    <string name="dim_top">Haut</string>
+    <string name="dim_bottom">Bas</string>
+    <string name="dim_full">Plein écran</string>
+    <string name="dim_off">Désactivé</string>
+    <string name="wp_section_static">Statique</string>
+    <string name="wp_section_video">Vidéo</string>
+    <string name="builtin_aerials">Vidéos aériennes (intégré)</string>
+    <string name="builtin_aerials_sub">289 vidéos aériennes diffusées directement — rien d\'autre à installer ni configurer</string>
+    <string name="aerial_src_label">Collection</string>
+    <string name="speed_label">Vitesse de lecture</string>
+    <string name="aerial_src_all">Toutes (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Communauté 1 (20)</string>
+    <string name="aerial_src_comm2">Communauté 2 (18)</string>
+    <string name="color_gradient">Dégradé de couleur</string>
+    <string name="preset_label">Préréglage de couleur</string>
+    <string name="pick_video">Choisir une vidéo…</string>
+    <string name="pick_video_sub">Boucle en silencieux derrière les icônes. Idéal avec les fichiers aériens Apple de la collection AerialViews (USB ou téléchargements).</string>
+    <string name="pick_photo">Choisir une photo…</string>
+    <string name="pick_photo_sub">Depuis une clé USB ou les téléchargements</string>
+    <string name="screensaver_section">Écran de veille</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Non installé — obtenez-le sur le Play Store</string>
+    <string name="aerial_open_sub">Ouvrir l\'appli pour gérer ses vidéos et réglages</string>
+
+    <!-- Paramètres : barre d'état -->
+    <string name="show_statusbar">Afficher la barre d\'état</string>
+    <string name="show_statusbar_sub">Une fois masquée, appuyez sur Haut depuis la première rangée pour la révéler (MENU ouvre aussi les paramètres)</string>
+    <string name="clock_24h">Horloge 24 h</string>
+    <string name="date_label">Date</string>
+    <string name="statusbar_glass">Fond en verre</string>
+    <string name="statusbar_glass_sub">Panneau derrière les icônes d\'état, comme le dock — suit le réglage d\'arrondi</string>
+    <string name="show_vpn_button">Afficher le bouton VPN</string>
+    <string name="vpn_opens">Le bouton VPN ouvre</string>
+    <string name="vpn_system">Paramètres VPN système</string>
+    <string name="vpn_dialog_title">Le bouton VPN ouvre…</string>
+
+    <!-- Paramètres : à propos -->
+    <string name="about_version">Version 1.0</string>
+    <string name="about_desc">Un launcher léger à écran unique pour Android TV et Google TV.\n\nSans pub · sans pistage · sans services en arrière-plan. Le réseau n\'est utilisé que pour diffuser les fonds d\'écran aériens intégrés. Tous vos réglages tiennent dans un seul fichier local sur cet appareil.</string>
+    <string name="about_foss">Libre et open source</string>
+    <string name="about_license">Sous licence GNU General Public License v3.0 (GPLv3). Vous êtes libre d\'utiliser, étudier, partager et modifier Couchy Launcher.</string>
+    <string name="about_thirdparty">Illustration du canapé : Twemoji (MIT). Vidéos aériennes : collections Apple, Amazon et communautaires, diffusées depuis leurs propriétaires.</string>
+    <string name="rerun_wizard">Relancer l\'assistant de configuration</string>
+    <string name="rerun_wizard_sub">Définition du launcher par défaut et conseils de démarrage</string>
+
+    <!-- Assistant -->
+    <string name="wizard_welcome_title">Bienvenue dans Couchy Launcher</string>
+    <string name="wizard_welcome_body">Un launcher léger à écran unique : vos applis par section, votre fond d\'écran, et une barre d\'état sobre avec horloge, réseau et VPN.</string>
+    <string name="wizard_privacy_body">Confidentialité — rien à accorder : Couchy ne demande ni localisation, ni micro, et n\'exécute aucun service en arrière-plan. Tout le nécessaire a été accordé à l\'installation.</string>
+    <string name="wizard_home_title">Définir comme écran d\'accueil</string>
+    <string name="wizard_already_default">✓ C\'est fait — Couchy est déjà votre launcher par défaut sur cet appareil.</string>
+    <string name="wizard_gtv_intro">Ceci est un appareil Google TV certifié. Google ne permet pas de changer l\'accueil depuis les paramètres à l\'écran ; choisissez l\'une de ces deux méthodes :</string>
+    <string name="wizard_gtv_adb">1 — ADB (recommandé, une seule fois) :\n• Paramètres &gt; Système &gt; À propos &gt; cliquez 7 fois sur « Version Android TV OS » pour débloquer les Options développeur\n• Paramètres &gt; Système &gt; Options développeur &gt; activez le débogage USB/sans fil\n• Depuis un ordinateur sur le même réseau, exécutez :</string>
+    <string name="wizard_gtv_overlay">Si le launcher système recouvre encore Couchy ensuite (vu sur Hisense entre autres), identifiez-le et désactivez-le — réversible à tout moment avec « pm enable » :</string>
+    <string name="wizard_gtv_which">(Utilisez celui des deux packages que la première commande indique. Ne le désactivez qu\'APRÈS avoir vérifié que Couchy s\'ouvre bien.)</string>
+    <string name="wizard_gtv_remap">2 — Remappage de bouton (sans ordinateur) : installez une appli comme « Button Mapper » depuis le Play Store et associez le bouton Accueil à Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Essayer quand même le dialogue système</string>
+    <string name="wizard_check_again">Revérifier</string>
+    <string name="wizard_skip">Passer pour l\'instant</string>
+    <string name="wizard_aosp_body">Cet appareil permet de choisir l\'appli d\'accueil. Appuyez sur le bouton ci-dessous, choisissez Couchy Launcher dans le dialogue système et confirmez (choisissez « Toujours » si demandé).</string>
+    <string name="wizard_set_default">Définir comme launcher par défaut</string>
+    <string name="wizard_no_dialog_hint">Si aucun dialogue n\'apparaît : Paramètres Android &gt; Applis &gt; Applis par défaut &gt; Appli d\'accueil &gt; Couchy Launcher. Ou appuyez simplement sur Accueil — Android demandera quel launcher utiliser.</string>
+    <string name="wizard_vpn_title">Bouton VPN</string>
+    <string name="wizard_vpn_body">Si vous utilisez une appli VPN, choisissez-la — le bouton VPN de la barre d\'état l\'ouvrira. Passez et le bouton VPN reste masqué (activable plus tard dans Paramètres › Barre d\'état).</string>
+    <string name="wizard_vpn_none">Aucune appli VPN détectée sur cet appareil.</string>
+    <string name="wizard_vpn_skip">Passer — masquer le bouton VPN</string>
+    <string name="wizard_done_title">Tout est prêt</string>
+    <string name="wizard_tips">Astuces :\n• Maintenez OK sur une appli pour les options — déplacer, masquer, infos, forcer l\'arrêt, désinstaller\n• Appuyez sur Haut depuis la première rangée pour atteindre VPN, réseau, horloge et paramètres\n• L\'engrenage ouvre les paramètres du launcher : fond d\'écran, sections, affichage et plus</string>
+    <string name="wizard_rerun_note">Vous pouvez relancer cet assistant à tout moment via Paramètres &gt; À propos.</string>
+    <string name="wizard_start">Commencer avec Couchy</string>
+    <string name="wizard_no_chooser">Cet appareil n\'a pas de sélecteur d\'accueil — utilisez la méthode ADB ci-dessus</string>
+    <string name="cat_all_apps">Toutes les applis</string>
+    <string name="all_apps_sub">Toutes les applis installées, rempli automatiquement</string>
+    <string name="cd_move_up">Monter</string>
+    <string name="cd_move_down">Descendre</string>
+    <string name="cd_delete_section">Supprimer la section</string>
+    <string name="about_source">Code source</string>
+    <string name="about_coffee">Offrez-moi un café</string>
+</resources>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">स्ट्रीमिंग</string>
+    <string name="cat_games">गेम्स</string>
+    <string name="cat_music">संगीत</string>
+    <string name="cat_apps">ऐप्स</string>
+
+    <string name="wp_midnight">मिडनाइट</string>
+    <string name="wp_aurora">ऑरोरा</string>
+    <string name="wp_sunset">सनसेट</string>
+    <string name="wp_deep">डीप</string>
+    <string name="wp_charcoal">चारकोल</string>
+
+    <string name="done">पूर्ण</string>
+    <string name="save">सहेजें</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="next">आगे</string>
+    <string name="back">पीछे</string>
+    <string name="off">बंद</string>
+    <string name="minutes_short">%1$d मिनट</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">नेटवर्क</string>
+    <string name="cd_settings">सेटिंग्स</string>
+
+    <string name="menu_open">खोलें</string>
+    <string name="menu_move">स्थानांतरित करें</string>
+    <string name="menu_hide">लॉन्चर से छिपाएँ</string>
+    <string name="menu_unhide">दिखाएँ</string>
+    <string name="menu_app_info">ऐप की जानकारी</string>
+    <string name="menu_force_stop">बलपूर्वक रोकें</string>
+    <string name="menu_uninstall">अनइंस्टॉल करें</string>
+
+    <string name="toast_cannot_open">ऐप नहीं खुल सका</string>
+    <string name="toast_no_launchable">ऐप में कोई लॉन्च स्क्रीन नहीं है</string>
+    <string name="toast_force_stop">बैकग्राउंड प्रक्रियाएँ रोक दी गईं — पूरी तरह रोकने के लिए ऐप की जानकारी का उपयोग करें</string>
+    <string name="toast_no_store">ऐप स्टोर उपलब्ध नहीं — मैन्युअल रूप से इंस्टॉल करें</string>
+    <string name="toast_no_picker">कोई फ़ाइल चयनकर्ता उपलब्ध नहीं</string>
+
+    <string name="settings_title">सेटिंग्स</string>
+    <string name="group_content">सामग्री</string>
+    <string name="group_appearance">दिखावट</string>
+    <string name="group_system">सिस्टम</string>
+    <string name="item_app">ऐप्स</string>
+    <string name="item_app_sub">कोई भी ऐप लॉन्च करें, उसका जानकारी पृष्ठ खोलें</string>
+    <string name="item_android_settings">Android सेटिंग्स</string>
+    <string name="item_android_settings_sub">इस डिवाइस की सिस्टम सेटिंग्स खोलें</string>
+    <string name="item_sections">अनुभाग</string>
+    <string name="item_sections_sub">प्रति अनुभाग ऐप्स चुनें, नाम बदलें, पुनर्व्यवस्थित करें</string>
+    <string name="item_display">डिस्प्ले</string>
+    <string name="item_display_sub">लेआउट मोड, नाम, आइकन आकार, अंतराल</string>
+    <string name="item_wallpaper">वॉलपेपर</string>
+    <string name="item_wallpaper_sub">स्थिर रंग या फ़ोटो, या एक लाइव वीडियो</string>
+    <string name="item_statusbar">स्टेटस बार</string>
+    <string name="item_statusbar_sub">दृश्यता, घड़ी प्रारूप, VPN ऐप</string>
+    <string name="item_about">के बारे में</string>
+
+    <string name="section_layout">लेआउट</string>
+    <string name="view_mode">दृश्य मोड</string>
+    <string name="mode_carousel">कैरोसेल</string>
+    <string name="mode_grid">ग्रिड</string>
+    <string name="mode_dock">डॉक</string>
+    <string name="mode_carousel_desc">चयन स्थिर रहता है — आइकन इसके नीचे स्क्रॉल होते हैं</string>
+    <string name="mode_grid_desc">सभी आइकन स्क्रीन पर — चयन घूमता है</string>
+    <string name="mode_dock_desc">नीचे फ़्लोटिंग डॉक — नीचे दबाने पर धुँधले वॉलपेपर पर विस्तारित होता है</string>
+    <string name="section_elements">तत्व</string>
+    <string name="section_names_label">अनुभाग के नाम</string>
+    <string name="section_size">आकार — प्रत्येक पंक्ति में उतने आइकन आते हैं जितने आकार + अंतराल अनुमति दें</string>
+    <string name="roundness">गोलाई</string>
+    <string name="icon_size">आइकन का आकार</string>
+    <string name="spacing">अंतराल</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">छोटा</string>
+    <string name="size_n">सामान्य</string>
+    <string name="size_l">बड़ा</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK लॉन्च करता है · ⓘ जानकारी · बिन अनइंस्टॉल करता है</string>
+    <string name="no_section">कोई अनुभाग नहीं</string>
+    <string name="hidden_tag">छिपा हुआ</string>
+
+    <string name="section_row_sub">OK: इस अनुभाग के ऐप्स चुनें</string>
+    <string name="add_section">अनुभाग जोड़ें</string>
+    <string name="new_section">नया अनुभाग</string>
+    <string name="rename_section">अनुभाग का नाम बदलें</string>
+    <string name="section_apps_sub">OK टॉगल करता है कि कोई ऐप इस अनुभाग में दिखे या नहीं</string>
+
+    <string name="dim_label">मंदता</string>
+    <string name="dim_top_bottom">ऊपर &amp; नीचे</string>
+    <string name="dim_top">ऊपर</string>
+    <string name="dim_bottom">नीचे</string>
+    <string name="dim_full">पूर्ण स्क्रीन</string>
+    <string name="dim_off">बंद</string>
+    <string name="wp_section_static">स्थिर</string>
+    <string name="wp_section_video">वीडियो</string>
+    <string name="builtin_aerials">हवाई वीडियो (अंतर्निहित)</string>
+    <string name="builtin_aerials_sub">289 हवाई वीडियो सीधे स्ट्रीम किए गए — कुछ और इंस्टॉल या कॉन्फ़िगर नहीं करना है</string>
+    <string name="aerial_src_label">संग्रह</string>
+    <string name="speed_label">प्लेबैक गति</string>
+    <string name="aerial_src_all">सभी (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">समुदाय 1 (20)</string>
+    <string name="aerial_src_comm2">समुदाय 2 (18)</string>
+    <string name="color_gradient">रंग ढाल</string>
+    <string name="preset_label">रंग प्रीसेट</string>
+    <string name="pick_video">वीडियो चुनें…</string>
+    <string name="pick_video_sub">आइकन के पीछे मौन लूप में चलता है। AerialViews संग्रह (USB या डाउनलोड) की Apple हवाई फ़ाइलों के साथ बहुत अच्छा काम करता है।</string>
+    <string name="pick_photo">फ़ोटो चुनें…</string>
+    <string name="pick_photo_sub">USB ड्राइव या डाउनलोड से</string>
+    <string name="screensaver_section">स्क्रीनसेवर</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">इंस्टॉल नहीं — Play Store से प्राप्त करें</string>
+    <string name="aerial_open_sub">वीडियो और सेटिंग्स प्रबंधित करने के लिए ऐप खोलें</string>
+
+    <string name="show_statusbar">स्टेटस बार दिखाएँ</string>
+    <string name="show_statusbar_sub">छिपा होने पर, दिखाने के लिए ऊपरी पंक्ति से ऊपर दबाएँ (MENU भी सेटिंग्स खोलता है)</string>
+    <string name="clock_24h">24-घंटे की घड़ी</string>
+    <string name="date_label">दिनांक</string>
+    <string name="statusbar_glass">काँच की पृष्ठभूमि</string>
+    <string name="statusbar_glass_sub">डॉक की तरह स्टेटस आइकन के पीछे पैनल — गोलाई सेटिंग का अनुसरण करता है</string>
+    <string name="show_vpn_button">VPN बटन दिखाएँ</string>
+    <string name="vpn_opens">VPN बटन खोलता है</string>
+    <string name="vpn_system">सिस्टम VPN सेटिंग्स</string>
+    <string name="vpn_dialog_title">VPN बटन खोलता है…</string>
+
+    <string name="about_version">संस्करण 1.0</string>
+    <string name="about_desc">Android TV और Google TV के लिए एक हल्का, एकल-स्क्रीन लॉन्चर।\n\nकोई विज्ञापन नहीं · कोई ट्रैकिंग नहीं · कोई बैकग्राउंड सेवाएँ नहीं। नेटवर्क का उपयोग केवल अंतर्निहित हवाई वॉलपेपर स्ट्रीम करने के लिए किया जाता है। आपकी सभी सेटिंग्स इस डिवाइस पर एक स्थानीय फ़ाइल में रहती हैं।</string>
+    <string name="about_foss">मुक्त &amp; ओपन सोर्स</string>
+    <string name="about_license">GNU General Public License v3.0 (GPLv3) के तहत लाइसेंस प्राप्त। आप Couchy Launcher का उपयोग, अध्ययन, साझा और संशोधन करने के लिए स्वतंत्र हैं।</string>
+    <string name="about_thirdparty">सोफ़ा कलाकृति: Twemoji (MIT)। हवाई वीडियो: Apple, Amazon और समुदाय संग्रह, उनके मालिकों से स्ट्रीम किए गए।</string>
+    <string name="rerun_wizard">सेटअप विज़ार्ड फिर से चलाएँ</string>
+    <string name="rerun_wizard_sub">डिफ़ॉल्ट लॉन्चर सेटअप और पहली बार की युक्तियाँ</string>
+
+    <string name="wizard_welcome_title">Couchy Launcher में आपका स्वागत है</string>
+    <string name="wizard_welcome_body">एक हल्का, एकल-स्क्रीन लॉन्चर: आपके ऐप्स अनुभाग द्वारा समूहित, आपका अपना वॉलपेपर, और घड़ी, नेटवर्क और VPN के साथ एक साफ़ स्टेटस बार।</string>
+    <string name="wizard_privacy_body">गोपनीयता नोट — कुछ भी अनुमति देने की आवश्यकता नहीं: Couchy स्थान, माइक्रोफ़ोन का अनुरोध नहीं करता और कोई बैकग्राउंड सेवाएँ नहीं चलाता। इंस्टॉल के समय सभी आवश्यक चीज़ें प्रदान की गई थीं।</string>
+    <string name="wizard_home_title">होम स्क्रीन के रूप में सेट करें</string>
+    <string name="wizard_already_default">✓ हो गया — Couchy पहले से ही इस डिवाइस पर आपका डिफ़ॉल्ट लॉन्चर है।</string>
+    <string name="wizard_gtv_intro">यह एक प्रमाणित Google TV डिवाइस है। Google ऑन-स्क्रीन सेटिंग्स से होम ऐप बदलने की अनुमति नहीं देता, इसलिए इन दो विधियों में से एक चुनें:</string>
+    <string name="wizard_gtv_adb">1 — ADB (अनुशंसित, एक बार):\n• सेटिंग्स &gt; सिस्टम &gt; के बारे में &gt; डेवलपर विकल्प अनलॉक करने के लिए \"Android TV OS बिल्ड\" पर 7 बार क्लिक करें\n• सेटिंग्स &gt; सिस्टम &gt; डेवलपर विकल्प &gt; USB/वायरलेस डिबगिंग सक्षम करें\n• उसी नेटवर्क पर कंप्यूटर से चलाएँ:</string>
+    <string name="wizard_gtv_overlay">यदि इसके बाद भी सिस्टम लॉन्चर Couchy के ऊपर दिखता है (Hisense और अन्य पर देखा गया), तो उसे ढूँढ़ें और अक्षम करें — \"pm enable\" से कभी भी वापस किया जा सकता है:</string>
+    <string name="wizard_gtv_which">(पहले कमांड द्वारा बताए गए दो लॉन्चर पैकेजों में से किसी एक का उपयोग करें। Couchy के ठीक से खुलने की पुष्टि करने के बाद ही इसे अक्षम करें।)</string>
+    <string name="wizard_gtv_remap">2 — बटन रीमैप (बिना कंप्यूटर): Play Store से \"Button Mapper\" जैसा ऐप इंस्टॉल करें और होम बटन को Couchy Launcher पर मैप करें।</string>
+    <string name="wizard_try_dialog">फिर भी सिस्टम डायलॉग आज़माएँ</string>
+    <string name="wizard_check_again">फिर से जाँचें</string>
+    <string name="wizard_skip">अभी छोड़ें</string>
+    <string name="wizard_aosp_body">यह डिवाइस होम ऐप चुनने की अनुमति देता है। नीचे दिए बटन को दबाएँ, सिस्टम डायलॉग में Couchy Launcher चुनें और पुष्टि करें (पूछे जाने पर \"हमेशा\" चुनें)।</string>
+    <string name="wizard_set_default">डिफ़ॉल्ट लॉन्चर के रूप में सेट करें</string>
+    <string name="wizard_no_dialog_hint">यदि कोई डायलॉग दिखाई नहीं देता: Android सेटिंग्स &gt; ऐप्स &gt; डिफ़ॉल्ट ऐप्स &gt; होम ऐप &gt; Couchy Launcher। या बस होम बटन दबाएँ — Android पूछेगा कि कौन सा लॉन्चर उपयोग करना है।</string>
+    <string name="wizard_vpn_title">VPN बटन</string>
+    <string name="wizard_vpn_body">यदि आप VPN ऐप का उपयोग करते हैं, तो इसे चुनें — स्टेटस बार में VPN बटन इसे खोलेगा। छोड़ें और VPN बटन छिपा रहेगा (आप इसे बाद में सेटिंग्स › स्टेटस बार से सक्षम कर सकते हैं)।</string>
+    <string name="wizard_vpn_none">इस डिवाइस पर कोई VPN ऐप नहीं पाया गया।</string>
+    <string name="wizard_vpn_skip">छोड़ें — VPN बटन छिपाएँ</string>
+    <string name="wizard_done_title">सब तैयार है</string>
+    <string name="wizard_tips">सुझाव:\n• विकल्पों के लिए किसी भी ऐप पर OK दबाकर रखें — स्थानांतरित करें, छिपाएँ, ऐप की जानकारी, बलपूर्वक रोकें, अनइंस्टॉल करें\n• VPN, नेटवर्क, घड़ी और सेटिंग्स तक पहुँचने के लिए ऊपरी पंक्ति से ऊपर दबाएँ\n• गियर आइकन लॉन्चर सेटिंग्स खोलता है: वॉलपेपर, अनुभाग, डिस्प्ले और अधिक</string>
+    <string name="wizard_rerun_note">आप इस विज़ार्ड को कभी भी सेटिंग्स &gt; के बारे में से फिर से चला सकते हैं।</string>
+    <string name="wizard_start">Couchy का उपयोग शुरू करें</string>
+    <string name="wizard_no_chooser">इस डिवाइस पर कोई होम चयनकर्ता नहीं है — ऊपर दिखाई गई ADB विधि का उपयोग करें</string>
+    <string name="ui_scale">इंटरफ़ेस स्केल</string>
+    <string name="scale_auto">स्वतः</string>
+    <string name="ui_scale_auto_sub">हाई-DPI टीवी को छोटा करता है ताकि इंटरफ़ेस हर डिवाइस पर एक जैसा दिखे</string>
+    <string name="item_language">भाषा</string>
+    <string name="item_language_sub">इंटरफ़ेस की भाषा</string>
+    <string name="lang_system">सिस्टम डिफ़ॉल्ट</string>
+    <string name="cat_all_apps">सभी ऐप्स</string>
+    <string name="all_apps_sub">हर इंस्टॉल किया गया ऐप, स्वतः भरता है</string>
+    <string name="cd_move_up">ऊपर ले जाएँ</string>
+    <string name="cd_move_down">नीचे ले जाएँ</string>
+    <string name="cd_delete_section">सेक्शन हटाएँ</string>
+    <string name="about_source">सोर्स कोड</string>
+    <string name="about_coffee">मुझे एक कॉफ़ी पिलाएँ</string>
+</resources>
