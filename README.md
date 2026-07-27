@@ -14,11 +14,15 @@
 
 [**English**](#english) · [中文](#chinese) — [Contributing](CONTRIBUTING.md) · [Licensing](LICENSING.md)
 
-<img src="docs/img/dock.png" width="80%" alt="Couchy dock over an Aurora wallpaper" />
+https://github.com/user-attachments/assets/6f21913e-1948-4543-9983-64dc68c602fa
 
-[![Couchy Launcher demo](https://img.youtube.com/vi/o2_FqiU_DJc/maxresdefault.jpg)](https://www.youtube.com/watch?v=o2_FqiU_DJc)
 
-<a href="https://www.buymeacoffee.com/conreo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=conreo&button_colour=BD5FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" alt="Buy me a coffee" /></a>
+<a href="https://www.buymeacoffee.com/conreo" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
+         alt="Buy Me A Coffee" 
+         style="height: 40px !important; width: auto !important;">
+</a>
+
 
 </div>
 
@@ -140,9 +144,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Adding a language is copying `values/str
 
 [English](#english) · [**中文**](#chinese) — [参与贡献](CONTRIBUTING.md) · [许可证](LICENSING.md)
 
-<img src="docs/img/dock.png" width="80%" alt="Aurora 壁纸上的 Couchy 底栏" />
+https://github.com/user-attachments/assets/6f21913e-1948-4543-9983-64dc68c602fa
 
-<a href="https://www.buymeacoffee.com/conreo"><img src="https://img.buymeacoffee.com/button-api/?text=请我喝杯咖啡&emoji=☕&slug=conreo&button_colour=BD5FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" alt="请我喝杯咖啡" /></a>
+
+<a href="https://www.buymeacoffee.com/conreo" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
+         alt="Buy Me A Coffee" 
+         style="height: 40px !important; width: auto !important;">
+</a>
+
 
 </div>
 
