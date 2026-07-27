@@ -1,0 +1,1 @@
+Shortcut: 1.0.2 wake fix and background improvements
