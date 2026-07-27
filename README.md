@@ -16,7 +16,7 @@
 
 <img src="docs/img/dock.png" width="80%" alt="Couchy dock over an Aurora wallpaper" />
 
-[![Couchy Launcher demo](https://raw.githubusercontent.com/conreo/couchy-launcher/main/docs/couchy-demo-poster.png)](https://github.com/conreo/couchy-launcher/releases/download/v1.0.2/couchy-demo.mp4)
+[![Couchy Launcher demo](https://img.youtube.com/vi/o2_FqiU_DJc/maxresdefault.jpg)](https://www.youtube.com/watch?v=o2_FqiU_DJc)
 
 <a href="https://www.buymeacoffee.com/conreo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=conreo&button_colour=BD5FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" alt="Buy me a coffee" /></a>
 
