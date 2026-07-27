@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <!-- Default category names (first install) -->
+    <string name="cat_streaming">Streaming</string>
+    <string name="cat_games">Games</string>
+    <string name="cat_music">Music</string>
+    <string name="cat_apps">Apps</string>
+
+    <!-- Wallpaper preset names -->
+    <string name="wp_midnight">Midnight</string>
+    <string name="wp_aurora">Aurora</string>
+    <string name="wp_sunset">Sunset</string>
+    <string name="wp_deep">Deep</string>
+    <string name="wp_charcoal">Charcoal</string>
+
+    <!-- Common -->
+    <string name="done">Done</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="off">Off</string>
+    <string name="minutes_short">%1$d min</string>
+
+    <!-- Status bar -->
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Network</string>
+    <string name="cd_settings">Settings</string>
+
+    <!-- Long-press menu -->
+    <string name="menu_open">Open</string>
+    <string name="menu_move">Move</string>
+    <string name="menu_hide">Hide from launcher</string>
+    <string name="menu_unhide">Unhide</string>
+    <string name="menu_app_info">App info</string>
+    <string name="menu_force_stop">Force stop</string>
+    <string name="menu_uninstall">Uninstall</string>
+
+    <!-- Toasts -->
+    <string name="toast_cannot_open">Could not open app</string>
+    <string name="toast_no_launchable">App has no launchable screen</string>
+    <string name="toast_force_stop">Background processes stopped — use App info to fully force stop</string>
+    <string name="toast_no_store">App store not available — install the app manually</string>
+    <string name="toast_no_picker">No file picker app available</string>
+
+    <!-- Settings: main -->
+    <string name="settings_title">Settings</string>
+    <string name="group_content">Content</string>
+    <string name="group_appearance">Appearance</string>
+    <string name="group_system">System</string>
+    <string name="item_app">Apps</string>
+    <string name="item_app_sub">Launch any app, open its info page</string>
+    <string name="item_android_settings">Android settings</string>
+    <string name="item_android_settings_sub">Open the system settings of this device</string>
+    <string name="item_sections">Sections</string>
+    <string name="item_sections_sub">Pick apps per section, rename, reorder</string>
+    <string name="item_display">Display</string>
+    <string name="item_display_sub">Layout mode, names, icon size, spacing</string>
+    <string name="item_wallpaper">Wallpaper</string>
+    <string name="item_wallpaper_sub">Static color or photo, or a live video</string>
+    <string name="item_statusbar">Status bar</string>
+    <string name="item_statusbar_sub">Visibility, clock format, VPN app</string>
+    <string name="item_language">Language</string>
+    <string name="item_language_sub">Interface language</string>
+    <string name="lang_system">System default</string>
+    <string name="item_about">About</string>
+
+    <!-- Settings: display -->
+    <string name="section_layout">Layout</string>
+    <string name="view_mode">View mode</string>
+    <string name="mode_carousel">Carousel</string>
+    <string name="mode_grid">Grid</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">Selection stays fixed — the icons scroll under it</string>
+    <string name="mode_grid_desc">All icons contained on screen — the selection moves</string>
+    <string name="mode_dock_desc">Floating dock at the bottom — Down expands over a blurred wallpaper</string>
+    <string name="section_elements">Elements</string>
+    <string name="section_names_label">Section names</string>
+    <string name="section_size">Size — rows fit as many icons as size + spacing allow</string>
+    <string name="ui_scale">Interface scale</string>
+    <string name="scale_auto">Auto</string>
+    <string name="ui_scale_auto_sub">Compacts high-DPI TVs so the interface reads the same on every device</string>
+    <string name="roundness">Roundness</string>
+    <string name="icon_size">Icon size</string>
+    <string name="spacing">Spacing</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Small</string>
+    <string name="size_n">Normal</string>
+    <string name="size_l">Large</string>
+    <string name="size_xl">XL</string>
+
+    <!-- Settings: app list -->
+    <string name="app_hint">OK launches · ⓘ app info · bin uninstalls</string>
+    <string name="no_section">no section</string>
+    <string name="hidden_tag">hidden</string>
+
+    <!-- Settings: sections -->
+    <string name="section_row_sub">OK: choose the apps of this section</string>
+    <string name="add_section">Add section</string>
+    <string name="new_section">New section</string>
+    <string name="rename_section">Rename section</string>
+    <string name="section_apps_sub">OK toggles whether an app appears in this section</string>
+
+    <!-- Settings: wallpaper -->
+    <string name="dim_label">Dimming</string>
+    <string name="dim_top_bottom">Top &amp; bottom</string>
+    <string name="dim_top">Top</string>
+    <string name="dim_bottom">Bottom</string>
+    <string name="dim_full">Full screen</string>
+    <string name="dim_off">Off</string>
+    <string name="wp_section_static">Static</string>
+    <string name="wp_section_video">Video</string>
+    <string name="builtin_aerials">Aerial videos (built-in)</string>
+    <string name="builtin_aerials_sub">289 aerial videos streamed directly — nothing else to install or configure</string>
+    <string name="aerial_src_label">Collection</string>
+    <string name="speed_label">Playback speed</string>
+    <string name="aerial_src_all">All (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Community 1 (20)</string>
+    <string name="aerial_src_comm2">Community 2 (18)</string>
+    <string name="color_gradient">Color gradient</string>
+    <string name="preset_label">Color preset</string>
+    <string name="pick_video">Pick a video…</string>
+    <string name="pick_video_sub">Loops muted behind the icons. Works great with the Apple aerial files from the AerialViews collection (USB or downloads).</string>
+    <string name="pick_photo">Pick a photo…</string>
+    <string name="pick_photo_sub">From USB drive or downloads</string>
+    <string name="screensaver_section">Screensaver</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Not installed — get it from the Play Store</string>
+    <string name="aerial_open_sub">Open the app to manage its videos and settings</string>
+
+    <!-- Settings: status bar -->
+    <string name="show_statusbar">Show status bar</string>
+    <string name="show_statusbar_sub">When hidden, press Up from the top row to reveal it (MENU also opens settings)</string>
+    <string name="clock_24h">24-hour clock</string>
+    <string name="date_label">Date</string>
+    <string name="statusbar_glass">Glass background</string>
+    <string name="statusbar_glass_sub">Panel behind the status icons, like the dock — follows the roundness setting</string>
+    <string name="show_vpn_button">Show VPN button</string>
+    <string name="vpn_opens">VPN button opens</string>
+    <string name="vpn_system">System VPN settings</string>
+    <string name="vpn_dialog_title">VPN button opens…</string>
+
+    <!-- Settings: about -->
+    <string name="about_version">Version 1.0</string>
+    <string name="about_desc">A lightweight, one-screen launcher for Android TV and Google TV. No ads, no tracking, no background services.</string>
+    <string name="about_foss">Free &amp; open source</string>
+    <string name="about_license">Licensed under the GNU GPLv3 — use, study, share and modify freely.</string>
+    <string name="about_source">Source code</string>
+    <string name="about_coffee">Buy me a coffee</string>
+    <string name="github_url" translatable="false">https://github.com/conreo/couchy-launcher</string>
+    <string name="about_thirdparty">Couch artwork: Twemoji (MIT). Aerial videos: Apple, Amazon and community collections.</string>
+    <string name="rerun_wizard">Run setup wizard again</string>
+    <string name="rerun_wizard_sub">Default-launcher setup and first-run tips</string>
+
+    <!-- Setup wizard -->
+    <string name="wizard_welcome_title">Welcome to Couchy Launcher</string>
+    <string name="wizard_welcome_body">A lightweight, one-screen launcher: your apps grouped by section, your own wallpaper, and a clean status row with clock, network and VPN.</string>
+    <string name="wizard_privacy_body">Privacy note — nothing to grant: Couchy requests no location, no microphone, and runs no background services. Everything it needs was granted at install.</string>
+    <string name="wizard_home_title">Set as your home screen</string>
+    <string name="wizard_already_default">✓ Done — Couchy is already your default launcher on this device.</string>
+    <string name="wizard_gtv_intro">This is a certified Google TV device. Google does not allow changing the home app from the on-screen settings, so pick one of these two methods:</string>
+    <string name="wizard_gtv_adb">1 — ADB (recommended, one-time):\n• Settings &gt; System &gt; About &gt; click "Android TV OS build" 7 times to unlock Developer options\n• Settings &gt; System &gt; Developer options &gt; enable USB/Wireless debugging\n• From a computer on the same network, run:</string>
+    <string name="wizard_gtv_overlay">If the system launcher still overlays Couchy after that (seen on Hisense and others), find it and disable it — reversible with "pm enable" anytime:</string>
+    <string name="wizard_gtv_which">(Use whichever of the two launcher packages the first command reports. Only disable it AFTER confirming Couchy opens fine.)</string>
+    <string name="wizard_gtv_remap">2 — Button remap (no computer): install a button-remapper app (e.g. "Button Mapper" from the Play Store) and map the Home button to Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Try system dialog anyway</string>
+    <string name="wizard_check_again">Check again</string>
+    <string name="wizard_skip">Skip for now</string>
+    <string name="wizard_aosp_body">This device allows choosing a home app. Press the button below, pick Couchy Launcher in the system dialog and confirm (choose "Always" if asked).</string>
+    <string name="wizard_set_default">Set as default launcher</string>
+    <string name="wizard_no_dialog_hint">If no dialog appears: Android settings &gt; Apps &gt; Default apps &gt; Home app &gt; Couchy Launcher. Or simply press the Home button — Android will ask which launcher to use.</string>
+    <string name="wizard_vpn_title">VPN button</string>
+    <string name="wizard_vpn_body">If you use a VPN app, pick it — the VPN button in the status bar will open it. Skip and the VPN button stays hidden (you can enable it later in Settings › Status bar).</string>
+    <string name="wizard_vpn_none">No VPN app detected on this device.</string>
+    <string name="wizard_vpn_skip">Skip — hide VPN button</string>
+    <string name="wizard_done_title">You\'re all set</string>
+    <string name="wizard_tips">Tips:\n• Hold OK on any app for options — move, hide, app info, force stop, uninstall\n• Press Up from the top row to reach VPN, network, clock and settings\n• The gear opens launcher settings: wallpaper, sections, display and more</string>
+    <string name="wizard_rerun_note">You can rerun this wizard anytime from Settings &gt; About.</string>
+    <string name="wizard_start">Start using Couchy</string>
+    <string name="wizard_no_chooser">This device has no home chooser — use the ADB method shown</string>
+    <string name="cat_all_apps">All apps</string>
+    <string name="all_apps_sub">Every installed app, filled automatically</string>
+    <string name="cd_move_up">Move up</string>
+    <string name="cd_move_down">Move down</string>
+    <string name="cd_delete_section">Delete section</string>
+</resources>

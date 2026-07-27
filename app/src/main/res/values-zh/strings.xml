@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy 启动器</string>
+
+    <!-- 默认分类名称（首次安装） -->
+    <string name="cat_streaming">流媒体</string>
+    <string name="cat_games">游戏</string>
+    <string name="cat_music">音乐</string>
+    <string name="cat_apps">应用</string>
+
+    <!-- 壁纸预设名称 -->
+    <string name="wp_midnight">午夜</string>
+    <string name="wp_aurora">极光</string>
+    <string name="wp_sunset">日落</string>
+    <string name="wp_deep">深海</string>
+    <string name="wp_charcoal">墨炭</string>
+
+    <!-- 通用 -->
+    <string name="done">完成</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="next">下一步</string>
+    <string name="back">返回</string>
+    <string name="off">关闭</string>
+    <string name="minutes_short">%1$d 分钟</string>
+
+    <!-- 状态栏 -->
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">网络</string>
+    <string name="cd_settings">设置</string>
+
+    <!-- 长按菜单 -->
+    <string name="menu_open">打开</string>
+    <string name="menu_move">移动</string>
+    <string name="menu_hide">从启动器隐藏</string>
+    <string name="menu_unhide">取消隐藏</string>
+    <string name="menu_app_info">应用信息</string>
+    <string name="menu_force_stop">强制停止</string>
+    <string name="menu_uninstall">卸载</string>
+
+    <!-- 提示消息 -->
+    <string name="toast_cannot_open">无法打开应用</string>
+    <string name="toast_no_launchable">该应用无可启动界面</string>
+    <string name="toast_force_stop">后台进程已停止 — 请使用应用信息进行完全强制停止</string>
+    <string name="toast_no_store">应用商店不可用 — 请手动安装应用</string>
+    <string name="toast_no_picker">没有可用的文件选择器</string>
+
+    <!-- 设置：主界面 -->
+    <string name="settings_title">设置</string>
+    <string name="group_content">内容</string>
+    <string name="group_appearance">外观</string>
+    <string name="group_system">系统</string>
+    <string name="item_app">应用</string>
+    <string name="item_app_sub">启动任意应用，打开其信息页面</string>
+    <string name="item_android_settings">Android 设置</string>
+    <string name="item_android_settings_sub">打开此设备的系统设置</string>
+    <string name="item_sections">分类</string>
+    <string name="item_sections_sub">为每个分类选择应用、重命名、排序</string>
+    <string name="item_display">显示</string>
+    <string name="item_display_sub">布局模式、名称、图标大小、间距</string>
+    <string name="item_wallpaper">壁纸</string>
+    <string name="item_wallpaper_sub">静态颜色或照片，或动态视频</string>
+    <string name="item_statusbar">状态栏</string>
+    <string name="item_statusbar_sub">可见性、时钟格式、VPN 应用</string>
+    <string name="item_about">关于</string>
+
+    <!-- 设置：显示 -->
+    <string name="section_layout">布局</string>
+    <string name="view_mode">视图模式</string>
+    <string name="mode_carousel">轮播</string>
+    <string name="mode_grid">网格</string>
+    <string name="mode_dock">停靠栏</string>
+    <string name="mode_carousel_desc">选中项保持固定 — 图标在其下方滚动</string>
+    <string name="mode_grid_desc">所有图标显示在屏幕内 — 选中项移动</string>
+    <string name="mode_dock_desc">底部浮动停靠栏 — 按下键展开到模糊壁纸上方</string>
+    <string name="section_elements">元素</string>
+    <string name="section_names_label">分类名称</string>
+    <string name="section_size">大小 — 每行显示尽可能多的图标</string>
+    <string name="roundness">圆角</string>
+    <string name="icon_size">图标大小</string>
+    <string name="spacing">间距</string>
+    <string name="size_xs">极小</string>
+    <string name="size_s">小</string>
+    <string name="size_n">正常</string>
+    <string name="size_l">大</string>
+    <string name="size_xl">极大</string>
+
+    <!-- 设置：应用列表 -->
+    <string name="app_hint">OK 启动 · ⓘ 应用信息 · 垃圾桶卸载</string>
+    <string name="no_section">无分类</string>
+    <string name="hidden_tag">已隐藏</string>
+
+    <!-- 设置：分类 -->
+    <string name="section_row_sub">OK：选择此分类中的应用</string>
+    <string name="add_section">添加分类</string>
+    <string name="new_section">新分类</string>
+    <string name="rename_section">重命名分类</string>
+    <string name="section_apps_sub">OK 切换应用是否出现在此分类中</string>
+
+    <!-- 设置：壁纸 -->
+    <string name="dim_label">暗化</string>
+    <string name="dim_top_bottom">顶部 &amp; 底部</string>
+    <string name="dim_top">顶部</string>
+    <string name="dim_bottom">底部</string>
+    <string name="dim_full">全屏</string>
+    <string name="dim_off">关闭</string>
+    <string name="wp_section_static">静态</string>
+    <string name="wp_section_video">视频</string>
+    <string name="builtin_aerials">航拍视频（内置）</string>
+    <string name="builtin_aerials_sub">289 个航拍视频直接串流播放 — 无需额外安装或配置</string>
+    <string name="aerial_src_label">合集</string>
+    <string name="speed_label">播放速度</string>
+    <string name="aerial_src_all">全部（289）</string>
+    <string name="aerial_src_apple">Apple（139）</string>
+    <string name="aerial_src_amazon">Amazon（112）</string>
+    <string name="aerial_src_comm1">社区 1（20）</string>
+    <string name="aerial_src_comm2">社区 2（18）</string>
+    <string name="color_gradient">颜色渐变</string>
+    <string name="preset_label">颜色预设</string>
+    <string name="pick_video">选择视频…</string>
+    <string name="pick_video_sub">在图标后静音循环播放。与 AerialViews 合集中的 Apple 航拍文件（USB 或下载）配合效果最佳。</string>
+    <string name="pick_photo">选择照片…</string>
+    <string name="pick_photo_sub">从 USB 驱动器或下载中选择</string>
+    <string name="screensaver_section">屏保</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">未安装 — 从 Play Store 获取</string>
+    <string name="aerial_open_sub">打开应用管理其视频和设置</string>
+
+    <!-- 设置：状态栏 -->
+    <string name="show_statusbar">显示状态栏</string>
+    <string name="show_statusbar_sub">隐藏后，从顶行按上键可显示（MENU 也可打开设置）</string>
+    <string name="clock_24h">24 小时制</string>
+    <string name="date_label">日期</string>
+    <string name="statusbar_glass">玻璃背景</string>
+    <string name="statusbar_glass_sub">状态图标后面的面板，类似停靠栏 — 跟随圆角设置</string>
+    <string name="show_vpn_button">显示 VPN 按钮</string>
+    <string name="vpn_opens">VPN 按钮打开</string>
+    <string name="vpn_system">系统 VPN 设置</string>
+    <string name="vpn_dialog_title">VPN 按钮打开…</string>
+
+    <!-- 设置：关于 -->
+    <string name="about_version">版本 1.0</string>
+    <string name="about_desc">一款适用于 Android TV 和 Google TV 的轻量级单屏启动器。\n\n无广告 · 无跟踪 · 无后台服务。网络仅用于串流内置航拍壁纸。您的所有设置均保存在此设备上的单个本地文件中。</string>
+    <string name="about_foss">自由开源</string>
+    <string name="about_license">基于 GNU General Public License v3.0（GPLv3）许可。您可以自由使用、研究、分享和修改 Couchy Launcher。</string>
+    <string name="about_thirdparty">沙发图标：Twemoji（MIT）。航拍视频：Apple、Amazon 和社区合集，从其所有者处串流。</string>
+    <string name="rerun_wizard">重新运行设置向导</string>
+    <string name="rerun_wizard_sub">默认启动器设置和首次使用提示</string>
+
+    <!-- 设置向导 -->
+    <string name="wizard_welcome_title">欢迎使用 Couchy 启动器</string>
+    <string name="wizard_welcome_body">一款轻量级单屏启动器：按分类整理您的应用，自定义壁纸，以及带有时钟、网络和 VPN 的简洁状态栏。</string>
+    <string name="wizard_privacy_body">隐私说明 — 无需授权：Couchy 不请求位置、麦克风权限，也不运行后台服务。安装时已授予所需的一切。</string>
+    <string name="wizard_home_title">设置为主屏幕</string>
+    <string name="wizard_already_default">✓ 完成 — Couchy 已是此设备上的默认启动器。</string>
+    <string name="wizard_gtv_intro">这是一台经过认证的 Google TV 设备。Google 不允许从屏幕设置中更改主页应用，请选择以下两种方法之一：</string>
+    <string name="wizard_gtv_adb">1 — ADB（推荐，一次性）：\n• 设置 &gt; 系统 &gt; 关于 &gt; 点击「Android TV OS 版本」7 次解锁开发者选项\n• 设置 &gt; 系统 &gt; 开发者选项 &gt; 启用 USB/无线调试\n• 从同一网络上的电脑运行：</string>
+    <string name="wizard_gtv_overlay">如果之后系统启动器仍然覆盖 Couchy（在 Hisense 等设备上已观察到），找到它并禁用它 — 随时可用「pm enable」恢复：</string>
+    <string name="wizard_gtv_which">（使用第一个命令所报告的任一个启动器包名。仅在确认 Couchy 正常打开后再禁用它。）</string>
+    <string name="wizard_gtv_remap">2 — 按钮重映射（无需电脑）：安装按钮重映射应用（如 Play Store 中的「Button Mapper」），将主页按钮映射到 Couchy 启动器。</string>
+    <string name="wizard_try_dialog">仍然尝试系统对话框</string>
+    <string name="wizard_check_again">再次检查</string>
+    <string name="wizard_skip">暂时跳过</string>
+    <string name="wizard_aosp_body">此设备允许选择主页应用。按下下方按钮，在系统对话框中选择 Couchy 启动器并确认（如果询问，选择「始终」）。</string>
+    <string name="wizard_set_default">设为默认启动器</string>
+    <string name="wizard_no_dialog_hint">如果没有对话框出现：Android 设置 &gt; 应用 &gt; 默认应用 &gt; 主页应用 &gt; Couchy 启动器。或者直接按主页按钮 — Android 会询问使用哪个启动器。</string>
+    <string name="wizard_vpn_title">VPN 按钮</string>
+    <string name="wizard_vpn_body">如果使用 VPN 应用，请选择它 — 状态栏中的 VPN 按钮将打开它。跳过则 VPN 按钮保持隐藏（稍后可在设置 › 状态栏中启用）。</string>
+    <string name="wizard_vpn_none">此设备上未检测到 VPN 应用。</string>
+    <string name="wizard_vpn_skip">跳过 — 隐藏 VPN 按钮</string>
+    <string name="wizard_done_title">一切就绪</string>
+    <string name="wizard_tips">提示：\n• 在任何应用上长按 OK 查看选项 — 移动、隐藏、应用信息、强制停止、卸载\n• 从顶行按上键访问 VPN、网络、时钟和设置\n• 齿轮图标打开启动器设置：壁纸、分类、显示等</string>
+    <string name="wizard_rerun_note">您可以随时从设置 &gt; 关于重新运行此向导。</string>
+    <string name="wizard_start">开始使用 Couchy</string>
+    <string name="wizard_no_chooser">此设备没有主页选择器 — 请使用上面显示的 ADB 方法</string>
+    <string name="ui_scale">界面缩放</string>
+    <string name="scale_auto">自动</string>
+    <string name="ui_scale_auto_sub">在高 DPI 电视上压缩界面，使其在各设备上显示一致</string>
+    <string name="item_language">语言</string>
+    <string name="item_language_sub">界面语言</string>
+    <string name="lang_system">系统默认</string>
+    <string name="cat_all_apps">全部应用</string>
+    <string name="all_apps_sub">所有已安装的应用，自动填充</string>
+    <string name="cd_move_up">上移</string>
+    <string name="cd_move_down">下移</string>
+    <string name="cd_delete_section">删除分区</string>
+    <string name="about_source">源代码</string>
+    <string name="about_coffee">请我喝咖啡</string>
+</resources>

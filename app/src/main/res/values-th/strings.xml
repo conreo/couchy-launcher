@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">สตรีมมิ่ง</string>
+    <string name="cat_games">เกม</string>
+    <string name="cat_music">เพลง</string>
+    <string name="cat_apps">แอป</string>
+
+    <string name="wp_midnight">เที่ยงคืน</string>
+    <string name="wp_aurora">ออโรรา</string>
+    <string name="wp_sunset">พระอาทิตย์ตก</string>
+    <string name="wp_deep">ห้วงลึก</string>
+    <string name="wp_charcoal">ถ่าน</string>
+
+    <string name="done">เสร็จ</string>
+    <string name="save">บันทึก</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="next">ถัดไป</string>
+    <string name="back">กลับ</string>
+    <string name="off">ปิด</string>
+    <string name="minutes_short">%1$d นาที</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">เครือข่าย</string>
+    <string name="cd_settings">การตั้งค่า</string>
+
+    <string name="menu_open">เปิด</string>
+    <string name="menu_move">ย้าย</string>
+    <string name="menu_hide">ซ่อนจากลอนเชอร์</string>
+    <string name="menu_unhide">แสดง</string>
+    <string name="menu_app_info">ข้อมูลแอป</string>
+    <string name="menu_force_stop">บังคับหยุด</string>
+    <string name="menu_uninstall">ถอนการติดตั้ง</string>
+
+    <string name="toast_cannot_open">ไม่สามารถเปิดแอปได้</string>
+    <string name="toast_no_launchable">แอปไม่มีหน้าจอที่เปิดได้</string>
+    <string name="toast_force_stop">หยุดกระบวนการพื้นหลังแล้ว — ใช้ข้อมูลแอปเพื่อบังคับหยุดอย่างสมบูรณ์</string>
+    <string name="toast_no_store">ไม่มีร้านค้าแอป — ติดตั้งแอปด้วยตนเอง</string>
+    <string name="toast_no_picker">ไม่มีแอปเลือกไฟล์</string>
+
+    <string name="settings_title">การตั้งค่า</string>
+    <string name="group_content">เนื้อหา</string>
+    <string name="group_appearance">รูปลักษณ์</string>
+    <string name="group_system">ระบบ</string>
+    <string name="item_app">แอป</string>
+    <string name="item_app_sub">เปิดแอปใดก็ได้ เปิดหน้าข้อมูล</string>
+    <string name="item_android_settings">การตั้งค่า Android</string>
+    <string name="item_android_settings_sub">เปิดการตั้งค่าระบบของอุปกรณ์นี้</string>
+    <string name="item_sections">หมวดหมู่</string>
+    <string name="item_sections_sub">เลือกแอปตามหมวดหมู่ เปลี่ยนชื่อ จัดเรียงใหม่</string>
+    <string name="item_display">การแสดงผล</string>
+    <string name="item_display_sub">โหมดเค้าโครง ชื่อ ขนาดไอคอน ระยะห่าง</string>
+    <string name="item_wallpaper">วอลเปเปอร์</string>
+    <string name="item_wallpaper_sub">สีหรือรูปภาพนิ่ง หรือวิดีโอสด</string>
+    <string name="item_statusbar">แถบสถานะ</string>
+    <string name="item_statusbar_sub">การมองเห็น รูปแบบนาฬิกา แอป VPN</string>
+    <string name="item_about">เกี่ยวกับ</string>
+
+    <string name="section_layout">เค้าโครง</string>
+    <string name="view_mode">โหมดมุมมอง</string>
+    <string name="mode_carousel">แบบหมุน</string>
+    <string name="mode_grid">แบบตาราง</string>
+    <string name="mode_dock">แบบ dock</string>
+    <string name="mode_carousel_desc">ตำแหน่งที่เลือกคงที่ — ไอคอนเลื่อนอยู่ข้างใต้</string>
+    <string name="mode_grid_desc">ไอคอนทั้งหมดอยู่บนหน้าจอ — ตำแหน่งที่เลือกเคลื่อนที่</string>
+    <string name="mode_dock_desc">dock ลอยด้านล่าง — กดลงเพื่อขยายบนวอลเปเปอร์เบลอ</string>
+    <string name="section_elements">องค์ประกอบ</string>
+    <string name="section_names_label">ชื่อหมวดหมู่</string>
+    <string name="section_size">ขนาด — แต่ละแถวมีไอคอนมากเท่าที่ขนาด + ระยะห่างจะอนุญาต</string>
+    <string name="roundness">ความมน</string>
+    <string name="icon_size">ขนาดไอคอน</string>
+    <string name="spacing">ระยะห่าง</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">เล็ก</string>
+    <string name="size_n">ปกติ</string>
+    <string name="size_l">ใหญ่</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK เปิด · ⓘ ข้อมูล · ถังขยะถอนการติดตั้ง</string>
+    <string name="no_section">ไม่มีหมวดหมู่</string>
+    <string name="hidden_tag">ซ่อนอยู่</string>
+
+    <string name="section_row_sub">OK: เลือกแอปของหมวดหมู่นี้</string>
+    <string name="add_section">เพิ่มหมวดหมู่</string>
+    <string name="new_section">หมวดหมู่ใหม่</string>
+    <string name="rename_section">เปลี่ยนชื่อหมวดหมู่</string>
+    <string name="section_apps_sub">OK สลับว่าแอปจะปรากฏในหมวดหมู่นี้หรือไม่</string>
+
+    <string name="dim_label">การทำให้มืด</string>
+    <string name="dim_top_bottom">บน &amp; ล่าง</string>
+    <string name="dim_top">บน</string>
+    <string name="dim_bottom">ล่าง</string>
+    <string name="dim_full">เต็มจอ</string>
+    <string name="dim_off">ปิด</string>
+    <string name="wp_section_static">ภาพนิ่ง</string>
+    <string name="wp_section_video">วิดีโอ</string>
+    <string name="builtin_aerials">วิดีโอทางอากาศ (ในตัว)</string>
+    <string name="builtin_aerials_sub">วิดีโอทางอากาศ 289 รายการสตรีมโดยตรง — ไม่ต้องติดตั้งหรือกำหนดค่าเพิ่มเติม</string>
+    <string name="aerial_src_label">คอลเล็กชัน</string>
+    <string name="speed_label">ความเร็วในการเล่น</string>
+    <string name="aerial_src_all">ทั้งหมด (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">ชุมชน 1 (20)</string>
+    <string name="aerial_src_comm2">ชุมชน 2 (18)</string>
+    <string name="color_gradient">การไล่ระดับสี</string>
+    <string name="preset_label">ค่าสีที่ตั้งไว้</string>
+    <string name="pick_video">เลือกวิดีโอ…</string>
+    <string name="pick_video_sub">เล่นวนแบบไม่มีเสียงอยู่หลังไอคอน ทำงานได้ดีกับไฟล์ Apple aerial จากคอลเล็กชัน AerialViews (USB หรือดาวน์โหลด)</string>
+    <string name="pick_photo">เลือกรูปภาพ…</string>
+    <string name="pick_photo_sub">จากไดรฟ์ USB หรือดาวน์โหลด</string>
+    <string name="screensaver_section">โปรแกรมรักษาหน้าจอ</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">ไม่ได้ติดตั้ง — ดาวน์โหลดจาก Play Store</string>
+    <string name="aerial_open_sub">เปิดแอปเพื่อจัดการวิดีโอและการตั้งค่า</string>
+
+    <string name="show_statusbar">แสดงแถบสถานะ</string>
+    <string name="show_statusbar_sub">เมื่อซ่อนอยู่ กดขึ้นจากแถวบนสุดเพื่อแสดง (MENU ยังเปิดการตั้งค่าด้วย)</string>
+    <string name="clock_24h">นาฬิกา 24 ชม.</string>
+    <string name="date_label">วันที่</string>
+    <string name="statusbar_glass">พื้นหลังแบบกระจก</string>
+    <string name="statusbar_glass_sub">แผงด้านหลังไอคอนสถานะ เช่นเดียวกับ dock — ตามการตั้งค่าความมน</string>
+    <string name="show_vpn_button">แสดงปุ่ม VPN</string>
+    <string name="vpn_opens">ปุ่ม VPN เปิด</string>
+    <string name="vpn_system">การตั้งค่า VPN ของระบบ</string>
+    <string name="vpn_dialog_title">ปุ่ม VPN เปิด…</string>
+
+    <string name="about_version">เวอร์ชัน 1.0</string>
+    <string name="about_desc">ลอนเชอร์หน้าจอเดียวที่เบาสำหรับ Android TV และ Google TV\n\nไม่มีโฆษณา · ไม่มีการติดตาม · ไม่มีบริการพื้นหลัง ใช้เครือข่ายเพื่อสตรีมวอลเปเปอร์ทางอากาศในตัวเท่านั้น การตั้งค่าทั้งหมดของคุณอยู่ในไฟล์ในเครื่องเดียวบนอุปกรณ์นี้</string>
+    <string name="about_foss">ฟรี &amp; โอเพนซอร์ส</string>
+    <string name="about_license">ได้รับอนุญาตภายใต้ GNU General Public License v3.0 (GPLv3) คุณมีอิสระในการใช้ ศึกษา แบ่งปัน และแก้ไข Couchy Launcher</string>
+    <string name="about_thirdparty">ภาพโซฟา: Twemoji (MIT) วิดีโอทางอากาศ: คอลเล็กชัน Apple, Amazon และชุมชน สตรีมจากเจ้าของ</string>
+    <string name="rerun_wizard">เรียกใช้ตัวช่วยตั้งค่าอีกครั้ง</string>
+    <string name="rerun_wizard_sub">การตั้งค่าลอนเชอร์เริ่มต้นและเคล็ดลับการใช้งานครั้งแรก</string>
+
+    <string name="wizard_welcome_title">ยินดีต้อนรับสู่ Couchy Launcher</string>
+    <string name="wizard_welcome_body">ลอนเชอร์หน้าจอเดียวที่เบา: แอปของคุณจัดกลุ่มตามหมวดหมู่ วอลเปเปอร์ของคุณเอง และแถบสถานะที่สะอาดพร้อมนาฬิกา เครือข่าย และ VPN</string>
+    <string name="wizard_privacy_body">หมายเหตุความเป็นส่วนตัว — ไม่ต้องอนุญาตอะไร: Couchy ไม่ขอตำแหน่งที่ตั้ง ไมโครโฟน และไม่รันบริการพื้นหลัง ทุกสิ่งที่จำเป็นได้รับอนุญาตตั้งแต่การติดตั้ง</string>
+    <string name="wizard_home_title">ตั้งเป็นหน้าจอหลัก</string>
+    <string name="wizard_already_default">✓ เรียบร้อย — Couchy เป็นลอนเชอร์เริ่มต้นของคุณบนอุปกรณ์นี้แล้ว</string>
+    <string name="wizard_gtv_intro">นี่คืออุปกรณ์ Google TV ที่ได้รับการรับรอง Google ไม่อนุญาตให้เปลี่ยนแอปหลักจากการตั้งค่าบนหน้าจอ ดังนั้นเลือกหนึ่งในสองวิธีนี้:</string>
+    <string name="wizard_gtv_adb">1 — ADB (แนะนำ ครั้งเดียว):\n• การตั้งค่า &gt; ระบบ &gt; เกี่ยวกับ &gt; คลิก \"รุ่น Android TV OS\" 7 ครั้งเพื่อปลดล็อกตัวเลือกนักพัฒนา\n• การตั้งค่า &gt; ระบบ &gt; ตัวเลือกนักพัฒนา &gt; เปิดใช้การดีบัก USB/ไร้สาย\n• จากคอมพิวเตอร์ในเครือข่ายเดียวกัน รัน:</string>
+    <string name="wizard_gtv_overlay">หากลอนเชอร์ระบบยังคงซ้อนทับ Couchy หลังจากนั้น (พบใน Hisense และอื่นๆ) ให้ค้นหาและปิดใช้งาน — เปลี่ยนกลับได้ทุกเมื่อด้วย \"pm enable\":</string>
+    <string name="wizard_gtv_which">(ใช้แพ็คเกจลอนเชอร์สองตัวใดตัวหนึ่งที่คำสั่งแรกรายงาน ปิดใช้งานหลังจากยืนยันว่า Couchy เปิดได้ปกติเท่านั้น)</string>
+    <string name="wizard_gtv_remap">2 — การเปลี่ยนปุ่ม (ไม่ต้องใช้คอมพิวเตอร์): ติดตั้งแอปเช่น \"Button Mapper\" จาก Play Store และแมปปุ่มโฮมไปที่ Couchy Launcher</string>
+    <string name="wizard_try_dialog">ลองไดอะล็อกระบบดู</string>
+    <string name="wizard_check_again">ตรวจสอบอีกครั้ง</string>
+    <string name="wizard_skip">ข้ามก่อน</string>
+    <string name="wizard_aosp_body">อุปกรณ์นี้อนุญาตให้เลือกแอปหลักได้ กดปุ่มด้านล่าง เลือก Couchy Launcher ในไดอะล็อกระบบและยืนยัน (เลือก \"เสมอ\" หากถาม)</string>
+    <string name="wizard_set_default">ตั้งเป็นลอนเชอร์เริ่มต้น</string>
+    <string name="wizard_no_dialog_hint">หากไม่มีไดอะล็อกปรากฏ: การตั้งค่า Android &gt; แอป &gt; แอปเริ่มต้น &gt; แอปหลัก &gt; Couchy Launcher หรือเพียงกดปุ่มโฮม — Android จะถามว่าจะใช้ลอนเชอร์ใด</string>
+    <string name="wizard_vpn_title">ปุ่ม VPN</string>
+    <string name="wizard_vpn_body">หากคุณใช้แอป VPN เลือกมัน — ปุ่ม VPN ในแถบสถานะจะเปิดมัน ข้ามแล้วปุ่ม VPN จะยังคงซ่อนอยู่ (คุณสามารถเปิดใช้ในภายหลังได้ที่การตั้งค่า › แถบสถานะ)</string>
+    <string name="wizard_vpn_none">ไม่พบแอป VPN บนอุปกรณ์นี้</string>
+    <string name="wizard_vpn_skip">ข้าม — ซ่อนปุ่ม VPN</string>
+    <string name="wizard_done_title">ทุกอย่างพร้อมแล้ว</string>
+    <string name="wizard_tips">เคล็ดลับ:\n• กด OK ค้างบนแอปใดก็ได้เพื่อดูตัวเลือก — ย้าย ซ่อน ข้อมูลแอป บังคับหยุด ถอนการติดตั้ง\n• กดขึ้นจากแถวบนสุดเพื่อเข้าถึง VPN เครือข่าย นาฬิกา และการตั้งค่า\n• ไอคอนเฟืองเปิดการตั้งค่าลอนเชอร์: วอลเปเปอร์ หมวดหมู่ การแสดงผล และอื่นๆ</string>
+    <string name="wizard_rerun_note">คุณสามารถเรียกใช้ตัวช่วยนี้ใหม่ได้ทุกเมื่อจากการตั้งค่า &gt; เกี่ยวกับ</string>
+    <string name="wizard_start">เริ่มใช้ Couchy</string>
+    <string name="wizard_no_chooser">อุปกรณ์นี้ไม่มีตัวเลือกหน้าจอหลัก — ใช้วิธี ADB ที่แสดงด้านบน</string>
+    <string name="ui_scale">สเกลอินเทอร์เฟซ</string>
+    <string name="scale_auto">อัตโนมัติ</string>
+    <string name="ui_scale_auto_sub">ย่ออินเทอร์เฟซบนทีวี DPI สูงให้ดูเหมือนกันบนทุกอุปกรณ์</string>
+    <string name="item_language">ภาษา</string>
+    <string name="item_language_sub">ภาษาของอินเทอร์เฟซ</string>
+    <string name="lang_system">ค่าเริ่มต้นของระบบ</string>
+    <string name="cat_all_apps">แอปทั้งหมด</string>
+    <string name="all_apps_sub">ทุกแอปที่ติดตั้ง เติมอัตโนมัติ</string>
+    <string name="cd_move_up">เลื่อนขึ้น</string>
+    <string name="cd_move_down">เลื่อนลง</string>
+    <string name="cd_delete_section">ลบส่วน</string>
+    <string name="about_source">ซอร์สโค้ด</string>
+    <string name="about_coffee">เลี้ยงกาแฟ</string>
+</resources>

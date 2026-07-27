@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 320x180 Google TV banner: blue-sky gradient + couch -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="320dp" android:height="180dp" />
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#1E3A5F"
+                android:centerColor="#3E78AE"
+                android:endColor="#9BD0F0" />
+        </shape>
+    </item>
+    <item
+        android:width="104dp"
+        android:height="104dp"
+        android:gravity="center"
+        android:drawable="@drawable/ic_couch" />
+</layer-list>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Couchy Launcher</string>
+
+    <string name="cat_streaming">Streaming</string>
+    <string name="cat_games">Jogos</string>
+    <string name="cat_music">Música</string>
+    <string name="cat_apps">Aplicativos</string>
+
+    <string name="wp_midnight">Meia-noite</string>
+    <string name="wp_aurora">Aurora</string>
+    <string name="wp_sunset">Pôr do sol</string>
+    <string name="wp_deep">Profundo</string>
+    <string name="wp_charcoal">Carvão</string>
+
+    <string name="done">Concluído</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="next">Próximo</string>
+    <string name="back">Voltar</string>
+    <string name="off">Desligado</string>
+    <string name="minutes_short">%1$d min</string>
+
+    <string name="cd_vpn">VPN</string>
+    <string name="cd_network">Rede</string>
+    <string name="cd_settings">Configurações</string>
+
+    <string name="menu_open">Abrir</string>
+    <string name="menu_move">Mover</string>
+    <string name="menu_hide">Ocultar do launcher</string>
+    <string name="menu_unhide">Reexibir</string>
+    <string name="menu_app_info">Info do app</string>
+    <string name="menu_force_stop">Forçar parada</string>
+    <string name="menu_uninstall">Desinstalar</string>
+
+    <string name="toast_cannot_open">Não foi possível abrir o app</string>
+    <string name="toast_no_launchable">O app não tem tela inicial</string>
+    <string name="toast_force_stop">Processos em segundo plano parados — use Info do app para forçar completamente</string>
+    <string name="toast_no_store">Loja de apps indisponível — instale o app manualmente</string>
+    <string name="toast_no_picker">Nenhum seletor de arquivos disponível</string>
+
+    <string name="settings_title">Configurações</string>
+    <string name="group_content">Conteúdo</string>
+    <string name="group_appearance">Aparência</string>
+    <string name="group_system">Sistema</string>
+    <string name="item_app">Aplicativos</string>
+    <string name="item_app_sub">Iniciar qualquer app, abrir sua página de info</string>
+    <string name="item_android_settings">Configurações Android</string>
+    <string name="item_android_settings_sub">Abrir as configurações do sistema deste dispositivo</string>
+    <string name="item_sections">Seções</string>
+    <string name="item_sections_sub">Escolher apps por seção, renomear, reordenar</string>
+    <string name="item_display">Tela</string>
+    <string name="item_display_sub">Modo de layout, nomes, tamanho dos ícones, espaçamento</string>
+    <string name="item_wallpaper">Papel de parede</string>
+    <string name="item_wallpaper_sub">Cor estática ou foto, ou um vídeo ao vivo</string>
+    <string name="item_statusbar">Barra de status</string>
+    <string name="item_statusbar_sub">Visibilidade, formato do relógio, app VPN</string>
+    <string name="item_about">Sobre</string>
+
+    <string name="section_layout">Layout</string>
+    <string name="view_mode">Modo de visualização</string>
+    <string name="mode_carousel">Carrossel</string>
+    <string name="mode_grid">Grade</string>
+    <string name="mode_dock">Dock</string>
+    <string name="mode_carousel_desc">A seleção permanece fixa — os ícones deslizam por baixo</string>
+    <string name="mode_grid_desc">Todos os ícones na tela — a seleção se move</string>
+    <string name="mode_dock_desc">Dock flutuante na parte inferior — Baixo expande sobre papel de parede desfocado</string>
+    <string name="section_elements">Elementos</string>
+    <string name="section_names_label">Nomes das seções</string>
+    <string name="section_size">Tamanho — cada linha cabe quantos ícones o tamanho + espaçamento permitirem</string>
+    <string name="roundness">Arredondamento</string>
+    <string name="icon_size">Tamanho do ícone</string>
+    <string name="spacing">Espaçamento</string>
+    <string name="size_xs">XS</string>
+    <string name="size_s">Pequeno</string>
+    <string name="size_n">Normal</string>
+    <string name="size_l">Grande</string>
+    <string name="size_xl">XL</string>
+
+    <string name="app_hint">OK inicia · ⓘ info · lixeira desinstala</string>
+    <string name="no_section">sem seção</string>
+    <string name="hidden_tag">oculto</string>
+
+    <string name="section_row_sub">OK: escolher os apps desta seção</string>
+    <string name="add_section">Adicionar seção</string>
+    <string name="new_section">Nova seção</string>
+    <string name="rename_section">Renomear seção</string>
+    <string name="section_apps_sub">OK alterna se um app aparece nesta seção</string>
+
+    <string name="dim_label">Escurecimento</string>
+    <string name="dim_top_bottom">Superior &amp; inferior</string>
+    <string name="dim_top">Superior</string>
+    <string name="dim_bottom">Inferior</string>
+    <string name="dim_full">Tela cheia</string>
+    <string name="dim_off">Desligado</string>
+    <string name="wp_section_static">Estático</string>
+    <string name="wp_section_video">Vídeo</string>
+    <string name="builtin_aerials">Vídeos aéreos (integrado)</string>
+    <string name="builtin_aerials_sub">289 vídeos aéreos transmitidos diretamente — nada mais para instalar ou configurar</string>
+    <string name="aerial_src_label">Coleção</string>
+    <string name="speed_label">Velocidade de reprodução</string>
+    <string name="aerial_src_all">Todos (289)</string>
+    <string name="aerial_src_apple">Apple (139)</string>
+    <string name="aerial_src_amazon">Amazon (112)</string>
+    <string name="aerial_src_comm1">Comunidade 1 (20)</string>
+    <string name="aerial_src_comm2">Comunidade 2 (18)</string>
+    <string name="color_gradient">Gradiente de cor</string>
+    <string name="preset_label">Predefinição de cor</string>
+    <string name="pick_video">Escolher um vídeo…</string>
+    <string name="pick_video_sub">Reproduz em loop silencioso atrás dos ícones. Funciona muito bem com arquivos aéreos da Apple da coleção AerialViews (USB ou downloads).</string>
+    <string name="pick_photo">Escolher uma foto…</string>
+    <string name="pick_photo_sub">Do USB ou downloads</string>
+    <string name="screensaver_section">Protetor de tela</string>
+    <string name="aerial_title">AerialViews</string>
+    <string name="aerial_install_sub">Não instalado — obtenha na Play Store</string>
+    <string name="aerial_open_sub">Abra o app para gerenciar seus vídeos e configurações</string>
+
+    <string name="show_statusbar">Mostrar barra de status</string>
+    <string name="show_statusbar_sub">Quando oculta, pressione Cima a partir da linha superior para revelar (MENU também abre configurações)</string>
+    <string name="clock_24h">Relógio 24h</string>
+    <string name="date_label">Data</string>
+    <string name="statusbar_glass">Fundo de vidro</string>
+    <string name="statusbar_glass_sub">Painel atrás dos ícones de status, como o dock — segue a configuração de arredondamento</string>
+    <string name="show_vpn_button">Mostrar botão VPN</string>
+    <string name="vpn_opens">Botão VPN abre</string>
+    <string name="vpn_system">Configurações de VPN do sistema</string>
+    <string name="vpn_dialog_title">Botão VPN abre…</string>
+
+    <string name="about_version">Versão 1.0</string>
+    <string name="about_desc">Um launcher leve de tela única para Android TV e Google TV.\n\nSem anúncios · sem rastreamento · sem serviços em segundo plano. A rede é usada apenas para transmitir os papéis de parede aéreos integrados. Todas as suas configurações vivem em um único arquivo local neste dispositivo.</string>
+    <string name="about_foss">Livre &amp; código aberto</string>
+    <string name="about_license">Licenciado sob a GNU General Public License v3.0 (GPLv3). Você é livre para usar, estudar, compartilhar e modificar o Couchy Launcher.</string>
+    <string name="about_thirdparty">Arte do sofá: Twemoji (MIT). Vídeos aéreos: coleções Apple, Amazon e da comunidade, transmitidos de seus proprietários.</string>
+    <string name="rerun_wizard">Executar assistente novamente</string>
+    <string name="rerun_wizard_sub">Configuração do launcher padrão e dicas iniciais</string>
+
+    <string name="wizard_welcome_title">Bem-vindo ao Couchy Launcher</string>
+    <string name="wizard_welcome_body">Um launcher leve de tela única: seus apps agrupados por seção, seu próprio papel de parede e uma barra de status limpa com relógio, rede e VPN.</string>
+    <string name="wizard_privacy_body">Aviso de privacidade — nada a conceder: o Couchy não solicita localização, microfone e não executa serviços em segundo plano. Tudo o que precisa foi concedido na instalação.</string>
+    <string name="wizard_home_title">Definir como tela inicial</string>
+    <string name="wizard_already_default">✓ Pronto — o Couchy já é seu launcher padrão neste dispositivo.</string>
+    <string name="wizard_gtv_intro">Este é um dispositivo Google TV certificado. O Google não permite alterar o app inicial pelas configurações na tela, então escolha um destes dois métodos:</string>
+    <string name="wizard_gtv_adb">1 — ADB (recomendado, uma única vez):\n• Configurações &gt; Sistema &gt; Sobre &gt; clique em \"Versão do Android TV OS\" 7 vezes para desbloquear as Opções do desenvolvedor\n• Configurações &gt; Sistema &gt; Opções do desenvolvedor &gt; ative a Depuração USB/sem fio\n• De um computador na mesma rede, execute:</string>
+    <string name="wizard_gtv_overlay">Se o launcher do sistema ainda sobrepor o Couchy depois disso (visto na Hisense e outros), encontre-o e desative-o — reversível a qualquer momento com \"pm enable\":</string>
+    <string name="wizard_gtv_which">(Use qualquer um dos dois pacotes de launcher que o primeiro comando relatar. Só desative APÓS confirmar que o Couchy abre normalmente.)</string>
+    <string name="wizard_gtv_remap">2 — Remapeamento de botão (sem computador): instale um app como \"Button Mapper\" da Play Store e mapeie o botão Início para o Couchy Launcher.</string>
+    <string name="wizard_try_dialog">Tentar diálogo do sistema mesmo assim</string>
+    <string name="wizard_check_again">Verificar novamente</string>
+    <string name="wizard_skip">Pular por enquanto</string>
+    <string name="wizard_aosp_body">Este dispositivo permite escolher um app inicial. Pressione o botão abaixo, escolha Couchy Launcher no diálogo do sistema e confirme (escolha \"Sempre\" se perguntado).</string>
+    <string name="wizard_set_default">Definir como launcher padrão</string>
+    <string name="wizard_no_dialog_hint">Se nenhum diálogo aparecer: Configurações Android &gt; Apps &gt; Apps padrão &gt; App inicial &gt; Couchy Launcher. Ou simplesmente pressione o botão Início — o Android perguntará qual launcher usar.</string>
+    <string name="wizard_vpn_title">Botão VPN</string>
+    <string name="wizard_vpn_body">Se você usa um app VPN, escolha-o — o botão VPN na barra de status o abrirá. Pule e o botão VPN permanece oculto (você pode ativá-lo depois em Configurações › Barra de status).</string>
+    <string name="wizard_vpn_none">Nenhum app VPN detectado neste dispositivo.</string>
+    <string name="wizard_vpn_skip">Pular — ocultar botão VPN</string>
+    <string name="wizard_done_title">Tudo pronto</string>
+    <string name="wizard_tips">Dicas:\n• Segure OK em qualquer app para opções — mover, ocultar, info do app, forçar parada, desinstalar\n• Pressione Cima a partir da linha superior para acessar VPN, rede, relógio e configurações\n• A engrenagem abre as configurações do launcher: papel de parede, seções, tela e mais</string>
+    <string name="wizard_rerun_note">Você pode executar este assistente novamente a qualquer momento em Configurações &gt; Sobre.</string>
+    <string name="wizard_start">Começar a usar o Couchy</string>
+    <string name="wizard_no_chooser">Este dispositivo não possui seletor de tela inicial — use o método ADB mostrado acima</string>
+    <string name="ui_scale">Escala da interface</string>
+    <string name="scale_auto">Automático</string>
+    <string name="ui_scale_auto_sub">Compacta TVs de alta densidade para a interface ficar igual em todos os dispositivos</string>
+    <string name="item_language">Idioma</string>
+    <string name="item_language_sub">Idioma da interface</string>
+    <string name="lang_system">Padrão do sistema</string>
+    <string name="cat_all_apps">Todos os apps</string>
+    <string name="all_apps_sub">Todos os apps instalados, preenchido automaticamente</string>
+    <string name="cd_move_up">Mover para cima</string>
+    <string name="cd_move_down">Mover para baixo</string>
+    <string name="cd_delete_section">Excluir seção</string>
+    <string name="about_source">Código-fonte</string>
+    <string name="about_coffee">Pague-me um café</string>
+</resources>
