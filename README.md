@@ -16,7 +16,7 @@
 
 <img src="docs/img/dock.png" width="80%" alt="Couchy dock over an Aurora wallpaper" />
 
-<video src="docs/couchy-demo.mp4" poster="docs/couchy-demo-poster.png" width="80%" controls muted loop></video>
+<img src="docs/couchy-demo.gif" width="80%" alt="Couchy Launcher demo"/>
 
 <a href="https://www.buymeacoffee.com/conreo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=conreo&button_colour=BD5FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" alt="Buy me a coffee" /></a>
 
