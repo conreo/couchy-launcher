@@ -13,8 +13,8 @@ android {
         applicationId = "com.conreo.couchytv"
         minSdk = 21
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.3"
     }
 
     // Release signing key, supplied by CI via environment variables (from GitHub
