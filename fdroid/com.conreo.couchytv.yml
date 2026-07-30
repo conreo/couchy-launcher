@@ -1,5 +1,5 @@
 Categories:
-  - System
+  - Launcher
 License: GPL-3.0-only
 AuthorName: conreo
 SourceCode: https://github.com/conreo/couchy-launcher
@@ -11,20 +11,6 @@ RepoType: git
 Repo: https://github.com/conreo/couchy-launcher.git
 
 Builds:
-  - versionName: 1.0
-    versionCode: 1
-    commit: 32d093e8ec240638c116a093d07a97ef70a02651
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.0.1
-    versionCode: 2
-    commit: 854ea0df2bd6e57cd6231a154b3db33b489e433b
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 1.0.2
     versionCode: 3
     commit: d07620790259d3de26ef7fe44d2286a75f618c2a
@@ -32,7 +18,14 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.3
+    versionCode: 4
+    commit: 282475909024ea6dd68f00093a9dd4297520c4e6
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.2
-CurrentVersionCode: 3
+CurrentVersion: 1.0.3
+CurrentVersionCode: 4
