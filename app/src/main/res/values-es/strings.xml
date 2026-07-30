@@ -35,13 +35,11 @@
     <string name="menu_hide">Ocultar del launcher</string>
     <string name="menu_unhide">Mostrar</string>
     <string name="menu_app_info">Info de la app</string>
-    <string name="menu_force_stop">Forzar detención</string>
     <string name="menu_uninstall">Desinstalar</string>
 
     <!-- Mensajes -->
     <string name="toast_cannot_open">No se pudo abrir la app</string>
     <string name="toast_no_launchable">La app no tiene pantalla de inicio</string>
-    <string name="toast_force_stop">Procesos en segundo plano detenidos — use Info de la app para forzar completamente</string>
     <string name="toast_no_store">Tienda no disponible — instale la app manualmente</string>
     <string name="toast_no_picker">No hay selector de archivos disponible</string>
 
@@ -185,5 +183,4 @@
     <string name="cd_move_down">Bajar</string>
     <string name="cd_delete_section">Eliminar sección</string>
     <string name="about_source">Código fuente</string>
-    <string name="about_coffee">Invítame a un café</string>
 </resources>

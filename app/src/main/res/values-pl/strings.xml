@@ -30,12 +30,10 @@
     <string name="menu_hide">Ukryj z launchera</string>
     <string name="menu_unhide">Pokaż</string>
     <string name="menu_app_info">Info o aplikacji</string>
-    <string name="menu_force_stop">Wymuś zatrzymanie</string>
     <string name="menu_uninstall">Odinstaluj</string>
 
     <string name="toast_cannot_open">Nie można otworzyć aplikacji</string>
     <string name="toast_no_launchable">Aplikacja nie ma ekranu startowego</string>
-    <string name="toast_force_stop">Procesy w tle zatrzymane — użyj Informacji o aplikacji, aby całkowicie wymusić zatrzymanie</string>
     <string name="toast_no_store">Sklep z aplikacjami niedostępny — zainstaluj ręcznie</string>
     <string name="toast_no_picker">Brak dostępnego selektora plików</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">W dół</string>
     <string name="cd_delete_section">Usuń sekcję</string>
     <string name="about_source">Kod źródłowy</string>
-    <string name="about_coffee">Postaw mi kawę</string>
 </resources>

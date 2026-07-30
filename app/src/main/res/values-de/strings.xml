@@ -30,12 +30,10 @@
     <string name="menu_hide">Im Launcher ausblenden</string>
     <string name="menu_unhide">Einblenden</string>
     <string name="menu_app_info">App-Info</string>
-    <string name="menu_force_stop">Stoppen erzwingen</string>
     <string name="menu_uninstall">Deinstallieren</string>
 
     <string name="toast_cannot_open">App konnte nicht geöffnet werden</string>
     <string name="toast_no_launchable">App hat keinen startbaren Bildschirm</string>
-    <string name="toast_force_stop">Hintergrundprozesse gestoppt — zum vollständigen Beenden App-Info verwenden</string>
     <string name="toast_no_store">App-Store nicht verfügbar — App manuell installieren</string>
     <string name="toast_no_picker">Keine Dateiauswahl-App verfügbar</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">Nach unten</string>
     <string name="cd_delete_section">Sektion löschen</string>
     <string name="about_source">Quellcode</string>
-    <string name="about_coffee">Spendier mir einen Kaffee</string>
 </resources>

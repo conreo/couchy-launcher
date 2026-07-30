@@ -30,12 +30,10 @@
     <string name="menu_hide">إخفاء من المشغّل</string>
     <string name="menu_unhide">إظهار</string>
     <string name="menu_app_info">معلومات التطبيق</string>
-    <string name="menu_force_stop">إيقاف إجباري</string>
     <string name="menu_uninstall">إلغاء التثبيت</string>
 
     <string name="toast_cannot_open">تعذر فتح التطبيق</string>
     <string name="toast_no_launchable">التطبيق لا يحتوي على شاشة قابلة للتشغيل</string>
-    <string name="toast_force_stop">تم إيقاف العمليات في الخلفية — استخدم معلومات التطبيق للإيقاف الكامل</string>
     <string name="toast_no_store">متجر التطبيقات غير متاح — قم بتثبيت التطبيق يدويًا</string>
     <string name="toast_no_picker">لا يتوفر تطبيق لاختيار الملفات</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">تحريك لأسفل</string>
     <string name="cd_delete_section">حذف القسم</string>
     <string name="about_source">الكود المصدري</string>
-    <string name="about_coffee">ادعمني بقهوة</string>
 </resources>

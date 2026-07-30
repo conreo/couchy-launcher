@@ -450,7 +450,7 @@ private fun AboutScreen(
             modifier = Modifier.padding(start = 8.dp, top = 8.dp),
         )
 
-        // Support — scannable QR to Buy me a coffee (Cookie script font)
+        // Support — scannable QR to Buy me a coffee (Cookie script font; brand name, not localized)
         Text(
             stringResource(R.string.about_coffee),
             fontFamily = androidx.compose.ui.text.font.FontFamily(

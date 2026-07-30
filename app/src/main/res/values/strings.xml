@@ -35,13 +35,11 @@
     <string name="menu_hide">Hide from launcher</string>
     <string name="menu_unhide">Unhide</string>
     <string name="menu_app_info">App info</string>
-    <string name="menu_force_stop">Force stop</string>
     <string name="menu_uninstall">Uninstall</string>
 
     <!-- Toasts -->
     <string name="toast_cannot_open">Could not open app</string>
     <string name="toast_no_launchable">App has no launchable screen</string>
-    <string name="toast_force_stop">Background processes stopped — use App info to fully force stop</string>
     <string name="toast_no_store">App store not available — install the app manually</string>
     <string name="toast_no_picker">No file picker app available</string>
 
@@ -150,7 +148,7 @@
     <string name="about_foss">Free &amp; open source</string>
     <string name="about_license">Licensed under the GNU GPLv3 — use, study, share and modify freely.</string>
     <string name="about_source">Source code</string>
-    <string name="about_coffee">Buy me a coffee</string>
+    <string name="about_coffee" translatable="false">Buy me a coffee</string>
     <string name="github_url" translatable="false">https://github.com/conreo/couchy-launcher</string>
     <string name="about_thirdparty">Couch artwork: Twemoji (MIT). Aerial videos: Apple, Amazon and community collections.</string>
     <string name="rerun_wizard">Run setup wizard again</string>

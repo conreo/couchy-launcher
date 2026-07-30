@@ -1,6 +1,5 @@
 package com.conreo.couchytv
 
-import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -38,13 +37,6 @@ object Actions {
         runCatching {
             context.startActivity(Intent(Intent.ACTION_DELETE, Uri.parse("package:$pkg")))
         }
-    }
-
-    /** Best effort: frees the app's background processes. True force-stop is in App info. */
-    fun forceKill(context: Context, pkg: String) {
-        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        runCatching { am.killBackgroundProcesses(pkg) }
-        toast(context, context.getString(R.string.toast_force_stop))
     }
 
     fun openSystemSettings(context: Context) {

@@ -30,12 +30,10 @@
     <string name="menu_hide">런처에서 숨기기</string>
     <string name="menu_unhide">숨기기 해제</string>
     <string name="menu_app_info">앱 정보</string>
-    <string name="menu_force_stop">강제 중지</string>
     <string name="menu_uninstall">삭제</string>
 
     <string name="toast_cannot_open">앱을 열 수 없습니다</string>
     <string name="toast_no_launchable">앱에 실행 가능한 화면이 없습니다</string>
-    <string name="toast_force_stop">백그라운드 프로세스가 중지되었습니다 — 완전히 강제 중지하려면 앱 정보를 사용하세요</string>
     <string name="toast_no_store">앱 스토어를 사용할 수 없습니다 — 수동으로 설치하세요</string>
     <string name="toast_no_picker">파일 선택기 앱이 없습니다</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">아래로 이동</string>
     <string name="cd_delete_section">섹션 삭제</string>
     <string name="about_source">소스 코드</string>
-    <string name="about_coffee">커피 한 잔 사주기</string>
 </resources>

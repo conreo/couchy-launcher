@@ -30,12 +30,10 @@
     <string name="menu_hide">Sembunyikan dari launcher</string>
     <string name="menu_unhide">Tampilkan</string>
     <string name="menu_app_info">Info aplikasi</string>
-    <string name="menu_force_stop">Paksa berhenti</string>
     <string name="menu_uninstall">Copot pemasangan</string>
 
     <string name="toast_cannot_open">Tidak dapat membuka aplikasi</string>
     <string name="toast_no_launchable">Aplikasi tidak memiliki layar yang dapat diluncurkan</string>
-    <string name="toast_force_stop">Proses latar belakang dihentikan — gunakan Info aplikasi untuk memaksa berhenti sepenuhnya</string>
     <string name="toast_no_store">Toko aplikasi tidak tersedia — instal aplikasi secara manual</string>
     <string name="toast_no_picker">Tidak ada aplikasi pemilih file</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">Turunkan</string>
     <string name="cd_delete_section">Hapus bagian</string>
     <string name="about_source">Kode sumber</string>
-    <string name="about_coffee">Belikan saya kopi</string>
 </resources>

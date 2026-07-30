@@ -30,12 +30,10 @@
     <string name="menu_hide">लॉन्चर से छिपाएँ</string>
     <string name="menu_unhide">दिखाएँ</string>
     <string name="menu_app_info">ऐप की जानकारी</string>
-    <string name="menu_force_stop">बलपूर्वक रोकें</string>
     <string name="menu_uninstall">अनइंस्टॉल करें</string>
 
     <string name="toast_cannot_open">ऐप नहीं खुल सका</string>
     <string name="toast_no_launchable">ऐप में कोई लॉन्च स्क्रीन नहीं है</string>
-    <string name="toast_force_stop">बैकग्राउंड प्रक्रियाएँ रोक दी गईं — पूरी तरह रोकने के लिए ऐप की जानकारी का उपयोग करें</string>
     <string name="toast_no_store">ऐप स्टोर उपलब्ध नहीं — मैन्युअल रूप से इंस्टॉल करें</string>
     <string name="toast_no_picker">कोई फ़ाइल चयनकर्ता उपलब्ध नहीं</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">नीचे ले जाएँ</string>
     <string name="cd_delete_section">सेक्शन हटाएँ</string>
     <string name="about_source">सोर्स कोड</string>
-    <string name="about_coffee">मुझे एक कॉफ़ी पिलाएँ</string>
 </resources>

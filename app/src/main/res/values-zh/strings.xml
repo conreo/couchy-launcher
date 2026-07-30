@@ -35,13 +35,11 @@
     <string name="menu_hide">从启动器隐藏</string>
     <string name="menu_unhide">取消隐藏</string>
     <string name="menu_app_info">应用信息</string>
-    <string name="menu_force_stop">强制停止</string>
     <string name="menu_uninstall">卸载</string>
 
     <!-- 提示消息 -->
     <string name="toast_cannot_open">无法打开应用</string>
     <string name="toast_no_launchable">该应用无可启动界面</string>
-    <string name="toast_force_stop">后台进程已停止 — 请使用应用信息进行完全强制停止</string>
     <string name="toast_no_store">应用商店不可用 — 请手动安装应用</string>
     <string name="toast_no_picker">没有可用的文件选择器</string>
 
@@ -185,5 +183,4 @@
     <string name="cd_move_down">下移</string>
     <string name="cd_delete_section">删除分区</string>
     <string name="about_source">源代码</string>
-    <string name="about_coffee">请我喝咖啡</string>
 </resources>

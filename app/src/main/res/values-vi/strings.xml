@@ -30,12 +30,10 @@
     <string name="menu_hide">Ẩn khỏi launcher</string>
     <string name="menu_unhide">Hiện</string>
     <string name="menu_app_info">Thông tin ứng dụng</string>
-    <string name="menu_force_stop">Buộc dừng</string>
     <string name="menu_uninstall">Gỡ cài đặt</string>
 
     <string name="toast_cannot_open">Không thể mở ứng dụng</string>
     <string name="toast_no_launchable">Ứng dụng không có màn hình khởi chạy</string>
-    <string name="toast_force_stop">Đã dừng tiến trình nền — dùng Thông tin ứng dụng để buộc dừng hoàn toàn</string>
     <string name="toast_no_store">Cửa hàng ứng dụng không khả dụng — cài đặt ứng dụng thủ công</string>
     <string name="toast_no_picker">Không có ứng dụng chọn tệp</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">Chuyển xuống</string>
     <string name="cd_delete_section">Xóa mục</string>
     <string name="about_source">Mã nguồn</string>
-    <string name="about_coffee">Mời tôi một ly cà phê</string>
 </resources>

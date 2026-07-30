@@ -30,12 +30,10 @@
     <string name="menu_hide">ランチャーから非表示</string>
     <string name="menu_unhide">再表示</string>
     <string name="menu_app_info">アプリ情報</string>
-    <string name="menu_force_stop">強制停止</string>
     <string name="menu_uninstall">アンインストール</string>
 
     <string name="toast_cannot_open">アプリを開けませんでした</string>
     <string name="toast_no_launchable">このアプリには起動画面がありません</string>
-    <string name="toast_force_stop">バックグラウンドプロセスを停止しました — 完全に強制停止するにはアプリ情報を使用してください</string>
     <string name="toast_no_store">アプリストアが利用できません — 手動でインストールしてください</string>
     <string name="toast_no_picker">ファイル選択アプリがありません</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">下へ移動</string>
     <string name="cd_delete_section">セクションを削除</string>
     <string name="about_source">ソースコード</string>
-    <string name="about_coffee">コーヒーをおごる</string>
 </resources>

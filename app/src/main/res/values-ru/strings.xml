@@ -30,12 +30,10 @@
     <string name="menu_hide">Скрыть из лаунчера</string>
     <string name="menu_unhide">Показать</string>
     <string name="menu_app_info">О приложении</string>
-    <string name="menu_force_stop">Остановить</string>
     <string name="menu_uninstall">Удалить</string>
 
     <string name="toast_cannot_open">Не удалось открыть приложение</string>
     <string name="toast_no_launchable">У приложения нет запускаемого экрана</string>
-    <string name="toast_force_stop">Фоновые процессы остановлены — используйте «О приложении» для полной остановки</string>
     <string name="toast_no_store">Магазин приложений недоступен — установите приложение вручную</string>
     <string name="toast_no_picker">Нет доступного выбора файлов</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">Вниз</string>
     <string name="cd_delete_section">Удалить раздел</string>
     <string name="about_source">Исходный код</string>
-    <string name="about_coffee">Купите мне кофе</string>
 </resources>

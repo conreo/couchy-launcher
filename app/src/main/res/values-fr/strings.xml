@@ -35,13 +35,11 @@
     <string name="menu_hide">Masquer du launcher</string>
     <string name="menu_unhide">Réafficher</string>
     <string name="menu_app_info">Infos de l\'appli</string>
-    <string name="menu_force_stop">Forcer l\'arrêt</string>
     <string name="menu_uninstall">Désinstaller</string>
 
     <!-- Messages -->
     <string name="toast_cannot_open">Impossible d\'ouvrir l\'appli</string>
     <string name="toast_no_launchable">Cette appli n\'a pas d\'écran de démarrage</string>
-    <string name="toast_force_stop">Processus en arrière-plan arrêtés — utilisez Infos de l\'appli pour un arrêt complet</string>
     <string name="toast_no_store">Boutique indisponible — installez l\'appli manuellement</string>
     <string name="toast_no_picker">Aucun sélecteur de fichiers disponible</string>
 
@@ -185,5 +183,4 @@
     <string name="cd_move_down">Descendre</string>
     <string name="cd_delete_section">Supprimer la section</string>
     <string name="about_source">Code source</string>
-    <string name="about_coffee">Offrez-moi un café</string>
 </resources>

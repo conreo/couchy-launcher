@@ -30,12 +30,10 @@
     <string name="menu_hide">ซ่อนจากลอนเชอร์</string>
     <string name="menu_unhide">แสดง</string>
     <string name="menu_app_info">ข้อมูลแอป</string>
-    <string name="menu_force_stop">บังคับหยุด</string>
     <string name="menu_uninstall">ถอนการติดตั้ง</string>
 
     <string name="toast_cannot_open">ไม่สามารถเปิดแอปได้</string>
     <string name="toast_no_launchable">แอปไม่มีหน้าจอที่เปิดได้</string>
-    <string name="toast_force_stop">หยุดกระบวนการพื้นหลังแล้ว — ใช้ข้อมูลแอปเพื่อบังคับหยุดอย่างสมบูรณ์</string>
     <string name="toast_no_store">ไม่มีร้านค้าแอป — ติดตั้งแอปด้วยตนเอง</string>
     <string name="toast_no_picker">ไม่มีแอปเลือกไฟล์</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">เลื่อนลง</string>
     <string name="cd_delete_section">ลบส่วน</string>
     <string name="about_source">ซอร์สโค้ด</string>
-    <string name="about_coffee">เลี้ยงกาแฟ</string>
 </resources>

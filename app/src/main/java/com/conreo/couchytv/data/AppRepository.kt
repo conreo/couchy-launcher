@@ -35,6 +35,8 @@ data class AppEntry(
     val tile: Color,
     /** lastUpdateTime of the package — used to reuse entries across rescans. */
     val stamp: Long,
+    /** firstInstallTime — tiebreak so a newly installed app sorts last in its section. */
+    val firstInstall: Long,
 )
 
 object AppRepository {
@@ -105,7 +107,9 @@ object AppRepository {
         val entries = candidates.map { (pkg, ri) ->
             async(Dispatchers.IO) {
                 val ai = ri.activityInfo
-                val stamp = runCatching { pm.getPackageInfo(pkg, 0).lastUpdateTime }.getOrDefault(0L)
+                val pkgInfo = runCatching { pm.getPackageInfo(pkg, 0) }.getOrNull()
+                val stamp = pkgInfo?.lastUpdateTime ?: 0L
+                val firstInstall = pkgInfo?.firstInstallTime ?: 0L
                 // Size is baked into the name: a density change (or the earlier
                 // fixed-size caches) regenerates instead of loading a stale size.
                 val bannerName = "$pkg-$stamp-b$bannerW.webp"
@@ -150,6 +154,7 @@ object AppRepository {
                     autoCategory = autoCategory(ai.applicationInfo),
                     tile = tileColor(pkg),
                     stamp = stamp,
+                    firstInstall = firstInstall,
                 )
             }
         }.awaitAll()
@@ -251,10 +256,14 @@ object AppRepository {
             }
             val list = byCat[cat.id].orEmpty()
             val explicit = config.order[cat.id].orEmpty()
-            val ordered = list.sortedBy { app ->
-                val i = explicit.indexOf(app.pkg)
-                if (i >= 0) i else explicit.size + list.indexOf(app)
-            }
+            // Pinned apps keep their explicit order; the rest follow install time
+            // (stable sort → same-time preloaded apps stay put, a new install lands last).
+            val ordered = list.sortedWith(
+                compareBy<AppEntry> {
+                    val i = explicit.indexOf(it.pkg)
+                    if (i >= 0) i else Int.MAX_VALUE
+                }.thenBy { it.firstInstall }
+            )
             val visible =
                 if (config.showHidden) ordered
                 else ordered.filter { it.pkg !in config.hidden }

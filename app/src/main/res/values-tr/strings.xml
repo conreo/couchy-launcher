@@ -30,12 +30,10 @@
     <string name="menu_hide">Başlatıcıdan gizle</string>
     <string name="menu_unhide">Göster</string>
     <string name="menu_app_info">Uygulama bilgisi</string>
-    <string name="menu_force_stop">Zorla durdur</string>
     <string name="menu_uninstall">Kaldır</string>
 
     <string name="toast_cannot_open">Uygulama açılamadı</string>
     <string name="toast_no_launchable">Uygulamanın başlatılabilir ekranı yok</string>
-    <string name="toast_force_stop">Arka plan işlemleri durduruldu — tamamen durdurmak için Uygulama bilgisi\'ni kullanın</string>
     <string name="toast_no_store">Uygulama mağazası kullanılamıyor — uygulamayı manuel olarak yükleyin</string>
     <string name="toast_no_picker">Dosya seçici uygulaması yok</string>
 
@@ -171,5 +169,4 @@
     <string name="cd_move_down">Aşağı taşı</string>
     <string name="cd_delete_section">Bölümü sil</string>
     <string name="about_source">Kaynak kodu</string>
-    <string name="about_coffee">Bana bir kahve ısmarla</string>
 </resources>
