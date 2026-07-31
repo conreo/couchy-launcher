@@ -18,8 +18,6 @@
     <!-- Only used to stream the built-in aerial videos (Apple/Amazon CDNs).
          The launcher makes no other network requests. -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Best-effort "force quit" (frees memory; true force-stop lives in App info) -->
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <!-- Show the system uninstall dialog -->
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 

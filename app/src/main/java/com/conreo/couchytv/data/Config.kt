@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import androidx.compose.runtime.Immutable
 
 @Serializable
 data class CategoryCfg(
@@ -17,6 +18,7 @@ data class CategoryCfg(
     val name: String,
 )
 
+@Immutable
 @Serializable
 data class LauncherConfig(
     val categories: List<CategoryCfg> = listOf(

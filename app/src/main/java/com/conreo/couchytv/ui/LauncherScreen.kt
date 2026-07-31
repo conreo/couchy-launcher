@@ -1150,7 +1150,7 @@ private fun DockArea(
                 contentPadding = PaddingValues(vertical = 24.dp),
                 verticalArrangement = Arrangement.spacedBy(rowGap),
             ) {
-                items(rows.size) { r ->
+                items(rows.size, key = { rows.getOrNull(it)?.firstOrNull()?.pkg ?: "row$it" }) { r ->
                     Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.TopCenter) {
                         Box(Modifier.width(blockWidth)) {
                             Row(horizontalArrangement = Arrangement.spacedBy(gapUsed)) {
