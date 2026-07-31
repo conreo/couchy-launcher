@@ -39,6 +39,12 @@ object Actions {
         }
     }
 
+    /** Best-effort: clears the app from cached memory. True force-stop is in App info. */
+    fun close(context: Context, pkg: String) {
+        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+        runCatching { am.killBackgroundProcesses(pkg) }
+    }
+
     fun openSystemSettings(context: Context) {
         runCatching { context.startActivity(Intent(Settings.ACTION_SETTINGS)) }
     }

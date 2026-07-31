@@ -34,6 +34,7 @@
     <string name="menu_move">Mover</string>
     <string name="menu_hide">Ocultar del launcher</string>
     <string name="menu_unhide">Mostrar</string>
+    <string name="menu_close">Cerrar</string>
     <string name="menu_app_info">Info de la app</string>
     <string name="menu_uninstall">Desinstalar</string>
 

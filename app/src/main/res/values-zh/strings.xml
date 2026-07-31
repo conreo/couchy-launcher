@@ -34,6 +34,7 @@
     <string name="menu_move">移动</string>
     <string name="menu_hide">从启动器隐藏</string>
     <string name="menu_unhide">取消隐藏</string>
+    <string name="menu_close">关闭</string>
     <string name="menu_app_info">应用信息</string>
     <string name="menu_uninstall">卸载</string>
 

@@ -29,6 +29,7 @@
     <string name="menu_move">Переместить</string>
     <string name="menu_hide">Скрыть из лаунчера</string>
     <string name="menu_unhide">Показать</string>
+    <string name="menu_close">Закрыть</string>
     <string name="menu_app_info">О приложении</string>
     <string name="menu_uninstall">Удалить</string>
 

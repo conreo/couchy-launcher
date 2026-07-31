@@ -29,6 +29,7 @@
     <string name="menu_move">Di chuyển</string>
     <string name="menu_hide">Ẩn khỏi launcher</string>
     <string name="menu_unhide">Hiện</string>
+    <string name="menu_close">Đóng</string>
     <string name="menu_app_info">Thông tin ứng dụng</string>
     <string name="menu_uninstall">Gỡ cài đặt</string>
 

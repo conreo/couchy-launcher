@@ -29,6 +29,7 @@
     <string name="menu_move">이동</string>
     <string name="menu_hide">런처에서 숨기기</string>
     <string name="menu_unhide">숨기기 해제</string>
+    <string name="menu_close">닫기</string>
     <string name="menu_app_info">앱 정보</string>
     <string name="menu_uninstall">삭제</string>
 

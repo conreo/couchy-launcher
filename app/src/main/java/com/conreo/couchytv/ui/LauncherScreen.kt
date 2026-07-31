@@ -846,6 +846,7 @@ fun LauncherApp(rescanTick: Int) {
                         }
                     },
                     onAppInfo = { menuFor = null; Actions.openAppInfo(context, app.pkg) },
+                    onClose = { menuFor = null; Actions.close(context, app.pkg) },
                     onUninstall = { menuFor = null; Actions.uninstall(context, app.pkg) },
                 )
             }

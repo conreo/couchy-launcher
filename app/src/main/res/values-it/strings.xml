@@ -29,6 +29,7 @@
     <string name="menu_move">Sposta</string>
     <string name="menu_hide">Nascondi dal launcher</string>
     <string name="menu_unhide">Mostra</string>
+    <string name="menu_close">Chiudi</string>
     <string name="menu_app_info">Info app</string>
     <string name="menu_uninstall">Disinstalla</string>
 

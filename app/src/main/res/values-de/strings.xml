@@ -29,6 +29,7 @@
     <string name="menu_move">Verschieben</string>
     <string name="menu_hide">Im Launcher ausblenden</string>
     <string name="menu_unhide">Einblenden</string>
+    <string name="menu_close">Schließen</string>
     <string name="menu_app_info">App-Info</string>
     <string name="menu_uninstall">Deinstallieren</string>
 

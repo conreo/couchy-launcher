@@ -29,6 +29,7 @@
     <string name="menu_move">Przenieś</string>
     <string name="menu_hide">Ukryj z launchera</string>
     <string name="menu_unhide">Pokaż</string>
+    <string name="menu_close">Zamknij</string>
     <string name="menu_app_info">Info o aplikacji</string>
     <string name="menu_uninstall">Odinstaluj</string>
 
