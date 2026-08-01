@@ -124,6 +124,44 @@ The built-in setup wizard walks through this with your TV's IP pre-filled. No co
 
 No ads, analytics, accounts or background services. The only network use is optional aerial-video streaming, off by default. Sections, ordering, hidden apps and wallpaper stay in one local file.
 
+## Changelog
+
+<details>
+<summary>Click to expand</summary>
+
+**v1.0.6**
+- Smoother cold start (limitedParallelism scan, 2-frame boot fade)
+- Settings: white highlight, instant transitions, couch icon
+- Save/load config to Downloads
+
+**v1.0.5**
+- Launcher settings: Language, Save/Load config, Run wizard
+- Dynamic version in About
+- 18-language translations
+
+**v1.0.4**
+- "Close" app action in long-press menu
+- Gradient cover during aerial loading (no black screen)
+- Clock refreshes instantly on wake
+- Perf: @Immutable config, stable keys, memoized brush
+
+**v1.0.3**
+- Font fixes, non-translatable brand strings
+- New installs sort by install time
+- Initial F-Droid submission
+
+**v1.0.2**
+- Wake-from-sleep aerial fix
+- Player released in background (lower RAM)
+- Stall watchdog respects resume state
+
+**v1.0.1**
+- Dark gradient cover during video wallpaper load
+
+**v1.0**
+- Initial release
+</details>
+
 ## License
 
 **GNU GPLv3** — free, open source, copyleft. See [LICENSING.md](LICENSING.md) for the app, artwork and bundled libraries.
