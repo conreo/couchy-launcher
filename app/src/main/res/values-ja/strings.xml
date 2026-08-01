@@ -95,7 +95,7 @@
     <string name="wp_section_static">静止画</string>
     <string name="wp_section_video">動画</string>
     <string name="builtin_aerials">空撮動画（内蔵）</string>
-    <string name="builtin_aerials_sub">289本の空撮動画を直接ストリーミング — 追加のインストールや設定は不要</string>
+    <string name="builtin_aerials_sub">インターネットから動画をストリーミング — リソースを多く消費します</string>
     <string name="aerial_src_label">コレクション</string>
     <string name="speed_label">再生速度</string>
     <string name="aerial_src_all">すべて（289）</string>

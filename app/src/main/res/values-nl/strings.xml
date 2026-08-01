@@ -95,7 +95,7 @@
     <string name="wp_section_static">Statisch</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Luchtvideo\'s (ingebouwd)</string>
-    <string name="builtin_aerials_sub">289 luchtvideo\'s rechtstreeks gestreamd — niets meer te installeren of configureren</string>
+    <string name="builtin_aerials_sub">Streamt video van internet — zwaarder voor bronnen</string>
     <string name="aerial_src_label">Collectie</string>
     <string name="speed_label">Afspeelsnelheid</string>
     <string name="aerial_src_all">Alle (289)</string>

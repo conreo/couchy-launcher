@@ -95,7 +95,7 @@
     <string name="wp_section_static">Statisch</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Luftvideos (integriert)</string>
-    <string name="builtin_aerials_sub">289 Luftvideos direkt gestreamt — nichts weiter zu installieren oder einzurichten</string>
+    <string name="builtin_aerials_sub">Streamt Videos aus dem Internet — ressourcenintensiver</string>
     <string name="aerial_src_label">Sammlung</string>
     <string name="speed_label">Wiedergabegeschwindigkeit</string>
     <string name="aerial_src_all">Alle (289)</string>

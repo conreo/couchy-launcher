@@ -95,7 +95,7 @@
     <string name="wp_section_static">ثابت</string>
     <string name="wp_section_video">فيديو</string>
     <string name="builtin_aerials">فيديوهات جوية (مدمجة)</string>
-    <string name="builtin_aerials_sub">289 فيديو جوياً يتم بثها مباشرة — لا حاجة لتثبيت أو تكوين أي شيء آخر</string>
+    <string name="builtin_aerials_sub">يبث الفيديو من الإنترنت — يستهلك موارد أكثر</string>
     <string name="aerial_src_label">المجموعة</string>
     <string name="speed_label">سرعة التشغيل</string>
     <string name="aerial_src_all">الكل (289)</string>

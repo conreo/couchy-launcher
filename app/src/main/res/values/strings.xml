@@ -113,7 +113,7 @@
     <string name="wp_section_static">Static</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Aerial videos (built-in)</string>
-    <string name="builtin_aerials_sub">289 aerial videos streamed directly — nothing else to install or configure</string>
+    <string name="builtin_aerials_sub">Streams video from the internet — heavier on resources</string>
     <string name="aerial_src_label">Collection</string>
     <string name="speed_label">Playback speed</string>
     <string name="aerial_src_all">All (289)</string>

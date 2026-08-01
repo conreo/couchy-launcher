@@ -95,7 +95,7 @@
     <string name="wp_section_static">정적</string>
     <string name="wp_section_video">동영상</string>
     <string name="builtin_aerials">항공 영상 (내장)</string>
-    <string name="builtin_aerials_sub">289개의 항공 영상을 직접 스트리밍 — 추가 설치나 설정이 필요 없습니다</string>
+    <string name="builtin_aerials_sub">인터넷에서 비디오 스트리밍 — 리소스 사용량이 더 많습니다</string>
     <string name="aerial_src_label">컬렉션</string>
     <string name="speed_label">재생 속도</string>
     <string name="aerial_src_all">전체 (289)</string>

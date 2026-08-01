@@ -112,7 +112,7 @@
     <string name="wp_section_static">Statique</string>
     <string name="wp_section_video">Vidéo</string>
     <string name="builtin_aerials">Vidéos aériennes (intégré)</string>
-    <string name="builtin_aerials_sub">289 vidéos aériennes diffusées directement — rien d\'autre à installer ni configurer</string>
+    <string name="builtin_aerials_sub">Diffuse des vidéos depuis Internet — plus gourmand en ressources</string>
     <string name="aerial_src_label">Collection</string>
     <string name="speed_label">Vitesse de lecture</string>
     <string name="aerial_src_all">Toutes (289)</string>

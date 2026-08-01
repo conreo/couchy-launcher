@@ -95,7 +95,7 @@
     <string name="wp_section_static">Statyczne</string>
     <string name="wp_section_video">Wideo</string>
     <string name="builtin_aerials">Filmy lotnicze (wbudowane)</string>
-    <string name="builtin_aerials_sub">289 filmów lotniczych przesyłanych bezpośrednio — nic więcej do instalowania ani konfigurowania</string>
+    <string name="builtin_aerials_sub">Strumieniuje wideo z internetu — bardziej obciąża zasoby</string>
     <string name="aerial_src_label">Kolekcja</string>
     <string name="speed_label">Prędkość odtwarzania</string>
     <string name="aerial_src_all">Wszystkie (289)</string>

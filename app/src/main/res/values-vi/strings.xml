@@ -95,7 +95,7 @@
     <string name="wp_section_static">Tĩnh</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Video trên không (tích hợp)</string>
-    <string name="builtin_aerials_sub">289 video trên không phát trực tiếp — không cần cài đặt hay cấu hình gì thêm</string>
+    <string name="builtin_aerials_sub">Phát video từ internet — tốn nhiều tài nguyên hơn</string>
     <string name="aerial_src_label">Bộ sưu tập</string>
     <string name="speed_label">Tốc độ phát</string>
     <string name="aerial_src_all">Tất cả (289)</string>

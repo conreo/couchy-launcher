@@ -95,7 +95,7 @@
     <string name="wp_section_static">Statis</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Video udara (bawaan)</string>
-    <string name="builtin_aerials_sub">289 video udara streaming langsung — tidak ada lagi yang perlu diinstal atau dikonfigurasi</string>
+    <string name="builtin_aerials_sub">Streaming video dari internet — lebih berat di sumber daya</string>
     <string name="aerial_src_label">Koleksi</string>
     <string name="speed_label">Kecepatan putar</string>
     <string name="aerial_src_all">Semua (289)</string>

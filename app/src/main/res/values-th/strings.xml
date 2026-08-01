@@ -95,7 +95,7 @@
     <string name="wp_section_static">ภาพนิ่ง</string>
     <string name="wp_section_video">วิดีโอ</string>
     <string name="builtin_aerials">วิดีโอทางอากาศ (ในตัว)</string>
-    <string name="builtin_aerials_sub">วิดีโอทางอากาศ 289 รายการสตรีมโดยตรง — ไม่ต้องติดตั้งหรือกำหนดค่าเพิ่มเติม</string>
+    <string name="builtin_aerials_sub">สตรีมวิดีโอจากอินเทอร์เน็ต — ใช้ทรัพยากรมากกว่า</string>
     <string name="aerial_src_label">คอลเล็กชัน</string>
     <string name="speed_label">ความเร็วในการเล่น</string>
     <string name="aerial_src_all">ทั้งหมด (289)</string>

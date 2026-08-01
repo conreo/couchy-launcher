@@ -95,7 +95,7 @@
     <string name="wp_section_static">स्थिर</string>
     <string name="wp_section_video">वीडियो</string>
     <string name="builtin_aerials">हवाई वीडियो (अंतर्निहित)</string>
-    <string name="builtin_aerials_sub">289 हवाई वीडियो सीधे स्ट्रीम किए गए — कुछ और इंस्टॉल या कॉन्फ़िगर नहीं करना है</string>
+    <string name="builtin_aerials_sub">इंटरनेट से वीडियो स्ट्रीम करता है — अधिक संसाधन लेता है</string>
     <string name="aerial_src_label">संग्रह</string>
     <string name="speed_label">प्लेबैक गति</string>
     <string name="aerial_src_all">सभी (289)</string>

@@ -95,7 +95,7 @@
     <string name="wp_section_static">Statik</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Hava videoları (yerleşik)</string>
-    <string name="builtin_aerials_sub">289 hava videosu doğrudan yayınlanır — başka bir şey yüklemeye veya yapılandırmaya gerek yok</string>
+    <string name="builtin_aerials_sub">İnternetten video akışı — kaynak kullanımı daha yüksek</string>
     <string name="aerial_src_label">Koleksiyon</string>
     <string name="speed_label">Oynatma hızı</string>
     <string name="aerial_src_all">Tümü (289)</string>

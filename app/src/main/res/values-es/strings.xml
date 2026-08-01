@@ -106,7 +106,7 @@
     <string name="wp_section_static">Estático</string>
     <string name="wp_section_video">Video</string>
     <string name="builtin_aerials">Videos aéreos (integrado)</string>
-    <string name="builtin_aerials_sub">289 videos aéreos transmitidos directamente — nada más que instalar o configurar</string>
+    <string name="builtin_aerials_sub">Transmite video desde internet — consume más recursos</string>
     <string name="aerial_src_label">Colección</string>
     <string name="speed_label">Velocidad de reproducción</string>
     <string name="aerial_src_all">Todos (289)</string>
