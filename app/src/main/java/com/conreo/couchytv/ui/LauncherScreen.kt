@@ -898,8 +898,11 @@ fun LauncherApp(rescanTick: Int) {
     }
     }
     // Fondu: the couch boot logo fades out over the freshly-drawn launcher.
+    // Wait for a real drawn frame (not just first composition) so the fade
+    // begins once the heavy first frame is actually on screen — the breathing
+    // logo covers that hitch instead of fading out through it.
     var booted by remember { mutableStateOf(false) }
-    LaunchedEffect(Unit) { booted = true }
+    LaunchedEffect(Unit) { withFrameNanos {}; withFrameNanos {}; booted = true }
     androidx.compose.animation.AnimatedVisibility(
         visible = !booted,
         enter = androidx.compose.animation.EnterTransition.None,

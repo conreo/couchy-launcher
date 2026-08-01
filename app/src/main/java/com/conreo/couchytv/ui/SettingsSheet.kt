@@ -39,8 +39,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.key.Key
@@ -368,7 +370,7 @@ private fun MainScreen(
             selected = false, onClick = onLauncher,
             headlineContent = { Text(stringResource(R.string.item_launcher_settings)) },
             supportingContent = { Text(stringResource(R.string.item_launcher_settings_sub)) },
-            leadingContent = { Icon(AppIcons.Gear, contentDescription = null) },
+            leadingContent = { Icon(painter = androidx.compose.ui.res.painterResource(R.drawable.ic_couch), contentDescription = null, modifier = Modifier.size(24.dp)) },
         )
         SettingsItem(
             selected = false, onClick = onAndroidSettings,
@@ -1449,20 +1451,24 @@ private fun SettingsItem(
     leadingContent: (@Composable androidx.compose.foundation.layout.BoxScope.() -> Unit)? = null,
     trailingContent: (@Composable () -> Unit)? = null,
 ) {
+    var focused by remember { mutableStateOf(false) }
     ListItem(
         selected = selected,
         enabled = enabled,
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier
+            .onFocusChanged { focused = it.isFocused || it.hasFocus }
+            .padding(horizontal = 8.dp)
+            .background(
+                if (focused) Color(0xFFF1F2F4) else Color.Transparent,
+                RoundedCornerShape(12.dp)
+            ),
         headlineContent = headlineContent,
         supportingContent = supportingContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
-        scale = androidx.tv.material3.ListItemDefaults.scale(focusedScale = 1f),
-        // On focus the container turns light — force near-black content so the
-        // supporting line isn't grey-on-white (low contrast / hard to read).
         colors = androidx.tv.material3.ListItemDefaults.colors(
-            focusedContainerColor = Color(0xFFF1F2F4),
+            focusedContainerColor = Color.Transparent,
             focusedContentColor = Color(0xFF14151A),
         ),
     )

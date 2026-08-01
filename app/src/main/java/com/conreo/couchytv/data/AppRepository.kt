@@ -71,6 +71,15 @@ object AppRepository {
     var memoryCache: List<AppEntry>? = null
         private set
 
+    // Scanning decodes + lossless-WebP-compresses every banner; on the plain
+    // 64-thread Dispatchers.IO that pins every core on a weak TV and starves the
+    // render thread, so the breathing loading logo drops frames. Cap it to leave
+    // a core free — still concurrent, just not scorched-earth.
+    // ponytail: cores-1 (min 2); revisit only if scan wall-time regresses.
+    private val scanDispatcher = Dispatchers.IO.limitedParallelism(
+        (Runtime.getRuntime().availableProcessors() - 1).coerceAtLeast(2)
+    )
+
     suspend fun scan(context: Context): List<AppEntry> = coroutineScope {
         val pm = context.packageManager
         val cacheDir = File(context.filesDir, "iconcache").apply { mkdirs() }
@@ -105,7 +114,7 @@ object AppRepository {
         //    same object identity so Compose skips their cards entirely.
         val previous = memoryCache?.associateBy { it.pkg }
         val entries = candidates.map { (pkg, ri) ->
-            async(Dispatchers.IO) {
+            async(scanDispatcher) {
                 val ai = ri.activityInfo
                 val pkgInfo = runCatching { pm.getPackageInfo(pkg, 0) }.getOrNull()
                 val stamp = pkgInfo?.lastUpdateTime ?: 0L
