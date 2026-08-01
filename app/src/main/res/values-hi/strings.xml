@@ -44,6 +44,15 @@
     <string name="group_system">सिस्टम</string>
     <string name="item_app">ऐप्स</string>
     <string name="item_app_sub">कोई भी ऐप लॉन्च करें, उसका जानकारी पृष्ठ खोलें</string>
+    <string name="item_launcher_settings">लॉन्चर सेटिंग्स</string>
+    <string name="item_launcher_settings_sub">भाषा, कॉन्फ़िगरेशन सहेजें और पुनर्स्थापित करें</string>
+    <string name="item_save_config">कॉन्फ़िगरेशन सहेजें</string>
+    <string name="item_save_config_sub">सेटिंग्स, श्रेणियां और लेआउट फ़ाइल में निर्यात करें</string>
+    <string name="item_load_config">कॉन्फ़िगरेशन लोड करें</string>
+    <string name="item_load_config_sub">सहेजी गई फ़ाइल से सेटिंग्स पुनर्स्थापित करें</string>
+    <string name="toast_config_saved">कॉन्फ़िगरेशन सहेजा गया</string>
+    <string name="toast_config_loaded">कॉन्फ़िगरेशन लोड — पुनः आरंभ आवश्यक</string>
+    <string name="toast_config_bad">अमान्य बैकअप फ़ाइल</string>
     <string name="item_android_settings">Android सेटिंग्स</string>
     <string name="item_android_settings_sub">इस डिवाइस की सिस्टम सेटिंग्स खोलें</string>
     <string name="item_sections">अनुभाग</string>

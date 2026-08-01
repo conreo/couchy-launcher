@@ -44,6 +44,15 @@
     <string name="group_system">Hệ thống</string>
     <string name="item_app">Ứng dụng</string>
     <string name="item_app_sub">Khởi chạy ứng dụng bất kỳ, mở trang thông tin</string>
+    <string name="item_launcher_settings">Cài đặt Launcher</string>
+    <string name="item_launcher_settings_sub">Ngôn ngữ, lưu và khôi phục cấu hình</string>
+    <string name="item_save_config">Lưu cấu hình</string>
+    <string name="item_save_config_sub">Xuất cài đặt, danh mục và bố cục ra tệp</string>
+    <string name="item_load_config">Tải cấu hình</string>
+    <string name="item_load_config_sub">Khôi phục cài đặt từ tệp đã lưu</string>
+    <string name="toast_config_saved">Đã lưu cấu hình</string>
+    <string name="toast_config_loaded">Đã tải cấu hình — khởi động lại được khuyến nghị</string>
+    <string name="toast_config_bad">Tệp sao lưu không hợp lệ</string>
     <string name="item_android_settings">Cài đặt Android</string>
     <string name="item_android_settings_sub">Mở cài đặt hệ thống của thiết bị này</string>
     <string name="item_sections">Mục</string>

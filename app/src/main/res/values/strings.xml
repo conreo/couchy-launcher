@@ -52,6 +52,8 @@
     <string name="group_system">System</string>
     <string name="item_app">Apps</string>
     <string name="item_app_sub">Launch any app, open its info page</string>
+    <string name="item_launcher_settings">Launcher settings</string>
+    <string name="item_launcher_settings_sub">Language, save and restore your setup</string>
     <string name="item_android_settings">Android settings</string>
     <string name="item_android_settings_sub">Open the system settings of this device</string>
     <string name="item_sections">Sections</string>
@@ -65,6 +67,13 @@
     <string name="item_language">Language</string>
     <string name="item_language_sub">Interface language</string>
     <string name="lang_system">System default</string>
+    <string name="item_save_config">Save configuration</string>
+    <string name="item_save_config_sub">Export your settings, categories and layout as a file</string>
+    <string name="item_load_config">Load configuration</string>
+    <string name="item_load_config_sub">Restore settings from a previously saved file</string>
+    <string name="toast_config_saved">Configuration saved</string>
+    <string name="toast_config_loaded">Configuration loaded — restart may be needed</string>
+    <string name="toast_config_bad">Invalid or corrupted backup file</string>
     <string name="item_about">About</string>
 
     <!-- Settings: display -->

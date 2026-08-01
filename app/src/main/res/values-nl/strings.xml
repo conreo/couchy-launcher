@@ -44,6 +44,15 @@
     <string name="group_system">Systeem</string>
     <string name="item_app">Apps</string>
     <string name="item_app_sub">Start elke app, open de info-pagina</string>
+    <string name="item_launcher_settings">Launcher-instellingen</string>
+    <string name="item_launcher_settings_sub">Taal, configuratie opslaan en herstellen</string>
+    <string name="item_save_config">Configuratie opslaan</string>
+    <string name="item_save_config_sub">Instellingen, categorieën en lay-out exporteren</string>
+    <string name="item_load_config">Configuratie laden</string>
+    <string name="item_load_config_sub">Instellingen herstellen uit bestand</string>
+    <string name="toast_config_saved">Configuratie opgeslagen</string>
+    <string name="toast_config_loaded">Configuratie geladen — herstart aanbevolen</string>
+    <string name="toast_config_bad">Ongeldig of beschadigd back-upbestand</string>
     <string name="item_android_settings">Android-instellingen</string>
     <string name="item_android_settings_sub">Open de systeeminstellingen van dit apparaat</string>
     <string name="item_sections">Secties</string>

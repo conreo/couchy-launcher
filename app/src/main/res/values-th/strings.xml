@@ -44,6 +44,15 @@
     <string name="group_system">ระบบ</string>
     <string name="item_app">แอป</string>
     <string name="item_app_sub">เปิดแอปใดก็ได้ เปิดหน้าข้อมูล</string>
+    <string name="item_launcher_settings">ตั้งค่าลันเชอร์</string>
+    <string name="item_launcher_settings_sub">ภาษา บันทึกและกู้คืนการตั้งค่า</string>
+    <string name="item_save_config">บันทึกการตั้งค่า</string>
+    <string name="item_save_config_sub">ส่งออกการตั้งค่า หมวดหมู่ และเลย์เอาต์เป็นไฟล์</string>
+    <string name="item_load_config">โหลดการตั้งค่า</string>
+    <string name="item_load_config_sub">กู้คืนการตั้งค่าจากไฟล์</string>
+    <string name="toast_config_saved">บันทึกการตั้งค่าแล้ว</string>
+    <string name="toast_config_loaded">โหลดการตั้งค่าแล้ว — แนะนำให้เริ่มใหม่</string>
+    <string name="toast_config_bad">ไฟล์สำรองข้อมูลไม่ถูกต้อง</string>
     <string name="item_android_settings">การตั้งค่า Android</string>
     <string name="item_android_settings_sub">เปิดการตั้งค่าระบบของอุปกรณ์นี้</string>
     <string name="item_sections">หมวดหมู่</string>

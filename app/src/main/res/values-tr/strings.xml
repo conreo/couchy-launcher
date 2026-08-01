@@ -44,6 +44,15 @@
     <string name="group_system">Sistem</string>
     <string name="item_app">Uygulamalar</string>
     <string name="item_app_sub">Herhangi bir uygulamayı başlat, bilgi sayfasını aç</string>
+    <string name="item_launcher_settings">Başlatıcı Ayarları</string>
+    <string name="item_launcher_settings_sub">Dil, yapılandırmayı kaydet ve geri yükle</string>
+    <string name="item_save_config">Yapılandırmayı kaydet</string>
+    <string name="item_save_config_sub">Ayarları, kategorileri ve düzeni dosyaya aktar</string>
+    <string name="item_load_config">Yapılandırmayı yükle</string>
+    <string name="item_load_config_sub">Kaydedilmiş ayarları geri yükle</string>
+    <string name="toast_config_saved">Yapılandırma kaydedildi</string>
+    <string name="toast_config_loaded">Yapılandırma yüklendi — yeniden başlatma önerilir</string>
+    <string name="toast_config_bad">Geçersiz yedek dosyası</string>
     <string name="item_android_settings">Android ayarları</string>
     <string name="item_android_settings_sub">Bu cihazın sistem ayarlarını aç</string>
     <string name="item_sections">Bölümler</string>

@@ -51,6 +51,15 @@
     <string name="group_system">Sistema</string>
     <string name="item_app">Aplicaciones</string>
     <string name="item_app_sub">Iniciar cualquier app, abrir su página de info</string>
+    <string name="item_launcher_settings">Ajustes del launcher</string>
+    <string name="item_launcher_settings_sub">Idioma, guardar y restaurar configuración</string>
+    <string name="item_save_config">Guardar configuración</string>
+    <string name="item_save_config_sub">Exportar ajustes, categorías y diseño como archivo</string>
+    <string name="item_load_config">Cargar configuración</string>
+    <string name="item_load_config_sub">Restaurar ajustes desde archivo guardado</string>
+    <string name="toast_config_saved">Configuración guardada</string>
+    <string name="toast_config_loaded">Configuración cargada — reiniciar recomendado</string>
+    <string name="toast_config_bad">Archivo de respaldo inválido o corrupto</string>
     <string name="item_android_settings">Ajustes de Android</string>
     <string name="item_android_settings_sub">Abrir los ajustes del sistema de este dispositivo</string>
     <string name="item_sections">Secciones</string>

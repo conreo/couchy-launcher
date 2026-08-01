@@ -81,8 +81,11 @@ import androidx.compose.runtime.withFrameNanos
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
+import kotlinx.serialization.json.Json
 
-private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Apps, Categories, About, Language }
+private val format = Json { ignoreUnknownKeys = true; prettyPrint = true; encodeDefaults = true }
+
+private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Apps, Categories, Launcher, About }
 
 /**
  * Settings panel built entirely from focusable rows and buttons — every
@@ -202,7 +205,7 @@ fun SettingsSheet(
                         onStatusBar = { screen = SettingsScreen.StatusBar },
                         onApps = { screen = SettingsScreen.Apps },
                         onCategories = { screen = SettingsScreen.Categories },
-                        onLanguage = { screen = SettingsScreen.Language },
+                        onLauncher = { screen = SettingsScreen.Launcher },
                         onAndroidSettings = { Actions.openSystemSettings(context) },
                         onAbout = { screen = SettingsScreen.About },
                     )
@@ -283,12 +286,12 @@ fun SettingsSheet(
                     )
                     SettingsScreen.About -> AboutScreen(
                         onBack = { screen = SettingsScreen.Main },
-                        onRerunWizard = onRerunWizard,
                     )
-                    SettingsScreen.Language -> LanguageScreen(
+                    SettingsScreen.Launcher -> LauncherSettingsSubscreen(
                         config = config,
                         store = store,
                         onBack = { screen = SettingsScreen.Main },
+                        onRerunWizard = onRerunWizard,
                     )
                 }
                 }
@@ -307,7 +310,7 @@ private fun MainScreen(
     onStatusBar: () -> Unit,
     onApps: () -> Unit,
     onCategories: () -> Unit,
-    onLanguage: () -> Unit,
+    onLauncher: () -> Unit,
     onAndroidSettings: () -> Unit,
     onAbout: () -> Unit,
 ) {
@@ -362,10 +365,10 @@ private fun MainScreen(
         // ---- System ----
         SectionLabel(stringResource(R.string.group_system))
         SettingsItem(
-            selected = false, onClick = onLanguage,
-            headlineContent = { Text(stringResource(R.string.item_language)) },
-            supportingContent = { Text(stringResource(R.string.item_language_sub)) },
-            leadingContent = { Icon(AppIcons.Language, contentDescription = null) },
+            selected = false, onClick = onLauncher,
+            headlineContent = { Text(stringResource(R.string.item_launcher_settings)) },
+            supportingContent = { Text(stringResource(R.string.item_launcher_settings_sub)) },
+            leadingContent = { Icon(AppIcons.Gear, contentDescription = null) },
         )
         SettingsItem(
             selected = false, onClick = onAndroidSettings,
@@ -386,8 +389,8 @@ private fun MainScreen(
 @Composable
 private fun AboutScreen(
     onBack: () -> Unit,
-    onRerunWizard: () -> Unit,
 ) {
+    val context = LocalContext.current
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -413,21 +416,12 @@ private fun AboutScreen(
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
-                    stringResource(R.string.about_version),
+                    text = "v" + (runCatching { context.packageManager.getPackageInfo(context.packageName, 0).versionName }.getOrDefault("?")),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
         }
-        // Actionable item first (and focused) so the wizard is always reachable.
-        val f = initialFocus()
-        SettingsItem(
-            selected = false, onClick = onRerunWizard,
-            headlineContent = { Text(stringResource(R.string.rerun_wizard)) },
-            supportingContent = { Text(stringResource(R.string.rerun_wizard_sub)) },
-            leadingContent = { Icon(AppIcons.Play, contentDescription = null) },
-            modifier = Modifier.padding(top = 8.dp).focusRequester(f),
-        )
         Text(
             stringResource(R.string.about_desc),
             style = MaterialTheme.typography.bodyMedium,
@@ -784,6 +778,100 @@ private fun SectionAppsDialog(
                 }
             }
         }
+    }
+}
+
+
+/* ------------------------------ launcher settings ------------------------------ */
+
+@Composable
+private fun LauncherSettingsSubscreen(
+    config: LauncherConfig,
+    store: ConfigStore,
+    onBack: () -> Unit,
+    onRerunWizard: () -> Unit,
+) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var langScreen by remember { mutableStateOf(false) }
+
+    if (langScreen) {
+        LanguageScreen(config = config, store = store, onBack = { langScreen = false })
+        return
+    }
+
+    fun saveConfig() {
+        scope.launch {
+            withContext(Dispatchers.IO) {
+                runCatching {
+                    val dir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
+                    dir.mkdirs()
+                    File(dir, "CouchyBackup.json").writeText(format.encodeToString(LauncherConfig.serializer(), config))
+                }
+            }
+            Actions.toast(context, "Saved to Downloads/CouchyBackup.json")
+        }
+    }
+
+    val loadPicker = rememberLauncherForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri ->
+        if (uri != null) {
+            scope.launch {
+                val loaded = withContext(Dispatchers.IO) {
+                    runCatching {
+                        context.contentResolver.openInputStream(uri)?.use { input ->
+                            format.decodeFromString(LauncherConfig.serializer(), String(input.readBytes()))
+                        }
+                    }.getOrNull()
+                }
+                if (loaded != null) {
+                    store.update { loaded.copy(knownApps = config.knownApps, setupDone = true) }
+                    Actions.toast(context, context.getString(R.string.toast_config_loaded))
+                } else {
+                    Actions.toast(context, context.getString(R.string.toast_config_bad))
+                }
+            }
+        }
+    }
+
+    Column(
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Text(
+            stringResource(R.string.item_launcher_settings),
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 12.dp, start = 8.dp),
+        )
+        SettingsItem(
+            selected = false,
+            onClick = { langScreen = true },
+            headlineContent = { Text(stringResource(R.string.item_language)) },
+            supportingContent = { Text(stringResource(R.string.item_language_sub)) },
+            leadingContent = { Icon(AppIcons.Language, contentDescription = null) },
+        )
+        SettingsItem(
+            selected = false,
+            onClick = { saveConfig() },
+            headlineContent = { Text(stringResource(R.string.item_save_config)) },
+            supportingContent = { Text(stringResource(R.string.item_save_config_sub)) },
+            leadingContent = { Icon(AppIcons.Save, contentDescription = null) },
+        )
+        SettingsItem(
+            selected = false,
+            onClick = { runCatching { loadPicker.launch(arrayOf("application/json", "*/*")) }.onFailure { Actions.toast(context, context.getString(R.string.toast_no_picker)) } },
+            headlineContent = { Text(stringResource(R.string.item_load_config)) },
+            supportingContent = { Text(stringResource(R.string.item_load_config_sub)) },
+            leadingContent = { Icon(AppIcons.Folder, contentDescription = null) },
+        )
+        SettingsItem(
+            selected = false,
+            onClick = onRerunWizard,
+            headlineContent = { Text(stringResource(R.string.rerun_wizard)) },
+            supportingContent = { Text(stringResource(R.string.rerun_wizard_sub)) },
+            leadingContent = { Icon(AppIcons.Play, contentDescription = null) },
+        )
     }
 }
 

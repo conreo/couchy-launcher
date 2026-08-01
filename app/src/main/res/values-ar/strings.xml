@@ -44,6 +44,15 @@
     <string name="group_system">النظام</string>
     <string name="item_app">التطبيقات</string>
     <string name="item_app_sub">تشغيل أي تطبيق، فتح صفحة معلوماته</string>
+    <string name="item_launcher_settings">إعدادات المشغل</string>
+    <string name="item_launcher_settings_sub">اللغة، حفظ واستعادة الإعدادات</string>
+    <string name="item_save_config">حفظ الإعدادات</string>
+    <string name="item_save_config_sub">تصدير الإعدادات والفئات والتخطيط كملف</string>
+    <string name="item_load_config">تحميل الإعدادات</string>
+    <string name="item_load_config_sub">استعادة الإعدادات من ملف محفوظ مسبقًا</string>
+    <string name="toast_config_saved">تم حفظ الإعدادات</string>
+    <string name="toast_config_loaded">تم تحميل الإعدادات — قد تحتاج إعادة التشغيل</string>
+    <string name="toast_config_bad">ملف النسخ الاحتياطي غير صالح أو تالف</string>
     <string name="item_android_settings">إعدادات Android</string>
     <string name="item_android_settings_sub">فتح إعدادات النظام لهذا الجهاز</string>
     <string name="item_sections">الأقسام</string>

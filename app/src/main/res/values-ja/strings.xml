@@ -44,6 +44,15 @@
     <string name="group_system">システム</string>
     <string name="item_app">アプリ</string>
     <string name="item_app_sub">アプリを起動、情報ページを開く</string>
+    <string name="item_launcher_settings">ランチャー設定</string>
+    <string name="item_launcher_settings_sub">言語、設定の保存と復元</string>
+    <string name="item_save_config">設定を保存</string>
+    <string name="item_save_config_sub">設定、カテゴリ、レイアウトをファイルにエクスポート</string>
+    <string name="item_load_config">設定を読み込む</string>
+    <string name="item_load_config_sub">保存ファイルから設定を復元</string>
+    <string name="toast_config_saved">設定を保存しました</string>
+    <string name="toast_config_loaded">設定を読み込みました — 再起動推奨</string>
+    <string name="toast_config_bad">無効または破損したバックアップファイル</string>
     <string name="item_android_settings">Android設定</string>
     <string name="item_android_settings_sub">このデバイスのシステム設定を開く</string>
     <string name="item_sections">セクション</string>

@@ -44,6 +44,15 @@
     <string name="group_system">Sistem</string>
     <string name="item_app">Aplikasi</string>
     <string name="item_app_sub">Luncurkan aplikasi apa pun, buka halaman infonya</string>
+    <string name="item_launcher_settings">Pengaturan Launcher</string>
+    <string name="item_launcher_settings_sub">Bahasa, simpan &amp; pulihkan konfigurasi</string>
+    <string name="item_save_config">Simpan konfigurasi</string>
+    <string name="item_save_config_sub">Ekspor pengaturan, kategori, dan tata letak ke file</string>
+    <string name="item_load_config">Muat konfigurasi</string>
+    <string name="item_load_config_sub">Pulihkan pengaturan dari file tersimpan</string>
+    <string name="toast_config_saved">Konfigurasi disimpan</string>
+    <string name="toast_config_loaded">Konfigurasi dimuat — mulai ulang disarankan</string>
+    <string name="toast_config_bad">File cadangan tidak valid atau rusak</string>
     <string name="item_android_settings">Pengaturan Android</string>
     <string name="item_android_settings_sub">Buka pengaturan sistem perangkat ini</string>
     <string name="item_sections">Bagian</string>

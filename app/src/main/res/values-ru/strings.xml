@@ -44,6 +44,15 @@
     <string name="group_system">Система</string>
     <string name="item_app">Приложения</string>
     <string name="item_app_sub">Запустить любое приложение, открыть его страницу информации</string>
+    <string name="item_launcher_settings">Настройки лаунчера</string>
+    <string name="item_launcher_settings_sub">Язык, сохранение и восстановление</string>
+    <string name="item_save_config">Сохранить конфигурацию</string>
+    <string name="item_save_config_sub">Экспорт настроек, категорий и раскладки в файл</string>
+    <string name="item_load_config">Загрузить конфигурацию</string>
+    <string name="item_load_config_sub">Восстановить настройки из файла</string>
+    <string name="toast_config_saved">Конфигурация сохранена</string>
+    <string name="toast_config_loaded">Конфигурация загружена — перезапуск рекомендуется</string>
+    <string name="toast_config_bad">Неверный файл резервной копии</string>
     <string name="item_android_settings">Настройки Android</string>
     <string name="item_android_settings_sub">Открыть системные настройки устройства</string>
     <string name="item_sections">Разделы</string>
