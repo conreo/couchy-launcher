@@ -27,3 +27,9 @@ HSPLandroidx/graphics/shapes/**->**(**)**
 # --- Lifecycle + DataStore: read on startup. ---
 HSPLandroidx/lifecycle/**->**(**)**
 HSPLandroidx/datastore/**->**(**)**
+
+# --- Coroutines + serialization: the whole cold path is coroutine-driven and
+# gated on a kotlinx.serialization decode of the config blob; AOT them so the
+# first launches after install/update don't run them interpreted. ---
+HSPLkotlinx/coroutines/**->**(**)**
+HSPLkotlinx/serialization/**->**(**)**

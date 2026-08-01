@@ -86,6 +86,7 @@ import com.conreo.couchytv.data.NetStatus
 import com.conreo.couchytv.data.networkStatusFlow
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -210,6 +211,13 @@ fun LauncherApp(rescanTick: Int) {
     val configOrNull by produceState<LauncherConfig?>(initialValue = null) {
         store.flow.collect { value = it }
     }
+    // Kick off the app scan on the FIRST composition — concurrent with the
+    // DataStore config read, not serialized after it (scan takes no config).
+    // Warm relaunches start from the in-memory cache (instant); a fresh scan
+    // still runs to pick up changes. Not rendered until past the gates below.
+    val appsOrNull by produceState(initialValue = AppRepository.memoryCache, rescanTick) {
+        value = withContext(Dispatchers.Default) { AppRepository.scan(context.applicationContext) }
+    }
     val config = configOrNull ?: run {
         LoadingScreen()
         return
@@ -264,18 +272,28 @@ fun LauncherApp(rescanTick: Int) {
         return
     }
 
-    // Warm relaunches start from the in-memory cache (instant); a fresh scan
-    // still runs in the background to pick up changes.
-    val appsOrNull by produceState(initialValue = AppRepository.memoryCache, rescanTick) {
-        value = withContext(Dispatchers.Default) { AppRepository.scan(context.applicationContext) }
-    }
     // Hold the sober loading screen until the launcher can render COMPLETE —
     // every app scanned and every icon decoded.
     val apps = appsOrNull ?: run {
         LoadingScreen()
         return
     }
-    val net by networkStatusFlow(context).collectAsStateWithLifecycle(initialValue = NetStatus())
+    // flowOn(IO): the callbackFlow's initial compute() does ConnectivityManager
+    // binder calls — keep them off the main thread on the first real frame.
+    val net by networkStatusFlow(context).flowOn(Dispatchers.IO)
+        .collectAsStateWithLifecycle(initialValue = NetStatus())
+
+    // Bump on every ON_RESUME so the clock/date refresh immediately after
+    // sleep — they normally only tick on minute boundaries via produceState.
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+    var resumeTick by remember { mutableIntStateOf(0) }
+    DisposableEffect(lifecycleOwner) {
+        val observer = androidx.lifecycle.LifecycleEventObserver { _, event ->
+            if (event == androidx.lifecycle.Lifecycle.Event.ON_RESUME) resumeTick++
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
 
     // Format with the app's current locale (reflects the language override, and
     // recomposes on change) — not Locale.getDefault(), which the framework can
@@ -283,14 +301,14 @@ fun LauncherApp(rescanTick: Int) {
     val locale = androidx.core.os.ConfigurationCompat
         .getLocales(androidx.compose.ui.platform.LocalConfiguration.current)
         .get(0) ?: Locale.getDefault()
-    val time by produceState(initialValue = "", config.h24, locale) {
+    val time by produceState(initialValue = "", config.h24, locale, resumeTick) {
         val fmt = SimpleDateFormat(if (config.h24) "HH:mm" else "h:mm a", locale)
         while (true) {
             value = fmt.format(Date())
             delay(60_000L - System.currentTimeMillis() % 60_000L + 50L)
         }
     }
-    val date by produceState(initialValue = "", config.dateFormat, locale) {
+    val date by produceState(initialValue = "", config.dateFormat, locale, resumeTick) {
         val pattern = com.conreo.couchytv.data.DATE_FORMATS
             .getOrElse(config.dateFormat) { "" }
         if (pattern.isEmpty()) { value = ""; return@produceState }
@@ -330,6 +348,12 @@ fun LauncherApp(rescanTick: Int) {
     // stops D-pad navigation from reaching the section below it.
     val categorized = remember(apps, config) {
         AppRepository.categorize(apps, config).filter { it.second.isNotEmpty() }
+    }
+    // The dock's flat app list (all sections concatenated, de-duped). Hoisted &
+    // remembered so its identity stays stable across recompositions — otherwise a
+    // fresh list on every clock tick blocks DockArea from strong-skipping.
+    val dockApps = remember(categorized) {
+        categorized.flatMap { it.second }.distinctBy { it.pkg }
     }
     val accent = ACCENTS[config.accent.coerceIn(0, ACCENTS.size - 1)]
 
@@ -424,7 +448,6 @@ fun LauncherApp(rescanTick: Int) {
     // for its displayed section; its other memberships are left as-is.
     fun moveDock(delta: Int) {
         val pkg = movePkg ?: return
-        val dockApps = categorized.flatMap { it.second }.distinctBy { it.pkg }
         val fi = dockApps.indexOfFirst { it.pkg == pkg }
         if (fi < 0) return
         val target = fi + delta
@@ -695,7 +718,7 @@ fun LauncherApp(rescanTick: Int) {
                 when (config.layout) {
                     LAYOUT_DOCK -> DockArea(
                         modifier = Modifier.weight(1f).fillMaxWidth(),
-                        apps = categorized.flatMap { it.second }.distinctBy { it.pkg },
+                        apps = dockApps,
                         config = config,
                         accent = accent,
                         movePkg = movePkg,
@@ -736,6 +759,15 @@ fun LauncherApp(rescanTick: Int) {
                         // Kept to the peek sliver so the focused section's label,
                         // which sits just below it, stays fully readable.
                         val fadePx = peekPx
+                        // Hoisted out of drawWithContent: rebuilt inside the draw
+                        // lambda it re-allocated a Brush (+ shader) every frame.
+                        val fadeBrush = remember(fadePx) {
+                            Brush.verticalGradient(
+                                colors = listOf(Color.Transparent, Color.Black),
+                                startY = 0f,
+                                endY = fadePx,
+                            )
+                        }
                         androidx.compose.runtime.CompositionLocalProvider(
                             androidx.compose.foundation.gestures.LocalBringIntoViewSpec provides vPivot
                         ) {
@@ -748,14 +780,7 @@ fun LauncherApp(rescanTick: Int) {
                                     .graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
                                     .drawWithContent {
                                         drawContent()
-                                        drawRect(
-                                            brush = Brush.verticalGradient(
-                                                colors = listOf(Color.Transparent, Color.Black),
-                                                startY = 0f,
-                                                endY = fadePx,
-                                            ),
-                                            blendMode = BlendMode.DstIn,
-                                        )
+                                        drawRect(brush = fadeBrush, blendMode = BlendMode.DstIn)
                                     },
                                 contentPadding = PaddingValues(
                                     top = with(density) { pivotPx.toDp() },
@@ -1295,12 +1320,14 @@ private fun PeekStrip(app: AppEntry, cardWidth: Dp, cardHeight: Dp, peekH: Dp) {
 }
 
 /**
- * OkHttp client that accepts any TLS cert — used ONLY to stream decorative
- * aerial video. Apple's sylvan.apple.com serves a chain many Android-TV trust
- * stores reject, so normal validation kills the wallpaper. No credentials or
- * private data ever go over this client, so skipping validation is acceptable.
+ * Shared OkHttp client (built once, lazily) that accepts any TLS cert — used
+ * ONLY to stream decorative aerial video. Apple's sylvan.apple.com serves a
+ * chain many Android-TV trust stores reject, so normal validation kills the
+ * wallpaper. No credentials or private data ever go over this client, so
+ * skipping validation is acceptable. One instance for the whole app lifetime —
+ * OkHttpDataSource never closes it, so sharing is safe.
  */
-private fun trustAllHttpClient(): okhttp3.OkHttpClient {
+private val trustAllHttpClient: okhttp3.OkHttpClient by lazy {
     val trustAll = object : javax.net.ssl.X509TrustManager {
         override fun checkClientTrusted(c: Array<java.security.cert.X509Certificate>?, a: String?) {}
         override fun checkServerTrusted(c: Array<java.security.cert.X509Certificate>?, a: String?) {}
@@ -1308,7 +1335,7 @@ private fun trustAllHttpClient(): okhttp3.OkHttpClient {
     }
     val ctx = javax.net.ssl.SSLContext.getInstance("TLS")
     ctx.init(null, arrayOf<javax.net.ssl.TrustManager>(trustAll), java.security.SecureRandom())
-    return okhttp3.OkHttpClient.Builder()
+    okhttp3.OkHttpClient.Builder()
         .sslSocketFactory(ctx.socketFactory, trustAll)
         .hostnameVerifier { _, _ -> true }
         .connectTimeout(20, java.util.concurrent.TimeUnit.SECONDS)
@@ -1359,12 +1386,21 @@ private fun VideoWallpaper(
             // anchor not found"), which fails the TLS handshake → the aerial never
             // loads (black). Scoped to the wallpaper player only; it fetches
             // nothing but decorative public video, so there's no data to protect.
-            val http = androidx.media3.datasource.okhttp.OkHttpDataSource.Factory(trustAllHttpClient())
+            val http = androidx.media3.datasource.okhttp.OkHttpDataSource.Factory(trustAllHttpClient)
             val dataSource = androidx.media3.datasource.DefaultDataSource.Factory(context, http)
             val sourceFactory = androidx.media3.exoplayer.source.DefaultMediaSourceFactory(dataSource)
             return androidx.media3.exoplayer.ExoPlayer.Builder(context)
                 .setRenderersFactory(renderers)
                 .setMediaSourceFactory(sourceFactory)
+                // A muted, non-interactive wallpaper never seeks, so the default
+                // 50s buffer just pins ~25-30MB of RAM. Trim it — but keep >=15s
+                // max so a slow TV network doesn't rebuffer visibly on the loop.
+                .setLoadControl(
+                    androidx.media3.exoplayer.DefaultLoadControl.Builder()
+                        .setBufferDurationsMs(10_000, 15_000, 2_500, 5_000)
+                        .setPrioritizeTimeOverSizeThresholds(true)
+                        .build()
+                )
                 .build().apply {
                     repeatMode = if (loop) androidx.media3.common.Player.REPEAT_MODE_ONE
                         else androidx.media3.common.Player.REPEAT_MODE_OFF
