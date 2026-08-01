@@ -39,11 +39,19 @@ One screen, remote-driven, for 1080p and 4K TVs. No network requests out of the 
 - **Three layouts** — Carousel, Grid, or a floating glass Dock (press **Down** to expand to the full grid).
 - **Sections** you rename, reorder and fill; an app can appear in several. New installs go to the first section.
 - **Wallpapers** — gradients, your own photo, a looping video, or optional built-in aerial videos (Apple / Amazon / community, streamed only when enabled), with speed control and cross-fades.
+- **Save & load** your full configuration — categories, layout, wallpaper, and all settings — as a JSON file.
+- **18 languages** with a dedicated language picker in Launcher settings.
 - **Adjustable** icon size, spacing, corner roundness, interface scale, dimming, and an optional glass status-bar panel.
 - **Status row** — clock, network state, optional VPN button.
 - **D-pad only** — text entry happens only inside dialogs.
 - **17 languages** (+ English), auto-selected from your system language:
   العربية · Deutsch · Español · Français · हिन्दी · Bahasa Indonesia · Italiano · 日本語 · 한국어 · Nederlands · Polski · Português · Русский · ไทย · Türkçe · Tiếng Việt · 中文.
+
+---
+
+## ⚠️ Aerial wallpaper notice
+
+The built-in aerial video wallpapers are **opt-in and off by default**. When enabled, they stream public video files from **Apple** and **Amazon** CDNs — these are non-free, third-party services. No credentials or private data are sent, but the network traffic goes to proprietary infrastructure. If you want a fully libre setup, use the gradient, photo, or local video wallpaper options instead.
 
 ---
 
@@ -170,10 +178,15 @@ https://github.com/user-attachments/assets/6f21913e-1948-4543-9983-64dc68c602fa
 - **分区**可自行重命名、排序、填充；一个应用可归入多个分区。新安装的应用进入第一个分区。
 - **壁纸**——渐变、你自己的照片、循环视频，或可选的内置航拍视频（Apple / Amazon / 社区，仅在开启时才联网），带速度控制与淡入淡出。
 - **可调**图标大小、间距、圆角、界面缩放、暗化，以及可选的玻璃状态栏面板。
-- **状态栏**——时钟、网络状态、可选 VPN 按钮。
-- **纯方向键**——文字输入只在对话框中进行。
-- **17 种语言**（另加英文），根据系统语言自动选择：
+- **保存与加载**完整配置——分类、布局、壁纸及所有设置导出为 JSON 文件。
+- **18 种语言**（另加英文），在启动器设置中可选择语言。
   العربية · Deutsch · Español · Français · हिन्दी · Bahasa Indonesia · Italiano · 日本語 · 한국어 · Nederlands · Polski · Português · Русский · ไทย · Türkçe · Tiếng Việt · 中文。
+
+---
+
+## ⚠️ 航拍壁纸说明
+
+内置航拍视频壁纸是**可选功能，默认关闭**。启用后，会从 **Apple** 和 **Amazon** CDN 串流公共视频文件——这些是非自由的第三方服务。不会发送任何凭据或隐私数据，但网络流量会经过专有基础设施。如需完全自由的配置，请使用渐变、照片或本地视频壁纸。
 
 ---
 
