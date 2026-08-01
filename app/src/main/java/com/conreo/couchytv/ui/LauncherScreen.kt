@@ -280,7 +280,7 @@ fun LauncherApp(rescanTick: Int) {
     }
     // flowOn(IO): the callbackFlow's initial compute() does ConnectivityManager
     // binder calls — keep them off the main thread on the first real frame.
-    val net by networkStatusFlow(context).flowOn(Dispatchers.IO)
+    val net by remember { networkStatusFlow(context).flowOn(Dispatchers.IO) }
         .collectAsStateWithLifecycle(initialValue = NetStatus())
 
     // Bump on every ON_RESUME so the clock/date refresh immediately after

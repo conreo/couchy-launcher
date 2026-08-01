@@ -29,3 +29,4 @@ app/build/
 pi-session-*.html
 *.session.html
 .env
+.dsx/
