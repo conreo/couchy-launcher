@@ -527,7 +527,9 @@ fun LauncherApp(rescanTick: Int) {
         }
     }
     val (wallpaperSharp, wallpaperBlurred) = wallpaperPair
-    val presetBrush = WALLPAPERS[config.wallpaper.coerceIn(0, WALLPAPERS.size - 1)].brush()
+    val presetBrush = remember(config.wallpaper) {
+        WALLPAPERS[config.wallpaper.coerceIn(0, WALLPAPERS.size - 1)].brush()
+    }
 
     // ----- Built-in aerial videos: the manifests ship with the launcher, so
     // there's no external dependency — pick one, rotate every 10 minutes. -----
