@@ -290,8 +290,14 @@ fun WeeklyForecastDialog(weather: WeatherData, onDismiss: () -> Unit) {
                             )
                             Icon(
                                 iconFor(day.kind),
-                                contentDescription = labelFor(day.kind),
-                                modifier = Modifier.size(24.dp).weight(1f, fill = false),
+                                contentDescription = null,
+                                modifier = Modifier.size(24.dp),
+                            )
+                            Text(
+                                labelFor(day.kind),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.weight(1f).padding(start = 10.dp),
                             )
                             LowHigh(day.low, day.high)
                         }
