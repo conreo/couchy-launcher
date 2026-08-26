@@ -24,7 +24,14 @@ fun iconKindFor(code: Int): WeatherIconKind = when (code) {
 }
 
 /** One day of the week-ahead forecast; date is ISO yyyy-MM-dd (Open-Meteo, timezone=auto). */
-data class DailyForecast(val date: String, val low: Double, val high: Double, val kind: WeatherIconKind)
+data class DailyForecast(
+    val date: String,
+    val low: Double,
+    val high: Double,
+    val kind: WeatherIconKind,
+    /** Chance of precipitation, 0..100; -1 if Open-Meteo didn't return one. */
+    val precipChance: Int = -1,
+)
 
 /** Temperatures are already in the unit the caller requested from Open-Meteo. */
 data class WeatherData(
@@ -55,6 +62,7 @@ private data class DailyBlock(
     @SerialName("weather_code") val weatherCode: List<Int> = emptyList(),
     @SerialName("temperature_2m_max") val max: List<Double> = emptyList(),
     @SerialName("temperature_2m_min") val min: List<Double> = emptyList(),
+    @SerialName("precipitation_probability_max") val precipProb: List<Int> = emptyList(),
 )
 
 @Serializable
@@ -127,7 +135,7 @@ object WeatherRepository {
         // One request covers both the status-bar chip (today) and the optional
         // weekly-forecast dialog — 7 days of daily data is a tiny payload.
         val url = "https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lon" +
-            "&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min" +
+            "&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max" +
             "&temperature_unit=$unit&timezone=auto&forecast_days=7"
         val body = get(url) ?: return lastGood
         val parsed = runCatching { json.decodeFromString(ForecastResponse.serializer(), body) }.getOrNull()
@@ -140,6 +148,7 @@ object WeatherRepository {
                     low = d.min.getOrElse(i) { current.temperature },
                     high = d.max.getOrElse(i) { current.temperature },
                     kind = iconKindFor(d.weatherCode.getOrElse(i) { current.weatherCode }),
+                    precipChance = d.precipProb.getOrElse(i) { -1 },
                 )
             }
         }.orEmpty()

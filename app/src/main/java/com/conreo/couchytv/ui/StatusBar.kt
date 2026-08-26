@@ -42,6 +42,7 @@ import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Surface
 import androidx.tv.material3.SurfaceDefaults
 import androidx.tv.material3.Text
+import com.conreo.couchytv.data.DailyForecast
 import com.conreo.couchytv.data.NetStatus
 import com.conreo.couchytv.data.WEATHER_DISPLAY_ICON
 import com.conreo.couchytv.data.WEATHER_DISPLAY_LOWHIGH
@@ -73,6 +74,13 @@ private fun labelFor(kind: WeatherIconKind): String = stringResource(
         WeatherIconKind.Storm -> R.string.weather_kind_storm
     },
 )
+
+/** Condition word plus chance of precipitation, e.g. "Rain · 60%" — a short but more useful summary than the word alone. */
+@Composable
+private fun summaryFor(day: DailyForecast): String {
+    val label = labelFor(day.kind)
+    return if (day.precipChance >= 0) "$label · ${day.precipChance}%" else label
+}
 
 @Composable
 fun StatusBar(
@@ -258,7 +266,7 @@ fun WeeklyForecastDialog(weather: WeatherData, onDismiss: () -> Unit) {
                             modifier = Modifier.size(40.dp).padding(end = 14.dp),
                         )
                         Column(Modifier.weight(1f)) {
-                            Text(labelFor(today.kind), style = MaterialTheme.typography.titleMedium)
+                            Text(summaryFor(today), style = MaterialTheme.typography.titleMedium)
                             Text(
                                 "${weather.temp.roundToInt()}°",
                                 style = MaterialTheme.typography.bodyMedium.copy(fontFeatureSettings = "tnum"),
@@ -294,7 +302,7 @@ fun WeeklyForecastDialog(weather: WeatherData, onDismiss: () -> Unit) {
                                 modifier = Modifier.size(24.dp),
                             )
                             Text(
-                                labelFor(day.kind),
+                                summaryFor(day),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.weight(1f).padding(start = 10.dp),
