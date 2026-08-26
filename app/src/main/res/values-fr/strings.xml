@@ -34,6 +34,10 @@
     <string name="menu_move">Déplacer</string>
     <string name="menu_hide">Masquer du launcher</string>
     <string name="menu_unhide">Réafficher</string>
+    <string name="menu_customize">Personnaliser</string>
+    <string name="menu_rename">Renommer</string>
+    <string name="menu_change_icon">Changer l\'icône…</string>
+    <string name="menu_reset_appearance">Réinitialiser l\'apparence</string>
     <string name="menu_close">Fermer</string>
     <string name="menu_app_info">Infos de l\'appli</string>
     <string name="menu_uninstall">Désinstaller</string>
@@ -70,6 +74,8 @@
     <string name="item_wallpaper_sub">Couleur ou photo statique, ou une vidéo</string>
     <string name="item_statusbar">Barre d\'état</string>
     <string name="item_statusbar_sub">Visibilité, format de l\'heure, appli VPN</string>
+    <string name="item_icon_pack">Pack d\'icônes</string>
+    <string name="item_icon_pack_sub">Utiliser un pack d\'icônes pour les applis sans bannière</string>
     <string name="item_language">Langue</string>
     <string name="item_language_sub">Langue de l\'interface</string>
     <string name="lang_system">Langue du système</string>
@@ -152,6 +158,11 @@
     <string name="vpn_system">Paramètres VPN système</string>
     <string name="vpn_dialog_title">Le bouton VPN ouvre…</string>
 
+
+    <string name="icon_pack_hint">Les packs d\'icônes installés comme n\'importe quelle appli (compatibles Nova/ADW, p. ex. ProjectivyIconPack) sont détectés automatiquement.</string>
+    <string name="icon_pack_none">Aucun (icône propre à chaque appli)</string>
+    <string name="icon_pack_match_count">Correspond à %1$d application(s) sur %2$d</string>
+    <string name="icon_pack_empty">Aucun pack d\'icônes trouvé. Installez-en un depuis F-Droid ou ailleurs, puis revenez ici.</string>
     <!-- Paramètres : à propos -->
     <string name="about_version">Version 1.0</string>
     <string name="about_desc">Un launcher léger à écran unique pour Android TV et Google TV.\n\nSans pub · sans pistage · sans services en arrière-plan. Le réseau n\'est utilisé que pour diffuser les fonds d\'écran aériens intégrés. Tous vos réglages tiennent dans un seul fichier local sur cet appareil.</string>

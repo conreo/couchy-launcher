@@ -1,6 +1,9 @@
 package com.conreo.couchytv.ui
 
 import android.graphics.BitmapFactory
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.ui.res.stringResource
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -59,6 +62,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.CompositingStrategy
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.key.Key
@@ -76,9 +80,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 import com.conreo.couchytv.Actions
+import com.conreo.couchytv.R
 import com.conreo.couchytv.data.AppEntry
 import com.conreo.couchytv.data.AppRepository
 import com.conreo.couchytv.data.ConfigStore
+import com.conreo.couchytv.data.IconPack
 import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
 import com.conreo.couchytv.data.LauncherConfig
@@ -319,6 +325,14 @@ fun LauncherApp(rescanTick: Int) {
         }
     }
 
+    // Per-app rename/icon/banner overrides + icon-pack icons layered on top of
+    // the raw scan — recomputed off the main thread whenever config or the
+    // scan itself changes.
+    var overrideVersion by remember { mutableIntStateOf(0) }
+    val displayApps by produceState(initialValue = apps, apps, config.labelOverrides, config.iconPackPkg, overrideVersion) {
+        value = AppRepository.overlay(context.applicationContext, apps, config)
+    }
+
     // New installs are auto-added to the FIRST section.
     LaunchedEffect(apps) {
         if (apps.isEmpty()) return@LaunchedEffect
@@ -340,14 +354,35 @@ fun LauncherApp(rescanTick: Int) {
     }
 
     var menuFor by remember { mutableStateOf<AppEntry?>(null) }
+    var customizeFor by remember { mutableStateOf<AppEntry?>(null) }
+    var renameFor by remember { mutableStateOf<AppEntry?>(null) }
     var movePkg by remember { mutableStateOf<String?>(null) }
     var showSettings by remember { mutableStateOf(false) }
     var wallpaperVersion by remember { mutableIntStateOf(0) }
 
+    // Icon picker for the per-app "Customize" menu — same OpenDocument pattern
+    // SettingsSheet uses for the wallpaper photo picker. Only one slot (banner)
+    // is written to — see the comment by IconSourceMenu's usage below.
+    var bannerTargetPkg by remember { mutableStateOf<String?>(null) }
+    // "Change icon" also offers another installed app's icon, or a pack icon,
+    // as poor substitutes for a file browser aren't reliably present on TV OSes.
+    var iconSourceFor by remember { mutableStateOf<AppEntry?>(null) }
+    var appIconPickFor by remember { mutableStateOf<AppEntry?>(null) }
+    var packIconPickFor by remember { mutableStateOf<AppEntry?>(null) }
+    val iconPacks = remember { IconPack.installedIconPacks(context.applicationContext) }
+    val bannerPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        val pkg = bannerTargetPkg; bannerTargetPkg = null
+        if (uri != null && pkg != null) {
+            scope.launch {
+                if (AppRepository.saveOverrideBanner(context.applicationContext, pkg, uri)) overrideVersion++
+            }
+        }
+    }
+
     // Drop empty sections: an empty row is dead space AND a focus trap that
     // stops D-pad navigation from reaching the section below it.
-    val categorized = remember(apps, config) {
-        AppRepository.categorize(apps, config).filter { it.second.isNotEmpty() }
+    val categorized = remember(displayApps, config) {
+        AppRepository.categorize(displayApps, config).filter { it.second.isNotEmpty() }
     }
     // The dock's flat app list (all sections concatenated, de-duped). Hoisted &
     // remembered so its identity stays stable across recompositions — otherwise a
@@ -397,7 +432,7 @@ fun LauncherApp(rescanTick: Int) {
         val target = catIndex + delta
         if (target < 0 || target >= categorized.size) return
         val pkg = movePkg ?: return
-        val app = apps.firstOrNull { it.pkg == pkg } ?: return
+        val app = displayApps.firstOrNull { it.pkg == pkg } ?: return
         val sourceId = categorized[catIndex].first.id
         val targetId = categorized[target].first.id
         val targetList = categorized[target].second
@@ -458,7 +493,7 @@ fun LauncherApp(rescanTick: Int) {
 
         val orderCats = config.categories.map { it.id }
         fun dockCatOf(p: String): String {
-            val app = apps.firstOrNull { it.pkg == p } ?: return orderCats.last()
+            val app = displayApps.firstOrNull { it.pkg == p } ?: return orderCats.last()
             val secs = AppRepository.sectionsOf(app, config)
             return orderCats.firstOrNull { it in secs } ?: orderCats.last()
         }
@@ -466,7 +501,7 @@ fun LauncherApp(rescanTick: Int) {
         val targetCat = flat.getOrNull(target - 1)?.let { dockCatOf(it) }
             ?: flat.getOrNull(target + 1)?.let { dockCatOf(it) }
             ?: sourceCat
-        val movedApp = apps.firstOrNull { it.pkg == pkg }
+        val movedApp = displayApps.firstOrNull { it.pkg == pkg }
 
         scope.launch {
             store.update { cfg ->
@@ -872,16 +907,104 @@ fun LauncherApp(rescanTick: Int) {
                             }
                         }
                     },
+                    onCustomize = { menuFor = null; customizeFor = app },
                     onAppInfo = { menuFor = null; Actions.openAppInfo(context, app.pkg) },
                     onClose = { menuFor = null; Actions.close(context, app.pkg) },
                     onUninstall = { menuFor = null; Actions.uninstall(context, app.pkg) },
                 )
             }
 
+            customizeFor?.let { app ->
+                AppCustomizeMenu(
+                    app = app,
+                    onRename = { customizeFor = null; renameFor = app },
+                    onPickIcon = {
+                        customizeFor = null
+                        iconSourceFor = app
+                    },
+                    onReset = {
+                        customizeFor = null
+                        AppRepository.clearOverrideImages(context.applicationContext, app.pkg)
+                        scope.launch { store.update { it.copy(labelOverrides = it.labelOverrides - app.pkg) } }
+                        overrideVersion++
+                    },
+                    onDismiss = { customizeFor = null },
+                )
+            }
+
+            // All three sources land on the BANNER slot — this is a TV launcher,
+            // banners are the primary tile art, and a bare app icon stretched
+            // into a 16:9 tile looks wrong, so it's always the banner (an app's
+            // own banner verbatim, or an icon composited onto the same card
+            // IconPack.compositeOnCard uses for pack logos) that gets saved.
+            iconSourceFor?.let { app ->
+                IconSourceMenu(
+                    app = app,
+                    hasPacks = iconPacks.isNotEmpty(),
+                    onPhoto = {
+                        iconSourceFor = null
+                        bannerTargetPkg = app.pkg
+                        runCatching { bannerPicker.launch(arrayOf("image/*")) }
+                            .onFailure { Actions.toast(context, context.getString(R.string.toast_no_picker)) }
+                    },
+                    onFromApp = { iconSourceFor = null; appIconPickFor = app },
+                    onFromPack = { iconSourceFor = null; packIconPickFor = app },
+                    onDismiss = { iconSourceFor = null },
+                )
+            }
+
+            appIconPickFor?.let { app ->
+                AppIconPickDialog(
+                    apps = apps.filter { it.pkg != app.pkg },
+                    onPick = { picked ->
+                        appIconPickFor = null
+                        val bitmap = picked.banner?.asAndroidBitmap()
+                            ?: picked.icon?.asAndroidBitmap()?.let { IconPack.compositeOnCard(it) }
+                        if (bitmap != null) {
+                            scope.launch {
+                                if (AppRepository.saveOverrideBannerBitmap(context.applicationContext, app.pkg, bitmap)) overrideVersion++
+                            }
+                        }
+                    },
+                    onDismiss = { appIconPickFor = null },
+                )
+            }
+
+            packIconPickFor?.let { app ->
+                PackIconPickDialog(
+                    packs = iconPacks,
+                    apps = apps,
+                    onPick = { packPkg, drawableName ->
+                        packIconPickFor = null
+                        scope.launch {
+                            val bitmap = withContext(Dispatchers.IO) {
+                                IconPack.loadPackBanner(context.applicationContext, packPkg, drawableName)
+                            }
+                            if (bitmap != null && AppRepository.saveOverrideBannerBitmap(context.applicationContext, app.pkg, bitmap)) overrideVersion++
+                        }
+                    },
+                    onDismiss = { packIconPickFor = null },
+                )
+            }
+
+            renameFor?.let { app ->
+                TextEntryDialog(
+                    title = stringResource(R.string.menu_rename),
+                    initial = app.label,
+                    onSave = { newLabel ->
+                        scope.launch {
+                            store.update { it.copy(labelOverrides = it.labelOverrides + (app.pkg to newLabel)) }
+                        }
+                        renameFor = null
+                    },
+                    onDismiss = { renameFor = null },
+                )
+            }
+
             if (showSettings) {
                 SettingsSheet(
                     config = config,
-                    apps = apps,
+                    apps = displayApps,
                     store = store,
                     onDismiss = { showSettings = false },
                     onWallpaperChanged = { wallpaperVersion++ },

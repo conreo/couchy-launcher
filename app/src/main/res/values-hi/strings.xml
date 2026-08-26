@@ -29,6 +29,10 @@
     <string name="menu_move">स्थानांतरित करें</string>
     <string name="menu_hide">लॉन्चर से छिपाएँ</string>
     <string name="menu_unhide">दिखाएँ</string>
+    <string name="menu_customize">अनुकूलित करें</string>
+    <string name="menu_rename">नाम बदलें</string>
+    <string name="menu_change_icon">आइकन बदलें…</string>
+    <string name="menu_reset_appearance">रूप रीसेट करें</string>
     <string name="menu_close">बंद करें</string>
     <string name="menu_app_info">ऐप की जानकारी</string>
     <string name="menu_uninstall">अनइंस्टॉल करें</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">स्थिर रंग या फ़ोटो, या एक लाइव वीडियो</string>
     <string name="item_statusbar">स्टेटस बार</string>
     <string name="item_statusbar_sub">दृश्यता, घड़ी प्रारूप, VPN ऐप</string>
+    <string name="item_icon_pack">आइकन पैक</string>
+    <string name="item_icon_pack_sub">बिना बैनर वाले ऐप्स के लिए इंस्टॉल किया गया आइकन पैक इस्तेमाल करें</string>
     <string name="item_about">के बारे में</string>
 
     <string name="section_layout">लेआउट</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">सिस्टम VPN सेटिंग्स</string>
     <string name="vpn_dialog_title">VPN बटन खोलता है…</string>
 
+
+    <string name="icon_pack_hint">किसी भी अन्य ऐप की तरह इंस्टॉल किए गए आइकन पैक (Nova/ADW-संगत, जैसे ProjectivyIconPack) स्वतः पहचाने जाते हैं।</string>
+    <string name="icon_pack_none">कोई नहीं (हर ऐप का अपना आइकन)</string>
+    <string name="icon_pack_match_count">%2$d में से %1$d ऐप्स से मेल खाता है</string>
+    <string name="icon_pack_empty">कोई आइकन पैक नहीं मिला। F-Droid या कहीं और से एक इंस्टॉल करें, फिर यहां वापस आएं।</string>
     <string name="about_version">संस्करण 1.0</string>
     <string name="about_desc">Android TV और Google TV के लिए एक हल्का, एकल-स्क्रीन लॉन्चर।\n\nकोई विज्ञापन नहीं · कोई ट्रैकिंग नहीं · कोई बैकग्राउंड सेवाएँ नहीं। नेटवर्क का उपयोग केवल अंतर्निहित हवाई वॉलपेपर स्ट्रीम करने के लिए किया जाता है। आपकी सभी सेटिंग्स इस डिवाइस पर एक स्थानीय फ़ाइल में रहती हैं।</string>
     <string name="about_foss">मुक्त &amp; ओपन सोर्स</string>

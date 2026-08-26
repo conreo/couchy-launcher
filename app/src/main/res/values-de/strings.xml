@@ -29,6 +29,10 @@
     <string name="menu_move">Verschieben</string>
     <string name="menu_hide">Im Launcher ausblenden</string>
     <string name="menu_unhide">Einblenden</string>
+    <string name="menu_customize">Anpassen</string>
+    <string name="menu_rename">Umbenennen</string>
+    <string name="menu_change_icon">Symbol ändern…</string>
+    <string name="menu_reset_appearance">Erscheinungsbild zurücksetzen</string>
     <string name="menu_close">Schließen</string>
     <string name="menu_app_info">App-Info</string>
     <string name="menu_uninstall">Deinstallieren</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">Statische Farbe oder Foto, oder ein Video</string>
     <string name="item_statusbar">Statusleiste</string>
     <string name="item_statusbar_sub">Sichtbarkeit, Uhrzeitformat, VPN-App</string>
+    <string name="item_icon_pack">Symbolpaket</string>
+    <string name="item_icon_pack_sub">Symbolpaket für Apps ohne Banner verwenden</string>
     <string name="item_about">Über</string>
 
     <string name="section_layout">Layout</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">System-VPN-Einstellungen</string>
     <string name="vpn_dialog_title">VPN-Taste öffnet…</string>
 
+
+    <string name="icon_pack_hint">Symbolpakete, die wie jede andere App installiert sind (Nova/ADW-kompatibel, z. B. ProjectivyIconPack), werden automatisch erkannt.</string>
+    <string name="icon_pack_none">Keins (jeweils eigenes Symbol der App)</string>
+    <string name="icon_pack_match_count">Passt zu %1$d von %2$d Apps</string>
+    <string name="icon_pack_empty">Kein Symbolpaket gefunden. Installiere eines von F-Droid oder anderswo und komm dann hierher zurück.</string>
     <string name="about_version">Version 1.0</string>
     <string name="about_desc">Ein leichter Ein-Bildschirm-Launcher für Android TV und Google TV.\n\nKeine Werbung · kein Tracking · keine Hintergrunddienste. Netzwerkzugriff wird nur zum Streamen der integrierten Luft-Hintergründe verwendet. Alle Einstellungen liegen in einer einzigen lokalen Datei auf diesem Gerät.</string>
     <string name="about_foss">Frei &amp; quelloffen</string>

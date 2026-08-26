@@ -29,6 +29,10 @@
     <string name="menu_move">Sposta</string>
     <string name="menu_hide">Nascondi dal launcher</string>
     <string name="menu_unhide">Mostra</string>
+    <string name="menu_customize">Personalizza</string>
+    <string name="menu_rename">Rinomina</string>
+    <string name="menu_change_icon">Cambia icona…</string>
+    <string name="menu_reset_appearance">Ripristina aspetto</string>
     <string name="menu_close">Chiudi</string>
     <string name="menu_app_info">Info app</string>
     <string name="menu_uninstall">Disinstalla</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">Colore statico o foto, o un video in tempo reale</string>
     <string name="item_statusbar">Barra di stato</string>
     <string name="item_statusbar_sub">Visibilità, formato orologio, app VPN</string>
+    <string name="item_icon_pack">Pacchetto icone</string>
+    <string name="item_icon_pack_sub">Usa un pacchetto di icone per le app senza banner</string>
     <string name="item_about">Informazioni</string>
 
     <string name="section_layout">Layout</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">Impostazioni VPN di sistema</string>
     <string name="vpn_dialog_title">Il pulsante VPN apre…</string>
 
+
+    <string name="icon_pack_hint">I pacchetti di icone installati come qualsiasi altra app (compatibili Nova/ADW, es. ProjectivyIconPack) vengono rilevati automaticamente.</string>
+    <string name="icon_pack_none">Nessuno (icona propria di ogni app)</string>
+    <string name="icon_pack_match_count">Corrisponde a %1$d app su %2$d</string>
+    <string name="icon_pack_empty">Nessun pacchetto di icone trovato. Installane uno da F-Droid o altrove, poi torna qui.</string>
     <string name="about_version">Versione 1.0</string>
     <string name="about_desc">Un launcher leggero a schermo singolo per Android TV e Google TV.\n\nNessuna pubblicità · nessun tracciamento · nessun servizio in background. La rete è usata solo per lo streaming degli sfondi aerei integrati. Tutte le tue impostazioni risiedono in un singolo file locale su questo dispositivo.</string>
     <string name="about_foss">Libero &amp; open source</string>

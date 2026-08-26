@@ -75,6 +75,11 @@ data class LauncherConfig(
     val language: String = "",
     /** 0 = carousel (fixed selection), 1 = grid, 2 = dock */
     val layout: Int = 2, // Dock
+    // ----- app reskinning -----
+    /** package -> custom label */
+    val labelOverrides: Map<String, String> = emptyMap(),
+    /** package of the selected icon-pack app; empty = none */
+    val iconPackPkg: String = "",
 )
 
 const val LAYOUT_CAROUSEL = 0
