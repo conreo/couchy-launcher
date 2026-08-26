@@ -15,8 +15,11 @@
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Only used to stream the built-in aerial videos (Apple/Amazon CDNs).
-         The launcher makes no other network requests. -->
+    <!-- Used to stream the built-in aerial videos (Apple/Amazon CDNs) and,
+         only if the opt-in weather widget is enabled, to fetch a forecast
+         from Open-Meteo and resolve a location from ipapi.co or
+         zippopotam.us depending on the chosen location source. Both features
+         are off by default and the launcher contacts no other services. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Close app from recents (best-effort; true force-stop lives in App info) -->
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />

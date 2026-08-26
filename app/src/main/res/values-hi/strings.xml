@@ -25,6 +25,7 @@
     <string name="cd_network">नेटवर्क</string>
     <string name="cd_settings">सेटिंग्स</string>
 
+    <string name="cd_weather">मौसम</string>
     <string name="menu_open">खोलें</string>
     <string name="menu_move">स्थानांतरित करें</string>
     <string name="menu_hide">लॉन्चर से छिपाएँ</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">स्थिर रंग या फ़ोटो, या एक लाइव वीडियो</string>
     <string name="item_statusbar">स्टेटस बार</string>
     <string name="item_statusbar_sub">दृश्यता, घड़ी प्रारूप, VPN ऐप</string>
+    <string name="item_weather">मौसम</string>
+    <string name="item_weather_sub">Open-Meteo पूर्वानुमान, डिफ़ॉल्ट रूप से बंद</string>
     <string name="item_about">के बारे में</string>
 
     <string name="section_layout">लेआउट</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">सिस्टम VPN सेटिंग्स</string>
     <string name="vpn_dialog_title">VPN बटन खोलता है…</string>
 
+
+    <string name="weather_hint">डिफ़ॉल्ट रूप से बंद। सक्षम करने पर Open-Meteo से डेटा लिया जाता है (कोई key, खाता या विज्ञापन नहीं)।</string>
+    <string name="weather_enable">मौसम दिखाएं</string>
+    <string name="weather_source">स्थान स्रोत</string>
+    <string name="weather_src_geoip">अनुमानित (IP पता)</string>
+    <string name="weather_src_latlong">मैन्युअल निर्देशांक</string>
+    <string name="weather_src_zip">पिन कोड</string>
+    <string name="weather_geoip_notice">स्थान का अनुमान लगाने के लिए आपका IP पता ipapi.co को भेजा जाता है — कोई खाता या अन्य डेटा नहीं</string>
+    <string name="weather_lat">अक्षांश</string>
+    <string name="weather_lon">देशांतर</string>
+    <string name="weather_zip">पिन कोड</string>
+    <string name="weather_country">देश कोड</string>
+    <string name="weather_not_set">सेट नहीं है</string>
+    <string name="weather_unit">इकाइयां</string>
+    <string name="weather_celsius">सेल्सियस</string>
+    <string name="weather_fahrenheit">फ़ारेनहाइट</string>
+    <string name="weather_display">दिखाएं</string>
+    <string name="weather_display_icon">केवल आइकन</string>
+    <string name="weather_display_temp">आइकन + तापमान</string>
+    <string name="weather_display_lowhigh">आइकन + न्यूनतम/अधिकतम</string>
+    <string name="weather_click_action">चुनने पर क्रिया</string>
+    <string name="weather_click_sub">मौसम आइकन को देर तक दबाने पर हमेशा यह स्क्रीन खुलती है</string>
+    <string name="weather_click_settings">सेटिंग्स खोलें</string>
+    <string name="weather_click_forecast">साप्ताहिक पूर्वानुमान</string>
+    <string name="weather_click_app">मौसम ऐप खोलें</string>
+    <string name="weather_app_opens">मौसम ऐप</string>
+    <string name="weather_forecast_title">7-दिन का पूर्वानुमान</string>
     <string name="about_version">संस्करण 1.0</string>
     <string name="about_desc">Android TV और Google TV के लिए एक हल्का, एकल-स्क्रीन लॉन्चर।\n\nकोई विज्ञापन नहीं · कोई ट्रैकिंग नहीं · कोई बैकग्राउंड सेवाएँ नहीं। नेटवर्क का उपयोग केवल अंतर्निहित हवाई वॉलपेपर स्ट्रीम करने के लिए किया जाता है। आपकी सभी सेटिंग्स इस डिवाइस पर एक स्थानीय फ़ाइल में रहती हैं।</string>
     <string name="about_foss">मुक्त &amp; ओपन सोर्स</string>

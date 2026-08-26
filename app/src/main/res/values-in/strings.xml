@@ -25,6 +25,7 @@
     <string name="cd_network">Jaringan</string>
     <string name="cd_settings">Pengaturan</string>
 
+    <string name="cd_weather">Cuaca</string>
     <string name="menu_open">Buka</string>
     <string name="menu_move">Pindahkan</string>
     <string name="menu_hide">Sembunyikan dari launcher</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">Warna statis atau foto, atau video hidup</string>
     <string name="item_statusbar">Status bar</string>
     <string name="item_statusbar_sub">Visibilitas, format jam, aplikasi VPN</string>
+    <string name="item_weather">Cuaca</string>
+    <string name="item_weather_sub">Prakiraan Open-Meteo, nonaktif secara default</string>
     <string name="item_about">Tentang</string>
 
     <string name="section_layout">Tata letak</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">Pengaturan VPN sistem</string>
     <string name="vpn_dialog_title">Tombol VPN membuka…</string>
 
+
+    <string name="weather_hint">Nonaktif secara default. Saat diaktifkan, mengambil data dari Open-Meteo (tanpa kunci, akun, atau iklan).</string>
+    <string name="weather_enable">Tampilkan cuaca</string>
+    <string name="weather_source">Sumber lokasi</string>
+    <string name="weather_src_geoip">Perkiraan (alamat IP)</string>
+    <string name="weather_src_latlong">Koordinat manual</string>
+    <string name="weather_src_zip">Kode pos</string>
+    <string name="weather_geoip_notice">Mengirim alamat IP Anda ke ipapi.co untuk memperkirakan lokasi — tanpa akun, tanpa data lain</string>
+    <string name="weather_lat">Lintang</string>
+    <string name="weather_lon">Bujur</string>
+    <string name="weather_zip">Kode pos</string>
+    <string name="weather_country">Kode negara</string>
+    <string name="weather_not_set">Belum diatur</string>
+    <string name="weather_unit">Satuan</string>
+    <string name="weather_celsius">Celsius</string>
+    <string name="weather_fahrenheit">Fahrenheit</string>
+    <string name="weather_display">Tampilkan</string>
+    <string name="weather_display_icon">Hanya ikon</string>
+    <string name="weather_display_temp">Ikon + suhu</string>
+    <string name="weather_display_lowhigh">Ikon + terendah/tertinggi</string>
+    <string name="weather_click_action">Aksi saat dipilih</string>
+    <string name="weather_click_sub">Menekan lama ikon cuaca akan selalu membuka layar ini</string>
+    <string name="weather_click_settings">Buka pengaturan</string>
+    <string name="weather_click_forecast">Prakiraan mingguan</string>
+    <string name="weather_click_app">Buka aplikasi cuaca</string>
+    <string name="weather_app_opens">Aplikasi cuaca</string>
+    <string name="weather_forecast_title">Prakiraan 7 hari</string>
     <string name="about_version">Versi 1.0</string>
     <string name="about_desc">Launcher ringan satu layar untuk Android TV dan Google TV.\n\nTanpa iklan · tanpa pelacakan · tanpa layanan latar belakang. Jaringan hanya digunakan untuk streaming wallpaper udara bawaan. Semua pengaturan Anda disimpan dalam satu file lokal di perangkat ini.</string>
     <string name="about_foss">Bebas &amp; sumber terbuka</string>

@@ -25,6 +25,7 @@
     <string name="cd_network">네트워크</string>
     <string name="cd_settings">설정</string>
 
+    <string name="cd_weather">날씨</string>
     <string name="menu_open">열기</string>
     <string name="menu_move">이동</string>
     <string name="menu_hide">런처에서 숨기기</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">정적 색상 또는 사진, 혹은 동영상</string>
     <string name="item_statusbar">상태 표시줄</string>
     <string name="item_statusbar_sub">표시 여부, 시계 형식, VPN 앱</string>
+    <string name="item_weather">날씨</string>
+    <string name="item_weather_sub">Open-Meteo 예보, 기본값은 꺼짐</string>
     <string name="item_about">정보</string>
 
     <string name="section_layout">레이아웃</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">시스템 VPN 설정</string>
     <string name="vpn_dialog_title">VPN 버튼으로 열기…</string>
 
+
+    <string name="weather_hint">기본값은 꺼짐입니다. 활성화하면 Open-Meteo에서 데이터를 가져옵니다(키, 계정, 광고 없음).</string>
+    <string name="weather_enable">날씨 표시</string>
+    <string name="weather_source">위치 소스</string>
+    <string name="weather_src_geoip">대략적 위치(IP 주소)</string>
+    <string name="weather_src_latlong">수동 좌표</string>
+    <string name="weather_src_zip">우편번호</string>
+    <string name="weather_geoip_notice">위치를 추정하기 위해 IP 주소를 ipapi.co로 전송합니다 — 계정이나 다른 데이터는 전송하지 않음</string>
+    <string name="weather_lat">위도</string>
+    <string name="weather_lon">경도</string>
+    <string name="weather_zip">우편번호</string>
+    <string name="weather_country">국가 코드</string>
+    <string name="weather_not_set">설정되지 않음</string>
+    <string name="weather_unit">단위</string>
+    <string name="weather_celsius">섭씨</string>
+    <string name="weather_fahrenheit">화씨</string>
+    <string name="weather_display">표시</string>
+    <string name="weather_display_icon">아이콘만</string>
+    <string name="weather_display_temp">아이콘 + 기온</string>
+    <string name="weather_display_lowhigh">아이콘 + 최저/최고</string>
+    <string name="weather_click_action">선택 시 동작</string>
+    <string name="weather_click_sub">날씨 아이콘을 길게 누르면 항상 이 화면이 열립니다</string>
+    <string name="weather_click_settings">설정 열기</string>
+    <string name="weather_click_forecast">주간 예보</string>
+    <string name="weather_click_app">날씨 앱 열기</string>
+    <string name="weather_app_opens">날씨 앱</string>
+    <string name="weather_forecast_title">7일 예보</string>
     <string name="about_version">버전 1.0</string>
     <string name="about_desc">Android TV 및 Google TV를 위한 가벼운 단일 화면 런처입니다.\n\n광고 없음 · 추적 없음 · 백그라운드 서비스 없음. 네트워크는 내장 항공 배경화면 스트리밍에만 사용됩니다. 모든 설정은 이 기기의 단일 로컬 파일에 저장됩니다.</string>
     <string name="about_foss">자유 &amp; 오픈소스</string>

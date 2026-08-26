@@ -25,6 +25,7 @@
     <string name="cd_network">ネットワーク</string>
     <string name="cd_settings">設定</string>
 
+    <string name="cd_weather">天気</string>
     <string name="menu_open">開く</string>
     <string name="menu_move">移動</string>
     <string name="menu_hide">ランチャーから非表示</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">静止画の色や写真、または動画</string>
     <string name="item_statusbar">ステータスバー</string>
     <string name="item_statusbar_sub">表示、時計形式、VPNアプリ</string>
+    <string name="item_weather">天気</string>
+    <string name="item_weather_sub">Open-Meteoの予報、初期設定はオフ</string>
     <string name="item_about">について</string>
 
     <string name="section_layout">レイアウト</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">システムVPN設定</string>
     <string name="vpn_dialog_title">VPNボタンで開く…</string>
 
+
+    <string name="weather_hint">初期設定ではオフ。有効にするとOpen-Meteo(キー・アカウント・広告なし)から取得します。</string>
+    <string name="weather_enable">天気を表示</string>
+    <string name="weather_source">位置情報の取得元</string>
+    <string name="weather_src_geoip">おおよその位置(IPアドレス)</string>
+    <string name="weather_src_latlong">手動で座標を指定</string>
+    <string name="weather_src_zip">郵便番号</string>
+    <string name="weather_geoip_notice">位置を推定するためIPアドレスをipapi.coに送信します — アカウントや他のデータは送信しません</string>
+    <string name="weather_lat">緯度</string>
+    <string name="weather_lon">経度</string>
+    <string name="weather_zip">郵便番号</string>
+    <string name="weather_country">国コード</string>
+    <string name="weather_not_set">未設定</string>
+    <string name="weather_unit">単位</string>
+    <string name="weather_celsius">摂氏(°C)</string>
+    <string name="weather_fahrenheit">華氏(°F)</string>
+    <string name="weather_display">表示内容</string>
+    <string name="weather_display_icon">アイコンのみ</string>
+    <string name="weather_display_temp">アイコン + 気温</string>
+    <string name="weather_display_lowhigh">アイコン + 最低/最高</string>
+    <string name="weather_click_action">選択時の動作</string>
+    <string name="weather_click_sub">天気アイコンを長押しすると、常にこの画面が開きます</string>
+    <string name="weather_click_settings">設定を開く</string>
+    <string name="weather_click_forecast">週間予報</string>
+    <string name="weather_click_app">天気アプリを開く</string>
+    <string name="weather_app_opens">天気アプリ</string>
+    <string name="weather_forecast_title">7日間の予報</string>
     <string name="about_version">バージョン 1.0</string>
     <string name="about_desc">Android TVおよびGoogle TV向けの軽量シングルスクリーンランチャー。\n\n広告なし · トラッキングなし · バックグラウンドサービスなし。ネットワークは内蔵空撮壁紙のストリーミングにのみ使用。すべての設定はこのデバイス上の単一のローカルファイルに保存されます。</string>
     <string name="about_foss">フリー＆オープンソース</string>

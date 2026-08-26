@@ -25,6 +25,7 @@
     <string name="cd_network">Rede</string>
     <string name="cd_settings">Configurações</string>
 
+    <string name="cd_weather">Clima</string>
     <string name="menu_open">Abrir</string>
     <string name="menu_move">Mover</string>
     <string name="menu_hide">Ocultar do launcher</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">Cor estática ou foto, ou um vídeo ao vivo</string>
     <string name="item_statusbar">Barra de status</string>
     <string name="item_statusbar_sub">Visibilidade, formato do relógio, app VPN</string>
+    <string name="item_weather">Clima</string>
+    <string name="item_weather_sub">Previsão Open-Meteo, desativado por padrão</string>
     <string name="item_about">Sobre</string>
 
     <string name="section_layout">Layout</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">Configurações de VPN do sistema</string>
     <string name="vpn_dialog_title">Botão VPN abre…</string>
 
+
+    <string name="weather_hint">Desativado por padrão. Consulta o Open-Meteo (sem chave, sem conta, sem anúncios) quando ativado.</string>
+    <string name="weather_enable">Mostrar clima</string>
+    <string name="weather_source">Origem da localização</string>
+    <string name="weather_src_geoip">Aproximada (endereço IP)</string>
+    <string name="weather_src_latlong">Coordenadas manuais</string>
+    <string name="weather_src_zip">Código postal</string>
+    <string name="weather_geoip_notice">Envia o seu endereço IP para ipapi.co para estimar uma localização — sem conta, sem outros dados</string>
+    <string name="weather_lat">Latitude</string>
+    <string name="weather_lon">Longitude</string>
+    <string name="weather_zip">Código postal</string>
+    <string name="weather_country">Código do país</string>
+    <string name="weather_not_set">Não definido</string>
+    <string name="weather_unit">Unidades</string>
+    <string name="weather_celsius">Celsius</string>
+    <string name="weather_fahrenheit">Fahrenheit</string>
+    <string name="weather_display">Mostrar</string>
+    <string name="weather_display_icon">Apenas ícone</string>
+    <string name="weather_display_temp">Ícone + temperatura</string>
+    <string name="weather_display_lowhigh">Ícone + mín/máx</string>
+    <string name="weather_click_action">Ação ao tocar</string>
+    <string name="weather_click_sub">Um toque longo no ícone do clima sempre abre esta tela</string>
+    <string name="weather_click_settings">Abrir definições</string>
+    <string name="weather_click_forecast">Previsão semanal</string>
+    <string name="weather_click_app">Abrir app de clima</string>
+    <string name="weather_app_opens">App de clima</string>
+    <string name="weather_forecast_title">Previsão de 7 dias</string>
     <string name="about_version">Versão 1.0</string>
     <string name="about_desc">Um launcher leve de tela única para Android TV e Google TV.\n\nSem anúncios · sem rastreamento · sem serviços em segundo plano. A rede é usada apenas para transmitir os papéis de parede aéreos integrados. Todas as suas configurações vivem em um único arquivo local neste dispositivo.</string>
     <string name="about_foss">Livre &amp; código aberto</string>

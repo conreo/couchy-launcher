@@ -29,6 +29,7 @@
     <string name="cd_network">Red</string>
     <string name="cd_settings">Ajustes</string>
 
+    <string name="cd_weather">Tiempo</string>
     <!-- Menú de pulsación larga -->
     <string name="menu_open">Abrir</string>
     <string name="menu_move">Mover</string>
@@ -70,6 +71,8 @@
     <string name="item_wallpaper_sub">Color estático o foto, o un video en vivo</string>
     <string name="item_statusbar">Barra de estado</string>
     <string name="item_statusbar_sub">Visibilidad, formato de reloj, app de VPN</string>
+    <string name="item_weather">Tiempo</string>
+    <string name="item_weather_sub">Pronóstico de Open-Meteo, desactivado por defecto</string>
     <string name="item_about">Acerca de</string>
 
     <!-- Ajustes: pantalla -->
@@ -146,6 +149,33 @@
     <string name="vpn_system">Ajustes VPN del sistema</string>
     <string name="vpn_dialog_title">Botón VPN abre…</string>
 
+
+    <string name="weather_hint">Desactivado por defecto. Consulta Open-Meteo (sin clave, sin cuenta, sin anuncios) cuando está activado.</string>
+    <string name="weather_enable">Mostrar el tiempo</string>
+    <string name="weather_source">Fuente de ubicación</string>
+    <string name="weather_src_geoip">Aproximada (dirección IP)</string>
+    <string name="weather_src_latlong">Coordenadas manuales</string>
+    <string name="weather_src_zip">Código postal</string>
+    <string name="weather_geoip_notice">Envía tu dirección IP a ipapi.co para estimar una ubicación — sin cuenta, sin otros datos</string>
+    <string name="weather_lat">Latitud</string>
+    <string name="weather_lon">Longitud</string>
+    <string name="weather_zip">Código postal</string>
+    <string name="weather_country">Código de país</string>
+    <string name="weather_not_set">Sin definir</string>
+    <string name="weather_unit">Unidades</string>
+    <string name="weather_celsius">Celsius</string>
+    <string name="weather_fahrenheit">Fahrenheit</string>
+    <string name="weather_display">Mostrar</string>
+    <string name="weather_display_icon">Solo icono</string>
+    <string name="weather_display_temp">Icono + temperatura</string>
+    <string name="weather_display_lowhigh">Icono + mín/máx</string>
+    <string name="weather_click_action">Acción al pulsar</string>
+    <string name="weather_click_sub">Una pulsación larga en el icono del tiempo siempre abre esta pantalla</string>
+    <string name="weather_click_settings">Abrir ajustes</string>
+    <string name="weather_click_forecast">Pronóstico semanal</string>
+    <string name="weather_click_app">Abrir app del tiempo</string>
+    <string name="weather_app_opens">App del tiempo</string>
+    <string name="weather_forecast_title">Pronóstico a 7 días</string>
     <!-- Ajustes: acerca de -->
     <string name="about_version">Versión 1.0</string>
     <string name="about_desc">Un launcher ligero de una sola pantalla para Android TV y Google TV.\n\nSin anuncios · sin rastreo · sin servicios en segundo plano. La red solo se usa para transmitir los fondos aéreos integrados. Todos sus ajustes viven en un único archivo local en este dispositivo.</string>

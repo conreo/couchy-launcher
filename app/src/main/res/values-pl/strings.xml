@@ -25,6 +25,7 @@
     <string name="cd_network">Sieć</string>
     <string name="cd_settings">Ustawienia</string>
 
+    <string name="cd_weather">Pogoda</string>
     <string name="menu_open">Otwórz</string>
     <string name="menu_move">Przenieś</string>
     <string name="menu_hide">Ukryj z launchera</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">Statyczny kolor lub zdjęcie albo wideo na żywo</string>
     <string name="item_statusbar">Pasek stanu</string>
     <string name="item_statusbar_sub">Widoczność, format zegara, aplikacja VPN</string>
+    <string name="item_weather">Pogoda</string>
+    <string name="item_weather_sub">Prognoza Open-Meteo, domyślnie wyłączona</string>
     <string name="item_about">O aplikacji</string>
 
     <string name="section_layout">Układ</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">Systemowe ustawienia VPN</string>
     <string name="vpn_dialog_title">Przycisk VPN otwiera…</string>
 
+
+    <string name="weather_hint">Domyślnie wyłączone. Po włączeniu pobiera dane z Open-Meteo (bez klucza, konta i reklam).</string>
+    <string name="weather_enable">Pokaż pogodę</string>
+    <string name="weather_source">Źródło lokalizacji</string>
+    <string name="weather_src_geoip">Przybliżona (adres IP)</string>
+    <string name="weather_src_latlong">Ręczne współrzędne</string>
+    <string name="weather_src_zip">Kod pocztowy</string>
+    <string name="weather_geoip_notice">Wysyła Twój adres IP do ipapi.co, aby oszacować lokalizację — bez konta, bez innych danych</string>
+    <string name="weather_lat">Szerokość geograficzna</string>
+    <string name="weather_lon">Długość geograficzna</string>
+    <string name="weather_zip">Kod pocztowy</string>
+    <string name="weather_country">Kod kraju</string>
+    <string name="weather_not_set">Nie ustawiono</string>
+    <string name="weather_unit">Jednostki</string>
+    <string name="weather_celsius">Celsjusza</string>
+    <string name="weather_fahrenheit">Fahrenheita</string>
+    <string name="weather_display">Pokaż</string>
+    <string name="weather_display_icon">Tylko ikona</string>
+    <string name="weather_display_temp">Ikona + temperatura</string>
+    <string name="weather_display_lowhigh">Ikona + min/maks</string>
+    <string name="weather_click_action">Akcja po wybraniu</string>
+    <string name="weather_click_sub">Długie przytrzymanie ikony pogody zawsze otwiera ten ekran</string>
+    <string name="weather_click_settings">Otwórz ustawienia</string>
+    <string name="weather_click_forecast">Prognoza tygodniowa</string>
+    <string name="weather_click_app">Otwórz aplikację pogodową</string>
+    <string name="weather_app_opens">Aplikacja pogodowa</string>
+    <string name="weather_forecast_title">Prognoza 7-dniowa</string>
     <string name="about_version">Wersja 1.0</string>
     <string name="about_desc">Lekki, jednoekranowy launcher dla Android TV i Google TV.\n\nBez reklam · bez śledzenia · bez usług w tle. Sieć jest używana tylko do przesyłania wbudowanych tapet lotniczych. Wszystkie ustawienia znajdują się w jednym lokalnym pliku na tym urządzeniu.</string>
     <string name="about_foss">Wolne i otwarte oprogramowanie</string>
