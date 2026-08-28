@@ -29,6 +29,10 @@
     <string name="menu_move">이동</string>
     <string name="menu_hide">런처에서 숨기기</string>
     <string name="menu_unhide">숨기기 해제</string>
+    <string name="menu_customize">사용자 지정</string>
+    <string name="menu_rename">이름 바꾸기</string>
+    <string name="menu_change_icon">아이콘 변경…</string>
+    <string name="menu_reset_appearance">모양 초기화</string>
     <string name="menu_close">닫기</string>
     <string name="menu_app_info">앱 정보</string>
     <string name="menu_uninstall">삭제</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">정적 색상 또는 사진, 혹은 동영상</string>
     <string name="item_statusbar">상태 표시줄</string>
     <string name="item_statusbar_sub">표시 여부, 시계 형식, VPN 앱</string>
+    <string name="item_icon_pack">아이콘 팩</string>
+    <string name="item_icon_pack_sub">배너가 없는 앱에 설치된 아이콘 팩 사용</string>
     <string name="item_about">정보</string>
 
     <string name="section_layout">레이아웃</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">시스템 VPN 설정</string>
     <string name="vpn_dialog_title">VPN 버튼으로 열기…</string>
 
+
+    <string name="icon_pack_hint">다른 앱처럼 설치된 아이콘 팩(Nova/ADW 호환, 예: ProjectivyIconPack)은 자동으로 감지됩니다.</string>
+    <string name="icon_pack_none">없음(각 앱 고유 아이콘 사용)</string>
+    <string name="icon_pack_match_count">앱 %2$d개 중 %1$d개와 일치</string>
+    <string name="icon_pack_empty">아이콘 팩을 찾을 수 없습니다. F-Droid 등에서 하나를 설치한 후 다시 돌아오세요.</string>
     <string name="about_version">버전 1.0</string>
     <string name="about_desc">Android TV 및 Google TV를 위한 가벼운 단일 화면 런처입니다.\n\n광고 없음 · 추적 없음 · 백그라운드 서비스 없음. 네트워크는 내장 항공 배경화면 스트리밍에만 사용됩니다. 모든 설정은 이 기기의 단일 로컬 파일에 저장됩니다.</string>
     <string name="about_foss">자유 &amp; 오픈소스</string>

@@ -29,6 +29,10 @@
     <string name="menu_move">Taşı</string>
     <string name="menu_hide">Başlatıcıdan gizle</string>
     <string name="menu_unhide">Göster</string>
+    <string name="menu_customize">Özelleştir</string>
+    <string name="menu_rename">Yeniden adlandır</string>
+    <string name="menu_change_icon">Simgeyi değiştir…</string>
+    <string name="menu_reset_appearance">Görünümü sıfırla</string>
     <string name="menu_close">Kapat</string>
     <string name="menu_app_info">Uygulama bilgisi</string>
     <string name="menu_uninstall">Kaldır</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">Sabit renk veya fotoğraf, ya da canlı video</string>
     <string name="item_statusbar">Durum çubuğu</string>
     <string name="item_statusbar_sub">Görünürlük, saat formatı, VPN uygulaması</string>
+    <string name="item_icon_pack">Simge paketi</string>
+    <string name="item_icon_pack_sub">Afişi olmayan uygulamalar için bir simge paketi kullanın</string>
     <string name="item_about">Hakkında</string>
 
     <string name="section_layout">Düzen</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">Sistem VPN ayarları</string>
     <string name="vpn_dialog_title">VPN düğmesi açar…</string>
 
+
+    <string name="icon_pack_hint">Diğer uygulamalar gibi kurulan simge paketleri (Nova/ADW uyumlu, örn. ProjectivyIconPack) otomatik olarak algılanır.</string>
+    <string name="icon_pack_none">Yok (her uygulamanın kendi simgesi)</string>
+    <string name="icon_pack_match_count">%2$d uygulamadan %1$d tanesiyle eşleşiyor</string>
+    <string name="icon_pack_empty">Simge paketi bulunamadı. F-Droid\'den veya başka bir yerden birini kurun, sonra buraya geri dönün.</string>
     <string name="about_version">Sürüm 1.0</string>
     <string name="about_desc">Android TV ve Google TV için hafif, tek ekranlı bir başlatıcı.\n\nReklamsız · izlemesiz · arka plan hizmeti yok. Ağ yalnızca yerleşik hava duvar kağıtlarını yayınlamak için kullanılır. Tüm ayarlarınız bu cihazdaki tek bir yerel dosyada saklanır.</string>
     <string name="about_foss">Özgür &amp; açık kaynak</string>

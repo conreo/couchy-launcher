@@ -34,6 +34,10 @@
     <string name="menu_move">Mover</string>
     <string name="menu_hide">Ocultar del launcher</string>
     <string name="menu_unhide">Mostrar</string>
+    <string name="menu_customize">Personalizar</string>
+    <string name="menu_rename">Renombrar</string>
+    <string name="menu_change_icon">Cambiar icono…</string>
+    <string name="menu_reset_appearance">Restablecer apariencia</string>
     <string name="menu_close">Cerrar</string>
     <string name="menu_app_info">Info de la app</string>
     <string name="menu_uninstall">Desinstalar</string>
@@ -70,6 +74,8 @@
     <string name="item_wallpaper_sub">Color estático o foto, o un video en vivo</string>
     <string name="item_statusbar">Barra de estado</string>
     <string name="item_statusbar_sub">Visibilidad, formato de reloj, app de VPN</string>
+    <string name="item_icon_pack">Paquete de iconos</string>
+    <string name="item_icon_pack_sub">Usar un paquete de iconos para apps sin banner</string>
     <string name="item_about">Acerca de</string>
 
     <!-- Ajustes: pantalla -->
@@ -146,6 +152,11 @@
     <string name="vpn_system">Ajustes VPN del sistema</string>
     <string name="vpn_dialog_title">Botón VPN abre…</string>
 
+
+    <string name="icon_pack_hint">Los paquetes de iconos instalados como cualquier otra app (compatibles con Nova/ADW, p. ej. ProjectivyIconPack) se detectan automáticamente.</string>
+    <string name="icon_pack_none">Ninguno (icono propio de cada app)</string>
+    <string name="icon_pack_match_count">Coincide con %1$d de %2$d apps</string>
+    <string name="icon_pack_empty">No se encontró ningún paquete de iconos. Instala uno desde F-Droid u otro sitio y vuelve aquí.</string>
     <!-- Ajustes: acerca de -->
     <string name="about_version">Versión 1.0</string>
     <string name="about_desc">Un launcher ligero de una sola pantalla para Android TV y Google TV.\n\nSin anuncios · sin rastreo · sin servicios en segundo plano. La red solo se usa para transmitir los fondos aéreos integrados. Todos sus ajustes viven en un único archivo local en este dispositivo.</string>

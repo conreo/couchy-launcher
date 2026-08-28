@@ -29,6 +29,10 @@
     <string name="menu_move">Przenieś</string>
     <string name="menu_hide">Ukryj z launchera</string>
     <string name="menu_unhide">Pokaż</string>
+    <string name="menu_customize">Dostosuj</string>
+    <string name="menu_rename">Zmień nazwę</string>
+    <string name="menu_change_icon">Zmień ikonę…</string>
+    <string name="menu_reset_appearance">Przywróć wygląd</string>
     <string name="menu_close">Zamknij</string>
     <string name="menu_app_info">Info o aplikacji</string>
     <string name="menu_uninstall">Odinstaluj</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">Statyczny kolor lub zdjęcie albo wideo na żywo</string>
     <string name="item_statusbar">Pasek stanu</string>
     <string name="item_statusbar_sub">Widoczność, format zegara, aplikacja VPN</string>
+    <string name="item_icon_pack">Paczka ikon</string>
+    <string name="item_icon_pack_sub">Użyj zainstalowanej paczki ikon dla aplikacji bez bannera</string>
     <string name="item_about">O aplikacji</string>
 
     <string name="section_layout">Układ</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">Systemowe ustawienia VPN</string>
     <string name="vpn_dialog_title">Przycisk VPN otwiera…</string>
 
+
+    <string name="icon_pack_hint">Paczki ikon zainstalowane jak każda inna aplikacja (zgodne z Nova/ADW, np. ProjectivyIconPack) są wykrywane automatycznie.</string>
+    <string name="icon_pack_none">Brak (własna ikona każdej aplikacji)</string>
+    <string name="icon_pack_match_count">Pasuje do %1$d z %2$d aplikacji</string>
+    <string name="icon_pack_empty">Nie znaleziono paczki ikon. Zainstaluj jedną z F-Droid lub innego źródła i wróć tutaj.</string>
     <string name="about_version">Wersja 1.0</string>
     <string name="about_desc">Lekki, jednoekranowy launcher dla Android TV i Google TV.\n\nBez reklam · bez śledzenia · bez usług w tle. Sieć jest używana tylko do przesyłania wbudowanych tapet lotniczych. Wszystkie ustawienia znajdują się w jednym lokalnym pliku na tym urządzeniu.</string>
     <string name="about_foss">Wolne i otwarte oprogramowanie</string>

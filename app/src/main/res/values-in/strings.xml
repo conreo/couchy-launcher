@@ -29,6 +29,10 @@
     <string name="menu_move">Pindahkan</string>
     <string name="menu_hide">Sembunyikan dari launcher</string>
     <string name="menu_unhide">Tampilkan</string>
+    <string name="menu_customize">Sesuaikan</string>
+    <string name="menu_rename">Ganti nama</string>
+    <string name="menu_change_icon">Ubah ikon…</string>
+    <string name="menu_reset_appearance">Setel ulang tampilan</string>
     <string name="menu_close">Tutup</string>
     <string name="menu_app_info">Info aplikasi</string>
     <string name="menu_uninstall">Copot pemasangan</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">Warna statis atau foto, atau video hidup</string>
     <string name="item_statusbar">Status bar</string>
     <string name="item_statusbar_sub">Visibilitas, format jam, aplikasi VPN</string>
+    <string name="item_icon_pack">Paket ikon</string>
+    <string name="item_icon_pack_sub">Gunakan paket ikon terpasang untuk aplikasi tanpa banner</string>
     <string name="item_about">Tentang</string>
 
     <string name="section_layout">Tata letak</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">Pengaturan VPN sistem</string>
     <string name="vpn_dialog_title">Tombol VPN membuka…</string>
 
+
+    <string name="icon_pack_hint">Paket ikon yang dipasang seperti aplikasi lain (kompatibel Nova/ADW, mis. ProjectivyIconPack) akan terdeteksi otomatis.</string>
+    <string name="icon_pack_none">Tidak ada (ikon bawaan tiap aplikasi)</string>
+    <string name="icon_pack_match_count">Cocok dengan %1$d dari %2$d aplikasi</string>
+    <string name="icon_pack_empty">Tidak ada paket ikon ditemukan. Pasang salah satu dari F-Droid atau sumber lain, lalu kembali ke sini.</string>
     <string name="about_version">Versi 1.0</string>
     <string name="about_desc">Launcher ringan satu layar untuk Android TV dan Google TV.\n\nTanpa iklan · tanpa pelacakan · tanpa layanan latar belakang. Jaringan hanya digunakan untuk streaming wallpaper udara bawaan. Semua pengaturan Anda disimpan dalam satu file lokal di perangkat ini.</string>
     <string name="about_foss">Bebas &amp; sumber terbuka</string>

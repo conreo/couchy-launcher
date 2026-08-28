@@ -37,7 +37,7 @@ data class MenuEntry(
     val action: () -> Unit,
 )
 
-/** Long-press menu: open, move, hide, app info, close, uninstall. */
+/** Long-press menu: open, move, hide, customize, app info, close, uninstall. */
 @Composable
 fun AppContextMenu(
     app: AppEntry,
@@ -46,6 +46,7 @@ fun AppContextMenu(
     onOpen: () -> Unit,
     onMove: () -> Unit,
     onToggleHide: () -> Unit,
+    onCustomize: () -> Unit,
     onAppInfo: () -> Unit,
     onClose: () -> Unit,
     onUninstall: () -> Unit,
@@ -54,23 +55,45 @@ fun AppContextMenu(
         MenuEntry(stringResource(R.string.menu_open), AppIcons.Play, onOpen),
         MenuEntry(stringResource(R.string.menu_move), AppIcons.Move, onMove),
         MenuEntry(if (isHidden) stringResource(R.string.menu_unhide) else stringResource(R.string.menu_hide), AppIcons.Hide, onToggleHide),
+        MenuEntry(stringResource(R.string.menu_customize), AppIcons.Pencil, onCustomize),
         MenuEntry(stringResource(R.string.menu_app_info), AppIcons.Info, onAppInfo),
         MenuEntry(stringResource(R.string.menu_close), AppIcons.Stop, onClose),
         MenuEntry(stringResource(R.string.menu_uninstall), AppIcons.Delete, onUninstall),
+    )
+    MenuDialog(title = app.label, entries = entries, onDismiss = onDismiss, openedByHold = true)
+}
+
+/** Second-level menu opened from "Customize": rename, change icon/banner, reset. */
+@Composable
+fun AppCustomizeMenu(
+    app: AppEntry,
+    onRename: () -> Unit,
+    onPickIcon: () -> Unit,
+    onReset: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val entries = listOf(
+        MenuEntry(stringResource(R.string.menu_rename), AppIcons.Pencil, onRename),
+        MenuEntry(stringResource(R.string.menu_change_icon), AppIcons.Image, onPickIcon),
+        MenuEntry(stringResource(R.string.menu_reset_appearance), AppIcons.Delete, onReset),
     )
     MenuDialog(title = app.label, entries = entries, onDismiss = onDismiss)
 }
 
 @Composable
-private fun MenuDialog(
+internal fun MenuDialog(
     title: String,
     entries: List<MenuEntry>,
     onDismiss: () -> Unit,
+    // True only for a menu that can appear while OK is still physically HELD
+    // (a long-press). Every other menu here is opened from a plain click on
+    // an item in the PREVIOUS menu — OK is already fully released by then, so
+    // gating on a first release would just eat that click's own next press.
+    openedByHold: Boolean = false,
 ) {
-    // The menu opens while the OK button is still physically HELD (long-press).
     // Ignore every OK event — held repeats AND the final release — until the
     // button has been fully released once. Only a fresh press activates items.
-    var released by remember { mutableStateOf(false) }
+    var released by remember { mutableStateOf(!openedByHold) }
     Dialog(onDismissRequest = onDismiss) {
         Surface(
             shape = RoundedCornerShape(16.dp),

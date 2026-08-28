@@ -34,6 +34,17 @@
     <string name="menu_move">Move</string>
     <string name="menu_hide">Hide from launcher</string>
     <string name="menu_unhide">Unhide</string>
+    <string name="menu_customize">Customize</string>
+    <string name="menu_rename">Rename</string>
+    <string name="menu_change_icon">Change icon…</string>
+    <string name="menu_reset_appearance">Reset appearance</string>
+    <string name="icon_source_photo">Photo…</string>
+    <string name="icon_source_app">Another app\'s icon…</string>
+    <string name="icon_source_pack">Icon pack…</string>
+    <string name="icon_pick_apps_title">Choose app icon</string>
+    <string name="icon_pick_choose_pack">Choose icon pack</string>
+    <string name="icon_pick_search_hint">Search</string>
+    <string name="icon_pick_empty">No icons found</string>
     <string name="menu_close">Close</string>
     <string name="menu_app_info">App info</string>
     <string name="menu_force_stop" translatable="false">Force stop</string>
@@ -64,6 +75,8 @@
     <string name="item_wallpaper_sub">Static color or photo, or a live video</string>
     <string name="item_statusbar">Status bar</string>
     <string name="item_statusbar_sub">Visibility, clock format, VPN app</string>
+    <string name="item_icon_pack">Icon pack</string>
+    <string name="item_icon_pack_sub">Use an installed icon pack for banner-less apps</string>
     <string name="item_language">Language</string>
     <string name="item_language_sub">Interface language</string>
     <string name="lang_system">System default</string>
@@ -153,6 +166,11 @@
     <string name="vpn_system">System VPN settings</string>
     <string name="vpn_dialog_title">VPN button opens…</string>
 
+
+    <string name="icon_pack_hint">Icon packs installed like any other app (Nova/ADW-compatible, e.g. ProjectivyIconPack) are detected automatically.</string>
+    <string name="icon_pack_none">None (use each app\'s own icon)</string>
+    <string name="icon_pack_match_count">Matches %1$d of %2$d apps</string>
+    <string name="icon_pack_empty">No icon packs found. Install one from F-Droid or elsewhere, then come back here.</string>
     <!-- Settings: about -->
     <string name="about_version">Version 1.0</string>
     <string name="about_desc">A lightweight, one-screen launcher for Android TV and Google TV. No ads, no tracking, no background services.</string>

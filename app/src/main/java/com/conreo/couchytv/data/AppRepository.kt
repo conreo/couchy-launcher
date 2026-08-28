@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
@@ -16,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 import java.io.File
 
 /**
@@ -187,7 +189,7 @@ object AppRepository {
      * the old lossy q90) never adds gradient banding to icons/banners.
      * RAM/GPU cost is unchanged either way: it's set by the decoded size.
      */
-    private fun cachedBitmap(
+    internal fun cachedBitmap(
         dir: File,
         name: String,
         config: Bitmap.Config,
@@ -278,5 +280,119 @@ object AppRepository {
                 else ordered.filter { it.pkg !in config.hidden }
             cat to visible
         }
+    }
+
+    /** Where per-app custom icon/banner images are cached (see [overlay]). */
+    fun overridesDir(context: Context): File =
+        File(context.filesDir, "overrides").apply { mkdirs() }
+
+    private fun overrideFile(context: Context, pkg: String, kind: String) =
+        File(overridesDir(context), "$pkg-$kind.webp")
+
+    /**
+     * Layers rename/reskin state on top of a scan result: manual label,
+     * then manual icon/banner image (if the user picked one), then an
+     * active icon pack's icon (if no manual icon was set). Unmodified
+     * entries are returned as the SAME instance so Compose still skips
+     * their cards.
+     */
+    suspend fun overlay(
+        context: Context,
+        apps: List<AppEntry>,
+        config: LauncherConfig,
+    ): List<AppEntry> = withContext(Dispatchers.Default) {
+        if (config.labelOverrides.isEmpty() && config.iconPackPkg.isEmpty() &&
+            overridesDir(context).listFiles().isNullOrEmpty()
+        ) return@withContext apps
+
+        val packMap = if (config.iconPackPkg.isNotEmpty()) {
+            runCatching { IconPack.appFilterMap(context, config.iconPackPkg) }.getOrNull().orEmpty()
+        } else emptyMap()
+
+        apps.map { app ->
+            val label = config.labelOverrides[app.pkg]
+            val iconFile = overrideFile(context, app.pkg, "icon").takeIf { it.exists() }
+            val bannerFile = overrideFile(context, app.pkg, "banner").takeIf { it.exists() }
+            // A manual banner override always wins over the pack.
+            val packDrawableName = if (bannerFile == null) packMap[app.pkg] else null
+
+            if (label == null && iconFile == null && bannerFile == null && packDrawableName == null) {
+                return@map app
+            }
+
+            val overrideIcon = iconFile?.let { decodeFile(it)?.asImageBitmap() }
+            val overrideBanner = when {
+                bannerFile != null -> decodeFile(bannerFile)?.asImageBitmap()
+                packDrawableName != null -> runCatching {
+                    IconPack.loadPackBanner(context, config.iconPackPkg, packDrawableName)
+                }.getOrNull()?.asImageBitmap()
+                else -> null
+            }
+
+            app.copy(
+                label = label ?: app.label,
+                icon = overrideIcon ?: app.icon,
+                // A resolved manual/pack icon replaces the app's own banner
+                // too — even one it already ships — so the fallback tile
+                // actually shows the new artwork instead of staying hidden
+                // behind the original banner.
+                banner = overrideBanner ?: if (overrideIcon != null) null else app.banner,
+            )
+        }
+    }
+
+    private fun decodeFile(f: File): Bitmap? =
+        runCatching { BitmapFactory.decodeFile(f.absolutePath) }.getOrNull()
+
+    /** Copies a picked image into the override cache, downscaled to [maxDim]. */
+    private suspend fun saveOverrideImage(
+        context: Context,
+        pkg: String,
+        kind: String,
+        source: Uri,
+        maxDim: Int,
+    ): Boolean = withContext(Dispatchers.IO) {
+        val bytes = runCatching {
+            context.contentResolver.openInputStream(source)?.use { it.readBytes() }
+        }.getOrNull() ?: return@withContext false
+
+        val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+        var sample = 1
+        while (bounds.outWidth / (sample * 2) >= maxDim && bounds.outHeight / (sample * 2) >= maxDim) sample *= 2
+        val opts = BitmapFactory.Options().apply { inSampleSize = sample }
+        val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size, opts) ?: return@withContext false
+        writeOverrideBitmap(context, pkg, kind, bmp, maxDim)
+    }
+
+    /** Writes an already-decoded bitmap (app icon, icon-pack icon) as an override, downscaled to [maxDim]. */
+    private fun writeOverrideBitmap(context: Context, pkg: String, kind: String, bitmap: Bitmap, maxDim: Int): Boolean {
+        val scale = minOf(maxDim.toFloat() / bitmap.width, maxDim.toFloat() / bitmap.height, 1f)
+        val bmp = if (scale < 1f) {
+            Bitmap.createScaledBitmap(bitmap, (bitmap.width * scale).toInt().coerceAtLeast(1), (bitmap.height * scale).toInt().coerceAtLeast(1), true)
+        } else bitmap
+
+        val f = overrideFile(context, pkg, kind)
+        return runCatching {
+            f.outputStream().use { out ->
+                if (Build.VERSION.SDK_INT >= 30) {
+                    bmp.compress(Bitmap.CompressFormat.WEBP_LOSSLESS, 100, out)
+                } else {
+                    @Suppress("DEPRECATION")
+                    bmp.compress(Bitmap.CompressFormat.WEBP, 100, out)
+                }
+            }
+        }.isSuccess
+    }
+
+    suspend fun saveOverrideBanner(context: Context, pkg: String, source: Uri): Boolean =
+        saveOverrideImage(context, pkg, "banner", source, maxDim = 720)
+
+    suspend fun saveOverrideBannerBitmap(context: Context, pkg: String, bitmap: Bitmap): Boolean =
+        withContext(Dispatchers.IO) { writeOverrideBitmap(context, pkg, "banner", bitmap, maxDim = 720) }
+
+    fun clearOverrideImages(context: Context, pkg: String) {
+        overrideFile(context, pkg, "icon").delete()
+        overrideFile(context, pkg, "banner").delete()
     }
 }

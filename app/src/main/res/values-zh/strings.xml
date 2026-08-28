@@ -34,6 +34,10 @@
     <string name="menu_move">移动</string>
     <string name="menu_hide">从启动器隐藏</string>
     <string name="menu_unhide">取消隐藏</string>
+    <string name="menu_customize">自定义</string>
+    <string name="menu_rename">重命名</string>
+    <string name="menu_change_icon">更改图标…</string>
+    <string name="menu_reset_appearance">重置外观</string>
     <string name="menu_close">关闭</string>
     <string name="menu_app_info">应用信息</string>
     <string name="menu_uninstall">卸载</string>
@@ -70,6 +74,8 @@
     <string name="item_wallpaper_sub">静态颜色或照片，或动态视频</string>
     <string name="item_statusbar">状态栏</string>
     <string name="item_statusbar_sub">可见性、时钟格式、VPN 应用</string>
+    <string name="item_icon_pack">图标包</string>
+    <string name="item_icon_pack_sub">为没有横幅图的应用使用图标包</string>
     <string name="item_about">关于</string>
 
     <!-- 设置：显示 -->
@@ -146,6 +152,11 @@
     <string name="vpn_system">系统 VPN 设置</string>
     <string name="vpn_dialog_title">VPN 按钮打开…</string>
 
+
+    <string name="icon_pack_hint">像安装其他应用一样安装的图标包（兼容 Nova/ADW，例如 ProjectivyIconPack）会被自动检测到。</string>
+    <string name="icon_pack_none">无（使用每个应用自带的图标）</string>
+    <string name="icon_pack_match_count">匹配 %2$d 个应用中的 %1$d 个</string>
+    <string name="icon_pack_empty">未找到图标包。请从 F-Droid 或其他来源安装一个，然后再回到这里。</string>
     <!-- 设置：关于 -->
     <string name="about_version">版本 1.0</string>
     <string name="about_desc">一款适用于 Android TV 和 Google TV 的轻量级单屏启动器。\n\n无广告 · 无跟踪 · 无后台服务。网络仅用于串流内置航拍壁纸。您的所有设置均保存在此设备上的单个本地文件中。</string>

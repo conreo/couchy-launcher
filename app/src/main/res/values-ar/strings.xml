@@ -29,6 +29,10 @@
     <string name="menu_move">نقل</string>
     <string name="menu_hide">إخفاء من المشغّل</string>
     <string name="menu_unhide">إظهار</string>
+    <string name="menu_customize">تخصيص</string>
+    <string name="menu_rename">إعادة تسمية</string>
+    <string name="menu_change_icon">تغيير الأيقونة…</string>
+    <string name="menu_reset_appearance">إعادة ضبط المظهر</string>
     <string name="menu_close">إغلاق</string>
     <string name="menu_app_info">معلومات التطبيق</string>
     <string name="menu_uninstall">إلغاء التثبيت</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">لون ثابت أو صورة، أو فيديو حي</string>
     <string name="item_statusbar">شريط الحالة</string>
     <string name="item_statusbar_sub">الرؤية، تنسيق الساعة، تطبيق VPN</string>
+    <string name="item_icon_pack">حزمة الأيقونات</string>
+    <string name="item_icon_pack_sub">استخدام حزمة أيقونات للتطبيقات التي لا تملك شعارًا</string>
     <string name="item_about">حول</string>
 
     <string name="section_layout">التخطيط</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">إعدادات VPN النظام</string>
     <string name="vpn_dialog_title">زر VPN يفتح…</string>
 
+
+    <string name="icon_pack_hint">يتم اكتشاف حزم الأيقونات المثبَّتة مثل أي تطبيق آخر (متوافقة مع Nova/ADW، مثل ProjectivyIconPack) تلقائيًا.</string>
+    <string name="icon_pack_none">بلا (أيقونة كل تطبيق الخاصة به)</string>
+    <string name="icon_pack_match_count">يطابق %1$d من %2$d تطبيقات</string>
+    <string name="icon_pack_empty">لم يتم العثور على أي حزمة أيقونات. ثبّت واحدة من F-Droid أو مصدر آخر ثم عد إلى هنا.</string>
     <string name="about_version">الإصدار 1.0</string>
     <string name="about_desc">مشغّل خفيف بشاشة واحدة لأجهزة Android TV و Google TV.\n\nبدون إعلانات · بدون تتبع · بدون خدمات خلفية. يُستخدم الاتصال بالشبكة فقط لبث الخلفيات الجوية المدمجة. جميع إعداداتك تعيش في ملف محلي واحد على هذا الجهاز.</string>
     <string name="about_foss">حر &amp; مفتوح المصدر</string>

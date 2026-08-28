@@ -29,6 +29,10 @@
     <string name="menu_move">移動</string>
     <string name="menu_hide">ランチャーから非表示</string>
     <string name="menu_unhide">再表示</string>
+    <string name="menu_customize">カスタマイズ</string>
+    <string name="menu_rename">名前を変更</string>
+    <string name="menu_change_icon">アイコンを変更…</string>
+    <string name="menu_reset_appearance">外観をリセット</string>
     <string name="menu_close">閉じる</string>
     <string name="menu_app_info">アプリ情報</string>
     <string name="menu_uninstall">アンインストール</string>
@@ -63,6 +67,8 @@
     <string name="item_wallpaper_sub">静止画の色や写真、または動画</string>
     <string name="item_statusbar">ステータスバー</string>
     <string name="item_statusbar_sub">表示、時計形式、VPNアプリ</string>
+    <string name="item_icon_pack">アイコンパック</string>
+    <string name="item_icon_pack_sub">バナーのないアプリにアイコンパックを使用</string>
     <string name="item_about">について</string>
 
     <string name="section_layout">レイアウト</string>
@@ -134,6 +140,11 @@
     <string name="vpn_system">システムVPN設定</string>
     <string name="vpn_dialog_title">VPNボタンで開く…</string>
 
+
+    <string name="icon_pack_hint">他のアプリと同様にインストールされたアイコンパック(Nova/ADW互換、例: ProjectivyIconPack)は自動的に検出されます。</string>
+    <string name="icon_pack_none">なし(各アプリ本来のアイコンを使用)</string>
+    <string name="icon_pack_match_count">%2$d個中%1$d個のアプリに一致</string>
+    <string name="icon_pack_empty">アイコンパックが見つかりません。F-Droidなどからインストールしてから、ここに戻ってきてください。</string>
     <string name="about_version">バージョン 1.0</string>
     <string name="about_desc">Android TVおよびGoogle TV向けの軽量シングルスクリーンランチャー。\n\n広告なし · トラッキングなし · バックグラウンドサービスなし。ネットワークは内蔵空撮壁紙のストリーミングにのみ使用。すべての設定はこのデバイス上の単一のローカルファイルに保存されます。</string>
     <string name="about_foss">フリー＆オープンソース</string>

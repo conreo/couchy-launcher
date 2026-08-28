@@ -75,6 +75,7 @@ import com.conreo.couchytv.data.AppRepository
 import com.conreo.couchytv.data.CategoryCfg
 import com.conreo.couchytv.data.ConfigStore
 import com.conreo.couchytv.data.DATE_FORMATS
+import com.conreo.couchytv.data.IconPack
 import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
 import com.conreo.couchytv.data.LauncherConfig
@@ -87,7 +88,7 @@ import kotlinx.serialization.json.Json
 
 private val format = Json { ignoreUnknownKeys = true; prettyPrint = true; encodeDefaults = true }
 
-private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Apps, Categories, Launcher, About }
+private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Apps, Categories, IconPack, Launcher, About }
 
 /**
  * Settings panel built entirely from focusable rows and buttons — every
@@ -207,6 +208,7 @@ fun SettingsSheet(
                         onStatusBar = { screen = SettingsScreen.StatusBar },
                         onApps = { screen = SettingsScreen.Apps },
                         onCategories = { screen = SettingsScreen.Categories },
+                        onIconPack = { screen = SettingsScreen.IconPack },
                         onLauncher = { screen = SettingsScreen.Launcher },
                         onAndroidSettings = { Actions.openSystemSettings(context) },
                         onAbout = { screen = SettingsScreen.About },
@@ -265,6 +267,12 @@ fun SettingsSheet(
                         store = store,
                         onBack = { screen = SettingsScreen.Main },
                     )
+                    SettingsScreen.IconPack -> IconPackScreen(
+                        config = config,
+                        apps = apps,
+                        store = store,
+                        onBack = { screen = SettingsScreen.Main },
+                    )
                     SettingsScreen.Apps -> AppsScreen(
                         apps = apps,
                         config = config,
@@ -312,6 +320,7 @@ private fun MainScreen(
     onStatusBar: () -> Unit,
     onApps: () -> Unit,
     onCategories: () -> Unit,
+    onIconPack: () -> Unit,
     onLauncher: () -> Unit,
     onAndroidSettings: () -> Unit,
     onAbout: () -> Unit,
@@ -341,6 +350,12 @@ private fun MainScreen(
             headlineContent = { Text(stringResource(R.string.item_sections)) },
             supportingContent = { Text(stringResource(R.string.item_sections_sub)) },
             leadingContent = { Icon(AppIcons.Folder, contentDescription = null) },
+        )
+        SettingsItem(
+            selected = false, onClick = onIconPack,
+            headlineContent = { Text(stringResource(R.string.item_icon_pack)) },
+            supportingContent = { Text(stringResource(R.string.item_icon_pack_sub)) },
+            leadingContent = { Icon(AppIcons.Palette, contentDescription = null) },
         )
 
         // ---- Appearance: how it looks ----
@@ -1172,7 +1187,8 @@ private fun CategoriesScreen(
     }
 
     renameFor?.let { cat ->
-        RenameDialog(
+        TextEntryDialog(
+            title = stringResource(R.string.rename_section),
             initial = cat.name,
             onSave = { newName ->
                 scope.launch {
@@ -1189,9 +1205,10 @@ private fun CategoriesScreen(
     }
 }
 
-/** Pencil dialog: the ONLY place with a text field, so D-pad browsing never lands in an editor. */
+/** The ONLY place with a text field, so D-pad browsing never lands in an editor. */
 @Composable
-private fun RenameDialog(
+internal fun TextEntryDialog(
+    title: String,
     initial: String,
     onSave: (String) -> Unit,
     onDismiss: () -> Unit,
@@ -1203,7 +1220,7 @@ private fun RenameDialog(
             colors = SurfaceDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
         ) {
             Column(Modifier.width(340.dp).padding(20.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                Text(stringResource(R.string.rename_section), style = MaterialTheme.typography.titleMedium)
+                Text(title, style = MaterialTheme.typography.titleMedium)
                 val f = initialFocus()
                 Box(
                     Modifier
@@ -1229,6 +1246,78 @@ private fun RenameDialog(
                     Button(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
                 }
             }
+        }
+    }
+}
+
+/* ------------------------------ icon pack ------------------------------ */
+
+@Composable
+private fun IconPackScreen(
+    config: LauncherConfig,
+    apps: List<AppEntry>,
+    store: ConfigStore,
+    onBack: () -> Unit,
+) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val packs = remember { IconPack.installedIconPacks(context) }
+    // How many of your currently-installed apps this pack actually has an
+    // icon for — the quickest way to tell "pack parsed fine, just doesn't
+    // cover this app" apart from "pack didn't parse at all".
+    val matchCounts = remember(packs, apps) {
+        packs.associate { pack ->
+            val map = runCatching { IconPack.appFilterMap(context, pack.pkg) }.getOrNull().orEmpty()
+            pack.pkg to apps.count { it.pkg in map }
+        }
+    }
+
+    Column(
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Text(
+            stringResource(R.string.item_icon_pack),
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 4.dp, start = 8.dp),
+        )
+        Text(
+            stringResource(R.string.icon_pack_hint),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(bottom = 12.dp, start = 8.dp),
+        )
+        val f = initialFocus()
+        SettingsItem(
+            selected = false,
+            onClick = { scope.launch { store.update { it.copy(iconPackPkg = "") } } },
+            modifier = Modifier.focusRequester(f),
+            headlineContent = { Text(stringResource(R.string.icon_pack_none)) },
+            trailingContent = { CheckMark(checked = config.iconPackPkg.isEmpty()) },
+        )
+        packs.forEach { pack ->
+            SettingsItem(
+                selected = false,
+                onClick = { scope.launch { store.update { it.copy(iconPackPkg = pack.pkg) } } },
+                headlineContent = { Text(pack.label) },
+                supportingContent = {
+                    Text(stringResource(R.string.icon_pack_match_count, matchCounts[pack.pkg] ?: 0, apps.size))
+                },
+                leadingContent = {
+                    if (pack.icon != null) {
+                        Image(bitmap = pack.icon, contentDescription = null, modifier = Modifier.size(30.dp))
+                    }
+                },
+                trailingContent = { CheckMark(checked = config.iconPackPkg == pack.pkg) },
+            )
+        }
+        if (packs.isEmpty()) {
+            Text(
+                stringResource(R.string.icon_pack_empty),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 8.dp, start = 8.dp),
+            )
         }
     }
 }
