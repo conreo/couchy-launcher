@@ -25,6 +25,7 @@
     <string name="cd_network">Netwerk</string>
     <string name="cd_settings">Instellingen</string>
 
+    <string name="cd_weather">Weer</string>
     <string name="menu_open">Openen</string>
     <string name="menu_move">Verplaatsen</string>
     <string name="menu_hide">Verbergen uit launcher</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">Statische kleur of foto, of een live video</string>
     <string name="item_statusbar">Statusbalk</string>
     <string name="item_statusbar_sub">Zichtbaarheid, klokformaat, VPN-app</string>
+    <string name="item_weather">Weer</string>
+    <string name="item_weather_sub">Open-Meteo-voorspelling, standaard uit</string>
     <string name="item_about">Over</string>
 
     <string name="section_layout">Lay-out</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">Systeem VPN-instellingen</string>
     <string name="vpn_dialog_title">VPN-knop opent…</string>
 
+
+    <string name="weather_hint">Standaard uitgeschakeld. Haalt bij inschakelen gegevens op van Open-Meteo (geen sleutel, account of advertenties).</string>
+    <string name="weather_enable">Weer tonen</string>
+    <string name="weather_source">Locatiebron</string>
+    <string name="weather_src_geoip">Bij benadering (IP-adres)</string>
+    <string name="weather_src_latlong">Handmatige coördinaten</string>
+    <string name="weather_src_zip">Postcode</string>
+    <string name="weather_geoip_notice">Stuurt je IP-adres naar ipapi.co om een locatie te schatten — geen account, geen andere gegevens</string>
+    <string name="weather_lat">Breedtegraad</string>
+    <string name="weather_lon">Lengtegraad</string>
+    <string name="weather_zip">Postcode</string>
+    <string name="weather_country">Landcode</string>
+    <string name="weather_not_set">Niet ingesteld</string>
+    <string name="weather_unit">Eenheden</string>
+    <string name="weather_celsius">Celsius</string>
+    <string name="weather_fahrenheit">Fahrenheit</string>
+    <string name="weather_display">Tonen</string>
+    <string name="weather_display_icon">Alleen pictogram</string>
+    <string name="weather_display_temp">Pictogram + temperatuur</string>
+    <string name="weather_display_lowhigh">Pictogram + min/max</string>
+    <string name="weather_click_action">Actie bij selecteren</string>
+    <string name="weather_click_sub">Lang drukken op het weerpictogram opent altijd dit scherm</string>
+    <string name="weather_click_settings">Instellingen openen</string>
+    <string name="weather_click_forecast">Weekvoorspelling</string>
+    <string name="weather_click_app">Weer-app openen</string>
+    <string name="weather_app_opens">Weer-app</string>
+    <string name="weather_forecast_title">7-daagse voorspelling</string>
     <string name="about_version">Versie 1.0</string>
     <string name="about_desc">Een lichte, enkel-scherm launcher voor Android TV en Google TV.\n\nGeen advertenties · geen tracking · geen achtergrondservices. Netwerktoegang wordt alleen gebruikt om de ingebouwde luchtachtergronden te streamen. Al je instellingen staan in één lokaal bestand op dit apparaat.</string>
     <string name="about_foss">Vrij &amp; open source</string>

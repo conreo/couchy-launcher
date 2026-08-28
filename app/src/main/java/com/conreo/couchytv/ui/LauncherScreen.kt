@@ -83,6 +83,10 @@ import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
 import com.conreo.couchytv.data.LauncherConfig
 import com.conreo.couchytv.data.NetStatus
+import com.conreo.couchytv.data.WEATHER_CLICK_APP
+import com.conreo.couchytv.data.WEATHER_CLICK_FORECAST
+import com.conreo.couchytv.data.WeatherData
+import com.conreo.couchytv.data.WeatherRepository
 import com.conreo.couchytv.data.networkStatusFlow
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -319,6 +323,16 @@ fun LauncherApp(rescanTick: Int) {
         }
     }
 
+    // Weather chip: fetched off the main thread, refreshed every 30 minutes
+    // and on resume; disabled entirely (no fetch) unless the user opted in.
+    val weather: WeatherData? by produceState<WeatherData?>(initialValue = null, config.weatherEnabled, resumeTick) {
+        if (!config.weatherEnabled) { value = null; return@produceState }
+        while (true) {
+            value = withContext(Dispatchers.IO) { WeatherRepository.fetch(context, config) }
+            delay(30 * 60_000L)
+        }
+    }
+
     // New installs are auto-added to the FIRST section.
     LaunchedEffect(apps) {
         if (apps.isEmpty()) return@LaunchedEffect
@@ -342,7 +356,28 @@ fun LauncherApp(rescanTick: Int) {
     var menuFor by remember { mutableStateOf<AppEntry?>(null) }
     var movePkg by remember { mutableStateOf<String?>(null) }
     var showSettings by remember { mutableStateOf(false) }
+    var settingsStartAtWeather by remember { mutableStateOf(false) }
+    // Only true when Settings was opened by a still-held long-press (the
+    // weather chip): the eventual key-up of that hold must not fall through
+    // to whatever is focused first once the sheet appears (see SettingsSheet).
+    var settingsSuppressRelease by remember { mutableStateOf(false) }
+    var showWeeklyForecast by remember { mutableStateOf(false) }
     var wallpaperVersion by remember { mutableIntStateOf(0) }
+
+    fun openWeatherSettings(suppressRelease: Boolean = false) {
+        settingsStartAtWeather = true
+        settingsSuppressRelease = suppressRelease
+        showSettings = true
+    }
+    fun onWeatherClick() {
+        when (config.weatherClickAction) {
+            WEATHER_CLICK_FORECAST ->
+                if (weather?.daily?.isNotEmpty() == true) showWeeklyForecast = true else openWeatherSettings()
+            WEATHER_CLICK_APP ->
+                if (config.weatherApp.isNotEmpty()) Actions.launchApp(context, config.weatherApp) else openWeatherSettings()
+            else -> openWeatherSettings()
+        }
+    }
 
     // Drop empty sections: an empty row is dead space AND a focus trap that
     // stops D-pad navigation from reaching the section below it.
@@ -709,12 +744,16 @@ fun LauncherApp(rescanTick: Int) {
                         date = date,
                         showVpn = config.showVpnButton,
                         glass = config.statusBarGlass,
+                        weather = weather,
+                        weatherDisplay = config.weatherDisplay,
                         onVpnClick = {
                             if (config.vpnApp.isNotEmpty()) Actions.launchApp(context, config.vpnApp)
                             else Actions.openVpnSettings(context)
                         },
                         onNetworkClick = { Actions.openNetworkSettings(context) },
-                        onSettingsClick = { showSettings = true },
+                        onSettingsClick = { settingsStartAtWeather = false; settingsSuppressRelease = false; showSettings = true },
+                        onWeatherClick = { onWeatherClick() },
+                        onWeatherLongClick = { openWeatherSettings(suppressRelease = true) },
                     )
                 }
                 when (config.layout) {
@@ -891,7 +930,13 @@ fun LauncherApp(rescanTick: Int) {
                         showSettings = false
                         scope.launch { store.update { it.copy(setupDone = false) } }
                     },
+                    startAtWeather = settingsStartAtWeather,
+                    suppressInitialRelease = settingsSuppressRelease,
                 )
+            }
+
+            if (showWeeklyForecast) {
+                weather?.let { WeeklyForecastDialog(weather = it, onDismiss = { showWeeklyForecast = false }) }
             }
         }
     }

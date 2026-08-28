@@ -25,6 +25,7 @@
     <string name="cd_network">เครือข่าย</string>
     <string name="cd_settings">การตั้งค่า</string>
 
+    <string name="cd_weather">สภาพอากาศ</string>
     <string name="menu_open">เปิด</string>
     <string name="menu_move">ย้าย</string>
     <string name="menu_hide">ซ่อนจากลอนเชอร์</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">สีหรือรูปภาพนิ่ง หรือวิดีโอสด</string>
     <string name="item_statusbar">แถบสถานะ</string>
     <string name="item_statusbar_sub">การมองเห็น รูปแบบนาฬิกา แอป VPN</string>
+    <string name="item_weather">สภาพอากาศ</string>
+    <string name="item_weather_sub">พยากรณ์จาก Open-Meteo ปิดโดยค่าเริ่มต้น</string>
     <string name="item_about">เกี่ยวกับ</string>
 
     <string name="section_layout">เค้าโครง</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">การตั้งค่า VPN ของระบบ</string>
     <string name="vpn_dialog_title">ปุ่ม VPN เปิด…</string>
 
+
+    <string name="weather_hint">ปิดโดยค่าเริ่มต้น เมื่อเปิดใช้งานจะดึงข้อมูลจาก Open-Meteo (ไม่ต้องใช้คีย์ บัญชี หรือมีโฆษณา)</string>
+    <string name="weather_enable">แสดงสภาพอากาศ</string>
+    <string name="weather_source">แหล่งที่มาของตำแหน่ง</string>
+    <string name="weather_src_geoip">โดยประมาณ (ที่อยู่ IP)</string>
+    <string name="weather_src_latlong">พิกัดที่กำหนดเอง</string>
+    <string name="weather_src_zip">รหัสไปรษณีย์</string>
+    <string name="weather_geoip_notice">ส่งที่อยู่ IP ของคุณไปยัง ipapi.co เพื่อประมาณตำแหน่ง — ไม่มีบัญชีหรือข้อมูลอื่นใด</string>
+    <string name="weather_lat">ละติจูด</string>
+    <string name="weather_lon">ลองจิจูด</string>
+    <string name="weather_zip">รหัสไปรษณีย์</string>
+    <string name="weather_country">รหัสประเทศ</string>
+    <string name="weather_not_set">ยังไม่ได้ตั้งค่า</string>
+    <string name="weather_unit">หน่วย</string>
+    <string name="weather_celsius">เซลเซียส</string>
+    <string name="weather_fahrenheit">ฟาเรนไฮต์</string>
+    <string name="weather_display">แสดง</string>
+    <string name="weather_display_icon">ไอคอนเท่านั้น</string>
+    <string name="weather_display_temp">ไอคอน + อุณหภูมิ</string>
+    <string name="weather_display_lowhigh">ไอคอน + ต่ำสุด/สูงสุด</string>
+    <string name="weather_click_action">การกระทำเมื่อเลือก</string>
+    <string name="weather_click_sub">การกดค้างที่ไอคอนสภาพอากาศจะเปิดหน้าจอนี้เสมอ</string>
+    <string name="weather_click_settings">เปิดการตั้งค่า</string>
+    <string name="weather_click_forecast">พยากรณ์รายสัปดาห์</string>
+    <string name="weather_click_app">เปิดแอปสภาพอากาศ</string>
+    <string name="weather_app_opens">แอปสภาพอากาศ</string>
+    <string name="weather_forecast_title">พยากรณ์ 7 วัน</string>
     <string name="about_version">เวอร์ชัน 1.0</string>
     <string name="about_desc">ลอนเชอร์หน้าจอเดียวที่เบาสำหรับ Android TV และ Google TV\n\nไม่มีโฆษณา · ไม่มีการติดตาม · ไม่มีบริการพื้นหลัง ใช้เครือข่ายเพื่อสตรีมวอลเปเปอร์ทางอากาศในตัวเท่านั้น การตั้งค่าทั้งหมดของคุณอยู่ในไฟล์ในเครื่องเดียวบนอุปกรณ์นี้</string>
     <string name="about_foss">ฟรี &amp; โอเพนซอร์ส</string>

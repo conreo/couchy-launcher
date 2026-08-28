@@ -29,6 +29,7 @@
     <string name="cd_network">网络</string>
     <string name="cd_settings">设置</string>
 
+    <string name="cd_weather">天气</string>
     <!-- 长按菜单 -->
     <string name="menu_open">打开</string>
     <string name="menu_move">移动</string>
@@ -70,6 +71,8 @@
     <string name="item_wallpaper_sub">静态颜色或照片，或动态视频</string>
     <string name="item_statusbar">状态栏</string>
     <string name="item_statusbar_sub">可见性、时钟格式、VPN 应用</string>
+    <string name="item_weather">天气</string>
+    <string name="item_weather_sub">Open-Meteo 预报，默认关闭</string>
     <string name="item_about">关于</string>
 
     <!-- 设置：显示 -->
@@ -146,6 +149,33 @@
     <string name="vpn_system">系统 VPN 设置</string>
     <string name="vpn_dialog_title">VPN 按钮打开…</string>
 
+
+    <string name="weather_hint">默认关闭。启用后会从 Open-Meteo 获取数据（无需密钥、账号，无广告）。</string>
+    <string name="weather_enable">显示天气</string>
+    <string name="weather_source">位置来源</string>
+    <string name="weather_src_geoip">大致位置（IP 地址）</string>
+    <string name="weather_src_latlong">手动坐标</string>
+    <string name="weather_src_zip">邮政编码</string>
+    <string name="weather_geoip_notice">会将你的 IP 地址发送给 ipapi.co 以估算位置 — 不涉及账号，也不发送其他数据</string>
+    <string name="weather_lat">纬度</string>
+    <string name="weather_lon">经度</string>
+    <string name="weather_zip">邮政编码</string>
+    <string name="weather_country">国家代码</string>
+    <string name="weather_not_set">未设置</string>
+    <string name="weather_unit">单位</string>
+    <string name="weather_celsius">摄氏度</string>
+    <string name="weather_fahrenheit">华氏度</string>
+    <string name="weather_display">显示内容</string>
+    <string name="weather_display_icon">仅图标</string>
+    <string name="weather_display_temp">图标 + 温度</string>
+    <string name="weather_display_lowhigh">图标 + 最低/最高</string>
+    <string name="weather_click_action">点击操作</string>
+    <string name="weather_click_sub">长按天气图标始终会打开此界面</string>
+    <string name="weather_click_settings">打开设置</string>
+    <string name="weather_click_forecast">一周预报</string>
+    <string name="weather_click_app">打开天气应用</string>
+    <string name="weather_app_opens">天气应用</string>
+    <string name="weather_forecast_title">7 天预报</string>
     <!-- 设置：关于 -->
     <string name="about_version">版本 1.0</string>
     <string name="about_desc">一款适用于 Android TV 和 Google TV 的轻量级单屏启动器。\n\n无广告 · 无跟踪 · 无后台服务。网络仅用于串流内置航拍壁纸。您的所有设置均保存在此设备上的单个本地文件中。</string>

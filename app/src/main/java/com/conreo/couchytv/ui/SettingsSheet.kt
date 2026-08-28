@@ -78,6 +78,10 @@ import com.conreo.couchytv.data.DATE_FORMATS
 import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
 import com.conreo.couchytv.data.LauncherConfig
+import com.conreo.couchytv.data.WEATHER_CLICK_APP
+import com.conreo.couchytv.data.WEATHER_SRC_GEOIP
+import com.conreo.couchytv.data.WEATHER_SRC_LATLONG
+import com.conreo.couchytv.data.WEATHER_SRC_ZIP
 import kotlinx.coroutines.Dispatchers
 import androidx.compose.runtime.withFrameNanos
 import kotlinx.coroutines.launch
@@ -87,7 +91,7 @@ import kotlinx.serialization.json.Json
 
 private val format = Json { ignoreUnknownKeys = true; prettyPrint = true; encodeDefaults = true }
 
-private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Apps, Categories, Launcher, About }
+private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Weather, Apps, Categories, Launcher, About }
 
 /**
  * Settings panel built entirely from focusable rows and buttons — every
@@ -102,10 +106,16 @@ fun SettingsSheet(
     onDismiss: () -> Unit,
     onWallpaperChanged: () -> Unit,
     onRerunWizard: () -> Unit,
+    startAtWeather: Boolean = false,
+    // True only when this sheet was opened by a still-held long-press (the
+    // weather chip). That hold's eventual key-up must not reach — and
+    // activate — whatever ends up focused first once the sheet appears.
+    suppressInitialRelease: Boolean = false,
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    var screen by remember { mutableStateOf(SettingsScreen.Main) }
+    var screen by remember { mutableStateOf(if (startAtWeather) SettingsScreen.Weather else SettingsScreen.Main) }
+    var released by remember { mutableStateOf(!suppressInitialRelease) }
 
     // Same document-picker flow as videos: opens the system file manager,
     // works with USB drives and network storage providers.
@@ -184,7 +194,19 @@ fun SettingsSheet(
                 colors = SurfaceDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
                 modifier = Modifier
                     .width(440.dp)
-                    .fillMaxHeight(),
+                    .fillMaxHeight()
+                    // Same held-button guard as MenuDialog: swallow every select
+                    // event, including the first key-up, until the long-press
+                    // that opened this sheet has been fully released once.
+                    .onPreviewKeyEvent { e ->
+                        val select = e.key == Key.DirectionCenter || e.key == Key.Enter || e.key == Key.NumPadEnter
+                        when {
+                            !select -> false
+                            released -> false
+                            e.type == KeyEventType.KeyUp -> { released = true; true }
+                            else -> true
+                        }
+                    },
             ) {
                 // Slide left when entering a sub-screen, right when going back
                 // to Main (the root); cross-fade so it never looks abrupt.
@@ -205,6 +227,7 @@ fun SettingsSheet(
                         onWallpaper = { screen = SettingsScreen.Wallpaper },
                         onDisplay = { screen = SettingsScreen.Display },
                         onStatusBar = { screen = SettingsScreen.StatusBar },
+                        onWeather = { screen = SettingsScreen.Weather },
                         onApps = { screen = SettingsScreen.Apps },
                         onCategories = { screen = SettingsScreen.Categories },
                         onLauncher = { screen = SettingsScreen.Launcher },
@@ -265,6 +288,12 @@ fun SettingsSheet(
                         store = store,
                         onBack = { screen = SettingsScreen.Main },
                     )
+                    SettingsScreen.Weather -> WeatherScreen(
+                        config = config,
+                        apps = apps,
+                        store = store,
+                        onBack = { screen = SettingsScreen.Main },
+                    )
                     SettingsScreen.Apps -> AppsScreen(
                         apps = apps,
                         config = config,
@@ -310,6 +339,7 @@ private fun MainScreen(
     onWallpaper: () -> Unit,
     onDisplay: () -> Unit,
     onStatusBar: () -> Unit,
+    onWeather: () -> Unit,
     onApps: () -> Unit,
     onCategories: () -> Unit,
     onLauncher: () -> Unit,
@@ -362,6 +392,12 @@ private fun MainScreen(
             headlineContent = { Text(stringResource(R.string.item_statusbar)) },
             supportingContent = { Text(stringResource(R.string.item_statusbar_sub)) },
             leadingContent = { Icon(AppIcons.Wifi, contentDescription = null) },
+        )
+        SettingsItem(
+            selected = false, onClick = onWeather,
+            headlineContent = { Text(stringResource(R.string.item_weather)) },
+            supportingContent = { Text(stringResource(R.string.item_weather_sub)) },
+            leadingContent = { Icon(AppIcons.WeatherPartlyCloudy, contentDescription = null) },
         )
 
         // ---- System ----
@@ -1039,6 +1075,210 @@ private fun StatusBarScreen(
     }
 }
 
+/* ------------------------------ weather ------------------------------ */
+
+@Composable
+private fun WeatherScreen(
+    config: LauncherConfig,
+    apps: List<AppEntry>,
+    store: ConfigStore,
+    onBack: () -> Unit,
+) {
+    val scope = rememberCoroutineScope()
+    var editField by remember { mutableStateOf<String?>(null) } // "lat" | "lon" | "zip" | "country"
+    var pickWeatherApp by remember { mutableStateOf(false) }
+
+    Column(
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Text(
+            stringResource(R.string.item_weather),
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 4.dp, start = 8.dp),
+        )
+        Text(
+            stringResource(R.string.weather_hint),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(bottom = 12.dp, start = 8.dp),
+        )
+        val f = initialFocus()
+        SettingsItem(
+            selected = false,
+            onClick = { scope.launch { store.update { it.copy(weatherEnabled = !it.weatherEnabled) } } },
+            modifier = Modifier.focusRequester(f),
+            headlineContent = { Text(stringResource(R.string.weather_enable)) },
+            trailingContent = { CheckMark(checked = config.weatherEnabled) },
+        )
+        if (!config.weatherEnabled) return@Column
+
+        val sourceNames = listOf(
+            stringResource(R.string.weather_src_geoip),
+            stringResource(R.string.weather_src_latlong),
+            stringResource(R.string.weather_src_zip),
+        )
+        val srcIdx = config.weatherLocationSource.coerceIn(0, sourceNames.size - 1)
+        SelectorRow(
+            label = stringResource(R.string.weather_source),
+            value = sourceNames[srcIdx],
+            steps = sourceNames.size,
+            current = srcIdx,
+            onSelect = { v -> scope.launch { store.update { it.copy(weatherLocationSource = v) } } },
+        )
+        if (srcIdx == WEATHER_SRC_GEOIP) {
+            // Full-width note, not squeezed into the row's supporting-text column
+            // next to the ◄ ► stepper — that wrapped this sentence into confetti.
+            Text(
+                stringResource(R.string.weather_geoip_notice),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+            )
+        }
+
+        when (srcIdx) {
+            WEATHER_SRC_LATLONG -> {
+                SettingsItem(
+                    selected = false, onClick = { editField = "lat" },
+                    headlineContent = { Text(stringResource(R.string.weather_lat)) },
+                    supportingContent = { Text(config.weatherLat.toString()) },
+                )
+                SettingsItem(
+                    selected = false, onClick = { editField = "lon" },
+                    headlineContent = { Text(stringResource(R.string.weather_lon)) },
+                    supportingContent = { Text(config.weatherLon.toString()) },
+                )
+            }
+            WEATHER_SRC_ZIP -> {
+                SettingsItem(
+                    selected = false, onClick = { editField = "zip" },
+                    headlineContent = { Text(stringResource(R.string.weather_zip)) },
+                    supportingContent = { Text(config.weatherZip.ifEmpty { stringResource(R.string.weather_not_set) }) },
+                )
+                SettingsItem(
+                    selected = false, onClick = { editField = "country" },
+                    headlineContent = { Text(stringResource(R.string.weather_country)) },
+                    supportingContent = {
+                        val default = java.util.Locale.getDefault().country
+                        Text(config.weatherCountry.ifEmpty { default.ifEmpty { "US" } })
+                    },
+                )
+            }
+        }
+
+        val unitNames = listOf(stringResource(R.string.weather_celsius), stringResource(R.string.weather_fahrenheit))
+        val unitIdx = config.weatherUnit.coerceIn(0, 1)
+        SelectorRow(
+            label = stringResource(R.string.weather_unit),
+            value = unitNames[unitIdx],
+            steps = 2,
+            current = unitIdx,
+            onSelect = { v -> scope.launch { store.update { it.copy(weatherUnit = v) } } },
+        )
+
+        val displayNames = listOf(
+            stringResource(R.string.weather_display_icon),
+            stringResource(R.string.weather_display_temp),
+            stringResource(R.string.weather_display_lowhigh),
+        )
+        val displayIdx = config.weatherDisplay.coerceIn(0, displayNames.size - 1)
+        SelectorRow(
+            label = stringResource(R.string.weather_display),
+            value = displayNames[displayIdx],
+            steps = displayNames.size,
+            current = displayIdx,
+            onSelect = { v -> scope.launch { store.update { it.copy(weatherDisplay = v) } } },
+        )
+
+        val clickNames = listOf(
+            stringResource(R.string.weather_click_settings),
+            stringResource(R.string.weather_click_forecast),
+            stringResource(R.string.weather_click_app),
+        )
+        val clickIdx = config.weatherClickAction.coerceIn(0, clickNames.size - 1)
+        SelectorRow(
+            label = stringResource(R.string.weather_click_action),
+            value = clickNames[clickIdx],
+            steps = clickNames.size,
+            current = clickIdx,
+            description = stringResource(R.string.weather_click_sub),
+            onSelect = { v -> scope.launch { store.update { it.copy(weatherClickAction = v) } } },
+        )
+        if (clickIdx == WEATHER_CLICK_APP) {
+            val appLabel = apps.firstOrNull { it.pkg == config.weatherApp }?.label
+                ?: stringResource(R.string.weather_not_set)
+            SettingsItem(
+                selected = false, onClick = { pickWeatherApp = true },
+                headlineContent = { Text(stringResource(R.string.weather_app_opens)) },
+                supportingContent = { Text(appLabel) },
+            )
+        }
+    }
+
+    if (pickWeatherApp) {
+        Dialog(onDismissRequest = { pickWeatherApp = false }) {
+            Surface(
+                shape = RoundedCornerShape(16.dp),
+                colors = SurfaceDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.width(380.dp).height(480.dp),
+            ) {
+                Column(Modifier.fillMaxSize().padding(16.dp)) {
+                    Text(
+                        stringResource(R.string.weather_app_opens),
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.padding(start = 8.dp, bottom = 10.dp),
+                    )
+                    val fw = initialFocus()
+                    LazyColumn(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        items(apps.size, key = { apps[it].pkg }) { i ->
+                            val app = apps[i]
+                            SettingsItem(
+                                selected = false,
+                                onClick = {
+                                    scope.launch { store.update { it.copy(weatherApp = app.pkg) } }
+                                    pickWeatherApp = false
+                                },
+                                headlineContent = { Text(app.label) },
+                                leadingContent = { AppThumb(app) },
+                                trailingContent = { CheckMark(checked = config.weatherApp == app.pkg) },
+                                modifier = if (i == 0) Modifier.focusRequester(fw) else Modifier,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    editField?.let { field ->
+        val (title, initial) = when (field) {
+            "lat" -> stringResource(R.string.weather_lat) to config.weatherLat.toString()
+            "lon" -> stringResource(R.string.weather_lon) to config.weatherLon.toString()
+            "zip" -> stringResource(R.string.weather_zip) to config.weatherZip
+            else -> stringResource(R.string.weather_country) to config.weatherCountry
+        }
+        TextEntryDialog(
+            title = title,
+            initial = initial,
+            onSave = { value ->
+                scope.launch {
+                    store.update {
+                        when (field) {
+                            "lat" -> it.copy(weatherLat = value.toDoubleOrNull() ?: it.weatherLat)
+                            "lon" -> it.copy(weatherLon = value.toDoubleOrNull() ?: it.weatherLon)
+                            "zip" -> it.copy(weatherZip = value.trim())
+                            else -> it.copy(weatherCountry = value.trim().take(2).uppercase())
+                        }
+                    }
+                }
+                editField = null
+            },
+            onDismiss = { editField = null },
+        )
+    }
+}
+
 /* ------------------------------ sections ------------------------------ */
 
 @Composable
@@ -1172,7 +1412,8 @@ private fun CategoriesScreen(
     }
 
     renameFor?.let { cat ->
-        RenameDialog(
+        TextEntryDialog(
+            title = stringResource(R.string.rename_section),
             initial = cat.name,
             onSave = { newName ->
                 scope.launch {
@@ -1189,9 +1430,10 @@ private fun CategoriesScreen(
     }
 }
 
-/** Pencil dialog: the ONLY place with a text field, so D-pad browsing never lands in an editor. */
+/** The ONLY place with a text field, so D-pad browsing never lands in an editor. */
 @Composable
-private fun RenameDialog(
+internal fun TextEntryDialog(
+    title: String,
     initial: String,
     onSave: (String) -> Unit,
     onDismiss: () -> Unit,
@@ -1203,7 +1445,7 @@ private fun RenameDialog(
             colors = SurfaceDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
         ) {
             Column(Modifier.width(340.dp).padding(20.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                Text(stringResource(R.string.rename_section), style = MaterialTheme.typography.titleMedium)
+                Text(title, style = MaterialTheme.typography.titleMedium)
                 val f = initialFocus()
                 Box(
                     Modifier

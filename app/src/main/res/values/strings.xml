@@ -29,6 +29,7 @@
     <string name="cd_network">Network</string>
     <string name="cd_settings">Settings</string>
 
+    <string name="cd_weather">Weather</string>
     <!-- Long-press menu -->
     <string name="menu_open">Open</string>
     <string name="menu_move">Move</string>
@@ -64,6 +65,8 @@
     <string name="item_wallpaper_sub">Static color or photo, or a live video</string>
     <string name="item_statusbar">Status bar</string>
     <string name="item_statusbar_sub">Visibility, clock format, VPN app</string>
+    <string name="item_weather">Weather</string>
+    <string name="item_weather_sub">Open-Meteo forecast, off by default</string>
     <string name="item_language">Language</string>
     <string name="item_language_sub">Interface language</string>
     <string name="lang_system">System default</string>
@@ -153,6 +156,40 @@
     <string name="vpn_system">System VPN settings</string>
     <string name="vpn_dialog_title">VPN button opens…</string>
 
+
+    <string name="weather_hint">Off by default. Fetches from Open-Meteo (no key, no account, no ads) when enabled.</string>
+    <string name="weather_enable">Show weather</string>
+    <string name="weather_source">Location source</string>
+    <string name="weather_src_geoip">Approximate (IP address)</string>
+    <string name="weather_src_latlong">Manual coordinates</string>
+    <string name="weather_src_zip">Zip / postal code</string>
+    <string name="weather_geoip_notice">Sends your IP address to ipapi.co to estimate a location — no account, no other data</string>
+    <string name="weather_lat">Latitude</string>
+    <string name="weather_lon">Longitude</string>
+    <string name="weather_zip">Zip / postal code</string>
+    <string name="weather_country">Country code</string>
+    <string name="weather_not_set">Not set</string>
+    <string name="weather_unit">Units</string>
+    <string name="weather_celsius">Celsius</string>
+    <string name="weather_fahrenheit">Fahrenheit</string>
+    <string name="weather_display">Show</string>
+    <string name="weather_display_icon">Icon only</string>
+    <string name="weather_display_temp">Icon + temperature</string>
+    <string name="weather_display_lowhigh">Icon + low/high</string>
+    <string name="weather_click_action">Tap action</string>
+    <string name="weather_click_sub">Long-press the weather chip always opens this screen</string>
+    <string name="weather_click_settings">Open settings</string>
+    <string name="weather_click_forecast">Weekly forecast</string>
+    <string name="weather_click_app">Open weather app</string>
+    <string name="weather_app_opens">Weather app</string>
+    <string name="weather_forecast_title">7-day forecast</string>
+    <string name="weather_kind_clear">Clear</string>
+    <string name="weather_kind_partly_cloudy">Partly cloudy</string>
+    <string name="weather_kind_cloudy">Cloudy</string>
+    <string name="weather_kind_fog">Fog</string>
+    <string name="weather_kind_rain">Rain</string>
+    <string name="weather_kind_snow">Snow</string>
+    <string name="weather_kind_storm">Storm</string>
     <!-- Settings: about -->
     <string name="about_version">Version 1.0</string>
     <string name="about_desc">A lightweight, one-screen launcher for Android TV and Google TV. No ads, no tracking, no background services.</string>

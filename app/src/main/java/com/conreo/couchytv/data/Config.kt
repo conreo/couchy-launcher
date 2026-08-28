@@ -75,6 +75,26 @@ data class LauncherConfig(
     val language: String = "",
     /** 0 = carousel (fixed selection), 1 = grid, 2 = dock */
     val layout: Int = 2, // Dock
+    // ----- weather -----
+    val weatherEnabled: Boolean = false,
+    // Defaults to manual coordinates, NOT GeoIP: flipping "Show weather" on
+    // must never by itself phone a third party with the device's IP — that
+    // only happens once the user deliberately picks GeoIP as the source.
+    /** 0 = GeoIP, 1 = manual lat/long, 2 = zip/postal code */
+    val weatherLocationSource: Int = 1,
+    val weatherLat: Double = 0.0,
+    val weatherLon: Double = 0.0,
+    val weatherZip: String = "",
+    /** 2-letter country code for zip lookup */
+    val weatherCountry: String = "",
+    /** 0 = Celsius, 1 = Fahrenheit */
+    val weatherUnit: Int = 0,
+    /** 0 = icon only, 1 = icon + temperature, 2 = icon + low/high */
+    val weatherDisplay: Int = 1,
+    /** 0 = open Settings, 1 = weekly forecast dialog, 2 = open weatherApp */
+    val weatherClickAction: Int = 0,
+    /** package opened when weatherClickAction = 2 (open app) */
+    val weatherApp: String = "",
 )
 
 const val LAYOUT_CAROUSEL = 0
@@ -83,6 +103,16 @@ const val LAYOUT_DOCK = 2
 
 /** Status bar date formats (SimpleDateFormat patterns); index 0 = off. */
 val DATE_FORMATS = listOf("", "EEE d", "EEE d MMM", "d MMM yyyy", "dd/MM", "MM/dd", "yyyy-MM-dd")
+
+const val WEATHER_SRC_GEOIP = 0
+const val WEATHER_SRC_LATLONG = 1
+const val WEATHER_SRC_ZIP = 2
+const val WEATHER_DISPLAY_ICON = 0
+const val WEATHER_DISPLAY_TEMP = 1
+const val WEATHER_DISPLAY_LOWHIGH = 2
+const val WEATHER_CLICK_SETTINGS = 0
+const val WEATHER_CLICK_FORECAST = 1
+const val WEATHER_CLICK_APP = 2
 
 /** Sorted by user base — the display name is localized in the UI via string resource. */
 val LANGUAGES = listOf(

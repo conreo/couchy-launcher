@@ -42,7 +42,7 @@ One screen, remote-driven, for 1080p and 4K TVs. No network requests out of the 
 - **Save & load** your full configuration — categories, layout, wallpaper, and all settings — as a JSON file.
 - **18 languages** with a dedicated language picker in Launcher settings.
 - **Adjustable** icon size, spacing, corner roundness, interface scale, dimming, and an optional glass status-bar panel.
-- **Status row** — clock, network state, optional VPN button.
+- **Status row** — clock, network state, optional VPN button, and an opt-in weather chip (Open-Meteo, no key/account/ads).
 - **D-pad only** — text entry happens only inside dialogs.
 - **17 languages** (+ English), auto-selected from your system language:
   العربية · Deutsch · Español · Français · हिन्दी · Bahasa Indonesia · Italiano · 日本語 · 한국어 · Nederlands · Polski · Português · Русский · ไทย · Türkçe · Tiếng Việt · 中文.
@@ -122,7 +122,7 @@ The built-in setup wizard walks through this with your TV's IP pre-filled. No co
 
 ## Privacy
 
-No ads, analytics, accounts or background services. The only network use is optional aerial-video streaming, off by default. Sections, ordering, hidden apps and wallpaper stay in one local file.
+No ads, analytics, accounts or background services. All network use is opt-in and off by default: aerial-video streaming, and the weather widget (Open-Meteo for the forecast; ipapi.co or zippopotam.us to resolve a location, depending on the source you pick — GeoIP, manual coordinates or zip code). No device location permission is ever requested. Sections, ordering, hidden apps and wallpaper stay in one local file.
 
 ## Changelog
 

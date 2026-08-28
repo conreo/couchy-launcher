@@ -25,6 +25,7 @@
     <string name="cd_network">Mạng</string>
     <string name="cd_settings">Cài đặt</string>
 
+    <string name="cd_weather">Thời tiết</string>
     <string name="menu_open">Mở</string>
     <string name="menu_move">Di chuyển</string>
     <string name="menu_hide">Ẩn khỏi launcher</string>
@@ -63,6 +64,8 @@
     <string name="item_wallpaper_sub">Màu tĩnh hoặc ảnh, hoặc video động</string>
     <string name="item_statusbar">Thanh trạng thái</string>
     <string name="item_statusbar_sub">Hiển thị, định dạng giờ, ứng dụng VPN</string>
+    <string name="item_weather">Thời tiết</string>
+    <string name="item_weather_sub">Dự báo Open-Meteo, mặc định tắt</string>
     <string name="item_about">Thông tin</string>
 
     <string name="section_layout">Bố cục</string>
@@ -134,6 +137,33 @@
     <string name="vpn_system">Cài đặt VPN hệ thống</string>
     <string name="vpn_dialog_title">Nút VPN mở…</string>
 
+
+    <string name="weather_hint">Mặc định tắt. Khi bật sẽ lấy dữ liệu từ Open-Meteo (không cần khóa, tài khoản hay quảng cáo).</string>
+    <string name="weather_enable">Hiện thời tiết</string>
+    <string name="weather_source">Nguồn vị trí</string>
+    <string name="weather_src_geoip">Ước lượng (địa chỉ IP)</string>
+    <string name="weather_src_latlong">Tọa độ thủ công</string>
+    <string name="weather_src_zip">Mã bưu chính</string>
+    <string name="weather_geoip_notice">Gửi địa chỉ IP của bạn đến ipapi.co để ước tính vị trí — không tài khoản, không dữ liệu khác</string>
+    <string name="weather_lat">Vĩ độ</string>
+    <string name="weather_lon">Kinh độ</string>
+    <string name="weather_zip">Mã bưu chính</string>
+    <string name="weather_country">Mã quốc gia</string>
+    <string name="weather_not_set">Chưa đặt</string>
+    <string name="weather_unit">Đơn vị</string>
+    <string name="weather_celsius">Celsius</string>
+    <string name="weather_fahrenheit">Fahrenheit</string>
+    <string name="weather_display">Hiển thị</string>
+    <string name="weather_display_icon">Chỉ biểu tượng</string>
+    <string name="weather_display_temp">Biểu tượng + nhiệt độ</string>
+    <string name="weather_display_lowhigh">Biểu tượng + thấp/cao</string>
+    <string name="weather_click_action">Hành động khi chọn</string>
+    <string name="weather_click_sub">Nhấn giữ biểu tượng thời tiết luôn mở màn hình này</string>
+    <string name="weather_click_settings">Mở cài đặt</string>
+    <string name="weather_click_forecast">Dự báo 7 ngày</string>
+    <string name="weather_click_app">Mở ứng dụng thời tiết</string>
+    <string name="weather_app_opens">Ứng dụng thời tiết</string>
+    <string name="weather_forecast_title">Dự báo 7 ngày</string>
     <string name="about_version">Phiên bản 1.0</string>
     <string name="about_desc">Launcher một màn hình nhẹ cho Android TV và Google TV.\n\nKhông quảng cáo · không theo dõi · không dịch vụ nền. Mạng chỉ được dùng để phát hình nền trên không tích hợp. Tất cả cài đặt của bạn nằm trong một tệp cục bộ trên thiết bị này.</string>
     <string name="about_foss">Tự do &amp; nguồn mở</string>
