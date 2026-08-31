@@ -13,6 +13,7 @@ app/build/
 .idea/
 *.hprof
 .claude/
+.cursor/
 
 # OS
 .DS_Store

@@ -1,16 +1,21 @@
 package com.conreo.couchytv.data
 
 import android.content.Context
+import android.os.Environment
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.conreo.couchytv.R
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import androidx.compose.runtime.Immutable
+import java.io.File
 
 @Serializable
 data class CategoryCfg(
@@ -95,6 +100,11 @@ val LANGUAGES = listOf(
 private val Context.dataStore by preferencesDataStore(name = "launcher")
 private val KEY_CONFIG = stringPreferencesKey("config")
 private val json = Json { ignoreUnknownKeys = true }
+private val exportJson = Json {
+    ignoreUnknownKeys = true
+    prettyPrint = true
+    encodeDefaults = true
+}
 
 class ConfigStore(private val context: Context) {
 
@@ -117,6 +127,38 @@ class ConfigStore(private val context: Context) {
                 runCatching { json.decodeFromString<LauncherConfig>(it) }.getOrNull()
             } ?: LauncherConfig()
             prefs[KEY_CONFIG] = json.encodeToString(transform(current))
+        }
+    }
+
+    /** Same JSON the settings Save locally button writes. */
+    suspend fun exportTo(file: File) {
+        val cfg = flow.first()
+        withContext(Dispatchers.IO) {
+            file.parentFile?.mkdirs()
+            file.writeText(exportJson.encodeToString(LauncherConfig.serializer(), cfg))
+        }
+    }
+
+    /**
+     * Replace stored settings from a backup. Keeps this device's [LauncherConfig.knownApps]
+     * and marks setup done, matching the in-app Load path.
+     */
+    suspend fun importFrom(file: File): Boolean {
+        val loaded = withContext(Dispatchers.IO) {
+            runCatching {
+                exportJson.decodeFromString(LauncherConfig.serializer(), file.readText())
+            }.getOrNull()
+        } ?: return false
+        update { loaded.copy(knownApps = it.knownApps, setupDone = true) }
+        return true
+    }
+
+    companion object {
+        const val LOCAL_FILE = "CouchyBackup.json"
+
+        fun defaultLocalFile(): File {
+            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            return File(dir, LOCAL_FILE)
         }
     }
 }

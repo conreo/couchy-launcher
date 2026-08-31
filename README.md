@@ -120,9 +120,29 @@ The built-in setup wizard walks through this with your TV's IP pre-filled. No co
 
 ---
 
+## Backup and restore over ADB
+
+Same local file as **Settings → Save / Load configuration → locally** (`Download/CouchyBackup.json`).
+
+```sh
+# Save current settings on the TV
+adb shell am start -n com.conreo.couchytv/.BackupActivity \
+  -a com.conreo.couchytv.action.BACKUP_SAVE
+adb pull /sdcard/Download/CouchyBackup.json
+
+# Restore onto this (or another) TV
+adb push CouchyBackup.json /sdcard/Download/CouchyBackup.json
+adb shell am start -n com.conreo.couchytv/.BackupActivity \
+  -a com.conreo.couchytv.action.BACKUP_RESTORE
+```
+
+Optional custom path: add `--es path /sdcard/Download/my-backup.json` to either command.
+
+---
+
 ## Privacy
 
-No ads, analytics, accounts or background services. The only network use is optional aerial-video streaming, off by default. Sections, ordering, hidden apps and wallpaper stay in one local file.
+No ads, analytics or background services. Network use is optional: aerial-video streaming (off by default) and Telegram Saved-Messages backup if you choose Save in the Cloud. Sections, ordering, hidden apps and wallpaper stay in one local file unless you export them.
 
 ## Changelog
 
@@ -293,9 +313,29 @@ adb shell pm disable-user --user 0 com.google.android.tungsten.setupwraith   # �
 
 ---
 
+## 用 ADB 备份 / 恢复
+
+与 **设置 → 保存 / 加载配置 → 本地** 使用同一文件（`Download/CouchyBackup.json`）。
+
+```sh
+# 在电视上保存当前设置
+adb shell am start -n com.conreo.couchytv/.BackupActivity \
+  -a com.conreo.couchytv.action.BACKUP_SAVE
+adb pull /sdcard/Download/CouchyBackup.json
+
+# 恢复到这台（或另一台）电视
+adb push CouchyBackup.json /sdcard/Download/CouchyBackup.json
+adb shell am start -n com.conreo.couchytv/.BackupActivity \
+  -a com.conreo.couchytv.action.BACKUP_RESTORE
+```
+
+自定义路径：在命令后加上 `--es path /sdcard/Download/my-backup.json`。
+
+---
+
 ## 隐私
 
-无广告、分析、账户或后台服务。唯一的联网是可选的航拍视频播放，默认关闭。分区、排序、隐藏应用与壁纸都存在一个本地文件中。
+无广告、分析或后台服务。联网是可选的：默认关闭的航拍视频，以及在你选择「保存到云端」时使用的 Telegram 收藏夹备份。分区、排序、隐藏应用与壁纸默认只存在本地文件中。
 
 ## 许可证
 

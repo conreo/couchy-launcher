@@ -31,6 +31,8 @@ adb shell monkey -p com.conreo.couchytv -c android.intent.category.LAUNCHER 1
 
 (Without `-PlocalSign` the release is **unsigned**, which is what F-Droid builds and signs itself.)
 
+**Telegram Cloud backup** is optional. `api_id` / `api_hash` from [my.telegram.org](https://my.telegram.org) identify *this app* to Telegram (not a user's login). TV users only scan the QR. Set them in gitignored `local.properties` (`telegram.api.id` / `telegram.api.hash`) or env `TELEGRAM_API_ID` / `TELEGRAM_API_HASH`. GitHub release builds need the same values as repository secrets, or Cloud options toast "not configured".
+
 ## Project layout
 
 Everything is Kotlin + Jetpack Compose for TV (`androidx.tv:tv-material`), min SDK 21.
@@ -113,6 +115,8 @@ adb shell monkey -p com.conreo.couchytv -c android.intent.category.LAUNCHER 1
 ```
 
 （不加 `-PlocalSign` 时 release 是**未签名**的，这正是 F-Droid 自行构建并签名的方式。）
+
+**Telegram 云备份**是可选的。`api_id` / `api_hash`（来自 [my.telegram.org](https://my.telegram.org)）用来向 Telegram **标识本应用**，不是用户登录。电视用户只需扫码。写在 gitignore 的 `local.properties`（`telegram.api.id` / `telegram.api.hash`）或环境变量 `TELEGRAM_API_ID` / `TELEGRAM_API_HASH`。GitHub 发布构建需要把同样的值设为仓库 secrets，否则云端选项会提示“未配置”。
 
 ## 项目结构
 

@@ -1,5 +1,6 @@
 package com.conreo.couchytv.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.togetherWith
@@ -60,6 +61,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.tv.material3.Button
 import androidx.tv.material3.ClickableSurfaceDefaults
 import androidx.tv.material3.Icon
@@ -73,11 +75,15 @@ import com.conreo.couchytv.R
 import com.conreo.couchytv.data.AppEntry
 import com.conreo.couchytv.data.AppRepository
 import com.conreo.couchytv.data.CategoryCfg
+import com.conreo.couchytv.data.CloudNotConfigured
+import com.conreo.couchytv.data.CloudSession
 import com.conreo.couchytv.data.ConfigStore
 import com.conreo.couchytv.data.DATE_FORMATS
 import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
 import com.conreo.couchytv.data.LauncherConfig
+import com.conreo.couchytv.data.NeedTelegramLogin
+import com.conreo.couchytv.data.TelegramCloudBackup
 import kotlinx.coroutines.Dispatchers
 import androidx.compose.runtime.withFrameNanos
 import kotlinx.coroutines.launch
@@ -786,6 +792,8 @@ private fun SectionAppsDialog(
 
 /* ------------------------------ launcher settings ------------------------------ */
 
+private enum class LauncherPane { Menu, Language, Save, Load }
+
 @Composable
 private fun LauncherSettingsSubscreen(
     config: LauncherConfig,
@@ -795,23 +803,102 @@ private fun LauncherSettingsSubscreen(
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    var langScreen by remember { mutableStateOf(false) }
+    val cloud = remember { TelegramCloudBackup.get(context.applicationContext) }
+    val session by cloud.session.collectAsStateWithLifecycle(CloudSession.Empty)
+    var pane by remember { mutableStateOf(LauncherPane.Menu) }
+    var pendingCloud by remember { mutableStateOf<LauncherPane?>(null) }
+    var showAuth by remember { mutableStateOf(false) }
+    LaunchedEffect(cloud) { cloud.warmup() }
 
-    if (langScreen) {
-        LanguageScreen(config = config, store = store, onBack = { langScreen = false })
-        return
+    if (pane != LauncherPane.Menu) {
+        BackHandler { pane = LauncherPane.Menu }
     }
 
-    fun saveConfig() {
+    fun saveLocal() {
         scope.launch {
-            withContext(Dispatchers.IO) {
-                runCatching {
-                    val dir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
-                    dir.mkdirs()
-                    File(dir, "CouchyBackup.json").writeText(format.encodeToString(LauncherConfig.serializer(), config))
+            val ok = withContext(Dispatchers.IO) {
+                runCatching { store.exportTo(ConfigStore.defaultLocalFile()) }.isSuccess
+            }
+            Actions.toast(
+                context,
+                context.getString(
+                    if (ok) R.string.toast_config_saved_local else R.string.toast_config_bad
+                ),
+            )
+        }
+    }
+
+    fun applyLoaded(loaded: LauncherConfig?) {
+        scope.launch {
+            if (loaded != null) {
+                store.update { loaded.copy(knownApps = config.knownApps, setupDone = true) }
+                Actions.toast(context, context.getString(R.string.toast_config_loaded))
+            } else {
+                Actions.toast(context, context.getString(R.string.toast_config_bad))
+            }
+        }
+    }
+
+    fun saveCloud() {
+        scope.launch {
+            val jsonText = format.encodeToString(LauncherConfig.serializer(), config)
+            val result = withContext(Dispatchers.IO) { runCatching { cloud.saveConfig(jsonText) } }
+            when (result.exceptionOrNull()) {
+                is NeedTelegramLogin, is CloudNotConfigured -> {
+                    if (!cloud.isConfigured()) {
+                        Actions.toast(context, context.getString(R.string.cloud_not_configured))
+                    } else {
+                        pendingCloud = LauncherPane.Save
+                        showAuth = true
+                    }
+                }
+                null -> Actions.toast(context, context.getString(R.string.toast_config_saved_cloud))
+                else -> Actions.toast(context, context.getString(R.string.toast_cloud_save_fail))
+            }
+        }
+    }
+
+    fun loadCloud() {
+        scope.launch {
+            val result = withContext(Dispatchers.IO) { runCatching { cloud.loadConfig() } }
+            when (val e = result.exceptionOrNull()) {
+                is NeedTelegramLogin, is CloudNotConfigured -> {
+                    if (!cloud.isConfigured()) {
+                        Actions.toast(context, context.getString(R.string.cloud_not_configured))
+                    } else {
+                        pendingCloud = LauncherPane.Load
+                        showAuth = true
+                    }
+                }
+                null -> {
+                    val raw = result.getOrNull()
+                    if (raw == null) {
+                        Actions.toast(context, context.getString(R.string.toast_cloud_load_missing))
+                    } else {
+                        val loaded = runCatching {
+                            format.decodeFromString(LauncherConfig.serializer(), raw)
+                        }.getOrNull()
+                        applyLoaded(loaded)
+                    }
+                }
+                else -> {
+                    Actions.toast(context, context.getString(R.string.toast_cloud_load_fail))
+                    android.util.Log.w("Couchy", "cloud load failed", e)
                 }
             }
-            Actions.toast(context, "Saved to Downloads/CouchyBackup.json")
+        }
+    }
+
+    fun onCloudChosen(which: LauncherPane) {
+        if (!cloud.isConfigured()) {
+            Actions.toast(context, context.getString(R.string.cloud_not_configured))
+            return
+        }
+        if (session.signedIn) {
+            if (which == LauncherPane.Save) saveCloud() else loadCloud()
+        } else {
+            pendingCloud = which
+            showAuth = true
         }
     }
 
@@ -823,57 +910,162 @@ private fun LauncherSettingsSubscreen(
                 val loaded = withContext(Dispatchers.IO) {
                     runCatching {
                         context.contentResolver.openInputStream(uri)?.use { input ->
-                            format.decodeFromString(LauncherConfig.serializer(), String(input.readBytes()))
+                            format.decodeFromString(
+                                LauncherConfig.serializer(),
+                                String(input.readBytes()),
+                            )
                         }
                     }.getOrNull()
                 }
-                if (loaded != null) {
-                    store.update { loaded.copy(knownApps = config.knownApps, setupDone = true) }
-                    Actions.toast(context, context.getString(R.string.toast_config_loaded))
-                } else {
-                    Actions.toast(context, context.getString(R.string.toast_config_bad))
-                }
+                applyLoaded(loaded)
             }
         }
     }
 
+    when (pane) {
+        LauncherPane.Language -> LanguageScreen(
+            config = config, store = store, onBack = { pane = LauncherPane.Menu },
+        )
+        LauncherPane.Save ->         BackupTargetScreen(
+            title = stringResource(R.string.item_save_config),
+            localLabel = stringResource(R.string.item_save_local),
+            localSub = stringResource(R.string.item_save_local_sub),
+            localIcon = AppIcons.Save,
+            cloudLabel = stringResource(R.string.item_save_cloud),
+            cloudSub = stringResource(R.string.item_save_cloud_sub),
+            session = session,
+            onLocal = { saveLocal() },
+            onCloud = { onCloudChosen(LauncherPane.Save) },
+            onDisconnect = { scope.launch { cloud.signOut() } },
+        )
+        LauncherPane.Load ->         BackupTargetScreen(
+            title = stringResource(R.string.item_load_config),
+            localLabel = stringResource(R.string.item_load_local),
+            localSub = stringResource(R.string.item_load_local_sub),
+            localIcon = AppIcons.Folder,
+            cloudLabel = stringResource(R.string.item_load_cloud),
+            cloudSub = stringResource(R.string.item_load_cloud_sub),
+            session = session,
+            onLocal = {
+                runCatching { loadPicker.launch(arrayOf("application/json", "*/*")) }
+                    .onFailure { Actions.toast(context, context.getString(R.string.toast_no_picker)) }
+            },
+            onCloud = { onCloudChosen(LauncherPane.Load) },
+            onDisconnect = { scope.launch { cloud.signOut() } },
+        )
+        LauncherPane.Menu -> Column(
+            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            Text(
+                stringResource(R.string.item_launcher_settings),
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(bottom = 12.dp, start = 8.dp),
+            )
+            SettingsItem(
+                selected = false,
+                onClick = { pane = LauncherPane.Language },
+                headlineContent = { Text(stringResource(R.string.item_language)) },
+                supportingContent = { Text(stringResource(R.string.item_language_sub)) },
+                leadingContent = { Icon(AppIcons.Language, contentDescription = null) },
+            )
+            SettingsItem(
+                selected = false,
+                onClick = { pane = LauncherPane.Save },
+                headlineContent = { Text(stringResource(R.string.item_save_config)) },
+                supportingContent = { Text(stringResource(R.string.item_save_config_sub)) },
+                leadingContent = { Icon(AppIcons.Save, contentDescription = null) },
+            )
+            SettingsItem(
+                selected = false,
+                onClick = { pane = LauncherPane.Load },
+                headlineContent = { Text(stringResource(R.string.item_load_config)) },
+                supportingContent = { Text(stringResource(R.string.item_load_config_sub)) },
+                leadingContent = { Icon(AppIcons.Folder, contentDescription = null) },
+            )
+            SettingsItem(
+                selected = false,
+                onClick = onRerunWizard,
+                headlineContent = { Text(stringResource(R.string.rerun_wizard)) },
+                supportingContent = { Text(stringResource(R.string.rerun_wizard_sub)) },
+                leadingContent = { Icon(AppIcons.Play, contentDescription = null) },
+            )
+        }
+    }
+
+    if (showAuth) {
+        TelegramAuthDialog(
+            backup = cloud,
+            onSuccess = {
+                showAuth = false
+                val next = pendingCloud
+                pendingCloud = null
+                when (next) {
+                    LauncherPane.Save -> saveCloud()
+                    LauncherPane.Load -> loadCloud()
+                    else -> {}
+                }
+            },
+            onDismiss = {
+                showAuth = false
+                pendingCloud = null
+            },
+        )
+    }
+}
+
+@Composable
+private fun BackupTargetScreen(
+    title: String,
+    localLabel: String,
+    localSub: String,
+    localIcon: androidx.compose.ui.graphics.vector.ImageVector,
+    cloudLabel: String,
+    cloudSub: String,
+    session: CloudSession,
+    onLocal: () -> Unit,
+    onCloud: () -> Unit,
+    onDisconnect: () -> Unit,
+) {
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         Text(
-            stringResource(R.string.item_launcher_settings),
+            title,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(bottom = 12.dp, start = 8.dp),
         )
+        val f = initialFocus()
         SettingsItem(
             selected = false,
-            onClick = { langScreen = true },
-            headlineContent = { Text(stringResource(R.string.item_language)) },
-            supportingContent = { Text(stringResource(R.string.item_language_sub)) },
-            leadingContent = { Icon(AppIcons.Language, contentDescription = null) },
+            onClick = onLocal,
+            modifier = Modifier.focusRequester(f),
+            headlineContent = { Text(localLabel) },
+            supportingContent = { Text(localSub) },
+            leadingContent = { Icon(localIcon, contentDescription = null) },
         )
+        val cloudHint = if (session.signedIn && session.accountLabel.isNotBlank()) {
+            stringResource(R.string.cloud_signed_in, session.accountLabel)
+        } else {
+            stringResource(R.string.cloud_sign_in_hint)
+        }
         SettingsItem(
             selected = false,
-            onClick = { saveConfig() },
-            headlineContent = { Text(stringResource(R.string.item_save_config)) },
-            supportingContent = { Text(stringResource(R.string.item_save_config_sub)) },
-            leadingContent = { Icon(AppIcons.Save, contentDescription = null) },
+            onClick = onCloud,
+            headlineContent = { Text(cloudLabel) },
+            supportingContent = { Text("$cloudSub\n$cloudHint") },
+            leadingContent = { Icon(AppIcons.Cloud, contentDescription = null) },
         )
-        SettingsItem(
-            selected = false,
-            onClick = { runCatching { loadPicker.launch(arrayOf("application/json", "*/*")) }.onFailure { Actions.toast(context, context.getString(R.string.toast_no_picker)) } },
-            headlineContent = { Text(stringResource(R.string.item_load_config)) },
-            supportingContent = { Text(stringResource(R.string.item_load_config_sub)) },
-            leadingContent = { Icon(AppIcons.Folder, contentDescription = null) },
-        )
-        SettingsItem(
-            selected = false,
-            onClick = onRerunWizard,
-            headlineContent = { Text(stringResource(R.string.rerun_wizard)) },
-            supportingContent = { Text(stringResource(R.string.rerun_wizard_sub)) },
-            leadingContent = { Icon(AppIcons.Play, contentDescription = null) },
-        )
+        if (session.signedIn) {
+            SettingsItem(
+                selected = false,
+                onClick = onDisconnect,
+                headlineContent = { Text(stringResource(R.string.cloud_disconnect)) },
+                supportingContent = { Text(stringResource(R.string.cloud_disconnect_sub)) },
+                leadingContent = { Icon(AppIcons.Logout, contentDescription = null) },
+            )
+        }
     }
 }
 

@@ -5,6 +5,26 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
+fun oauthCredential(name: String, env: String): String {
+    System.getenv(env)?.takeIf { it.isNotBlank() }?.let { return it }
+    (project.findProperty(name) as String?)?.takeIf { it.isNotBlank() }?.let { return it }
+    val local = rootProject.file("local.properties")
+    if (local.exists()) {
+        local.readLines().forEach { line ->
+            val trimmed = line.trim()
+            if (trimmed.startsWith("#") || !trimmed.contains("=")) return@forEach
+            val idx = trimmed.indexOf('=')
+            val key = trimmed.substring(0, idx).trim()
+            val value = trimmed.substring(idx + 1).trim()
+            if (key == name && value.isNotBlank()) return value
+        }
+    }
+    return ""
+}
+
+fun quotedBuildConfig(value: String): String =
+    "\"${value.replace("\\", "\\\\").replace("\"", "\\\"")}\""
+
 android {
     namespace = "com.conreo.couchytv"
     compileSdk = 34
@@ -15,6 +35,20 @@ android {
         targetSdk = 34
         versionCode = 7
         versionName = "1.0.6"
+
+        // Telegram client (api_id + api_hash from https://my.telegram.org) for
+        // optional Saved-Messages backup. Empty = Cloud options toast "not configured".
+        // Set via local.properties, gradle.properties, or env (never commit secrets).
+        buildConfigField(
+            "int",
+            "TELEGRAM_API_ID",
+            (oauthCredential("telegram.api.id", "TELEGRAM_API_ID").toIntOrNull() ?: 0).toString(),
+        )
+        buildConfigField(
+            "String",
+            "TELEGRAM_API_HASH",
+            quotedBuildConfig(oauthCredential("telegram.api.hash", "TELEGRAM_API_HASH")),
+        )
     }
 
     // Release signing key, supplied by CI via environment variables (from GitHub
@@ -64,6 +98,18 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    packaging {
+        jniLibs {
+            // API 21 TVs: extract .so so TDLib's JNI loads reliably.
+            useLegacyPackaging = true
+        }
+    }
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDir(layout.buildDirectory.dir("generated/tdlibJni"))
+        }
     }
 }
 
@@ -91,4 +137,41 @@ dependencies {
     // OkHttp data source: lets us stream aerials through a trust-all TLS client
     // so Apple's sylvan.apple.com (cert chain many TV trust stores reject) works.
     implementation("androidx.media3:media3-datasource-okhttp:1.4.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    // QR encoding for Telegram device-link on the TV (no camera on the box).
+    implementation("com.google.zxing:core:3.5.3")
+    // Reach ActivityManager.forceStopPackage / PackageManager.deleteApplicationCacheFiles
+    // (hidden on API 28+). Apache-2.0; F-Droid-safe. Permissions still required.
+    implementation("org.lsposed.hiddenapibypass:hiddenapibypass:6.1")
 }
+
+// TDLib natives only (the published AAR needs Kotlin 2.3 + compileSdk 36).
+// We vendor a matching JNI shim in io.xbot.tdlib and unpack the .so files here.
+val tdlibAar by configurations.creating {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+    isTransitive = false
+}
+
+dependencies {
+    tdlibAar("io.github.xephosbot:tdlib-kmp-android:1.8.62")
+}
+
+val extractTdlibJni by tasks.registering {
+    val dest = layout.buildDirectory.dir("generated/tdlibJni")
+    inputs.files(tdlibAar)
+    outputs.dir(dest)
+    doLast {
+        copy {
+            from(zipTree(tdlibAar.singleFile))
+            include("jni/**/*.so")
+            eachFile {
+                relativePath = RelativePath(true, *relativePath.segments.drop(1).toTypedArray())
+            }
+            includeEmptyDirs = false
+            into(dest.get().asFile)
+        }
+    }
+}
+
+tasks.named("preBuild").configure { dependsOn(extractTdlibJni) }

@@ -37,6 +37,9 @@ These keep their own licenses, all compatible with GPLv3:
 | Cookie font — Ania Kruk (Google Fonts) | `res/font/cookie.ttf` (the "Buy me a coffee" heading) | **SIL OFL 1.1** |
 | AndroidX / Jetpack Compose, `androidx.tv`, DataStore | framework / UI | Apache-2.0 |
 | AndroidX Media3 (ExoPlayer) + OkHttp data source | video wallpaper | Apache-2.0 |
+| ZXing core | QR code for Telegram device-link | Apache-2.0 |
+| HiddenApiBypass | Close → force-stop + clear cache (hidden APIs) | Apache-2.0 |
+| TDLib (via `tdlib-kmp`) | optional Telegram Saved Messages backup | Boost 1.0 |
 | kotlinx.serialization | config persistence | Apache-2.0 |
 
 ## Content that is *not* distributed
@@ -46,6 +49,11 @@ community creators. Couchy ships only a manifest of public URLs, never the
 footage itself, and streams it only when you enable that wallpaper. The
 decorative video is fetched over a TLS client scoped to that purpose; no
 credentials or personal data are ever sent.
+
+**Telegram backup** is opt-in. Choosing Save/Load in the Cloud links this TV
+as a Telegram device (QR on the TV, scan with the phone app; optional two-step
+password) and stores a `.couchybak` file in **Saved Messages**. The session
+stays on the device; it is not included in the local JSON backup.
 
 ## Contributions
 

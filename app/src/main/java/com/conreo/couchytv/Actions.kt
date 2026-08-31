@@ -1,10 +1,18 @@
 package com.conreo.couchytv
 
+import android.annotation.SuppressLint
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import org.lsposed.hiddenapibypass.HiddenApiBypass
+import java.util.concurrent.atomic.AtomicBoolean
 
 object Actions {
 
@@ -39,9 +47,19 @@ object Actions {
         }
     }
 
-    /** Best-effort: clears the app from cached memory. True force-stop is in App info. */
+    /**
+     * Same two App-info actions: Force stop, then Clear cache.
+     * Both are hidden + privileged (`FORCE_STOP_PACKAGES`, `CLEAR_APP_CACHE`);
+     * they succeed when the OS grants those (priv-app / some AOSP boxes) and
+     * otherwise fall back to [ActivityManager.killBackgroundProcesses].
+     */
     fun close(context: Context, pkg: String) {
-        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+        if (pkg == context.packageName) return
+        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        runCatching { forceStopPackage(am, pkg) }
+            .onFailure { Log.w(TAG, "forceStopPackage $pkg", it) }
+        runCatching { clearAppCache(context.packageManager, pkg) }
+            .onFailure { Log.w(TAG, "deleteApplicationCacheFiles $pkg", it) }
         runCatching { am.killBackgroundProcesses(pkg) }
     }
 
@@ -64,6 +82,48 @@ object Actions {
 
     fun isInstalled(context: Context, pkg: String): Boolean =
         runCatching { context.packageManager.getPackageInfo(pkg, 0) }.isSuccess
+
+    @SuppressLint("PrivateApi")
+    private fun forceStopPackage(am: ActivityManager, pkg: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            allowHiddenApis()
+            HiddenApiBypass.invoke(ActivityManager::class.java, am, "forceStopPackage", pkg)
+        } else {
+            ActivityManager::class.java.getMethod("forceStopPackage", String::class.java)
+                .invoke(am, pkg)
+        }
+    }
+
+    @SuppressLint("PrivateApi")
+    private fun clearAppCache(pm: PackageManager, pkg: String) {
+        val observer = Class.forName("android.content.pm.IPackageDataObserver")
+        val method = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            allowHiddenApis()
+            HiddenApiBypass.getDeclaredMethod(
+                PackageManager::class.java,
+                "deleteApplicationCacheFiles",
+                String::class.java,
+                observer,
+            )
+        } else {
+            PackageManager::class.java.getMethod(
+                "deleteApplicationCacheFiles",
+                String::class.java,
+                observer,
+            )
+        }
+        method.invoke(pm, pkg, null)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.P)
+    private fun allowHiddenApis() {
+        if (!hiddenApisReady.compareAndSet(false, true)) return
+        runCatching { HiddenApiBypass.addHiddenApiExemptions("L") }
+            .onFailure { Log.w(TAG, "hidden API exemptions", it) }
+    }
+
+    private val hiddenApisReady = AtomicBoolean(false)
+    private const val TAG = "LiteTV"
 
     fun openAppStore(context: Context, pkg: String) {
         runCatching {

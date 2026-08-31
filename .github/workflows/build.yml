@@ -22,6 +22,9 @@ jobs:
       # building it here catches any shrinker regression before submission.
       # lintRelease gates real issues (e.g. InvalidVectorPath crash risks).
       - name: Build (debug + unsigned release) and lint
+        env:
+          TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
         run: ./gradlew assembleDebug assembleRelease lintRelease --no-daemon
 
       # Tagged push → decode the keystore, sign, upload to the Release page.
@@ -39,6 +42,8 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
         run: ./gradlew assembleRelease --no-daemon
 
       - name: Upload to release

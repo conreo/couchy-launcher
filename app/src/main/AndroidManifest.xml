@@ -15,10 +15,17 @@
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Only used to stream the built-in aerial videos (Apple/Amazon CDNs).
-         The launcher makes no other network requests. -->
+    <!-- Aerial wallpapers (opt-in) and Telegram Saved-Messages backup (opt-in). -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Close app from recents (best-effort; true force-stop lives in App info) -->
+    <!-- Close: Force stop + Clear cache (same APIs as App info). Privileged on
+         stock Android — granted only if this APK is a priv-app. Sideload still
+         falls back to killBackgroundProcesses. -->
+    <uses-permission
+        android:name="android.permission.FORCE_STOP_PACKAGES"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.CLEAR_APP_CACHE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <!-- Show the system uninstall dialog -->
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
@@ -54,6 +61,24 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ADB save/restore of Downloads/CouchyBackup.json. No launcher category. -->
+        <activity
+            android:name=".BackupActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme.LiteTV.Transparent">
+            <intent-filter>
+                <action android:name="com.conreo.couchytv.action.BACKUP_SAVE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.conreo.couchytv.action.BACKUP_RESTORE" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
