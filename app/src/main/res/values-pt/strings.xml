@@ -51,6 +51,7 @@
     <string name="item_load_config">Carregar configuração</string>
     <string name="item_load_config_sub">Restaurar configurações de arquivo salvo</string>
     <string name="toast_config_saved">Configuração salva</string>
+    <string name="toast_config_save_failed">Não foi possível salvar a configuração</string>
     <string name="toast_config_loaded">Configuração carregada — reiniciar recomendado</string>
     <string name="toast_config_bad">Arquivo de backup inválido ou corrompido</string>
     <string name="item_android_settings">Configurações Android</string>

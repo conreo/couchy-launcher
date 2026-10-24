@@ -51,6 +51,7 @@
     <string name="item_load_config">تحميل الإعدادات</string>
     <string name="item_load_config_sub">استعادة الإعدادات من ملف محفوظ مسبقًا</string>
     <string name="toast_config_saved">تم حفظ الإعدادات</string>
+    <string name="toast_config_save_failed">تعذّر حفظ الإعدادات</string>
     <string name="toast_config_loaded">تم تحميل الإعدادات — قد تحتاج إعادة التشغيل</string>
     <string name="toast_config_bad">ملف النسخ الاحتياطي غير صالح أو تالف</string>
     <string name="item_android_settings">إعدادات Android</string>

@@ -58,6 +58,7 @@
     <string name="item_load_config">加载配置</string>
     <string name="item_load_config_sub">从文件恢复设置</string>
     <string name="toast_config_saved">配置已保存</string>
+    <string name="toast_config_save_failed">无法保存配置</string>
     <string name="toast_config_loaded">配置已加载 — 建议重启</string>
     <string name="toast_config_bad">备份文件无效或损坏</string>
     <string name="item_android_settings">Android 设置</string>

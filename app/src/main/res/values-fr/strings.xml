@@ -58,6 +58,7 @@
     <string name="item_load_config">Charger la configuration</string>
     <string name="item_load_config_sub">Restaurer les paramètres depuis un fichier</string>
     <string name="toast_config_saved">Configuration sauvegardée</string>
+    <string name="toast_config_save_failed">Impossible de sauvegarder la configuration</string>
     <string name="toast_config_loaded">Configuration chargée — redémarrage conseillé</string>
     <string name="toast_config_bad">Fichier de sauvegarde invalide ou corrompu</string>
     <string name="item_android_settings">Paramètres Android</string>

@@ -72,6 +72,7 @@
     <string name="item_load_config">Load configuration</string>
     <string name="item_load_config_sub">Restore settings from a previously saved file</string>
     <string name="toast_config_saved">Configuration saved</string>
+    <string name="toast_config_save_failed">Could not save configuration</string>
     <string name="toast_config_loaded">Configuration loaded — restart may be needed</string>
     <string name="toast_config_bad">Invalid or corrupted backup file</string>
     <string name="item_about">About</string>

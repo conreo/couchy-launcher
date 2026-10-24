@@ -51,6 +51,7 @@
     <string name="item_load_config">Wczytaj konfigurację</string>
     <string name="item_load_config_sub">Przywróć ustawienia z pliku</string>
     <string name="toast_config_saved">Konfiguracja zapisana</string>
+    <string name="toast_config_save_failed">Nie udało się zapisać konfiguracji</string>
     <string name="toast_config_loaded">Konfiguracja wczytana — zalecany restart</string>
     <string name="toast_config_bad">Nieprawidłowy plik kopii zapasowej</string>
     <string name="item_android_settings">Ustawienia Androida</string>

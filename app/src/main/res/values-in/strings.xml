@@ -51,6 +51,7 @@
     <string name="item_load_config">Muat konfigurasi</string>
     <string name="item_load_config_sub">Pulihkan pengaturan dari file tersimpan</string>
     <string name="toast_config_saved">Konfigurasi disimpan</string>
+    <string name="toast_config_save_failed">Konfigurasi tidak dapat disimpan</string>
     <string name="toast_config_loaded">Konfigurasi dimuat — mulai ulang disarankan</string>
     <string name="toast_config_bad">File cadangan tidak valid atau rusak</string>
     <string name="item_android_settings">Pengaturan Android</string>

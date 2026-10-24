@@ -51,6 +51,7 @@
     <string name="item_load_config">Konfiguration laden</string>
     <string name="item_load_config_sub">Einstellungen aus gespeicherter Datei wiederherstellen</string>
     <string name="toast_config_saved">Konfiguration gespeichert</string>
+    <string name="toast_config_save_failed">Konfiguration konnte nicht gespeichert werden</string>
     <string name="toast_config_loaded">Konfiguration geladen — Neustart empfohlen</string>
     <string name="toast_config_bad">Ungültige oder beschädigte Backup-Datei</string>
     <string name="item_android_settings">Android-Einstellungen</string>

@@ -51,6 +51,7 @@
     <string name="item_load_config">Configuratie laden</string>
     <string name="item_load_config_sub">Instellingen herstellen uit bestand</string>
     <string name="toast_config_saved">Configuratie opgeslagen</string>
+    <string name="toast_config_save_failed">Configuratie kan niet worden opgeslagen</string>
     <string name="toast_config_loaded">Configuratie geladen — herstart aanbevolen</string>
     <string name="toast_config_bad">Ongeldig of beschadigd back-upbestand</string>
     <string name="item_android_settings">Android-instellingen</string>

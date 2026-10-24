@@ -51,6 +51,7 @@
     <string name="item_load_config">설정 불러오기</string>
     <string name="item_load_config_sub">저장된 파일에서 설정 복원</string>
     <string name="toast_config_saved">설정이 저장되었습니다</string>
+    <string name="toast_config_save_failed">설정을 저장할 수 없습니다</string>
     <string name="toast_config_loaded">설정을 불러왔습니다 — 다시 시작 권장</string>
     <string name="toast_config_bad">잘못된 백업 파일</string>
     <string name="item_android_settings">Android 설정</string>

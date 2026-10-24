@@ -1,10 +1,12 @@
 package com.conreo.couchytv.data
 
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
@@ -91,7 +93,13 @@ object AppRepository {
         // layout size, so focus-zoom needs no extra headroom. Clamp: never
         // below the 320px spec, capped so an extreme density can't blow up RAM.
         val density = context.resources.displayMetrics.density
-        val bannerW = (270 * density).toInt().coerceIn(320, 720)
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        // Some Android TV firmwares do not set ro.config.low_ram even though
+        // the per-app heap is small. Treat a <=256 MiB heap as constrained too.
+        // The 320px Leanback minimum stays intact; only the upper bound changes.
+        val constrainedHeap = activityManager.isLowRamDevice || activityManager.memoryClass <= 256
+        val maxBannerWidth = if (constrainedHeap) 512 else 720
+        val bannerW = (270 * density).toInt().coerceIn(320, maxBannerWidth)
         val bannerH = bannerW * 9 / 16
         val validCacheNames = java.util.Collections.synchronizedSet(HashSet<String>())
 
@@ -134,12 +142,17 @@ object AppRepository {
                 // original behaviour — a size threshold wrongly demoted good
                 // banners whose loaded bitmap is below 320px on this density).
                 val bannerDrawable = runCatching { ai.loadBanner(pm) }.getOrNull()
+                val bannerConfig = if (
+                    bannerDrawable is BitmapDrawable && !bannerDrawable.bitmap.hasAlpha()
+                ) {
+                    // TV banners are normally opaque. RGB_565 halves their Java
+                    // heap and upload footprint while translucent art keeps alpha.
+                    Bitmap.Config.RGB_565
+                } else Bitmap.Config.ARGB_8888
                 val banner = if (bannerDrawable == null) null else
-                    cachedBitmap(cacheDir, bannerName, Bitmap.Config.ARGB_8888) {
-                        // Full 8-bit, sized to the display (see bannerW above):
-                        // crisp for vector/hi-res banners, lean on low-density TVs.
+                    cachedBitmap(cacheDir, bannerName, bannerConfig) {
                         runCatching {
-                            bannerDrawable.toBitmap(bannerW, bannerH, Bitmap.Config.ARGB_8888)
+                            bannerDrawable.toBitmap(bannerW, bannerH, bannerConfig)
                         }.getOrNull()
                     }
                 val icon = if (banner == null) {

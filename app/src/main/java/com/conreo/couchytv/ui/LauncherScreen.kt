@@ -78,6 +78,7 @@ import androidx.tv.material3.Text
 import com.conreo.couchytv.Actions
 import com.conreo.couchytv.data.AppEntry
 import com.conreo.couchytv.data.AppRepository
+import com.conreo.couchytv.data.AerialVideoCache
 import com.conreo.couchytv.data.ConfigStore
 import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
@@ -294,7 +295,6 @@ fun LauncherApp(rescanTick: Int) {
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
-
     // Format with the app's current locale (reflects the language override, and
     // recomposes on change) — not Locale.getDefault(), which the framework can
     // reset, leaving the date stuck in the previous language.
@@ -369,7 +369,27 @@ fun LauncherApp(rescanTick: Int) {
     val dockCols = fitRow(screenW - 116.dp, cardWidth, gap).first
 
     var dockExpanded by remember { mutableStateOf(false) }
+    var interactionGeneration by remember { mutableIntStateOf(0) }
+    var ambient by remember { mutableStateOf(false) }
+    var swallowWakeRelease by remember { mutableStateOf(false) }
     LaunchedEffect(config.layout) { if (config.layout != LAYOUT_DOCK) dockExpanded = false }
+    LaunchedEffect(
+        interactionGeneration,
+        resumeTick,
+        config.layout,
+        dockExpanded,
+        showSettings,
+        menuFor,
+        movePkg,
+    ) {
+        ambient = false
+        if (config.layout == LAYOUT_DOCK && !dockExpanded &&
+            !showSettings && menuFor == null && movePkg == null
+        ) {
+            delay(25_000L)
+            ambient = true
+        }
+    }
 
     // ----- move-mode helpers -----
     fun findMoving(): Triple<Int, List<AppEntry>, Int>? {
@@ -531,33 +551,35 @@ fun LauncherApp(rescanTick: Int) {
         WALLPAPERS[config.wallpaper.coerceIn(0, WALLPAPERS.size - 1)].brush()
     }
 
-    // ----- Built-in aerial videos: the manifests ship with the launcher, so
-    // there's no external dependency — pick one, rotate every 10 minutes. -----
-    val aerialWallpaper by produceState<String?>(
-        initialValue = null,
+    // ----- Built-in aerial videos: keep a shuffled queue so ExoPlayer can
+    // prepare the successor before the current clip reaches its last frame. -----
+    val aerialPlaylist by produceState<List<String>>(
+        initialValue = emptyList(),
         config.useBuiltinAerials, config.builtinSource, wallpaperVersion,
     ) {
         if (!config.useBuiltinAerials) {
-            value = null
+            value = emptyList()
             return@produceState
         }
-        // NOTE: value is intentionally NOT reset here — when the collection
-        // changes, the previous video keeps playing until the new one is
-        // picked, instead of flashing back to the preset background.
         val aerials = withContext(Dispatchers.IO) {
             com.conreo.couchytv.data.BuiltinAerials.load(context, config.builtinSource)
         }
         if (aerials.isEmpty()) return@produceState
-        // Pick one, different from the current so the uri always changes (which
-        // drives the fade out→in). The next is chosen when this clip ENDS
-        // (onEnded bumps wallpaperVersion, re-running this) — a continuous
-        // shuffle. A 10-min safety timer also advances very long clips.
-        val current = value
-        var next = aerials.random()
-        if (aerials.size > 1) while (next == current) next = aerials.random()
-        value = next
-        delay(10 * 60_000L)
-        wallpaperVersion++
+        value = aerials.shuffled()
+    }
+    var aerialPosition by remember(config.builtinSource) { mutableIntStateOf(0) }
+    LaunchedEffect(aerialPlaylist) { aerialPosition = 0 }
+    val aerialWallpaper = if (aerialPlaylist.isEmpty()) null
+        else aerialPlaylist[aerialPosition.mod(aerialPlaylist.size)]
+    val nextAerialWallpaper = if (aerialPlaylist.size < 2) null
+        else aerialPlaylist[(aerialPosition + 1).mod(aerialPlaylist.size)]
+
+    // Build the cache index away from the first playback frame. No download is
+    // started here; played bytes alone populate the bounded LRU cache.
+    LaunchedEffect(config.useBuiltinAerials) {
+        if (config.useBuiltinAerials) withContext(Dispatchers.IO) {
+            runCatching { AerialVideoCache.warm(context.applicationContext) }
+        }
     }
 
     // Aerials stream from a CDN. Right after the TV powers on, the network/DNS
@@ -565,6 +587,42 @@ fun LauncherApp(rescanTick: Int) {
     // of a black screen, and retry: quickly once the network reconnects,
     // otherwise backing off, until a clip streams.
     var aerialError by remember { mutableStateOf(false) }
+    val healthPrefs = remember {
+        context.getSharedPreferences("wallpaper_health", android.content.Context.MODE_PRIVATE)
+    }
+    var aerialFailureStreak by remember { mutableIntStateOf(0) }
+    var aerialCoolingDown by remember { mutableStateOf(false) }
+    fun recordAerialFailure() {
+        aerialFailureStreak++
+        healthPrefs.edit()
+            .putInt("failure_streak", aerialFailureStreak)
+            .putLong("last_failure_at", System.currentTimeMillis())
+            .apply()
+        if (aerialFailureStreak >= 3) aerialCoolingDown = true
+        else aerialError = true
+    }
+    fun recordAerialReady(firstFrameMs: Long) {
+        aerialFailureStreak = 0
+        healthPrefs.edit()
+            .putInt("failure_streak", 0)
+            .putLong("last_first_frame_ms", firstFrameMs)
+            .putLong("cache_bytes", AerialVideoCache.bytesUsed())
+            .apply()
+        android.util.Log.i(
+            "LiteTVMetrics",
+            "aerial_first_frame_ms=$firstFrameMs cache_bytes=${AerialVideoCache.bytesUsed()}",
+        )
+    }
+    LaunchedEffect(aerialCoolingDown) {
+        if (!aerialCoolingDown) return@LaunchedEffect
+        // Three consecutive failures mean the decoder or network is unhealthy.
+        // Rest on the lightweight gradient rather than retry-looping forever.
+        aerialError = false
+        delay(30 * 60_000L)
+        aerialFailureStreak = 0
+        aerialCoolingDown = false
+        wallpaperVersion++
+    }
     LaunchedEffect(aerialError, net.connected) {
         if (!aerialError) return@LaunchedEffect
         delay(if (net.connected) 2500L else 6000L)
@@ -581,6 +639,20 @@ fun LauncherApp(rescanTick: Int) {
             Modifier
                 .fillMaxSize()
                 .onPreviewKeyEvent { event ->
+                    if (swallowWakeRelease) {
+                        if (event.type == KeyEventType.KeyUp) swallowWakeRelease = false
+                        return@onPreviewKeyEvent true
+                    }
+                    if (ambient && event.type == KeyEventType.KeyDown) {
+                        ambient = false
+                        interactionGeneration++
+                        swallowWakeRelease = true
+                        return@onPreviewKeyEvent true
+                    }
+                    if (event.type == KeyEventType.KeyDown) {
+                        ambient = false
+                        interactionGeneration++
+                    }
                     // MENU always opens launcher settings — the only entry point
                     // when the user hides the status bar.
                     if (event.type == KeyEventType.KeyDown && event.key == Key.Menu) {
@@ -613,20 +685,39 @@ fun LauncherApp(rescanTick: Int) {
             // Priority: built-in aerials > local video > photo > preset.
             val videoSpeed = VIDEO_SPEEDS[config.videoSpeed.coerceIn(0, VIDEO_SPEEDS.size - 1)]
             val aerial = aerialWallpaper
-            if (aerial != null && net.connected && !aerialError) {
+            if (aerial != null && net.connected && !aerialError && !aerialCoolingDown) {
                 VideoWallpaper(
                     uri = aerial,
+                    nextUri = nextAerialWallpaper,
                     speed = videoSpeed,
                     loop = false, // play once, then shuffle to the next aerial
                     coverBrush = presetBrush,
+                    remoteCache = true,
                     // Stream failed — a dead clip, or (at power-on) the network
                     // isn't ready yet. Fall back to the gradient and retry via
                     // aerialError, instead of sitting on the gradient cover.
-                    onEnded = { wallpaperVersion++ },
-                    onError = { aerialError = true },
+                    onAdvanced = {
+                        aerialPosition = (aerialPosition + 1).mod(aerialPlaylist.size)
+                    },
+                    onEnded = {
+                        if (aerialPlaylist.size > 1) {
+                            aerialPosition = (aerialPosition + 1).mod(aerialPlaylist.size)
+                        } else {
+                            // A one-item source has no automatic transition to
+                            // drive a recomposition, so explicitly reload it.
+                            wallpaperVersion++
+                        }
+                    },
+                    onReady = ::recordAerialReady,
+                    onError = ::recordAerialFailure,
                 )
             } else if (config.useVideoWallpaper && config.videoUri.isNotEmpty()) {
-                VideoWallpaper(uri = config.videoUri, speed = videoSpeed, loop = true, coverBrush = presetBrush)
+                VideoWallpaper(
+                    uri = config.videoUri,
+                    speed = videoSpeed,
+                    loop = true,
+                    coverBrush = presetBrush,
+                )
             } else if (wallpaperSharp != null) {
                 Image(
                     bitmap = wallpaperSharp,
@@ -729,6 +820,7 @@ fun LauncherApp(rescanTick: Int) {
                         gap = gap,
                         intro = introShown,
                         expanded = dockExpanded,
+                        ambient = ambient,
                         onExpandChange = { dockExpanded = it },
                         onLaunch = { app -> if (movePkg == null) Actions.launchApp(context, app.pkg) },
                         onMenu = { app -> if (movePkg == null) menuFor = app },
@@ -1061,6 +1153,7 @@ private fun DockArea(
     gap: Dp,
     intro: Boolean,
     expanded: Boolean,
+    ambient: Boolean,
     onExpandChange: (Boolean) -> Unit,
     onLaunch: (AppEntry) -> Unit,
     onMenu: (AppEntry) -> Unit,
@@ -1073,8 +1166,8 @@ private fun DockArea(
     // Which dock column the user pressed Down from, so the grid opens focused on
     // that column of the 2nd row — pressing Down moves down, not back to icon #1.
     var expandFromCol by remember { mutableIntStateOf(0) }
-    LaunchedEffect(expanded, intro) {
-        if (!intro) return@LaunchedEffect // wait for the launch entrance
+    LaunchedEffect(expanded, intro, ambient) {
+        if (!intro || ambient) return@LaunchedEffect // wait for launch / wake
         // Claim focus over the first few frames (not after a delay): otherwise the
         // focus, briefly orphaned when the old row's node leaves, snaps to the first
         // focusable — the status-bar VPN icon — and flashes selected before we grab it.
@@ -1116,8 +1209,24 @@ private fun DockArea(
             animationSpec = tween(340, easing = FastOutSlowInEasing),
             label = "rowGap",
         )
+        // Ambient mode keeps the dock mounted and focused, then lowers and
+        // fades the complete cluster. Keeping it mounted also lets the first
+        // remote press reliably wake it without focus jumping elsewhere.
+        val ambientVisibility by animateFloatAsState(
+            targetValue = if (ambient) 0f else 1f,
+            animationSpec = tween(650, easing = FastOutSlowInEasing),
+            label = "ambientDock",
+        )
+        val ambientDropPx = with(androidx.compose.ui.platform.LocalDensity.current) {
+            28.dp.toPx()
+        }
 
-        Column(Modifier.fillMaxSize()) {
+        Column(
+            Modifier.fillMaxSize().graphicsLayer {
+                alpha = ambientVisibility
+                translationY = (1f - ambientVisibility) * ambientDropPx
+            }
+        ) {
             Spacer(Modifier.weight(1f))
             // Glass panel + row-0 icons, DISSOCIATED so they animate apart: the
             // frosted panel slides DOWN and fades out; the icons fade and drift
@@ -1174,8 +1283,6 @@ private fun DockArea(
                 slideOutVertically(tween(340, easing = FastOutSlowInEasing)) { dockRisePx },
             modifier = Modifier.fillMaxSize(),
         ) {
-            // Panel is gone; ALL icons over the blurred wallpaper, same column
-            // count and same centering as the dock. Up from row 0 returns.
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(vertical = 24.dp),
@@ -1194,12 +1301,24 @@ private fun DockArea(
                                         accent = accent,
                                         cardWidth = cardWidth,
                                         showLabel = config.showAppLabels,
-                                        // No Up handler: Up from row 0 falls through to
-                                        // the status bar. The grid closes with Back.
-                                        modifier = when {
+                                        // At the top boundary, Up mirrors Back: the
+                                        // full library sinks into the dock instead of
+                                        // leaving focus stranded in the open grid.
+                                        modifier = (when {
                                             moving -> Modifier.focusRequester(moveFocus)
                                             r == targetRow && c == targetCol -> Modifier.focusRequester(gridFocus)
                                             else -> Modifier
+                                        }).onPreviewKeyEvent { event ->
+                                            if (
+                                                r == 0 && movePkg == null &&
+                                                event.type == KeyEventType.KeyDown &&
+                                                event.key == Key.DirectionUp
+                                            ) {
+                                                onExpandChange(false)
+                                                true
+                                            } else {
+                                                false
+                                            }
                                         },
                                         onLaunch = { onLaunch(app) },
                                         onLongPress = { onMenu(app) },
@@ -1358,10 +1477,14 @@ private val trustAllHttpClient: okhttp3.OkHttpClient by lazy {
 @Composable
 private fun VideoWallpaper(
     uri: String,
+    nextUri: String? = null,
     speed: Float = 1f,
     loop: Boolean = true,
     coverBrush: Brush,
+    remoteCache: Boolean = false,
     onEnded: () -> Unit = {},
+    onAdvanced: () -> Unit = {},
+    onReady: (Long) -> Unit = {},
     onError: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -1372,17 +1495,22 @@ private fun VideoWallpaper(
     // clip fades out first, so rotations are a symmetric fade out → in instead
     // of a hard cut or a half-buffered pop.
     val alpha = remember { androidx.compose.animation.core.Animatable(0f) }
+    val transitionVeil = remember { androidx.compose.animation.core.Animatable(0f) }
+    val playerScope = rememberCoroutineScope()
     var firstFrameGen by remember { mutableIntStateOf(0) }
 
     // The ExoPlayer — and its hardware video decoder, surface and buffers — is
-    // built when the launcher is visible (ON_START) and RELEASED the moment it's
-    // hidden (ON_STOP). Holding a scarce hardware codec for a wallpaper nobody's
-    // watching while another app is foreground is the launcher's biggest
-    // background cost and a needless kill risk; the grid stays warm from cache and
-    // the clip re-prepares in a few hundred ms on return. A released decoder also
-    // can't churn into a false stall while the SurfaceView has no surface.
+    // kept while Home is still visible (STARTED), including system overlays that
+    // only PAUSE it, and released once a full-screen app genuinely
+    // hides Home (STOPPED).
     var player by remember { mutableStateOf<androidx.media3.exoplayer.ExoPlayer?>(null) }
-    DisposableEffect(lifecycleOwner) {
+    var prepareStartedAt by remember { mutableStateOf(0L) }
+    val latestOnReady by androidx.compose.runtime.rememberUpdatedState(onReady)
+    val latestOnError by androidx.compose.runtime.rememberUpdatedState(onError)
+    val latestOnEnded by androidx.compose.runtime.rememberUpdatedState(onEnded)
+    val latestOnAdvanced by androidx.compose.runtime.rememberUpdatedState(onAdvanced)
+    val latestNextUri by androidx.compose.runtime.rememberUpdatedState(nextUri)
+    DisposableEffect(lifecycleOwner, remoteCache) {
         fun build(): androidx.media3.exoplayer.ExoPlayer {
             val renderers = androidx.media3.exoplayer.DefaultRenderersFactory(context)
                 .setEnableDecoderFallback(true) // fall back to SW decoder on odd clips
@@ -1392,7 +1520,9 @@ private fun VideoWallpaper(
             // loads (black). Scoped to the wallpaper player only; it fetches
             // nothing but decorative public video, so there's no data to protect.
             val http = androidx.media3.datasource.okhttp.OkHttpDataSource.Factory(trustAllHttpClient)
-            val dataSource = androidx.media3.datasource.DefaultDataSource.Factory(context, http)
+            val dataSource: androidx.media3.datasource.DataSource.Factory =
+                if (remoteCache) AerialVideoCache.dataSourceFactory(context, http)
+                else androidx.media3.datasource.DefaultDataSource.Factory(context, http)
             val sourceFactory = androidx.media3.exoplayer.source.DefaultMediaSourceFactory(dataSource)
             return androidx.media3.exoplayer.ExoPlayer.Builder(context)
                 .setRenderersFactory(renderers)
@@ -1427,8 +1557,8 @@ private fun VideoWallpaper(
                 else -> {}
             }
         }
-        // Already visible when we enter composition (first launch, config change) →
-        // build now instead of waiting for the next ON_START.
+        // Already visible when we enter composition (first launch, config
+        // change) → build now instead of waiting for the next ON_START.
         if (player == null &&
             lifecycleOwner.lifecycle.currentState
                 .isAtLeast(androidx.lifecycle.Lifecycle.State.STARTED)
@@ -1451,14 +1581,38 @@ private fun VideoWallpaper(
     DisposableEffect(player) {
         val p = player ?: return@DisposableEffect onDispose { }
         val listener = object : androidx.media3.common.Player.Listener {
-            override fun onRenderedFirstFrame() { firstFrameGen++ }
+            override fun onRenderedFirstFrame() {
+                firstFrameGen++
+                latestOnReady(
+                    (android.os.SystemClock.elapsedRealtime() - prepareStartedAt).coerceAtLeast(0L)
+                )
+            }
             override fun onPlaybackStateChanged(state: Int) {
-                // Clip finished (loop off) → advance to the next aerial.
-                if (state == androidx.media3.common.Player.STATE_ENDED) onEnded()
+                // Fallback for a one-item queue or an exhausted source list.
+                if (state == androidx.media3.common.Player.STATE_ENDED) {
+                    latestOnEnded()
+                    if (latestNextUri == null) {
+                        p.seekToDefaultPosition()
+                        p.prepare()
+                        p.playWhenReady = true
+                    }
+                }
+            }
+            override fun onMediaItemTransition(
+                mediaItem: androidx.media3.common.MediaItem?,
+                reason: Int,
+            ) {
+                if (reason != androidx.media3.common.Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) return
+                prepareStartedAt = android.os.SystemClock.elapsedRealtime()
+                latestOnAdvanced()
+                playerScope.launch {
+                    delay(70L)
+                    transitionVeil.animateTo(0f, tween(850, easing = FastOutSlowInEasing))
+                }
             }
             override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
                 android.util.Log.w("LiteTV", "wallpaper play error ${error.errorCodeName}: $uri")
-                onError()
+                latestOnError()
             }
         }
         p.addListener(listener)
@@ -1466,14 +1620,28 @@ private fun VideoWallpaper(
     }
     // Load (or reload, after a rebuild on return) the current clip. Keyed on the
     // player too, so coming back from the background re-prepares on the fresh one.
-    LaunchedEffect(player, uri) {
+    LaunchedEffect(player, uri, nextUri) {
         val p = player ?: return@LaunchedEffect
-        // Fade the current clip out before swapping (skipped on the first load, or
-        // right after a rebuild, when the cover is already up).
+        val playingUri = p.currentMediaItem?.localConfiguration?.uri?.toString()
+        if (playingUri == uri && p.mediaItemCount > 0) {
+            // The queued item is already playing. Keep its decoded frame, discard
+            // playlist history, and append exactly one fresh successor.
+            val currentIndex = p.currentMediaItemIndex
+            if (currentIndex > 0) p.removeMediaItems(0, currentIndex)
+            if (p.mediaItemCount > 1) p.removeMediaItems(1, p.mediaItemCount)
+            nextUri?.let { p.addMediaItem(androidx.media3.common.MediaItem.fromUri(it)) }
+            return@LaunchedEffect
+        }
+        // First load or a genuine source change: cover until a frame is decoded.
         if (alpha.value > 0f) alpha.animateTo(0f, tween(450))
         val genBefore = firstFrameGen
         runCatching {
-            p.setMediaItem(androidx.media3.common.MediaItem.fromUri(uri))
+            val queue = buildList {
+                add(androidx.media3.common.MediaItem.fromUri(uri))
+                nextUri?.let { add(androidx.media3.common.MediaItem.fromUri(it)) }
+            }
+            p.setMediaItems(queue)
+            prepareStartedAt = android.os.SystemClock.elapsedRealtime()
             p.prepare()
         }
         // Stall watchdog: if no frame has rendered in 2.5s (a dead/unreachable
@@ -1487,7 +1655,22 @@ private fun VideoWallpaper(
             .isAtLeast(androidx.lifecycle.Lifecycle.State.RESUMED)
         if (firstFrameGen == genBefore && resumed) {
             android.util.Log.w("LiteTV", "wallpaper stalled (no frame in 2.5s), skipping: $uri")
-            onError()
+            latestOnError()
+        }
+    }
+    // The successor is already queued. Near the cut, pass through a shallow
+    // black veil and reveal the next decoded frame; the static preset never
+    // appears between two playable aerials.
+    LaunchedEffect(player, nextUri, loop) {
+        val p = player ?: return@LaunchedEffect
+        if (loop || nextUri == null) return@LaunchedEffect
+        while (true) {
+            val duration = p.duration
+            val remaining = duration - p.currentPosition
+            if (duration > 0L && remaining in 1L..1_150L && transitionVeil.value < 0.05f) {
+                transitionVeil.animateTo(0.82f, tween(850, easing = FastOutSlowInEasing))
+            }
+            delay(180L)
         }
     }
     // The new clip's first frame is on screen → fade it in slowly.
@@ -1516,17 +1699,22 @@ private fun VideoWallpaper(
                 .graphicsLayer { this.alpha = 1f - alpha.value }
                 .background(coverBrush)
         )
+        Box(
+            Modifier
+                .fillMaxSize()
+                .graphicsLayer { this.alpha = transitionVeil.value }
+                .background(Color.Black)
+        )
     }
 }
 
-/** Sober startup screen: dark backdrop + a minimal spinning arc, nothing else. */
+/** Sober startup screen: dark backdrop + the launcher mark, nothing else. */
 @Composable
 private fun LoadingScreen() {
     Box(
         Modifier.fillMaxSize().background(Color(0xFF101216)),
         contentAlignment = Alignment.Center,
     ) {
-        // The couch logo, gently breathing, instead of a generic spinner.
         val transition = rememberInfiniteTransition(label = "load")
         val scale by transition.animateFloat(
             initialValue = 0.9f,

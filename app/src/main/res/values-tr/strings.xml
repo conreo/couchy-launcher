@@ -51,6 +51,7 @@
     <string name="item_load_config">Yapılandırmayı yükle</string>
     <string name="item_load_config_sub">Kaydedilmiş ayarları geri yükle</string>
     <string name="toast_config_saved">Yapılandırma kaydedildi</string>
+    <string name="toast_config_save_failed">Yapılandırma kaydedilemedi</string>
     <string name="toast_config_loaded">Yapılandırma yüklendi — yeniden başlatma önerilir</string>
     <string name="toast_config_bad">Geçersiz yedek dosyası</string>
     <string name="item_android_settings">Android ayarları</string>

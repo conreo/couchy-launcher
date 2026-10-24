@@ -18,8 +18,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
@@ -37,6 +37,14 @@ import androidx.tv.material3.Text
 import androidx.compose.foundation.BorderStroke
 import com.conreo.couchytv.data.AppEntry
 
+/** One immutable shader shared by every fallback tile. */
+private val AppCardSheen = Brush.verticalGradient(
+    listOf(
+        Color.White.copy(alpha = 0.10f),
+        Color.Transparent,
+        Color.Black.copy(alpha = 0.14f),
+    )
+)
 
 @Composable
 fun AppCard(
@@ -58,7 +66,31 @@ fun AppCard(
     // it, using a short time window that expires on its own (a sticky flag
     // would eat the next legitimate press, since the release is delivered to
     // the menu's window and never comes back to this card).
-    val cardShape = SmoothCornerShape(LocalCornerRadius.current)
+    val corner = LocalCornerRadius.current
+    val cardShape = remember(corner) { SmoothCornerShape(corner) }
+    // Keep the non-composable style objects stable. On a 2017 TV this removes
+    // avoidable allocations from the hottest navigation path.
+    val cardColors = ClickableSurfaceDefaults.colors(
+        containerColor = app.tile,
+        focusedContainerColor = app.tile,
+        contentColor = Color.White,
+        focusedContentColor = Color.White,
+    )
+    val cardScale = remember { ClickableSurfaceDefaults.scale(focusedScale = 1.06f) }
+    val cardGlow = remember {
+        ClickableSurfaceDefaults.glow(
+            focusedGlow = Glow(
+                elevationColor = Color.Black.copy(alpha = 0.45f),
+                elevation = 4.dp,
+            )
+        )
+    }
+    val cardBorder = ClickableSurfaceDefaults.border(
+        focusedBorder = Border(
+            BorderStroke(if (isMoving) 3.dp else 2.dp, accent),
+            shape = cardShape,
+        )
+    )
     var downAt by remember { mutableLongStateOf(0L) }
     var lastKeyDown by remember { mutableLongStateOf(0L) }
     var longPressAt by remember { mutableLongStateOf(0L) }
@@ -96,25 +128,10 @@ fun AppCard(
             }
             .width(cardWidth),
         shape = ClickableSurfaceDefaults.shape(cardShape),
-        colors = ClickableSurfaceDefaults.colors(
-            containerColor = app.tile,
-            focusedContainerColor = app.tile,
-            contentColor = Color.White,
-            focusedContentColor = Color.White,
-        ),
-        scale = ClickableSurfaceDefaults.scale(focusedScale = 1.10f),
-        glow = ClickableSurfaceDefaults.glow(
-            // Softer + tighter than before: reads at 3m, cheap to render on weak
-            // TV GPUs, and no longer competes with the accent ring.
-            focusedGlow = Glow(elevationColor = Color.Black.copy(alpha = 0.5f), elevation = 8.dp)
-        ),
-        border = ClickableSurfaceDefaults.border(
-            // Thin accent ring on focus (thicker while dragging in move mode).
-            focusedBorder = Border(
-                BorderStroke(if (isMoving) 3.dp else 2.dp, accent),
-                shape = cardShape,
-            )
-        ),
+        colors = cardColors,
+        scale = cardScale,
+        glow = cardGlow,
+        border = cardBorder,
     ) {
         Box(
             Modifier
@@ -126,9 +143,10 @@ fun AppCard(
                     bitmap = app.banner,
                     contentDescription = app.label,
                     contentScale = ContentScale.Crop,
-                    // Own render layer: the focus scale animation transforms the
-                    // cached layer instead of re-drawing (re-sampling) the bitmap.
-                    modifier = Modifier.fillMaxSize().graphicsLayer { },
+                    // The TV Surface already owns the focus transform layer. A
+                    // second graphicsLayer here duplicated compositor work for
+                    // every banner and consumed scarce layer memory.
+                    modifier = Modifier.fillMaxSize(),
                 )
             } else {
                 // Banner-less apps: give the flat tile depth with a subtle sheen
@@ -136,15 +154,7 @@ fun AppCard(
                 Box(
                     Modifier
                         .fillMaxSize()
-                        .background(
-                            androidx.compose.ui.graphics.Brush.verticalGradient(
-                                listOf(
-                                    Color.White.copy(alpha = 0.10f),
-                                    Color.Transparent,
-                                    Color.Black.copy(alpha = 0.14f),
-                                )
-                            )
-                        )
+                        .background(AppCardSheen)
                 )
                 Column(
                     Modifier

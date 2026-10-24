@@ -51,6 +51,7 @@
     <string name="item_load_config">Carica configurazione</string>
     <string name="item_load_config_sub">Ripristina impostazioni da file salvato</string>
     <string name="toast_config_saved">Configurazione salvata</string>
+    <string name="toast_config_save_failed">Impossibile salvare la configurazione</string>
     <string name="toast_config_loaded">Configurazione caricata — riavvio consigliato</string>
     <string name="toast_config_bad">File di backup non valido o corrotto</string>
     <string name="item_android_settings">Impostazioni Android</string>

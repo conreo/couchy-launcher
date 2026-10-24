@@ -51,6 +51,7 @@
     <string name="item_load_config">Tải cấu hình</string>
     <string name="item_load_config_sub">Khôi phục cài đặt từ tệp đã lưu</string>
     <string name="toast_config_saved">Đã lưu cấu hình</string>
+    <string name="toast_config_save_failed">Không thể lưu cấu hình</string>
     <string name="toast_config_loaded">Đã tải cấu hình — khởi động lại được khuyến nghị</string>
     <string name="toast_config_bad">Tệp sao lưu không hợp lệ</string>
     <string name="item_android_settings">Cài đặt Android</string>

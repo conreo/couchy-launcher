@@ -802,16 +802,28 @@ private fun LauncherSettingsSubscreen(
         return
     }
 
-    fun saveConfig() {
-        scope.launch {
-            withContext(Dispatchers.IO) {
-                runCatching {
-                    val dir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
-                    dir.mkdirs()
-                    File(dir, "CouchyBackup.json").writeText(format.encodeToString(LauncherConfig.serializer(), config))
+    // Direct public-Downloads writes fail on Android 8/9 when targeting a
+    // modern SDK (and used to report success anyway). The Storage Access
+    // Framework works on old TVs, scoped storage, USB and document providers
+    // without a broad storage permission.
+    val savePicker = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) { uri ->
+        if (uri != null) {
+            scope.launch {
+                val saved = withContext(Dispatchers.IO) {
+                    runCatching {
+                        val json = format.encodeToString(LauncherConfig.serializer(), config)
+                        context.contentResolver.openOutputStream(uri)?.bufferedWriter()?.use {
+                            it.write(json)
+                        } ?: error("Document provider returned no output stream")
+                    }.isSuccess
                 }
+                Actions.toast(
+                    context,
+                    context.getString(if (saved) R.string.toast_config_saved else R.string.toast_config_save_failed),
+                )
             }
-            Actions.toast(context, "Saved to Downloads/CouchyBackup.json")
         }
     }
 
@@ -855,7 +867,10 @@ private fun LauncherSettingsSubscreen(
         )
         SettingsItem(
             selected = false,
-            onClick = { saveConfig() },
+            onClick = {
+                runCatching { savePicker.launch("CouchyBackup.json") }
+                    .onFailure { Actions.toast(context, context.getString(R.string.toast_no_picker)) }
+            },
             headlineContent = { Text(stringResource(R.string.item_save_config)) },
             supportingContent = { Text(stringResource(R.string.item_save_config_sub)) },
             leadingContent = { Icon(AppIcons.Save, contentDescription = null) },

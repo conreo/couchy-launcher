@@ -51,6 +51,7 @@
     <string name="item_load_config">โหลดการตั้งค่า</string>
     <string name="item_load_config_sub">กู้คืนการตั้งค่าจากไฟล์</string>
     <string name="toast_config_saved">บันทึกการตั้งค่าแล้ว</string>
+    <string name="toast_config_save_failed">ไม่สามารถบันทึกการกำหนดค่าได้</string>
     <string name="toast_config_loaded">โหลดการตั้งค่าแล้ว — แนะนำให้เริ่มใหม่</string>
     <string name="toast_config_bad">ไฟล์สำรองข้อมูลไม่ถูกต้อง</string>
     <string name="item_android_settings">การตั้งค่า Android</string>

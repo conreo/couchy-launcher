@@ -51,6 +51,7 @@
     <string name="item_load_config">Загрузить конфигурацию</string>
     <string name="item_load_config_sub">Восстановить настройки из файла</string>
     <string name="toast_config_saved">Конфигурация сохранена</string>
+    <string name="toast_config_save_failed">Не удалось сохранить конфигурацию</string>
     <string name="toast_config_loaded">Конфигурация загружена — перезапуск рекомендуется</string>
     <string name="toast_config_bad">Неверный файл резервной копии</string>
     <string name="item_android_settings">Настройки Android</string>
