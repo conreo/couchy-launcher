@@ -208,8 +208,8 @@ fun LauncherApp(rescanTick: Int) {
 
     // Wait for the persisted config before drawing anything, so the setup
     // wizard never flashes for users who already completed it.
-    val configOrNull by produceState<LauncherConfig?>(initialValue = null) {
-        store.flow.collect { value = it }
+    val stateOrNull by produceState<com.conreo.couchytv.data.LauncherState?>(initialValue = null) {
+        store.state.collect { value = it }
     }
     // Kick off the app scan on the FIRST composition — concurrent with the
     // DataStore config read, not serialized after it (scan takes no config).
@@ -218,10 +218,12 @@ fun LauncherApp(rescanTick: Int) {
     val appsOrNull by produceState(initialValue = AppRepository.memoryCache, rescanTick) {
         value = withContext(Dispatchers.Default) { AppRepository.scan(context.applicationContext) }
     }
-    val config = configOrNull ?: run {
+    val state = stateOrNull ?: run {
         LoadingScreen()
         return
     }
+    val config = state.config
+    val activeProfileId = state.activeProfileId
 
     val uiScale = uiScaleFactor(
         config.uiScale,
@@ -320,10 +322,10 @@ fun LauncherApp(rescanTick: Int) {
     }
 
     // New installs are auto-added to the FIRST section.
-    LaunchedEffect(apps) {
+    LaunchedEffect(apps, activeProfileId) {
         if (apps.isEmpty()) return@LaunchedEffect
         val current = apps.map { it.pkg }.toSet()
-        store.update { cfg ->
+        try { store.update(recordUndo = false, expectedProfileId = activeProfileId) { cfg ->
             if (cfg.knownApps.isEmpty()) cfg.copy(knownApps = current)
             else {
                 val added = current - cfg.knownApps
@@ -336,6 +338,9 @@ fun LauncherApp(rescanTick: Int) {
                     )
                 }
             }
+        } } catch (_: IllegalStateException) {
+            // A rapid profile switch can finish before a queued scan write.
+            // The next profile's effect scans again; never write into the wrong profile.
         }
     }
 
@@ -370,6 +375,11 @@ fun LauncherApp(rescanTick: Int) {
 
     var dockExpanded by remember { mutableStateOf(false) }
     LaunchedEffect(config.layout) { if (config.layout != LAYOUT_DOCK) dockExpanded = false }
+    LaunchedEffect(activeProfileId) {
+        menuFor = null
+        movePkg = null
+        dockExpanded = false
+    }
 
     // ----- move-mode helpers -----
     fun findMoving(): Triple<Int, List<AppEntry>, Int>? {
@@ -507,11 +517,11 @@ fun LauncherApp(rescanTick: Int) {
     // blurred, and crossfading it in costs one texture blend per frame
     // instead of a full-screen RenderEffect blur (heavy on TV GPUs). -----
     val wallpaperPair by produceState<Pair<ImageBitmap?, ImageBitmap?>>(
-        initialValue = null to null, config.useCustomWallpaper, wallpaperVersion
+        initialValue = null to null, config.useCustomWallpaper, config.photoId, wallpaperVersion
     ) {
         value = if (!config.useCustomWallpaper) null to null
         else withContext(Dispatchers.IO) {
-            val f = File(context.filesDir, "wallpaper.jpg")
+            val f = File(context.filesDir, if (config.photoId.isEmpty()) "wallpaper.jpg" else "wallpaper-${config.photoId}.jpg")
             if (!f.exists()) null to null
             else runCatching {
                 // 1280px is indistinguishable as a scrimmed background but the
@@ -881,6 +891,7 @@ fun LauncherApp(rescanTick: Int) {
             if (showSettings) {
                 SettingsSheet(
                     config = config,
+                    activeProfileId = activeProfileId,
                     apps = apps,
                     store = store,
                     onDismiss = { showSettings = false },

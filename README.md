@@ -38,8 +38,9 @@ One screen, remote-driven, for 1080p and 4K TVs. No network requests out of the 
 
 - **Three layouts** — Carousel, Grid, or a floating glass Dock (press **Down** to expand to the full grid).
 - **Sections** you rename, reorder and fill; an app can appear in several. New installs go to the first section.
+- **Local profiles** with separate favourites, layout, wallpaper and undo history. Start from a copy of the current setup or choose Easy view.
 - **Wallpapers** — gradients, your own photo, a looping video, or optional built-in aerial videos (Apple / Amazon / community, streamed only when enabled), with speed control and cross-fades.
-- **Save & load** your full configuration — categories, layout, wallpaper, and all settings — as a JSON file.
+- **Save & load** your configuration as a versioned JSON file, review before restoring, and undo the last settings change.
 - **18 languages** with a dedicated language picker in Launcher settings.
 - **Adjustable** icon size, spacing, corner roundness, interface scale, dimming, and an optional glass status-bar panel.
 - **Status row** — clock, network state, optional VPN button.
@@ -123,6 +124,43 @@ The built-in setup wizard walks through this with your TV's IP pre-filled. No co
 ## Privacy
 
 No ads, analytics, accounts or background services. The only network use is optional aerial-video streaming, off by default. Sections, ordering, hidden apps and wallpaper stay in one local file.
+
+## Backups and undo
+
+In **Settings → Launcher settings**, **Save configuration** writes
+`Downloads/CouchyBackup.json`. **Load configuration** opens a file picker;
+**Review saved backup** opens that saved file directly on TVs without a working picker.
+Both show the sections and hidden-app count before you choose Restore. Cancel is focused
+first, and **Keep current wallpaper** is checked by default.
+
+Backups contain settings, not photo/video files or Android document permissions. To use
+media from another TV, select it again there. Old flat JSON backups still work; malformed,
+unsupported or oversized files leave the current settings unchanged. New files remain
+readable by older Couchy versions.
+
+**Undo last settings change** restores one previous configuration, even after restarting
+the launcher. A restore can also be undone. App discovery does not replace that undo point.
+Undo does not reinstall apps, roll back photo-file contents, or change Android settings.
+
+## Household profiles
+
+Open **Settings → Profiles** with the remote. Your existing setup becomes **Home** without
+changing any preferences. Add up to seven more named profiles; adding one copies the current
+setup and keeps the current profile active. Choose the new name in the list to switch.
+**Easy view** gives the copy a grid with larger icons, visible labels and wider spacing.
+You can adjust each profile normally afterwards.
+
+Each profile keeps its own favourites, app order, hidden apps, wallpaper, display options and
+last settings undo. Switches and undo history are saved together, including across launcher
+restarts. Google and streaming-app accounts remain shared; these are launcher preferences,
+not Android users or a parental lock. No account, network access or new permission is needed.
+
+Rename the current profile in the same menu. To delete another profile, switch away from it
+first and confirm its deletion. Home is retained as a recovery profile. Deleting a profile
+does not uninstall apps or remove photos that another profile or undo point might still use.
+New photo selections get separate local files so they cannot overwrite another profile's
+wallpaper. Backups export the **active profile's settings**, not the whole household directory
+or the media files. Importing a backup changes only the profile that opened the restore review.
 
 ## Changelog
 
