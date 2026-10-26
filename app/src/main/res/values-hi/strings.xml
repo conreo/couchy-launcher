@@ -179,4 +179,16 @@
     <string name="cd_move_down">नीचे ले जाएँ</string>
     <string name="cd_delete_section">सेक्शन हटाएँ</string>
     <string name="about_source">सोर्स कोड</string>
+    <string name="backup_saved">Downloads/CouchyBackup.json में सहेजा गया</string>
+    <string name="review_saved_backup">सहेजे गए बैकअप की समीक्षा करें</string>
+    <string name="review_saved_backup_sub">फ़ाइल पिकर के बिना Downloads/CouchyBackup.json खोलें।</string>
+    <string name="saved_backup_unavailable">Downloads/CouchyBackup.json में पढ़ने योग्य, मान्य बैकअप नहीं मिला।</string>
+    <string name="backup_failed">बैकअप सहेजा नहीं जा सका। आपकी सेटिंग नहीं बदली हैं।</string>
+    <string name="undo_settings">आखिरी सेटिंग बदलाव वापस लें</string>
+    <string name="undo_settings_sub">पिछला लेआउट और सेटिंग बहाल करें। फ़ोटो फ़ाइलें वापस नहीं आती हैं।</string>
+    <string name="restore_preview">सेटिंग बैकअप की समीक्षा करें</string>
+    <string name="restore_summary">अनुभाग: %1$d · छिपे ऐप: %2$d</string>
+    <string name="restore_notice">बहाल करने पर लेआउट और प्राथमिकताएँ बदल जाएँगी। अगले सेटिंग बदलाव तक इसे वापस ले सकते हैं। फ़ोटो और वीडियो की अनुमति शामिल नहीं हैं; वॉलपेपर सेटिंग बहाल करने से वैकल्पिक हवाई वीडियो स्ट्रीमिंग चालू हो सकती है।</string>
+    <string name="restore_keep_wallpaper">इस टीवी का मौजूदा वॉलपेपर रखें</string>
+    <string name="restore_apply">सेटिंग बहाल करें</string>
 </resources>

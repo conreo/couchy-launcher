@@ -179,4 +179,16 @@
     <string name="cd_move_down">Вниз</string>
     <string name="cd_delete_section">Удалить раздел</string>
     <string name="about_source">Исходный код</string>
+    <string name="backup_saved">Сохранено в Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Проверить сохранённую копию</string>
+    <string name="review_saved_backup_sub">Открыть Downloads/CouchyBackup.json без выбора файла.</string>
+    <string name="saved_backup_unavailable">В Downloads/CouchyBackup.json нет доступной и корректной копии.</string>
+    <string name="backup_failed">Не удалось сохранить копию. Настройки не изменены.</string>
+    <string name="undo_settings">Отменить последнее изменение</string>
+    <string name="undo_settings_sub">Восстановить прежний макет и настройки. Файлы фотографий не восстанавливаются.</string>
+    <string name="restore_preview">Проверить копию настроек</string>
+    <string name="restore_summary">Разделы: %1$d · Скрытые приложения: %2$d</string>
+    <string name="restore_notice">Восстановление заменит макет и настройки. Его можно отменить до следующего изменения. Фотографии и права доступа к видео не включены; восстановление обоев может включить необязательное потоковое видео с воздуха.</string>
+    <string name="restore_keep_wallpaper">Сохранить текущие обои этого телевизора</string>
+    <string name="restore_apply">Восстановить настройки</string>
 </resources>

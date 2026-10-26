@@ -179,4 +179,16 @@
     <string name="cd_move_down">Mover para baixo</string>
     <string name="cd_delete_section">Excluir seção</string>
     <string name="about_source">Código-fonte</string>
+    <string name="backup_saved">Guardado em Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Rever cópia guardada</string>
+    <string name="review_saved_backup_sub">Abrir Downloads/CouchyBackup.json sem seletor de ficheiros.</string>
+    <string name="saved_backup_unavailable">Não foi encontrada uma cópia válida e legível em Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">Não foi possível guardar a cópia. As definições não foram alteradas.</string>
+    <string name="undo_settings">Anular a última alteração</string>
+    <string name="undo_settings_sub">Restaurar a disposição e as definições anteriores. Os ficheiros de fotografias não são recuperados.</string>
+    <string name="restore_preview">Rever cópia das definições</string>
+    <string name="restore_summary">Secções: %1$d · Aplicações ocultas: %2$d</string>
+    <string name="restore_notice">O restauro substitui a disposição e as preferências. Pode anulá-lo até à próxima alteração. Não inclui fotografias nem permissões de vídeo; restaurar o fundo pode ativar vídeos aéreos opcionais transmitidos pela Internet.</string>
+    <string name="restore_keep_wallpaper">Manter o fundo atual deste televisor</string>
+    <string name="restore_apply">Restaurar definições</string>
 </resources>

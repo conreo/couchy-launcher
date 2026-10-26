@@ -179,4 +179,16 @@
     <string name="cd_move_down">Nach unten</string>
     <string name="cd_delete_section">Sektion löschen</string>
     <string name="about_source">Quellcode</string>
+    <string name="backup_saved">In Downloads/CouchyBackup.json gespeichert</string>
+    <string name="review_saved_backup">Gespeicherte Sicherung prüfen</string>
+    <string name="review_saved_backup_sub">Downloads/CouchyBackup.json ohne Dateiauswahl öffnen.</string>
+    <string name="saved_backup_unavailable">Keine lesbare, gültige Sicherung in Downloads/CouchyBackup.json gefunden.</string>
+    <string name="backup_failed">Sicherung konnte nicht gespeichert werden. Ihre Einstellungen bleiben unverändert.</string>
+    <string name="undo_settings">Letzte Einstellungsänderung rückgängig machen</string>
+    <string name="undo_settings_sub">Vorheriges Layout und Einstellungen wiederherstellen. Fotodateien werden nicht zurückgesetzt.</string>
+    <string name="restore_preview">Einstellungssicherung prüfen</string>
+    <string name="restore_summary">Bereiche: %1$d · Ausgeblendete Apps: %2$d</string>
+    <string name="restore_notice">Die Wiederherstellung ersetzt Layout und Einstellungen. Bis zur nächsten Einstellungsänderung können Sie sie rückgängig machen. Fotodateien und Videozugriffe sind nicht enthalten; die Wiederherstellung des Hintergrunds kann optionale Luftaufnahmen streamen.</string>
+    <string name="restore_keep_wallpaper">Aktuellen Hintergrund dieses Fernsehers behalten</string>
+    <string name="restore_apply">Einstellungen wiederherstellen</string>
 </resources>

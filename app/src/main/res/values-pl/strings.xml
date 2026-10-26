@@ -179,4 +179,16 @@
     <string name="cd_move_down">W dół</string>
     <string name="cd_delete_section">Usuń sekcję</string>
     <string name="about_source">Kod źródłowy</string>
+    <string name="backup_saved">Zapisano w Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Sprawdź zapisaną kopię</string>
+    <string name="review_saved_backup_sub">Otwórz Downloads/CouchyBackup.json bez wybierania pliku.</string>
+    <string name="saved_backup_unavailable">Nie znaleziono prawidłowej, czytelnej kopii w Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">Nie udało się zapisać kopii. Ustawienia nie uległy zmianie.</string>
+    <string name="undo_settings">Cofnij ostatnią zmianę ustawień</string>
+    <string name="undo_settings_sub">Przywróć poprzedni układ i ustawienia. Pliki zdjęć nie zostaną przywrócone.</string>
+    <string name="restore_preview">Sprawdź kopię ustawień</string>
+    <string name="restore_summary">Sekcje: %1$d · Ukryte aplikacje: %2$d</string>
+    <string name="restore_notice">Przywracanie zastępuje układ i preferencje. Można je cofnąć do następnej zmiany ustawień. Zdjęcia i uprawnienia do filmów nie są dołączone; przywrócenie tła może włączyć opcjonalne strumieniowanie filmów lotniczych.</string>
+    <string name="restore_keep_wallpaper">Zachowaj obecne tło tego telewizora</string>
+    <string name="restore_apply">Przywróć ustawienia</string>
 </resources>

@@ -193,4 +193,16 @@
     <string name="cd_move_down">Bajar</string>
     <string name="cd_delete_section">Eliminar sección</string>
     <string name="about_source">Código fuente</string>
+    <string name="backup_saved">Guardado en Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Revisar copia guardada</string>
+    <string name="review_saved_backup_sub">Abrir Downloads/CouchyBackup.json sin selector de archivos.</string>
+    <string name="saved_backup_unavailable">No se encontró una copia válida y legible en Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">No se pudo guardar la copia. Tus ajustes no han cambiado.</string>
+    <string name="undo_settings">Deshacer el último cambio</string>
+    <string name="undo_settings_sub">Restaurar el diseño y los ajustes anteriores. No se recuperan archivos de fotos.</string>
+    <string name="restore_preview">Revisar copia de ajustes</string>
+    <string name="restore_summary">Secciones: %1$d · Apps ocultas: %2$d</string>
+    <string name="restore_notice">La restauración reemplaza el diseño y las preferencias. Puedes deshacerla hasta el siguiente cambio. No incluye fotos ni permisos de vídeo; restaurar el fondo puede activar la reproducción opcional de vídeos aéreos en línea.</string>
+    <string name="restore_keep_wallpaper">Mantener el fondo actual de este televisor</string>
+    <string name="restore_apply">Restaurar ajustes</string>
 </resources>

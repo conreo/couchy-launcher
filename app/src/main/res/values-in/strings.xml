@@ -179,4 +179,16 @@
     <string name="cd_move_down">Turunkan</string>
     <string name="cd_delete_section">Hapus bagian</string>
     <string name="about_source">Kode sumber</string>
+    <string name="backup_saved">Disimpan ke Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Tinjau cadangan tersimpan</string>
+    <string name="review_saved_backup_sub">Buka Downloads/CouchyBackup.json tanpa pemilih berkas.</string>
+    <string name="saved_backup_unavailable">Tidak ditemukan cadangan yang valid dan dapat dibaca di Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">Cadangan tidak dapat disimpan. Pengaturan Anda tidak berubah.</string>
+    <string name="undo_settings">Batalkan perubahan pengaturan terakhir</string>
+    <string name="undo_settings_sub">Pulihkan tata letak dan pengaturan sebelumnya. Berkas foto tidak dikembalikan.</string>
+    <string name="restore_preview">Tinjau cadangan pengaturan</string>
+    <string name="restore_summary">Bagian: %1$d · Aplikasi tersembunyi: %2$d</string>
+    <string name="restore_notice">Pemulihan mengganti tata letak dan preferensi Anda. Anda dapat membatalkannya hingga perubahan berikutnya. Foto dan izin akses video tidak disertakan; memulihkan latar dapat mengaktifkan streaming video udara opsional.</string>
+    <string name="restore_keep_wallpaper">Pertahankan latar TV saat ini</string>
+    <string name="restore_apply">Pulihkan pengaturan</string>
 </resources>

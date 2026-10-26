@@ -193,4 +193,16 @@
     <string name="cd_move_down">Descendre</string>
     <string name="cd_delete_section">Supprimer la section</string>
     <string name="about_source">Code source</string>
+    <string name="backup_saved">Enregistré dans Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Vérifier la sauvegarde enregistrée</string>
+    <string name="review_saved_backup_sub">Ouvrir Downloads/CouchyBackup.json sans sélecteur de fichiers.</string>
+    <string name="saved_backup_unavailable">Aucune sauvegarde valide et lisible dans Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">Impossible d\'enregistrer la sauvegarde. Vos réglages restent inchangés.</string>
+    <string name="undo_settings">Annuler le dernier changement</string>
+    <string name="undo_settings_sub">Rétablir la disposition et les réglages précédents. Les fichiers photo ne sont pas restaurés.</string>
+    <string name="restore_preview">Vérifier la sauvegarde</string>
+    <string name="restore_summary">Sections : %1$d · Applications masquées : %2$d</string>
+    <string name="restore_notice">La restauration remplace votre disposition et vos préférences. Vous pouvez l\'annuler avant le prochain changement. Les photos et les accès vidéo ne sont pas inclus ; restaurer le fond peut activer les vidéos aériennes en ligne.</string>
+    <string name="restore_keep_wallpaper">Conserver le fond actuel de ce téléviseur</string>
+    <string name="restore_apply">Restaurer les réglages</string>
 </resources>

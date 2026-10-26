@@ -179,4 +179,16 @@
     <string name="cd_move_down">เลื่อนลง</string>
     <string name="cd_delete_section">ลบส่วน</string>
     <string name="about_source">ซอร์สโค้ด</string>
+    <string name="backup_saved">บันทึกไปที่ Downloads/CouchyBackup.json แล้ว</string>
+    <string name="review_saved_backup">ตรวจสอบข้อมูลสำรองที่บันทึกไว้</string>
+    <string name="review_saved_backup_sub">เปิด Downloads/CouchyBackup.json โดยไม่ใช้ตัวเลือกไฟล์</string>
+    <string name="saved_backup_unavailable">ไม่พบข้อมูลสำรองที่ถูกต้องและอ่านได้ใน Downloads/CouchyBackup.json</string>
+    <string name="backup_failed">ไม่สามารถบันทึกข้อมูลสำรองได้ การตั้งค่าของคุณไม่เปลี่ยนแปลง</string>
+    <string name="undo_settings">เลิกทำการเปลี่ยนการตั้งค่าล่าสุด</string>
+    <string name="undo_settings_sub">คืนค่าเค้าโครงและการตั้งค่าก่อนหน้า ไฟล์รูปภาพจะไม่ถูกคืนค่า</string>
+    <string name="restore_preview">ตรวจสอบข้อมูลสำรองการตั้งค่า</string>
+    <string name="restore_summary">ส่วน: %1$d · แอปที่ซ่อน: %2$d</string>
+    <string name="restore_notice">การคืนค่าจะแทนที่เค้าโครงและค่ากำหนด คุณเลิกทำได้ก่อนการเปลี่ยนครั้งถัดไป ไม่รวมรูปภาพและสิทธิ์เข้าถึงวิดีโอ การคืนค่าวอลเปเปอร์อาจเปิดการสตรีมวิดีโอทางอากาศแบบเลือกใช้</string>
+    <string name="restore_keep_wallpaper">เก็บวอลเปเปอร์ปัจจุบันของทีวีนี้ไว้</string>
+    <string name="restore_apply">คืนค่าการตั้งค่า</string>
 </resources>

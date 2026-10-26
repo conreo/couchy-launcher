@@ -193,4 +193,16 @@
     <string name="cd_move_down">下移</string>
     <string name="cd_delete_section">删除分区</string>
     <string name="about_source">源代码</string>
+    <string name="backup_saved">已保存到 Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">检查已保存的备份</string>
+    <string name="review_saved_backup_sub">无需文件选择器，打开 Downloads/CouchyBackup.json。</string>
+    <string name="saved_backup_unavailable">Downloads/CouchyBackup.json 中没有可读取的有效备份。</string>
+    <string name="backup_failed">无法保存备份。您的设置未更改。</string>
+    <string name="undo_settings">撤销上次设置更改</string>
+    <string name="undo_settings_sub">恢复之前的布局和设置。不会恢复被替换的照片文件。</string>
+    <string name="restore_preview">检查设置备份</string>
+    <string name="restore_summary">分区：%1$d · 已隐藏应用：%2$d</string>
+    <string name="restore_notice">恢复将替换布局和偏好设置。下次更改设置前可以撤销。不包含照片文件和视频访问权限；恢复壁纸设置可能启用联网航拍视频。</string>
+    <string name="restore_keep_wallpaper">保留此电视当前的壁纸</string>
+    <string name="restore_apply">恢复设置</string>
 </resources>

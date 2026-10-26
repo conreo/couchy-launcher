@@ -323,7 +323,7 @@ fun LauncherApp(rescanTick: Int) {
     LaunchedEffect(apps) {
         if (apps.isEmpty()) return@LaunchedEffect
         val current = apps.map { it.pkg }.toSet()
-        store.update { cfg ->
+        store.update(recordUndo = false) { cfg ->
             if (cfg.knownApps.isEmpty()) cfg.copy(knownApps = current)
             else {
                 val added = current - cfg.knownApps

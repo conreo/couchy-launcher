@@ -179,4 +179,16 @@
     <string name="cd_move_down">아래로 이동</string>
     <string name="cd_delete_section">섹션 삭제</string>
     <string name="about_source">소스 코드</string>
+    <string name="backup_saved">Downloads/CouchyBackup.json에 저장됨</string>
+    <string name="review_saved_backup">저장된 백업 확인</string>
+    <string name="review_saved_backup_sub">파일 선택기 없이 Downloads/CouchyBackup.json을 엽니다.</string>
+    <string name="saved_backup_unavailable">Downloads/CouchyBackup.json에서 읽을 수 있는 유효한 백업을 찾지 못했습니다.</string>
+    <string name="backup_failed">백업을 저장하지 못했습니다. 설정은 변경되지 않았습니다.</string>
+    <string name="undo_settings">마지막 설정 변경 취소</string>
+    <string name="undo_settings_sub">이전 레이아웃과 설정을 복원합니다. 사진 파일은 복원하지 않습니다.</string>
+    <string name="restore_preview">설정 백업 확인</string>
+    <string name="restore_summary">섹션: %1$d · 숨긴 앱: %2$d</string>
+    <string name="restore_notice">복원하면 레이아웃과 환경설정을 덮어씁니다. 다음 설정 변경 전까지 취소할 수 있습니다. 사진과 동영상 접근 권한은 포함되지 않으며 배경 설정 복원 시 선택적 항공 영상 스트리밍이 켜질 수 있습니다.</string>
+    <string name="restore_keep_wallpaper">이 TV의 현재 배경 유지</string>
+    <string name="restore_apply">설정 복원</string>
 </resources>

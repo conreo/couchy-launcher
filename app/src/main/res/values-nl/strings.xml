@@ -179,4 +179,16 @@
     <string name="cd_move_down">Omlaag</string>
     <string name="cd_delete_section">Sectie verwijderen</string>
     <string name="about_source">Broncode</string>
+    <string name="backup_saved">Opgeslagen in Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Opgeslagen back-up bekijken</string>
+    <string name="review_saved_backup_sub">Open Downloads/CouchyBackup.json zonder bestandskiezer.</string>
+    <string name="saved_backup_unavailable">Geen leesbare, geldige back-up gevonden in Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">De back-up kon niet worden opgeslagen. Je instellingen zijn niet gewijzigd.</string>
+    <string name="undo_settings">Laatste wijziging ongedaan maken</string>
+    <string name="undo_settings_sub">Herstel de vorige indeling en instellingen. Fotobestanden worden niet teruggezet.</string>
+    <string name="restore_preview">Back-up van instellingen bekijken</string>
+    <string name="restore_summary">Secties: %1$d · Verborgen apps: %2$d</string>
+    <string name="restore_notice">Herstellen vervangt je indeling en voorkeuren. Je kunt dit tot de volgende wijziging ongedaan maken. Foto\'s en videotoegang zijn niet inbegrepen; de achtergrond herstellen kan optionele luchtvideo\'s streamen.</string>
+    <string name="restore_keep_wallpaper">Huidige achtergrond van deze tv behouden</string>
+    <string name="restore_apply">Instellingen herstellen</string>
 </resources>

@@ -179,4 +179,16 @@
     <string name="cd_move_down">Aşağı taşı</string>
     <string name="cd_delete_section">Bölümü sil</string>
     <string name="about_source">Kaynak kodu</string>
+    <string name="backup_saved">Downloads/CouchyBackup.json konumuna kaydedildi</string>
+    <string name="review_saved_backup">Kayıtlı yedeği incele</string>
+    <string name="review_saved_backup_sub">Downloads/CouchyBackup.json dosyasını dosya seçici olmadan aç.</string>
+    <string name="saved_backup_unavailable">Downloads/CouchyBackup.json konumunda okunabilir, geçerli bir yedek bulunamadı.</string>
+    <string name="backup_failed">Yedek kaydedilemedi. Ayarlarınız değişmedi.</string>
+    <string name="undo_settings">Son ayar değişikliğini geri al</string>
+    <string name="undo_settings_sub">Önceki düzeni ve ayarları geri yükler. Fotoğraf dosyaları geri alınmaz.</string>
+    <string name="restore_preview">Ayar yedeğini incele</string>
+    <string name="restore_summary">Bölümler: %1$d · Gizli uygulamalar: %2$d</string>
+    <string name="restore_notice">Geri yükleme düzeninizi ve tercihlerinizi değiştirir. Bir sonraki ayar değişikliğine kadar geri alabilirsiniz. Fotoğraflar ve video erişimi dahil değildir; duvar kağıdı ayarlarını geri yüklemek isteğe bağlı hava görüntüsü akışını açabilir.</string>
+    <string name="restore_keep_wallpaper">Bu TV\'nin mevcut duvar kağıdını koru</string>
+    <string name="restore_apply">Ayarları geri yükle</string>
 </resources>

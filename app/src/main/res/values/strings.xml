@@ -196,4 +196,16 @@
     <string name="cd_move_up">Move up</string>
     <string name="cd_move_down">Move down</string>
     <string name="cd_delete_section">Delete section</string>
+    <string name="backup_saved">Saved to Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Review saved backup</string>
+    <string name="review_saved_backup_sub">Open Downloads/CouchyBackup.json without a file picker.</string>
+    <string name="saved_backup_unavailable">No readable, valid backup was found in Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">Backup could not be saved. Your settings have not changed.</string>
+    <string name="undo_settings">Undo last settings change</string>
+    <string name="undo_settings_sub">Restore the previous layout and settings. Photo files are not rolled back.</string>
+    <string name="restore_preview">Review settings backup</string>
+    <string name="restore_summary">Sections: %1$d · Hidden apps: %2$d</string>
+    <string name="restore_notice">Restoring replaces your layout and preferences. You can undo it until your next settings change. Photo files and video access are not included; restoring wallpaper settings may enable optional aerial streaming.</string>
+    <string name="restore_keep_wallpaper">Keep this TV\'s current wallpaper</string>
+    <string name="restore_apply">Restore settings</string>
 </resources>

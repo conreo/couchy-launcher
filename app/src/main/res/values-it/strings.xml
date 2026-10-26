@@ -179,4 +179,16 @@
     <string name="cd_move_down">Sposta giù</string>
     <string name="cd_delete_section">Elimina sezione</string>
     <string name="about_source">Codice sorgente</string>
+    <string name="backup_saved">Salvato in Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">Controlla backup salvato</string>
+    <string name="review_saved_backup_sub">Apri Downloads/CouchyBackup.json senza selettore file.</string>
+    <string name="saved_backup_unavailable">Nessun backup valido e leggibile in Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">Impossibile salvare il backup. Le impostazioni non sono cambiate.</string>
+    <string name="undo_settings">Annulla l\'ultima modifica</string>
+    <string name="undo_settings_sub">Ripristina disposizione e impostazioni precedenti. I file delle foto non vengono recuperati.</string>
+    <string name="restore_preview">Controlla backup delle impostazioni</string>
+    <string name="restore_summary">Sezioni: %1$d · App nascoste: %2$d</string>
+    <string name="restore_notice">Il ripristino sostituisce disposizione e preferenze. Puoi annullarlo fino alla prossima modifica. Foto e autorizzazioni video non sono incluse; ripristinare lo sfondo può attivare lo streaming opzionale di riprese aeree.</string>
+    <string name="restore_keep_wallpaper">Mantieni lo sfondo attuale di questo TV</string>
+    <string name="restore_apply">Ripristina impostazioni</string>
 </resources>

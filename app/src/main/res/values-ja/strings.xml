@@ -179,4 +179,16 @@
     <string name="cd_move_down">下へ移動</string>
     <string name="cd_delete_section">セクションを削除</string>
     <string name="about_source">ソースコード</string>
+    <string name="backup_saved">Downloads/CouchyBackup.json に保存しました</string>
+    <string name="review_saved_backup">保存済みバックアップを確認</string>
+    <string name="review_saved_backup_sub">ファイル選択画面を使わず Downloads/CouchyBackup.json を開きます。</string>
+    <string name="saved_backup_unavailable">Downloads/CouchyBackup.json に読み取り可能な有効なバックアップがありません。</string>
+    <string name="backup_failed">バックアップを保存できませんでした。設定は変更されていません。</string>
+    <string name="undo_settings">最後の設定変更を元に戻す</string>
+    <string name="undo_settings_sub">以前のレイアウトと設定に戻します。写真ファイルは復元されません。</string>
+    <string name="restore_preview">設定バックアップを確認</string>
+    <string name="restore_summary">セクション：%1$d · 非表示アプリ：%2$d</string>
+    <string name="restore_notice">復元するとレイアウトと設定が置き換わります。次の設定変更まで元に戻せます。写真や動画のアクセス権は含まれません。壁紙設定を復元すると任意の空撮動画ストリーミングが有効になる場合があります。</string>
+    <string name="restore_keep_wallpaper">このテレビの現在の壁紙を維持</string>
+    <string name="restore_apply">設定を復元</string>
 </resources>

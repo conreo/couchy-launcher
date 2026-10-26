@@ -179,4 +179,16 @@
     <string name="cd_move_down">تحريك لأسفل</string>
     <string name="cd_delete_section">حذف القسم</string>
     <string name="about_source">الكود المصدري</string>
+    <string name="backup_saved">تم الحفظ في Downloads/CouchyBackup.json</string>
+    <string name="review_saved_backup">مراجعة النسخة المحفوظة</string>
+    <string name="review_saved_backup_sub">فتح Downloads/CouchyBackup.json دون منتقي ملفات.</string>
+    <string name="saved_backup_unavailable">لم يتم العثور على نسخة صالحة وقابلة للقراءة في Downloads/CouchyBackup.json.</string>
+    <string name="backup_failed">تعذر حفظ النسخة. لم تتغير إعداداتك.</string>
+    <string name="undo_settings">التراجع عن آخر تغيير للإعدادات</string>
+    <string name="undo_settings_sub">استعادة التخطيط والإعدادات السابقة. لا تتم استعادة ملفات الصور.</string>
+    <string name="restore_preview">مراجعة نسخة الإعدادات</string>
+    <string name="restore_summary">الأقسام: %1$d · التطبيقات المخفية: %2$d</string>
+    <string name="restore_notice">تحل الاستعادة محل التخطيط والتفضيلات. يمكنك التراجع قبل التغيير التالي. لا تتضمن الصور أو أذونات الفيديو؛ قد تؤدي استعادة الخلفية إلى تشغيل بث المشاهد الجوية الاختياري.</string>
+    <string name="restore_keep_wallpaper">الاحتفاظ بخلفية هذا التلفاز الحالية</string>
+    <string name="restore_apply">استعادة الإعدادات</string>
 </resources>

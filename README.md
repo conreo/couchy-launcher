@@ -39,7 +39,7 @@ One screen, remote-driven, for 1080p and 4K TVs. No network requests out of the 
 - **Three layouts** — Carousel, Grid, or a floating glass Dock (press **Down** to expand to the full grid).
 - **Sections** you rename, reorder and fill; an app can appear in several. New installs go to the first section.
 - **Wallpapers** — gradients, your own photo, a looping video, or optional built-in aerial videos (Apple / Amazon / community, streamed only when enabled), with speed control and cross-fades.
-- **Save & load** your full configuration — categories, layout, wallpaper, and all settings — as a JSON file.
+- **Save & load** your configuration as a versioned JSON file, review before restoring, and undo the last settings change.
 - **18 languages** with a dedicated language picker in Launcher settings.
 - **Adjustable** icon size, spacing, corner roundness, interface scale, dimming, and an optional glass status-bar panel.
 - **Status row** — clock, network state, optional VPN button.
@@ -123,6 +123,23 @@ The built-in setup wizard walks through this with your TV's IP pre-filled. No co
 ## Privacy
 
 No ads, analytics, accounts or background services. The only network use is optional aerial-video streaming, off by default. Sections, ordering, hidden apps and wallpaper stay in one local file.
+
+## Backups and undo
+
+In **Settings → Launcher settings**, **Save configuration** writes
+`Downloads/CouchyBackup.json`. **Load configuration** opens a file picker;
+**Review saved backup** opens that saved file directly on TVs without a working picker.
+Both show the sections and hidden-app count before you choose Restore. Cancel is focused
+first, and **Keep current wallpaper** is checked by default.
+
+Backups contain settings, not photo/video files or Android document permissions. To use
+media from another TV, select it again there. Old flat JSON backups still work; malformed,
+unsupported or oversized files leave the current settings unchanged. New files remain
+readable by older Couchy versions.
+
+**Undo last settings change** restores one previous configuration, even after restarting
+the launcher. A restore can also be undone. App discovery does not replace that undo point.
+Undo does not reinstall apps, roll back photo-file contents, or change Android settings.
 
 ## Changelog
 

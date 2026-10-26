@@ -2,14 +2,11 @@ package com.conreo.couchytv.data
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.conreo.couchytv.R
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import androidx.compose.runtime.Immutable
 
 @Serializable
@@ -93,16 +90,16 @@ val LANGUAGES = listOf(
 )
 
 private val Context.dataStore by preferencesDataStore(name = "launcher")
-private val KEY_CONFIG = stringPreferencesKey("config")
-private val json = Json { ignoreUnknownKeys = true }
 
 class ConfigStore(private val context: Context) {
 
     val flow: Flow<LauncherConfig> = context.dataStore.data.map { prefs ->
-        prefs[KEY_CONFIG]?.let {
-            runCatching { json.decodeFromString<LauncherConfig>(it) }.getOrNull()
-        } ?: LauncherConfig(categories = defaultCategories(context))
+        ConfigChanges.current(prefs, initialConfig())
     }
+
+    val canUndo: Flow<Boolean> = context.dataStore.data.map(ConfigChanges::canUndo)
+
+    private fun initialConfig() = LauncherConfig(categories = defaultCategories(context))
 
     private fun defaultCategories(ctx: Context) = listOf(
         CategoryCfg("streaming", ctx.getString(R.string.cat_streaming)),
@@ -111,12 +108,20 @@ class ConfigStore(private val context: Context) {
         CategoryCfg("apps", ctx.getString(R.string.cat_apps)),
     )
 
-    suspend fun update(transform: (LauncherConfig) -> LauncherConfig) {
+    suspend fun update(recordUndo: Boolean = true, transform: (LauncherConfig) -> LauncherConfig) {
         context.dataStore.edit { prefs ->
-            val current = prefs[KEY_CONFIG]?.let {
-                runCatching { json.decodeFromString<LauncherConfig>(it) }.getOrNull()
-            } ?: LauncherConfig()
-            prefs[KEY_CONFIG] = json.encodeToString(transform(current))
+            val current = ConfigChanges.current(prefs, initialConfig())
+            ConfigChanges.update(prefs, current, transform(current), recordUndo)
         }
+    }
+
+    suspend fun restore(backup: LauncherConfig, keepWallpaper: Boolean) = update {
+        ConfigBackup.forRestore(backup, it, keepWallpaper)
+    }
+
+    suspend fun undo(): Boolean {
+        var restored = false
+        context.dataStore.edit { prefs -> restored = ConfigChanges.undo(prefs, ConfigChanges.current(prefs, initialConfig())) }
+        return restored
     }
 }

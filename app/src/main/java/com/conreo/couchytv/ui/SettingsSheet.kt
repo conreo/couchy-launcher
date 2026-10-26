@@ -74,6 +74,8 @@ import com.conreo.couchytv.data.AppEntry
 import com.conreo.couchytv.data.AppRepository
 import com.conreo.couchytv.data.CategoryCfg
 import com.conreo.couchytv.data.ConfigStore
+import com.conreo.couchytv.data.ConfigBackup
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.conreo.couchytv.data.DATE_FORMATS
 import com.conreo.couchytv.data.LAYOUT_DOCK
 import com.conreo.couchytv.data.LAYOUT_GRID
@@ -83,9 +85,6 @@ import androidx.compose.runtime.withFrameNanos
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
-import kotlinx.serialization.json.Json
-
-private val format = Json { ignoreUnknownKeys = true; prettyPrint = true; encodeDefaults = true }
 
 private enum class SettingsScreen { Main, Wallpaper, Display, StatusBar, Apps, Categories, Launcher, About }
 
@@ -487,7 +486,7 @@ private fun DisplayScreen(
 ) {
     val scope = rememberCoroutineScope()
     fun update(transform: (LauncherConfig) -> LauncherConfig) {
-        scope.launch { store.update(transform) }
+        scope.launch { store.update(transform = transform) }
     }
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
@@ -796,22 +795,45 @@ private fun LauncherSettingsSubscreen(
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var langScreen by remember { mutableStateOf(false) }
+    var pendingRestore by remember { mutableStateOf<LauncherConfig?>(null) }
+    var undoConfirm by remember { mutableStateOf(false) }
+    val canUndo by store.canUndo.collectAsStateWithLifecycle(initialValue = false)
 
     if (langScreen) {
         LanguageScreen(config = config, store = store, onBack = { langScreen = false })
         return
     }
 
+    fun reviewSavedBackup() {
+        scope.launch {
+            val loaded = withContext(Dispatchers.IO) {
+                runCatching {
+                    val directory = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
+                    File(directory, "CouchyBackup.json").inputStream().use(ConfigBackup::read)
+                }.getOrNull()
+            }
+            if (loaded != null) pendingRestore = loaded
+            else Actions.toast(context, context.getString(R.string.saved_backup_unavailable))
+        }
+    }
+
     fun saveConfig() {
         scope.launch {
-            withContext(Dispatchers.IO) {
+            val saved = withContext(Dispatchers.IO) {
                 runCatching {
                     val dir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
                     dir.mkdirs()
-                    File(dir, "CouchyBackup.json").writeText(format.encodeToString(LauncherConfig.serializer(), config))
-                }
+                    val bytes = ConfigBackup.encode(config).toByteArray(Charsets.UTF_8)
+                    val file = android.util.AtomicFile(File(dir, "CouchyBackup.json"))
+                    val output = file.startWrite()
+                    try { output.write(bytes); file.finishWrite(output) }
+                    catch (error: Exception) { file.failWrite(output); throw error }
+                    // AtomicFile logs some rename failures instead of throwing. Only report
+                    // success once the completed file actually contains this configuration.
+                    check(file.openRead().use { it.readBytes().contentEquals(bytes) })
+                }.isSuccess
             }
-            Actions.toast(context, "Saved to Downloads/CouchyBackup.json")
+            Actions.toast(context, context.getString(if (saved) R.string.backup_saved else R.string.backup_failed))
         }
     }
 
@@ -823,13 +845,12 @@ private fun LauncherSettingsSubscreen(
                 val loaded = withContext(Dispatchers.IO) {
                     runCatching {
                         context.contentResolver.openInputStream(uri)?.use { input ->
-                            format.decodeFromString(LauncherConfig.serializer(), String(input.readBytes()))
+                            ConfigBackup.read(input)
                         }
                     }.getOrNull()
                 }
                 if (loaded != null) {
-                    store.update { loaded.copy(knownApps = config.knownApps, setupDone = true) }
-                    Actions.toast(context, context.getString(R.string.toast_config_loaded))
+                    pendingRestore = loaded
                 } else {
                     Actions.toast(context, context.getString(R.string.toast_config_bad))
                 }
@@ -874,7 +895,42 @@ private fun LauncherSettingsSubscreen(
             supportingContent = { Text(stringResource(R.string.rerun_wizard_sub)) },
             leadingContent = { Icon(AppIcons.Play, contentDescription = null) },
         )
+        SettingsItem(
+            selected = false, onClick = { reviewSavedBackup() },
+            headlineContent = { Text(stringResource(R.string.review_saved_backup)) },
+            supportingContent = { Text(stringResource(R.string.review_saved_backup_sub)) },
+        )
+        SettingsItem(
+            selected = false, enabled = canUndo,
+            onClick = { undoConfirm = true },
+            headlineContent = { Text(stringResource(R.string.undo_settings)) },
+            supportingContent = { Text(stringResource(R.string.undo_settings_sub)) },
+        )
     }
+
+    pendingRestore?.let { backup ->
+        RestorePreviewDialog(backup, onCancel = { pendingRestore = null }, onRestore = { keepWallpaper ->
+            scope.launch {
+                runCatching { store.restore(backup, keepWallpaper) }
+                    .onSuccess {
+                        pendingRestore = null
+                        Actions.toast(context, context.getString(R.string.toast_config_loaded))
+                    }
+                    .onFailure { Actions.toast(context, context.getString(R.string.toast_config_bad)) }
+            }
+        })
+    }
+    if (undoConfirm) ConfirmSettingsDialog(
+        title = stringResource(R.string.undo_settings), body = stringResource(R.string.undo_settings_sub),
+        confirm = stringResource(R.string.undo_settings), onCancel = { undoConfirm = false },
+        onConfirm = {
+            scope.launch {
+                runCatching { store.undo() }
+                    .onFailure { Actions.toast(context, context.getString(R.string.toast_config_bad)) }
+                undoConfirm = false
+            }
+        },
+    )
 }
 
 /* ------------------------------ language ------------------------------ */
@@ -1382,7 +1438,7 @@ private fun WallpaperScreen(
  * so there are no on-screen Back buttons).
  */
 @Composable
-private fun initialFocus(): FocusRequester {
+internal fun initialFocus(): FocusRequester {
     val fr = remember { FocusRequester() }
     LaunchedEffect(Unit) {
         // Claim focus the moment the first item's node is attached (retry per
@@ -1408,7 +1464,7 @@ private fun SectionLabel(text: String) {
 }
 
 @Composable
-private fun CheckMark(checked: Boolean) {
+internal fun CheckMark(checked: Boolean) {
     Box(
         Modifier
             .size(22.dp)
@@ -1441,7 +1497,7 @@ private fun CheckMark(checked: Boolean) {
  * blurry on TV; the focused container colour alone signals selection.
  */
 @Composable
-private fun SettingsItem(
+internal fun SettingsItem(
     onClick: () -> Unit,
     headlineContent: @Composable () -> Unit,
     modifier: Modifier = Modifier,
